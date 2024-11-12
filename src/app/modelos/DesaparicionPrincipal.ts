@@ -2,7 +2,7 @@
 
 export class DesaparicionPrincipal{
   id?:number;
-  urlFotocara?:string;
+  urlFotoCara?:string;
   nombre?:string;
   apellidos?:string;
   fecha?:string;

@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {DesaparicionPrincipalService} from '../../servicios/desaparicion-principal.service';
+import {DesaparicionService} from '../../../../servicios/desaparicion.service';
 import {MatGridList, MatGridTile, MatGridTileText} from '@angular/material/grid-list';
 import {NgForOf} from '@angular/common';
+import {MatCard, MatCardContent} from '@angular/material/card';
 
 @Component({
   selector: 'app-desaparicion-principal',
@@ -10,7 +11,9 @@ import {NgForOf} from '@angular/common';
     MatGridList,
     MatGridTile,
     NgForOf,
-    MatGridTileText
+    MatGridTileText,
+    MatCardContent,
+    MatCard
   ],
   templateUrl: './desaparicion-principal.component.html',
   styleUrl: './desaparicion-principal.component.css'
@@ -18,12 +21,14 @@ import {NgForOf} from '@angular/common';
 export class DesaparicionPrincipalComponent implements OnInit {
   desapariciones: any[] = [];
 
-  constructor(private desaparicionPrincipalService: DesaparicionPrincipalService) {
+  constructor(private desaparicionPrincipalService: DesaparicionService) {
   }
 
   ngOnInit(): void {
     this.desaparicionPrincipalService.getDesaparicionesPrincipal().subscribe((data) =>{
       this.desapariciones = data;
+      console.log(data);
+      console.log(this.desapariciones)
     });
   }
 

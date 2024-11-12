@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {GaleriaComponent} from './features/home/Componentes/galeria/galeria.component';
-import {TareasComponent} from './features/home/Componentes/tareas/tareas.component';
+import {
+  DesaparicionPrincipalComponent
+} from './features/home/componentes/desaparicion-principal/desaparicion-principal.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, GaleriaComponent, TareasComponent],
+  imports: [RouterOutlet, DesaparicionPrincipalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

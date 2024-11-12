@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DesaparicionPrincipalService } from './desaparicion-principal.service';
+import { DesaparicionService } from './desaparicion.service';
 
 describe('DesaparicionPrincipalService', () => {
-  let service: DesaparicionPrincipalService;
+  let service: DesaparicionService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DesaparicionPrincipalService);
+    service = TestBed.inject(DesaparicionService);
   });
 
   it('should be created', () => {
