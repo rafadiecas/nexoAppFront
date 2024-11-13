@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import {GaleriaComponent} from './Componentes/galeria/galeria.component';
+import {DesaparicionPrincipalComponent} from './componentes/desaparicion-principal/desaparicion-principal.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    GaleriaComponent
+    DesaparicionPrincipalComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

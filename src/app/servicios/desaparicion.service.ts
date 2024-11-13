@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { DesaparicionPrincipal } from '../modelos/DesaparicionPrincipal';
 
-const apiUrl = 'http://localhost:8081/desaparicion';
+const apiUrl = '/api/desaparicion';
 
 @Injectable({
   providedIn: 'root'
