@@ -1,0 +1,30 @@
+<div>
+  <div>
+    <input type="file" (change)="onFileSelect($event, 1)" accept="image/*" />
+  </div>
+
+  <div>
+    <input type="file" (change)="onFileSelect($event, 2)" accept="image/*" [disabled]="!firstImageSelected" multiple />
+  </div>
+</div>
+
+<div *ngIf="allFiles.length > 0">
+  <h3>Previsualización de Imágenes:</h3>
+  <div *ngFor="let image of allFiles">
+    <img [src]="image.url" alt="Preview" width="100" />
+    <p *ngIf="image.file">Nombre: {{ image.file.name }} | Tipo: {{ image.file.type }}</p>
+  </div>
+</div>
+
+<ng-template #errorModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Formato no válido</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>Por favor, sube solo archivos de imagen.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Cerrar</button>
+  </div>
+</ng-template>
