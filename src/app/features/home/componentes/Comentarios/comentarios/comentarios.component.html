@@ -1,0 +1,34 @@
+<div class="nuevo-comentario">
+  <div *ngFor="let comentario of comentarios" class="comentario-card">
+    <h3>Nombre:{{ comentario.nombre }}</h3>
+    <p><strong>Email:</strong> {{ comentario.email }}</p>
+    <p><strong>Teléfono:</strong> {{ comentario.telefono || 'No disponible' }}</p>
+    <p><strong>Comentario:</strong> {{ comentario.texto }}</p>
+  </div>
+
+  <h3>Agregar un comentario</h3>
+  <form (ngSubmit)="enviarComentario()">
+    <div>
+      <label for="nombre">Nombre</label>
+      <input id="nombre" [(ngModel)]="nuevoComentario.nombre" name="nombre" required />
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input id="email" type="email" [(ngModel)]="nuevoComentario.email" name="email" required />
+    </div>
+
+    <div>
+      <label for="telefono">Teléfono</label>
+      <input id="telefono" type="number" [(ngModel)]="nuevoComentario.telefono" name="telefono" />
+    </div>
+
+    <div>
+      <label for="texto">Comentario</label>
+      <textarea id="texto" [(ngModel)]="nuevoComentario.texto" name="texto" required></textarea>
+    </div>
+
+    <button type="submit">Guardar</button>
+  </form>
+
+</div>
