@@ -1,9 +1,19 @@
-<div class="row">
-  <div class="col col-lg-2 col-12">
-    <app-parte-izquierda-civil (optionSelected)="onOptionSelected($event)"></app-parte-izquierda-civil>
-  </div>
-  <div class="col col-lg-10 col-12">
-    <app-edita-usuario *ngIf="selectedOption === 'editar'"></app-edita-usuario>
-    <app-lista-desapariciones *ngIf="selectedOption === 'desapariciones'"></app-lista-desapariciones>
+<div class="container-fluid">
+  <div class="row">
+    <div
+      class="col-md-3 col-12 bg-light shadow-sm m-0 p-0">
+      <app-parte-izquierda-civil (optionSelected)="onOptionSelected($event)">
+      </app-parte-izquierda-civil>
+    </div>
+
+
+    <div class="col-md-9 col-12 py-3">
+      <div *ngIf="selectedOption === 'editar'">
+        <app-edita-usuario></app-edita-usuario>
+      </div>
+      <div *ngIf="selectedOption === 'desapariciones'">
+        <app-lista-desapariciones></app-lista-desapariciones>
+      </div>
+    </div>
   </div>
 </div>

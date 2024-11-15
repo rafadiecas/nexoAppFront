@@ -1,18 +1,25 @@
-<div class="profile-menu p-3">
+<div class="profile-sidebar">
 
-  <div class="user-info text-center mb-4">
-    <h2 class="mb-0">{{menu?.usuario}}</h2>
+  <div class="profile-header text-center p-3">
+    <mat-icon class="profile-icon mb-2">account_circle</mat-icon>
+    <h6 class="mb-1">{{ menu?.usuario }}</h6>
     <small class="text-muted">{{ menu?.email }}</small>
   </div>
 
+  <hr class="m-0" />
 
-  <ul class="list-group">
-    <li
-      *ngFor="let option of menuOptions"
-      class="list-group-item list-group-item-action text-center"
-      (click)="selectOption(option.value)"
-    >
-      {{ option.label }}
-    </li>
-  </ul>
+
+  <div class="menu-section bg-light p-3">
+    <ul class="list-group">
+      <li
+        *ngFor="let option of menuOptions"
+        class="list-group-item list-group-item-action d-flex align-items-center"
+        [class.active]="selectedOption === option.value"
+        (click)="selectOption(option.value)"
+      >
+        <mat-icon class="me-2">{{ getIcon(option.value) }}</mat-icon>
+        {{ option.label }}
+      </li>
+    </ul>
+  </div>
 </div>
