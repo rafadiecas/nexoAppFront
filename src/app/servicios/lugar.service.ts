@@ -11,6 +11,7 @@ const apiUrl = '/api/lugar';
 })
 export class LugarService {
 
+
   constructor(private http: HttpClient) { }
 
   getLugaresPrincipal(): Observable<MapaPrincipal[]> {

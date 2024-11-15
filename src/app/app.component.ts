@@ -4,11 +4,12 @@ import {
   DesaparicionPrincipalComponent
 } from './features/home/componentes/desaparicion-principal/desaparicion-principal.component';
 import {HeaderComponent} from './shared/header/header.component';
+import {LoginComponent} from './features/login/login.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DesaparicionPrincipalComponent, HeaderComponent],
+  imports: [RouterOutlet, DesaparicionPrincipalComponent, HeaderComponent, LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
