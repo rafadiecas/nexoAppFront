@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Editar Usuario</h3>
+    </div>
+  </div>
+  <form [formGroup]="civilForm" (ngSubmit)="submit()">
+    <div class="row">
+      <div class="col col-md-6 col-12">
+        <label  for="dni">DNI</label>
+        <input formControlName="dni" class="form-control" type="text" id="dni">
+      </div>
+      <div class="col col-md-6 col-12">
+        <label for="telefono">Teléfono</label>
+        <input formControlName="telefono" class="form-control" type="number"  id="telefono">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-md-6 col-12">
+        <label for="nombre">Nombre</label>
+        <input formControlName="nombre" class="form-control" type="text" id="nombre">
+      </div>
+      <div class="col col-md-6 col-12">
+        <label for="apellidos">Apellidos</label>
+        <input formControlName="apellido" class="form-control" type="text" id="apellidos">
+      </div>
+    </div>
+    <div class="row mt-4 d-flex justify-content-center">
+      <div class="col col-md-4 col-12 d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary mb-4">Guardar</button>
+      </div>
+    </div>
+  </form>
+
+</div>
