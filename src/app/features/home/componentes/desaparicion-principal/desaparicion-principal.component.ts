@@ -28,8 +28,6 @@ export class DesaparicionPrincipalComponent implements OnInit {
   ngOnInit(): void {
     this.desaparicionPrincipalService.getDesaparicionesPrincipal().subscribe((data) =>{
       this.desapariciones = data;
-      console.log(data);
-      console.log(this.desapariciones)
     });
   }
 
