@@ -14,12 +14,12 @@ import {ListaDesaparicionesComponent} from '../lista-desapariciones/lista-desapa
     ListaDesaparicionesComponent,
   ],
   templateUrl: './perfil-civil.component.html',
-  styleUrls: ['./perfil-civil.component.css'], // Corregido
+  styleUrls: ['./perfil-civil.component.css'],
 })
 export class PerfilCivilComponent {
-  selectedOption: string = ''; // Iniciar vacío
+  selectedOption: string = '';
 
-  // Método para manejar la opción seleccionada
+
   onOptionSelected(option: string) {
     this.selectedOption = option;
   }

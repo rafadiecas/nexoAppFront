@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {catchError, Observable, throwError} from 'rxjs';
 import {Civil} from '../modelos/Civil';
 import {DesaparicionLista} from '../modelos/DesaparicionLista';
+import {UsuarioMenu} from "../modelos/UsuarioMenu";
 
 const apiUrl = '/api/civil';
 @Injectable({
@@ -27,6 +28,10 @@ export class CivilService {
 
   listaDesapariciones(id: number): Observable<DesaparicionLista[]> {
     return this.http.get<DesaparicionLista[]>(`${apiUrl}/listaDesapariciones?id=${id}`)
+  }
+
+  civilMenu(id: number): Observable<UsuarioMenu> {
+    return this.http.get<UsuarioMenu>(`${apiUrl}/menu?id=${id}`);
   }
 
 }

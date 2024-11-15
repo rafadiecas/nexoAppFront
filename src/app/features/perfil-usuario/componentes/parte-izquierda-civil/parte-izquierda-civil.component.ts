@@ -1,5 +1,7 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import {Component, Output, EventEmitter, OnInit} from '@angular/core';
 import {NgForOf} from '@angular/common';
+import {UsuarioMenu} from '../../../../modelos/UsuarioMenu';
+import {CivilService} from '../../../../servicios/civil.service';
 
 @Component({
   selector: 'app-parte-izquierda-civil',
@@ -10,7 +12,15 @@ import {NgForOf} from '@angular/common';
   templateUrl: './parte-izquierda-civil.component.html',
   styleUrls: ['./parte-izquierda-civil.component.css'] // Cambiado a styleUrls
 })
-export class ParteIzquierdaCivilComponent {
+export class ParteIzquierdaCivilComponent implements OnInit {
+
+  menu: UsuarioMenu | undefined;
+
+  constructor(private civilService: CivilService) {}
+
+  ngOnInit() {
+    this.civilService.civilMenu(3).subscribe(menu => this.menu = menu);
+  }
 
   menuOptions = [
     { label: 'Editar', value: 'editar' },
