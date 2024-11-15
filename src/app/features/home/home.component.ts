@@ -10,6 +10,7 @@ import {
   ParteIzquierdaCivilComponent
 } from '../perfil-usuario/componentes/parte-izquierda-civil/parte-izquierda-civil.component';
 import {PerfilCivilComponent} from '../perfil-usuario/componentes/perfil-civil/perfil-civil.component';
+import {RegistraUsuarioComponent} from '../perfil-usuario/componentes/registra-usuario/registra-usuario.component';
 
 
 @Component({
@@ -22,6 +23,7 @@ import {PerfilCivilComponent} from '../perfil-usuario/componentes/perfil-civil/p
     ListaDesaparicionesComponent,
     ParteIzquierdaCivilComponent,
     PerfilCivilComponent,
+    RegistraUsuarioComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
