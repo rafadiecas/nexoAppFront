@@ -3,6 +3,7 @@ import {DesaparicionPrincipalComponent} from './componentes/desaparicion-princip
 import {EditaUsuarioComponent} from '../perfil-usuario/componentes/edita-usuario/edita-usuario.component';
 import {InputFotosComponent} from '../perfil-usuario/componentes/input-fotos/input-fotos.component';
 import {MapaPrincipalComponent} from './componentes/mapa-principal/mapa-principal.component';
+import {RegistraUsuarioComponent} from '../perfil-usuario/componentes/registra-usuario/registra-usuario.component';
 
 
 @Component({
@@ -10,6 +11,7 @@ import {MapaPrincipalComponent} from './componentes/mapa-principal/mapa-principa
   standalone: true,
   imports: [
     DesaparicionPrincipalComponent,
+    RegistraUsuarioComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
