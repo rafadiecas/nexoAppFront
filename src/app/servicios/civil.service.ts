@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError, Observable, throwError} from 'rxjs';
 import {Civil} from '../modelos/Civil';
+import {DesaparicionLista} from '../modelos/DesaparicionLista';
 
 const apiUrl = '/api/civil';
 @Injectable({
@@ -22,6 +23,10 @@ export class CivilService {
 
   actualizarCivil(id: number, civilDTO: Civil): Observable<{ mensaje: string }> {
     return this.http.put<{ mensaje: string }>(`${apiUrl}/${id}`, civilDTO);
+  }
+
+  listaDesapariciones(id: number): Observable<DesaparicionLista[]> {
+    return this.http.get<DesaparicionLista[]>(`${apiUrl}/listaDesapariciones?id=${id}`)
   }
 
 }

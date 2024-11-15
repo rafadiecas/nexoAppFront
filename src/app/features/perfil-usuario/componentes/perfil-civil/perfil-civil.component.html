@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col col-lg-2 col-12">
+    <app-parte-izquierda-civil (optionSelected)="onOptionSelected($event)"></app-parte-izquierda-civil>
+  </div>
+  <div class="col col-lg-10 col-12">
+    <!-- Mostrar los componentes dinámicamente según la selección -->
+    <app-edita-usuario *ngIf="selectedOption === 'editar'"></app-edita-usuario>
+    <app-lista-desapariciones *ngIf="selectedOption === 'desapariciones'"></app-lista-desapariciones>
+  </div>
+</div>

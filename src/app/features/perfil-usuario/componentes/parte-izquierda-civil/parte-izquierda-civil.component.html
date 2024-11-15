@@ -1,0 +1,18 @@
+<div class="profile-menu p-3">
+  <!-- Información del usuario -->
+  <div class="user-info text-center mb-4">
+    <h2 class="mb-0">Juan</h2>
+    <small class="text-muted">Civil</small>
+  </div>
+
+  <!-- Opciones del menú -->
+  <ul class="list-group">
+    <li
+      *ngFor="let option of menuOptions"
+      class="list-group-item list-group-item-action text-center"
+      (click)="selectOption(option.value)"
+    >
+      {{ option.label }}
+    </li>
+  </ul>
+</div>

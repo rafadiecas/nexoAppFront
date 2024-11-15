@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let desaparicion of desapariciones" class="col col-md-6 col-12 mb-4">
+      <div class="card" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4 d-flex align-items-center justify-content-center">
+            <img
+              src="{{ desaparicion.urlFotoCara }}"
+              class="img-fluid w-100 h-auto rounded-circle"
+              alt="Foto de la persona"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <p class="card-text">
+                <strong>Nombre:</strong> {{ desaparicion.nombre }}<br/>
+                <strong>Apellido:</strong> {{ desaparicion.apellidos }}<br/>
+                <strong>Nacimiento:</strong> {{ desaparicion.fechaNacimiento }}<br/>
+                <strong>Fecha desaparición:</strong> {{ desaparicion.fecha }}<br/>
+                <strong>Sexo:</strong> {{ desaparicion.sexo }}<br/>
+                <strong>Complexión:</strong> {{ desaparicion.complexion }}<br/>
+              </p>
+              <p class="card-text">
+                <strong>Descripción:</strong> {{ desaparicion.descripcion }}<br/>
+                <strong>Lugar desaparición:</strong> {{ desaparicion.direccion }}<br/>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer bg-white text-center">
+          <span class="text-danger fw-bold fs-5">{{ desaparicion.estado }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

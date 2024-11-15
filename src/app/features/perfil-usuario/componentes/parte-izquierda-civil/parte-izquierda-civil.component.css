@@ -1,0 +1,22 @@
+.profile-menu {
+  width: 200px;
+  font-family: Arial, sans-serif;
+}
+
+.user-info h5 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.user-info small {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.list-group-item {
+  cursor: pointer;
+}
+
+.list-group-item:hover {
+  background-color: #f0f0f0;
+}

@@ -1,0 +1,9 @@
+.card{
+  box-shadow: 0 4px 8px #b2d9f5 !important;
+}
+
+.img-fluid {
+  max-height: 150px;
+  object-fit: cover;
+}
+
