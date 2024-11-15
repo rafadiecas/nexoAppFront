@@ -1,0 +1,21 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#map {
+  height: 80vh;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  #map {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 431px) {
+  #map {
+    display: none;
+  }
+}

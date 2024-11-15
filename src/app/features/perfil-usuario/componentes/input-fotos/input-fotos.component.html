@@ -1,0 +1,63 @@
+<div class="container mt-4">
+  <div class="row">
+
+    <div class="col col-md-6 col-12">
+      <div class="input-container mt-4">
+        <span class="input-label">Sube imagen de la cara</span>
+        <input type="file" class="inputfile inputfile-1" id="file-1" (change)="onFileSelect($event, 1)" accept="image/*" />
+        <label for="file-1" class="upload-label">
+          <mat-icon>file_upload</mat-icon>
+          <span class="inputfilela">Seleccionar archivo</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="col col-md-6 col-12 mt-md-0 mt-4">
+      <div class="input-container mt-4">
+        <span class="input-label">Sube el resto de imagenes</span>
+        <input type="file" class="inputfile inputfile-1" id="file-2" (change)="onFileSelect($event, 2)" accept="image/*" [disabled]="!firstImageSelected" multiple />
+        <label for="file-2" class="upload-label" [class.disabled-label]="!firstImageSelected">
+          <mat-icon class="mr-1">file_upload</mat-icon>
+          <span class="inputfilela">Seleccionar archivos</span>
+        </label>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container mt-4" *ngIf="allFiles.length > 0">
+  <mat-grid-list [cols]="cols" rowHeight="1:1" gutterSize="0px">
+    <mat-grid-tile *ngFor="let image of allFiles; let i = index">
+      <img [src]="image.url" alt="Preview" class="img-fluid cuadrada" (click)="onImageClick(i)" />
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<ng-template #errorModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Formato no válido</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body d-flex justify-content-center align-items-center flex-column">
+    <span class="iconify fs-1" data-icon="line-md:document-delete" style="color: #ff0000"></span>
+    <p>Por favor, sube solo archivos de imagen.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Cerrar</button>
+  </div>
+</ng-template>
+
+<ng-template #maxmodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Demasiados  archivos</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body d-flex justify-content-center align-items-center flex-column">
+    <span class="iconify fs-1" data-icon="line-md:document-delete" style="color: #ff0000"></span>
+    <p>No puedes subir mas de 3 imágenes adicionales</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Cerrar</button>
+  </div>
+</ng-template>
