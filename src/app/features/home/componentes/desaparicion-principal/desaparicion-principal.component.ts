@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DesaparicionService} from '../../../../servicios/desaparicion.service';
 import {MatGridList, MatGridTile} from '@angular/material/grid-list';
 import {DatePipe, NgForOf, UpperCasePipe} from '@angular/common';
-import {MatCard, MatCardContent, MatCardImage} from '@angular/material/card';
+import {MatCard, MatCardContent} from '@angular/material/card';
 
 @Component({
   selector: 'app-desaparicion-principal',
@@ -14,8 +14,7 @@ import {MatCard, MatCardContent, MatCardImage} from '@angular/material/card';
     MatCardContent,
     MatCard,
     UpperCasePipe,
-    DatePipe,
-    MatCardImage,
+    DatePipe
   ],
   templateUrl: './desaparicion-principal.component.html',
   styleUrl: './desaparicion-principal.component.css'
@@ -29,6 +28,8 @@ export class DesaparicionPrincipalComponent implements OnInit {
   ngOnInit(): void {
     this.desaparicionPrincipalService.getDesaparicionesPrincipal().subscribe((data) =>{
       this.desapariciones = data;
+      console.log(data);
+      console.log(this.desapariciones)
     });
   }
 
