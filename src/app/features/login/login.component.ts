@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit{
         console.log(respuesta);
         if(respuesta.token != null){
           localStorage.setItem('token' , respuesta.token);
-          localStorage.setItem('token' , respuesta.id);
+          localStorage.setItem('id' , respuesta.id);
           localStorage.setItem('username', this.usuario);
           console.log(respuesta);
           console.log(localStorage.getItem('token'));
