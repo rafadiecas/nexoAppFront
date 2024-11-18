@@ -8,6 +8,8 @@ import {MatInput} from '@angular/material/input';
 import {MatButton} from '@angular/material/button';
 import {Router} from "@angular/router";
 import {NgIf} from '@angular/common';
+import {AuthService} from '../../core/auth-service.service';
+import {HeaderComponent} from '../../shared/header/header.component';
 
 @Component({
   selector: 'app-login',
@@ -33,8 +35,8 @@ export class LoginComponent implements OnInit{
   usuario: string = '';
   contrasenya: string = '';
   login:Login =  new Login();
-  constructor(private service: LoginService, private router: Router) {
-    localStorage.clear();
+  constructor(private service: LoginService, private router: Router, private servicioAuth: AuthService) {
+    // localStorage.clear();
   }
   iniciarSesion() {
     this.login.usuario = this.usuario;
@@ -44,8 +46,12 @@ export class LoginComponent implements OnInit{
         console.log(respuesta);
         if(respuesta.token != null){
           localStorage.setItem('token' , respuesta.token);
-          localStorage.setItem('username', this.contrasenya)
+          localStorage.setItem('token' , respuesta.id);
+          localStorage.setItem('username', this.usuario);
           console.log(respuesta);
+          console.log(localStorage.getItem('token'));
+
+
           this.router.navigate(['']);
         }
 
@@ -59,4 +65,5 @@ export class LoginComponent implements OnInit{
     this.usuario='';
     this.contrasenya='';
   }
+
 }

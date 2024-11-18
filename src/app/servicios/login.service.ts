@@ -14,4 +14,11 @@ export class LoginService {
   login(login:Login): Observable<any> {
     return this.http.post(`${apiUrl}/login`, login);
   }
+  logueado(): boolean {
+    let token = localStorage.getItem('token');
+    return !!(token && token != '');
+  }
+  logOut(){
+    localStorage.clear();
+  }
 }

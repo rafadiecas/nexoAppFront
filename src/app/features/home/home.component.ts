@@ -12,7 +12,7 @@ import {RegistraUsuarioComponent} from '../perfil-usuario/componentes/registra-u
   standalone: true,
   imports: [
     DesaparicionPrincipalComponent,
-    ComentariosComponent
+    ComentariosComponent,
     RegistraUsuarioComponent,
   ],
   templateUrl: './home.component.html',

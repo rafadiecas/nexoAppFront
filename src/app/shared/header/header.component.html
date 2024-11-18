@@ -8,7 +8,8 @@
         <img src="assets/nexo.jpg" alt="Logo" style="width:100px; height: 100px;" class="img-fluid">
       </div>
       <div class="text-end">
-        <a href="/login" style="margin-left: 20px;" class="text-decoration-none text-primary">Iniciar sesión</a>
+        <a *ngIf="!logueado" href="/login" style="margin-left: 20px;" class="text-decoration-none text-primary">Iniciar sesión</a>
+        <a *ngIf="logueado" (click)="logout()" href="#" style="margin-left: 20px;" class="text-decoration-none text-primary">Salir</a>
       </div>
     </div>
   </div>
