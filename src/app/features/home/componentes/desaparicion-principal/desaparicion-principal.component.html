@@ -1,9 +1,12 @@
-<mat-grid-list cols="3" rowHeight="2:1">
-  <mat-grid-tile *ngFor="let des of desapariciones">
-    <mat-card>
-      <img mat-card-image [src]="des.urlFotoCara" alt="foto">
+<mat-grid-list cols="5" rowHeight="200px" gutterSize="10px">
+  <mat-grid-tile *ngFor="let desaparicion of desapariciones">
+    <mat-card class="desaparicion-card">
+      <img mat-card-image [src]="desaparicion.urlFotoCara" alt="{{ desaparicion.nombre }}">
       <mat-card-content>
-        <h3>{{ des.nombre }} {{ des.apellidos }}</h3>
+        <div class="info-overlay">
+          <h3>{{ desaparicion.nombre | uppercase }}</h3>
+          <p>Desaparecido el {{ desaparicion.fecha | date: 'dd/MM/yyyy' }}</p>
+        </div>
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>

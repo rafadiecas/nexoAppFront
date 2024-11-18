@@ -1,16 +1,32 @@
-mat-grid-list {
-  margin: 20px;
+.desaparicion-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-mat-card {
-  margin: 10px;
-}
-
-mat-card img {
-  max-height: 200px;
+.mat-card-image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-mat-card-content h3 {
+.info-overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  width: 100%;
+  padding: 10px;
   text-align: center;
+  box-sizing: border-box;
+}
+
+.info-overlay h3 {
+  margin: 0;
+  font-size: 1em;
+}
+
+.info-overlay p {
+  margin: 0;
+  font-size: 0.8em;
 }
