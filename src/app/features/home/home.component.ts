@@ -11,7 +11,7 @@ import {RegistraUsuarioComponent} from '../perfil-usuario/componentes/registra-u
   standalone: true,
   imports: [
     DesaparicionPrincipalComponent,
-    RegistraUsuarioComponent,
+    RegistraUsuarioComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
