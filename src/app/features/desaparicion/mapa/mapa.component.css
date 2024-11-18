@@ -7,3 +7,9 @@
   height: 40vh;
   width: 100%;
 }
+
+@media (max-width: 1024px) {
+  #map {
+    height: 25vh;
+  }
+}

@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import {MapaComponent} from './mapa/mapa.component';
+import {DatosDesaparicionComponent} from "./datos-desaparicion/datos-desaparicion.component";
 
 @Component({
   selector: 'app-desaparicion',
   standalone: true,
-  imports: [
-    MapaComponent
-  ],
+    imports: [
+        MapaComponent,
+        DatosDesaparicionComponent
+    ],
   templateUrl: './desaparicion.component.html',
   styleUrl: './desaparicion.component.css'
 })
