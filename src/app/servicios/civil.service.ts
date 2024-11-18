@@ -30,6 +30,10 @@ export class CivilService {
     return this.http.get<DesaparicionLista[]>(`${apiUrl}/listaDesapariciones?id=${id}`)
   }
 
+  listaSeguimiento(id: number): Observable<DesaparicionLista[]> {
+    return this.http.get<DesaparicionLista[]>(`${apiUrl}/seguimiento?id=${id}`)
+  }
+
   civilMenu(id: number): Observable<UsuarioMenu> {
     return this.http.get<UsuarioMenu>(`${apiUrl}/menu?id=${id}`);
   }

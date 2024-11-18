@@ -5,24 +5,22 @@ import {NgForOf} from '@angular/common';
 import {RouterLink} from '@angular/router';
 
 @Component({
-  selector: 'app-lista-desapariciones',
+  selector: 'app-lista-seguimiento',
   standalone: true,
   imports: [
     NgForOf,
     RouterLink
   ],
-  templateUrl: './lista-desapariciones.component.html',
-  styleUrl: './lista-desapariciones.component.css'
+  templateUrl: './lista-seguimiento.component.html',
+  styleUrl: './lista-seguimiento.component.css'
 })
-export class ListaDesaparicionesComponent implements OnInit {
-
+export class ListaSeguimientoComponent implements OnInit{
   constructor(private civilService: CivilService) { }
 
   desapariciones: DesaparicionLista[] = [];
 
   ngOnInit() {
-    this.civilService.listaDesapariciones(3).subscribe(desaparicionesListado => this.desapariciones = desaparicionesListado);
+    this.civilService.listaSeguimiento(3).subscribe(desaparicionesListado => this.desapariciones = desaparicionesListado);
     console.log(this.desapariciones);
   }
-
 }

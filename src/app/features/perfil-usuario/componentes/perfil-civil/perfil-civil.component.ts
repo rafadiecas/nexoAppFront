@@ -3,6 +3,7 @@ import {ParteIzquierdaCivilComponent} from '../parte-izquierda-civil/parte-izqui
 import {NgIf} from '@angular/common';
 import {EditaUsuarioComponent} from '../edita-usuario/edita-usuario.component';
 import {ListaDesaparicionesComponent} from '../lista-desapariciones/lista-desapariciones.component';
+import {ListaSeguimientoComponent} from '../lista-seguimiento/lista-seguimiento.component';
 
 @Component({
   selector: 'app-perfil-civil',
@@ -12,12 +13,13 @@ import {ListaDesaparicionesComponent} from '../lista-desapariciones/lista-desapa
     NgIf,
     EditaUsuarioComponent,
     ListaDesaparicionesComponent,
+    ListaSeguimientoComponent,
   ],
   templateUrl: './perfil-civil.component.html',
   styleUrls: ['./perfil-civil.component.css'],
 })
 export class PerfilCivilComponent {
-  selectedOption: string = '';
+  selectedOption: string = 'editar';
 
 
   onOptionSelected(option: string) {

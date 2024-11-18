@@ -1,43 +1,48 @@
 .profile-sidebar {
-  border-right: 1px solid #ddd;
+
   height: 100vh;
   background-color: #fff;
   display: flex;
   flex-direction: column;
 }
 
+@media (max-width: 767.5px) {
+  .profile-sidebar {
+    height: auto;
+  }
+}
+
+
 .profile-header {
-  background-color: #f8f9fa;
+
   border-bottom: 1px solid #ddd;
 }
 
-.profile-icon {
-  font-size: 48px;
-  color: #6c757d;
-}
 
 .menu-section {
   flex-grow: 1;
 }
 
-.list-group-item {
-  cursor: pointer;
-  font-weight: 500;
-  color: #333;
+
+.mat-icon {
+  font-size: 25px;
+  color: #6c757d;
+}
+
+#opcion:hover {
+  background-color: #e9ecef;
+  color: #000;
   transition: background-color 0.3s, color 0.3s;
 }
 
-.list-group-item:hover {
+#opcion.active {
   background-color: #e9ecef;
   color: #000;
 }
 
-.list-group-item.active {
-  background-color: #007bff;
-  color: #fff;
-}
+#opcion{
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
 
-.mat-icon {
-  font-size: 20px;
-  color: #6c757d;
 }

@@ -11,6 +11,8 @@ import {
 } from '../perfil-usuario/componentes/parte-izquierda-civil/parte-izquierda-civil.component';
 import {PerfilCivilComponent} from '../perfil-usuario/componentes/perfil-civil/perfil-civil.component';
 import {RegistraUsuarioComponent} from '../perfil-usuario/componentes/registra-usuario/registra-usuario.component';
+import {MapaComponent} from '../desaparicion/mapa/mapa.component';
+import {LocalizacionComponent} from '../perfil-usuario/componentes/localizacion/localizacion.component';
 
 
 @Component({
@@ -24,6 +26,8 @@ import {RegistraUsuarioComponent} from '../perfil-usuario/componentes/registra-u
     ParteIzquierdaCivilComponent,
     PerfilCivilComponent,
     RegistraUsuarioComponent,
+    MapaComponent,
+    LocalizacionComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
