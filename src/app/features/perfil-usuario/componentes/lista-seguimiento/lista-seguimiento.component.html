@@ -1,0 +1,35 @@
+<div class="row g-4">
+  <div *ngFor="let desaparicion of desapariciones" class="col-lg-6 col-md-12">
+    <div class="card shadow-sm" [routerLink]="['/desaparicion', desaparicion.id]">
+      <div class="row g-0">
+        <div class="col-md-4 d-flex align-items-center justify-content-center p-2">
+          <img
+            src="{{ desaparicion.urlFotoCara }}"
+            class="img-fluid w-100 h-100"
+            alt="Foto de la persona"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <p>
+              <strong>Nombre:</strong> {{ desaparicion.nombre }}<br />
+              <strong>Apellido:</strong> {{ desaparicion.apellidos }}<br />
+              <strong>Nacimiento:</strong> {{ desaparicion.fechaNacimiento }}<br />
+              <strong>Desaparición:</strong> {{ desaparicion.fecha }}<br />
+              <strong>Sexo:</strong> {{ desaparicion.sexo }}<br />
+              <strong>Complexión:</strong> {{ desaparicion.complexion }}<br />
+            </p>
+            <p>
+              <strong>Descripción:</strong> {{ desaparicion.descripcion }}<br />
+              <strong>Lugar:</strong> {{ desaparicion.direccion }}<br />
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-center">
+        <span class="badge bg-danger fs-6">{{ desaparicion.estado }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+

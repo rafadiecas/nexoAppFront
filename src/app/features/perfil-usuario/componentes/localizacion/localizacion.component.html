@@ -1,0 +1,32 @@
+<div class="container">
+  <form [formGroup]="locationForm">
+    <div class="row">
+      <div class="form-group col-12 col-md-3">
+        <label for="province" class="pb-3">Provincia</label>
+        <div class="select-wrapper">
+          <select id="province" formControlName="provincia" class="form-control" (change)="onProvinceChange($event)">
+            <option *ngFor="let province of provinces" [value]="province.code">
+              {{ province.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group col col-12 col-md-4">
+        <label for="town">Pueblo</label>
+        <input type="text" id="town" formControlName="localidad" class="form-control" placeholder="Escribe un pueblo"
+               (input)="filterTowns($event)"/>
+        <div *ngIf="filteredTowns.length > 0" class="list-group">
+          <div class="list-group-item" *ngFor="let town of filteredTowns | slice:0:3" (click)="selectTown(town)">
+            {{ town.label }}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col col-12 col-md-5">
+        <label for="street">Calle</label>
+        <input type="text" id="street" formControlName="calle" class="form-control" placeholder="Escribe la calle"/>
+      </div>
+    </div>
+  </form>
+</div>

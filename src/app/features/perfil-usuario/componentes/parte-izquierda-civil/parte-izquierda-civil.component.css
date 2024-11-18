@@ -1,0 +1,48 @@
+.profile-sidebar {
+
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 767.5px) {
+  .profile-sidebar {
+    height: auto;
+  }
+}
+
+
+.profile-header {
+
+  border-bottom: 1px solid #ddd;
+}
+
+
+.menu-section {
+  flex-grow: 1;
+}
+
+
+.mat-icon {
+  font-size: 25px;
+  color: #6c757d;
+}
+
+#opcion:hover {
+  background-color: #e9ecef;
+  color: #000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#opcion.active {
+  background-color: #e9ecef;
+  color: #000;
+}
+
+#opcion{
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+
+}
