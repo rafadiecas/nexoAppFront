@@ -20,7 +20,7 @@ export class ListaSeguimientoComponent implements OnInit{
   desapariciones: DesaparicionLista[] = [];
 
   ngOnInit() {
-    this.civilService.listaSeguimiento(3).subscribe(desaparicionesListado => this.desapariciones = desaparicionesListado);
+    this.civilService.listaSeguimiento().subscribe(desaparicionesListado => this.desapariciones = desaparicionesListado);
     console.log(this.desapariciones);
   }
 }

@@ -13,8 +13,8 @@ export class CivilService {
 
   constructor(private http: HttpClient) { }
 
-  getCivil(id: number): Observable<Civil> {
-    return this.http.get<Civil>(`${apiUrl}/editar?id=${id}`).pipe(
+  getCivil(): Observable<Civil> {
+    return this.http.get<Civil>(`${apiUrl}/editar`).pipe(
       catchError(error => {
         console.error('Error al obtener el civil:', error);
         return throwError(() => new Error('Error al obtener el civil'));
@@ -22,20 +22,20 @@ export class CivilService {
     );
   }
 
-  actualizarCivil(id: number, civilDTO: Civil): Observable<{ mensaje: string }> {
-    return this.http.put<{ mensaje: string }>(`${apiUrl}/${id}`, civilDTO);
+  actualizarCivil(civilDTO: Civil): Observable<{ mensaje: string }> {
+    return this.http.put<{ mensaje: string }>(`${apiUrl}`, civilDTO);
   }
 
-  listaDesapariciones(id: number): Observable<DesaparicionLista[]> {
-    return this.http.get<DesaparicionLista[]>(`${apiUrl}/listaDesapariciones?id=${id}`)
+  listaDesapariciones(): Observable<DesaparicionLista[]> {
+    return this.http.get<DesaparicionLista[]>(`${apiUrl}/listaDesapariciones`)
   }
 
-  listaSeguimiento(id: number): Observable<DesaparicionLista[]> {
-    return this.http.get<DesaparicionLista[]>(`${apiUrl}/seguimiento?id=${id}`)
+  listaSeguimiento(): Observable<DesaparicionLista[]> {
+    return this.http.get<DesaparicionLista[]>(`${apiUrl}/seguimiento`)
   }
 
-  civilMenu(id: number): Observable<UsuarioMenu> {
-    return this.http.get<UsuarioMenu>(`${apiUrl}/menu?id=${id}`);
+  civilMenu(): Observable<UsuarioMenu> {
+    return this.http.get<UsuarioMenu>(`${apiUrl}/menu`);
   }
 
 }
