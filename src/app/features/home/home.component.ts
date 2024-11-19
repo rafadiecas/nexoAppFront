@@ -14,6 +14,7 @@ import {
 import {PerfilCivilComponent} from '../perfil-usuario/componentes/perfil-civil/perfil-civil.component';
 import {MapaComponent} from '../desaparicion/mapa/mapa.component';
 import {LocalizacionComponent} from '../perfil-usuario/componentes/localizacion/localizacion.component';
+import {AvisoPrincipalComponent} from './componentes/aviso-principal/aviso-principal.component';
 
 
 @Component({
@@ -30,6 +31,7 @@ import {LocalizacionComponent} from '../perfil-usuario/componentes/localizacion/
     RegistraUsuarioComponent,
     MapaComponent,
     LocalizacionComponent,
+    AvisoPrincipalComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
