@@ -1,0 +1,27 @@
+.form-group {
+  position: relative;
+}
+
+.select-wrapper {
+  position: relative;
+  z-index: 9999;
+}
+
+.select-wrapper select {
+  z-index: 999;
+}
+
+
+select {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .comentarios{
+    width: 100% !important;
+  }
+  .datos{
+    border: 0 !important;
+  }
+}

@@ -1,0 +1,55 @@
+<div class="nuevo-comentario border border-primary-subtle">
+  <div *ngFor="let comentario of comentarios" class="comentario-card">
+    <h3>Nombre: {{ comentario.nombre }}</h3>
+    <p><strong>Email:</strong> {{ comentario.email }}</p>
+    <p><strong>Teléfono:</strong> {{ comentario.telefono || 'No disponible' }}</p>
+    <p><strong>Comentario:</strong> {{ comentario.texto }}</p>
+    <div class="container w-50">
+      <img *ngFor="let foto of comentario.fotos" [src]="foto" alt="Comentario foto" class="img-fluid">
+    </div>
+  </div>
+
+  <h3>Agregar un comentario</h3>
+  <form [formGroup]="comentarioForm" (ngSubmit)="enviarComentario()">
+    <div class="row">
+      <div class="col col-12 col-md-6">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" formControlName="nombre" required class="form-control" />
+        <div *ngIf="comentarioForm.get('nombre')?.invalid && comentarioForm.get('nombre')?.touched" class="text-danger">
+          El nombre es obligatorio.
+        </div>
+      </div>
+
+      <div class="col col-12 col-md-6">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" required class="form-control" />
+        <div *ngIf="comentarioForm.get('email')?.invalid && comentarioForm.get('email')?.touched" class="text-danger">
+          Ingresa un email válido.
+        </div>
+      </div>
+
+      <div class="col col-12">
+        <label for="telefono">Teléfono</label>
+        <input id="telefono" type="number" formControlName="telefono" class="form-control" />
+      </div>
+
+      <div class="col col-12">
+        <label for="texto">Comentario</label>
+        <textarea id="texto" formControlName="texto" required class="form-control"></textarea>
+        <div *ngIf="comentarioForm.get('texto')?.invalid && comentarioForm.get('texto')?.touched" class="text-danger">
+          El comentario es obligatorio.
+        </div>
+      </div>
+
+      <div class="col col-12">
+        <app-input-share (filesChanged)="onFilesChanged($event)"></app-input-share>
+      </div>
+
+      <div class="col col-12 d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary" [disabled]="comentarioForm.invalid">
+          Enviar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

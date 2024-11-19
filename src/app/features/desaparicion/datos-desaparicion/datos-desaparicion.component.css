@@ -1,0 +1,21 @@
+.carousel-inner img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .carousel-inner img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 767px) {
+  .botones{
+    margin-bottom: 60px;
+  }
+  .datos{
+    margin-top: 60px;
+  }
+}

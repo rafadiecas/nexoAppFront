@@ -1,0 +1,44 @@
+
+<form [formGroup]="usuarioForm" (ngSubmit)="submit()">
+
+  <div class="mb-3">
+    <label for="usuario" class="form-label">Usuario</label>
+    <input type="text" class="form-control" id="usuario" formControlName="usuario">
+    <div *ngIf="usuarioForm.get('usuario')?.touched && usuarioForm.get('usuario')?.invalid" class="text-danger">
+      El nombre de usuario es obligatorio.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" formControlName="email">
+    <div *ngIf="usuarioForm.get('email')?.touched && usuarioForm.get('email')?.invalid" class="text-danger">
+      <div *ngIf="usuarioForm.get('email')?.hasError('required')">El email es obligatorio.</div>
+      <div *ngIf="usuarioForm.get('email')?.hasError('email')">El formato del email es inválido.</div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="contrasenya" class="form-label">Contraseña</label>
+    <input type="password" class="form-control" id="contrasenya" formControlName="contrasenya">
+    <div *ngIf="usuarioForm.get('contrasenya')?.touched && usuarioForm.get('contrasenya')?.invalid" class="text-danger">
+      <div *ngIf="usuarioForm.get('contrasenya')?.hasError('required')">La contraseña es obligatoria.</div>
+      <div *ngIf="usuarioForm.get('contrasenya')?.hasError('passwordStrength')">
+        La contraseña debe tener al menos 6 caracteres, una mayúscula, un número y un carácter especial.
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="repContrasenya" class="form-label">Repetir Contraseña</label>
+    <input type="password" class="form-control" id="repContrasenya" formControlName="repContrasenya">
+    <div *ngIf="usuarioForm.get('repContrasenya')?.touched && usuarioForm.get('repContrasenya')?.invalid" class="text-danger">
+      <div *ngIf="usuarioForm.get('repContrasenya')?.hasError('required')">Debe repetir la contraseña.</div>
+      <div *ngIf="usuarioForm.hasError('mustMatch')">
+        Las contraseñas no coinciden.
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="usuarioForm.invalid">Guardar</button>
+</form>

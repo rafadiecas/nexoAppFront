@@ -1,4 +1,4 @@
-import {Component, HostListener, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
 import {MatGridList, MatGridTile} from "@angular/material/grid-list";
 import {MatIcon} from "@angular/material/icon";
 import {NgForOf, NgIf} from "@angular/common";
@@ -8,25 +8,24 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-input-share',
   standalone: true,
-    imports: [
-        MatGridList,
-        MatGridTile,
-        MatIcon,
-        NgForOf,
-        NgIf
-    ],
+  imports: [
+    MatGridList,
+    MatGridTile,
+    MatIcon,
+    NgForOf,
+    NgIf
+  ],
   templateUrl: './input-share.component.html',
-  styleUrl: './input-share.component.css'
+  styleUrls: ['./input-share.component.css']
 })
 export class InputShareComponent {
   @ViewChild('errorModal') errorModal: any;
   @ViewChild('maxmodal') maxModal: any;
 
-  firstImageSelected = false;
+  @Output() filesChanged = new EventEmitter<FileData[]>();
   allFiles: FileData[] = [];
 
-  constructor(private modalService: NgbModal) {
-  }
+  constructor(private modalService: NgbModal) {}
 
   onFileSelect(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -48,18 +47,18 @@ export class InputShareComponent {
       return;
     }
 
-
     Array.from(files).slice(0, remainingSlots).forEach(file => {
       const reader = new FileReader();
       reader.onload = () => {
         this.allFiles.push({file, url: reader.result as string});
+        this.filesChanged.emit(this.allFiles);
       };
       reader.readAsDataURL(file);
     });
   }
 
-
-onImageClick(i: number): void {
-      this.allFiles.splice(i, 1);
+  onImageClick(i: number): void {
+    this.allFiles.splice(i, 1);
+    this.filesChanged.emit(this.allFiles); // Emitir los cambios después de eliminar un archivo
   }
 }
