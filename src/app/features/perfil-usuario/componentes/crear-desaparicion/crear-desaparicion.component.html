@@ -1,52 +1,67 @@
-<form [formGroup]="desaparicionForm" (ngSubmit)="onSubmit()">
-  <div formGroupName="persona">
-    <label for="dni">DNI:</label>
-    <input id="dni" formControlName="dni" type="text">
-
-    <label for="nombre">Nombre:</label>
-    <input id="nombre" formControlName="nombre" type="text">
-
-    <label for="apellido">Apellido:</label>
-    <input id="apellido" formControlName="apellido" type="text">
-
-    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-    <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date">
-
-    <label for="sexo">Sexo:</label>
-    <input id="sexo" formControlName="sexo" type="text">
-
-    <label for="altura">Altura:</label>
-    <input id="altura" formControlName="altura" type="number">
-
-    <label for="complexion">Complexión:</label>
-    <input id="complexion" formControlName="complexion" type="text">
-
-    <label for="descripcionPersona">Descripción:</label>
-    <textarea id="descripcionPersona" formControlName="descripcion"></textarea>
+<form [formGroup]="desaparicionForm" (ngSubmit)="onSubmit()" class="container mt-4">
+  <div formGroupName="personaDTO" class="row g-3">
+    <div class="col-md-6">
+      <label for="dni" class="form-label">DNI:</label>
+      <input id="dni" formControlName="dni" type="text" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label for="nombre" class="form-label">Nombre:</label>
+      <input id="nombre" formControlName="nombre" type="text" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label for="apellido" class="form-label">Apellido:</label>
+      <input id="apellido" formControlName="apellido" type="text" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
+      <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label for="sexo">Sexo:</label>
+      <select id="sexo" formControlName="sexo" class="form-select">
+        <option *ngFor="let option of sexoOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="altura" class="form-label">Altura:</label>
+      <input id="altura" formControlName="altura" type="number" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label for="complexion">Complexión:</label>
+      <select id="complexion" formControlName="complexion" class="form-select">
+        <option *ngFor="let option of complexionOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <div class="col-md-12">
+      <label for="descripcionPersona" class="form-label">Descripción:</label>
+      <textarea id="descripcionPersona" formControlName="descripcion" class="form-control" rows="3"></textarea>
+    </div>
   </div>
 
-  <div formGroupName="lugar">
-    <label for="provincia">Provincia:</label>
-    <input id="provincia" formControlName="provincia" type="text">
-
-    <label for="localidad">Localidad:</label>
-    <input id="localidad" formControlName="localidad" type="text">
-
-    <label for="calle">Calle:</label>
-    <input id="calle" formControlName="calle" type="text">
+  <div class="mt-4">
+    <app-localizacion (addressChanged)="onAddressChanged($event)"></app-localizacion>
   </div>
 
-  <label for="fecha">Fecha:</label>
-  <input id="fecha" formControlName="fecha" type="date">
+  <div class="row g-3 mt-4">
+    <div class="col-md-6">
+      <label for="fecha" class="form-label">Fecha:</label>
+      <input id="fecha" formControlName="fecha" type="date" class="form-control">
+    </div>
+    <div class="col-md-12">
+      <label for="descripcionLugar" class="form-label">Descripción:</label>
+      <textarea id="descripcionLugar" formControlName="descripcion" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="col-md-6">
+      <label for="id_usuario" class="form-label">ID Usuario:</label>
+      <input id="id_usuario" formControlName="id_usuario" type="text" class="form-control">
+    </div>
+  </div>
 
-  <label for="descripcionLugar">Descripción:</label>
-  <textarea id="descripcionLugar" formControlName="descripcion"></textarea>
+  <div class="mt-4">
+    <app-input-fotos (filesChanged)="onFilesChanged($event)"></app-input-fotos>
+  </div>
 
-  <label for="estado">Estado:</label>
-  <input id="estado" formControlName="estado" type="text">
-
-  <label for="id_usuario">ID Usuario:</label>
-  <input id="id_usuario" formControlName="id_usuario" type="text">
-
-  <button type="submit">Enviar</button>
+  <div class="mt-4">
+    <button type="submit" class="btn btn-primary w-100">Enviar</button>
+  </div>
 </form>

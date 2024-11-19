@@ -1,9 +1,9 @@
-import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FileData } from '../../../../modelos/FileData';
-import {NgForOf, NgIf} from '@angular/common';
-import {MatIcon} from '@angular/material/icon';
-import {MatGridList, MatGridTile} from '@angular/material/grid-list';
+import { NgForOf, NgIf } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
+import { MatGridList, MatGridTile } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-input-fotos',
@@ -21,6 +21,8 @@ import {MatGridList, MatGridTile} from '@angular/material/grid-list';
 export class InputFotosComponent implements OnInit {
   @ViewChild('errorModal') errorModal: any;
   @ViewChild('maxmodal') maxModal: any;
+
+  @Output() filesChanged = new EventEmitter<FileData[]>(); // Emitimos los archivos seleccionados
 
   firstImageSelected = false;
   allFiles: FileData[] = [];
@@ -69,16 +71,16 @@ export class InputFotosComponent implements OnInit {
     if (inputNumber === 1 && this.allFiles.length > 0) {
       const reader = new FileReader();
       reader.onload = () => {
-
         this.allFiles[0] = { file: files[0], url: reader.result as string };
+        this.emitFiles();
       };
       reader.readAsDataURL(files[0]);
     } else {
-
       Array.from(files).slice(0, remainingSlots).forEach(file => {
         const reader = new FileReader();
         reader.onload = () => {
           this.allFiles.push({ file, url: reader.result as string });
+          this.emitFiles();
         };
         reader.readAsDataURL(file);
       });
@@ -87,7 +89,6 @@ export class InputFotosComponent implements OnInit {
     if (inputNumber === 1) this.firstImageSelected = true;
   }
 
-
   onImageClick(i: number) {
     if (i === 0) {
       this.allFiles = [];
@@ -95,5 +96,10 @@ export class InputFotosComponent implements OnInit {
     } else {
       this.allFiles.splice(i, 1);
     }
+    this.emitFiles();
+  }
+
+  private emitFiles() {
+    this.filesChanged.emit(this.allFiles); // Emitimos los archivos seleccionados
   }
 }

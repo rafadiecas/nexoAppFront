@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { DesaparicionPrincipal } from '../modelos/DesaparicionPrincipal';
 import {DesaparicionIndividual} from '../modelos/DesaparicionIndividual';
@@ -11,6 +11,7 @@ const apiUrl = '/api/desaparicion';
 })
 export class DesaparicionService {
 
+
   constructor(private http: HttpClient) { }
 
   getDesaparicionesPrincipal(): Observable<DesaparicionPrincipal[]> {
@@ -20,4 +21,10 @@ export class DesaparicionService {
   getDesaparicionIndividual(id: number): Observable<DesaparicionIndividual> {
     return this.http.get<DesaparicionIndividual>(`${apiUrl}?id=${id}`);
   }
+
+  guardarDesaparicion(formData: FormData): Observable<any> {
+    return this.http.post(`${apiUrl}/guardar`, formData);
+  }
+
+
 }
