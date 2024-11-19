@@ -1,0 +1,40 @@
+
+.desaparicion-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.desaparicion-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.comentario-card {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+
+.nuevo-comentario {
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.nuevo-comentario h3 {
+  margin-bottom: 15px;
+}
+
+.nuevo-comentario label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+

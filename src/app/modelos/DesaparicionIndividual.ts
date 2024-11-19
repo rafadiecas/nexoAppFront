@@ -1,10 +1,11 @@
-import {LugarDTO} from './LugarDTO';
+
+import {PersonaIndividual} from './PersonaIndividual';
 
 export class DesaparicionIndividual{
+  id?: number;
   fotos?: string[];
-  nombre?: string;
-  apellido?: string;
   fecha?: string;
   descripcion?: string;
-  lugar?: LugarDTO;
+  persona?: PersonaIndividual;
+  estado?: string;
 }

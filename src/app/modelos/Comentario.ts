@@ -1,5 +1,5 @@
 
-export interface Comentario {
+export class Comentario {
   texto?: string;
   nombre?: string;
   email?: string;

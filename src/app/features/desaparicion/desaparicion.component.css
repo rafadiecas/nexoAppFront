@@ -16,3 +16,12 @@ select {
   max-height: 200px;
   overflow-y: auto;
 }
+
+@media (max-width: 768px) {
+  .comentarios{
+    width: 100% !important;
+  }
+  .datos{
+    border: 0 !important;
+  }
+}
