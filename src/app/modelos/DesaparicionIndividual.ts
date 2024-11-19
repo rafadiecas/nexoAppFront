@@ -7,4 +7,5 @@ export class DesaparicionIndividual{
   fecha?: string;
   descripcion?: string;
   persona?: PersonaIndividual;
+  estado?: string;
 }
