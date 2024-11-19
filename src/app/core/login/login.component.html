@@ -1,0 +1,38 @@
+  <section class="vh-100" style="background-color: #9A616D;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="https://png.pngtree.com/png-vector/20240918/ourlarge/pngtree-colorful-drawing-of-two-people-hugging-png-image_13629790.png"
+                     alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+
+                  <form [formGroup]="usuarioForm" (ngSubmit)="iniciarSesion()">
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                      <span class="h1 fw-bold mb-0 text-primary">Nexo</span>
+                      <mat-icon>login</mat-icon>
+                    </div>
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Inicio de sesión</h5>
+                    <div class="form-outline mb-4">
+                      <input type="text" class="form-control" id="usuario" formControlName="usuario" placeholder="DNI">
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input type="password" class="form-control" id="contrasenya" formControlName="contrasenya" placeholder="Nombre usuario">
+                    </div>
+                    <div *ngIf="fallo" class="form-outline mb-4 text-danger">
+                      Contraseña incorrecta.
+                    </div>
+                  </form>
+                  <button type="submit" class="btn w-100 btn-primary" [disabled]="usuarioForm.invalid">Registrarse</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -2,14 +2,14 @@ import {HttpEvent, HttpHandlerFn, HttpInterceptorFn, HttpRequest} from '@angular
 import {request} from 'express';
 import {Observable} from 'rxjs';
 import {inject} from '@angular/core';
-import {AuthService} from '../auth-service.service';
+import {AuthServiceService} from '../auth-service.service';
 
 export const authInterceptor: HttpInterceptorFn = (
   request: HttpRequest<any>,
   next: HttpHandlerFn,
 ): Observable<HttpEvent<unknown>> => {
   console.log(request.url);
-  const authService = inject(AuthService);
+  const authService = inject(AuthServiceService);
   const token = authService.getToken();
   if (token) {
     request = request.clone({

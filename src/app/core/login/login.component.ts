@@ -3,14 +3,15 @@ import {Login} from '../../modelos/Login';
 import {LoginService} from '../../servicios/login.service';
 import {MatCard, MatCardActions, MatCardContent, MatCardTitle} from '@angular/material/card';
 import {MatError, MatFormField, MatLabel} from '@angular/material/form-field';
-import {FormsModule} from '@angular/forms';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MatInput} from '@angular/material/input';
 import {MatButton} from '@angular/material/button';
 import {Router} from "@angular/router";
 import {NgIf} from '@angular/common';
-import {AuthService} from '../../core/auth-service.service';
+import {AuthServiceService} from '../auth-service.service';
 import {HeaderComponent} from '../../shared/header/header.component';
 import {TokenData} from '../../modelos/TokenData';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-login',
@@ -26,54 +27,49 @@ import {TokenData} from '../../modelos/TokenData';
     MatLabel,
     MatCardActions,
     NgIf,
-    MatError
+    MatError,
+    ReactiveFormsModule,
+    MatIcon
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   providers:[LoginService]
 })
 export class LoginComponent implements OnInit{
-  usuario: string = '';
-  contrasenya: string = '';
   login:Login =  new Login();
-  tokendat:number = 0;
-  constructor(private service: LoginService, private router: Router, private servicioAuth: AuthService) {
+  usuarioForm!: FormGroup;
+  fallo: boolean = false;
+  constructor(private fb: FormBuilder, private service: LoginService, private router: Router, private servicioAuth: AuthServiceService){
     // localStorage.clear();
+
+  }
+  ngOnInit(): void {
+    this.usuarioForm = this.fb.group(
+      {
+        usuario: ['', Validators.required],
+        contrasenya: ['', Validators.required],
+      })
   }
   iniciarSesion() {
-    this.login.usuario = this.usuario;
-    this.login.contrasenya = this.contrasenya;
+    this.login = this.usuarioForm.value;
     this.service.login(this.login).subscribe({
       next: (respuesta) => {
         console.log(respuesta);
         if(respuesta.token != null){
           localStorage.setItem('token' , respuesta.token);
-          localStorage.setItem('id' , respuesta.id);
-          localStorage.setItem('username', this.usuario);
+          localStorage.setItem('username', this.usuarioForm.get('usuario')?.value);
           console.log(respuesta);
           console.log(localStorage.getItem('token'));
 
 
           this.router.navigate(['']);
+        } else {
+          this.fallo = true;
         }
 
       },
       error: (e) => console.error(e),
 
     });
-  }
-
-  ngOnInit(): void {
-    this.usuario = '';
-    this.contrasenya = '';
-    // this.service.tokensat().subscribe({
-    //   next: (data) => {
-    //     this.tokendat = data;
-    //     console.log(this.tokendat);
-    //   },
-    //   error: (e) => {
-    //     console.error('Error fetching token data:', e);
-    //   }
-    // });
   }
 }

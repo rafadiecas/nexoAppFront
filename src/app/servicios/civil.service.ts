@@ -4,6 +4,8 @@ import {catchError, Observable, throwError} from 'rxjs';
 import {Civil} from '../modelos/Civil';
 import {DesaparicionLista} from '../modelos/DesaparicionLista';
 import {UsuarioMenu} from "../modelos/UsuarioMenu";
+import {CivilCrearDTO} from '../modelos/CrearCivil';
+import {Auth} from '../modelos/Auth';
 
 const apiUrl = '/api/civil';
 @Injectable({
@@ -37,5 +39,7 @@ export class CivilService {
   civilMenu(): Observable<UsuarioMenu> {
     return this.http.get<UsuarioMenu>(`${apiUrl}/menu`);
   }
+
+
 
 }

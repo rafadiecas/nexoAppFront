@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import { LoginService } from '../../servicios/login.service';
 import {NgIf} from '@angular/common';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
-    NgIf
+    NgIf,
+    RouterLink
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
