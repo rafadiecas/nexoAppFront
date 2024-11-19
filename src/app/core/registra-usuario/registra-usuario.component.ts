@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { CivilService } from '../../../../servicios/civil.service';
+import { CivilService } from '../../servicios/civil.service';
 import {CommonModule} from '@angular/common';
 
 @Component({
