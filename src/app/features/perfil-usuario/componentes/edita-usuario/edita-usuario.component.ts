@@ -24,8 +24,7 @@ export class EditaUsuarioComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    let id = localStorage.getItem('id');
-    this.civilService.getCivil(id).subscribe(civil => {
+    this.civilService.getCivil(3).subscribe(civil => {
       this.civilForm.patchValue(civil);
       this.civilForm.get('dni')?.disable();
     });

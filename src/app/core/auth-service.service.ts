@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  private tokenKey = 'jwtToken';
+  private tokenKey = 'token';
 
   // Método para guardar el token
   setToken(token: string): void {

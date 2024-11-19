@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 import {NgIf} from '@angular/common';
 import {AuthService} from '../../core/auth-service.service';
 import {HeaderComponent} from '../../shared/header/header.component';
+import {TokenData} from '../../modelos/TokenData';
 
 @Component({
   selector: 'app-login',
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit{
   usuario: string = '';
   contrasenya: string = '';
   login:Login =  new Login();
+  tokendat:number = 0;
   constructor(private service: LoginService, private router: Router, private servicioAuth: AuthService) {
     // localStorage.clear();
   }
@@ -62,8 +64,16 @@ export class LoginComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.usuario='';
-    this.contrasenya='';
+    this.usuario = '';
+    this.contrasenya = '';
+    // this.service.tokensat().subscribe({
+    //   next: (data) => {
+    //     this.tokendat = data;
+    //     console.log(this.tokendat);
+    //   },
+    //   error: (e) => {
+    //     console.error('Error fetching token data:', e);
+    //   }
+    // });
   }
-
 }
