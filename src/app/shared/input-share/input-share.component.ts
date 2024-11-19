@@ -59,6 +59,6 @@ export class InputShareComponent {
 
   onImageClick(i: number): void {
     this.allFiles.splice(i, 1);
-    this.filesChanged.emit(this.allFiles); // Emitir los cambios después de eliminar un archivo
+    this.filesChanged.emit(this.allFiles);
   }
 }
