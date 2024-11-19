@@ -1,1 +1,52 @@
-<p>crear-desaparicion works!</p>
+<form [formGroup]="desaparicionForm" (ngSubmit)="onSubmit()">
+  <div formGroupName="persona">
+    <label for="dni">DNI:</label>
+    <input id="dni" formControlName="dni" type="text">
+
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" formControlName="nombre" type="text">
+
+    <label for="apellido">Apellido:</label>
+    <input id="apellido" formControlName="apellido" type="text">
+
+    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+    <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date">
+
+    <label for="sexo">Sexo:</label>
+    <input id="sexo" formControlName="sexo" type="text">
+
+    <label for="altura">Altura:</label>
+    <input id="altura" formControlName="altura" type="number">
+
+    <label for="complexion">Complexión:</label>
+    <input id="complexion" formControlName="complexion" type="text">
+
+    <label for="descripcionPersona">Descripción:</label>
+    <textarea id="descripcionPersona" formControlName="descripcion"></textarea>
+  </div>
+
+  <div formGroupName="lugar">
+    <label for="provincia">Provincia:</label>
+    <input id="provincia" formControlName="provincia" type="text">
+
+    <label for="localidad">Localidad:</label>
+    <input id="localidad" formControlName="localidad" type="text">
+
+    <label for="calle">Calle:</label>
+    <input id="calle" formControlName="calle" type="text">
+  </div>
+
+  <label for="fecha">Fecha:</label>
+  <input id="fecha" formControlName="fecha" type="date">
+
+  <label for="descripcionLugar">Descripción:</label>
+  <textarea id="descripcionLugar" formControlName="descripcion"></textarea>
+
+  <label for="estado">Estado:</label>
+  <input id="estado" formControlName="estado" type="text">
+
+  <label for="id_usuario">ID Usuario:</label>
+  <input id="id_usuario" formControlName="id_usuario" type="text">
+
+  <button type="submit">Enviar</button>
+</form>
