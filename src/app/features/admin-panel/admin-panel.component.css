@@ -1,12 +1,12 @@
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
 }
 
 button {
   background-color: #003a66;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   border: none;
   height: 150px;
   transition: transform 0.2s, background-color 0.3s;
@@ -18,5 +18,5 @@ button:hover {
 }
 
 .button-large {
-  height: 200px;
+  height: 180px;
 }

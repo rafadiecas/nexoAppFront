@@ -1,26 +1,32 @@
 <div class="container text-center py-5">
 
-
-  <div class="row g-4">
-    <div class="col-12 col-md-4">
+  <div class="row g-3">
+    <div class="col-12 col-md-6 col-lg-3">
       <button
-        class="btn btn-primary w-100 p-5 rounded-3 button-large"
-        (click)="navigateTo('desaparicion/:id')">
-        DESAPARECIDOS
+        class="btn btn-primary w-100 p-4 rounded-3"
+        (click)="navigateTo('desaparecidos-pendientes')">
+        DESAPARICIONES PENDIENTES
       </button>
     </div>
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-6 col-lg-3">
       <button
-        class="btn btn-primary w-100 p-5 rounded-3 button-large"
-        (click)="navigateTo('usuarios-autorizados')">
-        USUARIO AUTORIZADO
+        class="btn btn-primary w-100 p-4 rounded-3"
+        (click)="navigateTo('verificar-usuario')">
+        VERIFICAR USUARIO
       </button>
     </div>
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-6 col-lg-3">
       <button
-        class="btn btn-primary w-100 p-5 rounded-3 button-large"
-        (click)="navigateTo('usuario/civil')">
-        USUARIO CIVIL
+        class="btn btn-primary w-100 p-4 rounded-3"
+        (click)="navigateTo('eliminar-aviso')">
+        ELIMINAR AVISO
+      </button>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+      <button
+        class="btn btn-primary w-100 p-4 rounded-3"
+        (click)="navigateTo('desaparecidos-verificados')">
+        DESAPARICIONES VERIFICADAS
       </button>
     </div>
   </div>
