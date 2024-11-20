@@ -24,7 +24,7 @@ export class ParteIzquierdaCivilComponent implements OnInit {
     { label: 'Desapariciones', value: 'desapariciones' },
     { label: 'Seguimiento', value: 'seguimiento' },
     { label: 'Añadir', value: 'anyadir' },
-  ];
+  ];//cambiar esto para que lo pueda recivir del padre
 
   @Output() optionSelected = new EventEmitter<string>();
 
