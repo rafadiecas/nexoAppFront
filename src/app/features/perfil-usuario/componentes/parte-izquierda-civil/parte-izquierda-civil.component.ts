@@ -23,6 +23,7 @@ export class ParteIzquierdaCivilComponent implements OnInit {
     { label: 'Editar', value: 'editar' },
     { label: 'Desapariciones', value: 'desapariciones' },
     { label: 'Seguimiento', value: 'seguimiento' },
+    { label: 'Añadir', value: 'anyadir' },
   ];
 
   @Output() optionSelected = new EventEmitter<string>();
@@ -43,6 +44,7 @@ export class ParteIzquierdaCivilComponent implements OnInit {
       case 'editar': return 'edit';
       case 'desapariciones': return 'search';
       case 'seguimiento': return 'track_changes';
+      case 'anyadir': return 'add_circle';
       default: return 'help_outline';
     }
   }
