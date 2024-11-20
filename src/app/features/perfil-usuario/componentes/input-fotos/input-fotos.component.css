@@ -38,13 +38,13 @@
 
 .inputfile-1 + label {
   color: #fff;
-  background-color: #c39f77;
+  background-color:#6cb9f5;
 }
 
 .inputfile-1:focus + label,
 .inputfile-1.has-focus + label,
 .inputfile-1 + label:hover {
-  background-color: #9f8465;
+  background-color: #5694c4;
 }
 
 .upload-label {
@@ -56,7 +56,7 @@
   font-weight: 700;
   cursor: pointer;
   color: #fff;
-  background-color: #c39f77;
+  background-color: #6cb9f5;
 }
 
 .upload-label mat-icon {

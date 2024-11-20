@@ -29,20 +29,28 @@
   color: #6c757d;
 }
 
+
 #opcion:hover {
-  background-color: #e9ecef;
-  color: #000;
+  background-color: #6cb9f5;
+  color: white;
   transition: background-color 0.3s, color 0.3s;
 }
 
 #opcion.active {
-  background-color: #e9ecef;
-  color: #000;
+  background-color: #6cb9f5;
+  color: white;
 }
 
-#opcion{
+
+#opcion:hover .custom-icon,
+#opcion.active .custom-icon {
+  color: white;
+}
+
+#opcion {
   cursor: pointer;
   font-weight: 500;
   color: #333;
-
+  display: flex;
+  align-items: center;
 }
