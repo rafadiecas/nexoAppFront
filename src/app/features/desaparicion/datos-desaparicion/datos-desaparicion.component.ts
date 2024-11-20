@@ -33,7 +33,7 @@ export class DatosDesaparicionComponent implements OnInit {
   ngOnInit() {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.desaparicionService.getDesaparicionIndividual(this.id).subscribe(desaparicion => this.desaparicionIndividual = desaparicion);
-    this.civilService.listaSeguimiento(3).subscribe(desapariciones => {
+    this.civilService.listaSeguimiento().subscribe(desapariciones => {
       this.seguimiento = desapariciones.some(desaparicion => desaparicion.id === this.id);
     });
   }

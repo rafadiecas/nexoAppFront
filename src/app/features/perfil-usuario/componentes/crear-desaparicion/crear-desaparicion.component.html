@@ -1,1 +1,67 @@
-<p>crear-desaparicion works!</p>
+<form [formGroup]="desaparicionForm" (ngSubmit)="onSubmit()" class="container mt-4">
+  <div formGroupName="personaDTO" class="row g-3">
+    <div class="col-md-6">
+      <label for="dni" class="form-label">DNI:</label>
+      <input id="dni" formControlName="dni" type="text" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label for="nombre" class="form-label">Nombre:</label>
+      <input id="nombre" formControlName="nombre" type="text" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label for="apellido" class="form-label">Apellido:</label>
+      <input id="apellido" formControlName="apellido" type="text" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
+      <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label for="sexo">Sexo:</label>
+      <select id="sexo" formControlName="sexo" class="form-select">
+        <option *ngFor="let option of sexoOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="altura" class="form-label">Altura:</label>
+      <input id="altura" formControlName="altura" type="number" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label for="complexion">Complexión:</label>
+      <select id="complexion" formControlName="complexion" class="form-select">
+        <option *ngFor="let option of complexionOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <div class="col-md-12">
+      <label for="descripcionPersona" class="form-label">Descripción:</label>
+      <textarea id="descripcionPersona" formControlName="descripcion" class="form-control" rows="3"></textarea>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <app-localizacion (addressChanged)="onAddressChanged($event)"></app-localizacion>
+  </div>
+
+  <div class="row g-3 mt-4">
+    <div class="col-md-6">
+      <label for="fecha" class="form-label">Fecha:</label>
+      <input id="fecha" formControlName="fecha" type="date" class="form-control">
+    </div>
+    <div class="col-md-12">
+      <label for="descripcionLugar" class="form-label">Descripción:</label>
+      <textarea id="descripcionLugar" formControlName="descripcion" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="col-md-6">
+      <label for="id_usuario" class="form-label">ID Usuario:</label>
+      <input id="id_usuario" formControlName="id_usuario" type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <app-input-fotos (filesChanged)="onFilesChanged($event)"></app-input-fotos>
+  </div>
+
+  <div class="mt-4">
+    <button type="submit" class="btn btn-primary w-100">Enviar</button>
+  </div>
+</form>

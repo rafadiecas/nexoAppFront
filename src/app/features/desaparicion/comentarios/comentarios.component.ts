@@ -7,6 +7,8 @@ import { FileData } from '../../../modelos/FileData';
 import { ComentarioListar } from '../../../modelos/ComentarioListar';
 import {CommonModule} from '@angular/common';
 import {InputShareComponent} from '../../../shared/input-share/input-share.component';
+import {MatDialog} from '@angular/material/dialog';
+import {ImageDialogComponent} from '../image-dialog/image-dialog.component';
 
 @Component({
   selector: 'app-comentarios',
@@ -24,13 +26,22 @@ export class ComentariosComponent implements OnInit {
   constructor(
     private comentarioService: ComentarioService,
     private route: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.cargarComentarios(this.id);
     this.inicializarFormulario();
+  }
+
+  openImageDialog(imageUrl: string): void {
+    this.dialog.open(ImageDialogComponent, {
+      data: { imageUrl },
+      width: '80%',
+      maxWidth: '600px'
+    });
   }
 
   /**
