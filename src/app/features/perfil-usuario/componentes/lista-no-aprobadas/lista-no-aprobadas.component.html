@@ -1,0 +1,53 @@
+<div class="row g-4">
+  <div *ngFor="let desaparicion of noAprobadas" class="col-lg-6 col-md-12">
+    <div class="card shadow-sm">
+      <div class="row g-0">
+        <div class="col-md-4 d-flex align-items-center justify-content-center p-2">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button
+                *ngFor="let image of desaparicion?.fotos; let i = index"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                [attr.data-bs-slide-to]="i"
+                [class.active]="i === 0"
+                [attr.aria-current]="i === 0 ? 'true' : null"
+                [attr.aria-label]="'Slide ' + (i + 1)">
+              </button>
+            </div>
+
+            <div class="carousel-inner">
+              <div
+                class="carousel-item"
+                *ngFor="let image of desaparicion?.fotos; let i = index"
+                [class.active]="i === 0">
+                <img [src]="image" class="d-block w-100" alt="...">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <p>
+              <strong>DNI:</strong> {{ desaparicion.persona?.dni }}<br />
+              <strong>Nombre:</strong> {{ desaparicion.persona?.nombre }}<br />
+              <strong>Apellido:</strong> {{ desaparicion.persona?.apellido }}<br />
+              <strong>Nacimiento:</strong> {{ desaparicion.persona?.fechaNacimiento }}<br />
+              <strong>Desaparición:</strong> {{ desaparicion.fecha }}<br />
+              <strong>Sexo:</strong> {{ desaparicion.persona?.sexo }}<br />
+              <strong>Complexión:</strong> {{ desaparicion.persona?.complexion }}<br />
+            </p>
+            <p>
+              <strong>Descripción:</strong> {{ desaparicion.descripcion }}<br />
+              <strong>Lugar:</strong> {{ desaparicion.lugar?.provincia }}, {{desaparicion.lugar?.localidad}}, {{desaparicion.lugar?.calle}}<br />
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-center">
+        <span class="badge bg-danger fs-6">{{ desaparicion.estado }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
