@@ -5,6 +5,6 @@ export class CivilCrearDTO {
   telefono?: string; // En el backend es String, debe coincidir
   nombre?: string;
   apellido?: string; // Asegúrate de mantener consistencia entre singular/plural
-  usuarioCrear?: CrearUsuario; // Anidado como en el backend
+  usuarioCrearDTO?: CrearUsuario; // Anidado como en el backend
 }
 

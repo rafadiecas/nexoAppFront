@@ -31,7 +31,7 @@ export class ParteIzquierdaCivilComponent implements OnInit {
   constructor(private civilService: CivilService) {}
 
   ngOnInit() {
-    this.civilService.civilMenu(3).subscribe(menu => this.menu = menu);
+    this.civilService.civilMenu().subscribe(menu => this.menu = menu);
   }
 
   selectOption(option: string) {
