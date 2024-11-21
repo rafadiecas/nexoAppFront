@@ -11,12 +11,54 @@ body {
 .row-container:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-button {
-  position: relative;
-  bottom: 1px;
-}
 @media screen and (max-width: 992px) {
   .le-hide {
     visibility: hidden;
   }
+}
+/* Estilo del botón */
+/* Estilo del botón */
+.btn-confirmar {
+  color: #28a745; /* Color de texto verde */
+  border: 2px solid #28a745; /* Borde verde */
+  background-color: white; /* Fondo blanco */
+  padding: 5px 10px; /* Ajustar el padding para hacerlo más pequeño */
+  font-size: 12px; /* Hacer el texto más pequeño */
+  font-weight: bold;
+  border-radius: 3px; /* Borde redondeado más pequeño */
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.btn-confirmar i {
+  margin-right: 5px; /* Ajustar el espacio entre el icono y el texto */
+}
+
+/* Cambio de colores al pasar el ratón */
+.btn-confirmar:hover {
+  background-color: #28a745; /* Fondo verde */
+  color: white; /* Texto blanco */
+}
+.btn-eliminar {
+  color: #dc3545; /* Color de texto rojo */
+  border: 2px solid #dc3545; /* Borde rojo */
+  background-color: white; /* Fondo blanco */
+  padding: 5px 10px; /* Ajustar el padding para hacerlo más pequeño */
+  font-size: 12px; /* Hacer el texto más pequeño */
+  font-weight: bold;
+  border-radius: 3px; /* Borde redondeado más pequeño */
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.btn-eliminar i {
+  margin-right: 5px; /* Ajustar el espacio entre el icono y el texto */
+}
+
+/* Cambio de colores al pasar el ratón */
+.btn-eliminar:hover {
+  background-color: #dc3545; /* Fondo rojo */
+  color: white; /* Texto blanco */
 }
