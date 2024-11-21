@@ -1,0 +1,55 @@
+.container-fluid {
+  padding: 0;
+}
+
+.row {
+  margin: 0;
+  display: flex; /* Asegura el uso de Flexbox */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en filas nuevas */
+}
+
+.col-10 {
+  flex: 0 0 83.3333%; /* Mantén el 10/12 en pantallas grandes */
+  max-width: 83.3333%;
+  padding: 0;
+}
+
+.col-2 {
+  flex: 0 0 16.6667%; /* Mantén el 2/12 en pantallas grandes */
+  max-width: 16.6667%;
+  padding: 0;
+}
+
+/* Media queries para hacerlo completamente responsivo */
+@media (max-width: 1002px) { /* Tablets */
+  .col-10,
+  .col-2 {
+    flex: 0 0 100%; /* Ambas columnas ocupan el ancho completo */
+    max-width: 100%;
+  }
+  .col-2 {
+    margin-top: 20px; /* Separa la barra lateral del contenido principal */
+  }
+}
+
+@media (max-width: 768px) { /* Smartphones grandes */
+  .col-10,
+  .col-2 {
+    flex: 0 0 100%; /* Ambas columnas en una sola columna vertical */
+    max-width: 100%;
+  }
+  .col-2 {
+    margin-top: 15px; /* Aumenta separación si es necesario */
+  }
+}
+
+@media (max-width: 576px) { /* Smartphones pequeños */
+  .col-10,
+  .col-2 {
+    flex: 0 0 100%; /* Contenido siempre apilado */
+    max-width: 100%;
+  }
+  .col-2 {
+    margin-top: 10px; /* Espacio para mantener legibilidad */
+  }
+}
