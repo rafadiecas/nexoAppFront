@@ -1,5 +1,4 @@
-
-
+/* Estilos generales para la entrada de archivos */
 .inputfile {
   width: 0.1px;
   height: 0.1px;
@@ -31,14 +30,14 @@
 }
 
 .inputfilela {
-  font-size:16px;
-  font-weight:normal;
+  font-size: 16px;
+  font-weight: normal;
   font-family: 'Lato';
 }
 
 .inputfile-1 + label {
   color: #fff;
-  background-color:#6cb9f5;
+  background-color: #6cb9f5;
 }
 
 .inputfile-1:focus + label,
@@ -70,10 +69,11 @@
   opacity: 0.6;
 }
 
-.cuadrada{
-  width: 50%;
-  height: 50%;
-  object-fit: cover;
+/* Estilo de la imagen */
+.cuadrada {
+  width: 100%; /* Ajustado para usar toda la casilla */
+  height: 100%;
+  object-fit: cover; /* Asegura que las imágenes mantengan su proporción */
   border-radius: 5px;
 }
 
@@ -89,25 +89,28 @@
   color: #333;
   display: block;
 }
-.photo-preview {
+
+/* Grid para las imágenes */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajuste flexible de columnas */
+  gap: 1rem; /* Espaciado entre las imágenes */
+}
+
+.image-item {
   position: relative;
   cursor: pointer;
-}
-
-.image-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
+  border-radius: 5px;
 }
 
-.image-container img {
+.image-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.image-container .overlay {
+.image-item .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -122,7 +125,13 @@
   transition: opacity 0.3s;
 }
 
-.image-container:hover .overlay {
+.image-item:hover .overlay {
   opacity: 1;
 }
 
+/* Responsividad */
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Menor tamaño de columna en pantallas pequeñas */
+  }
+}
