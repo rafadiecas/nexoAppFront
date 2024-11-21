@@ -12,7 +12,7 @@ export class ComentarioService {
 
   constructor(private http: HttpClient) {}
 
-  crearComentario(comentario: any, files: File[] | null): Observable<any> {
+  crearComentario(comentario: any, files: File[] | null): Observable<string> {
     const formData = new FormData();
 
     formData.append('comentario', JSON.stringify(comentario));
@@ -23,8 +23,9 @@ export class ComentarioService {
       });
     }
 
-    return this.http.post<any>(`${apiUrl}/crear`, formData);
+    return this.http.post<string>(`${apiUrl}/crear`, formData, { responseType: 'text' as 'json' });
   }
+
 
   /**
    * Obtiene los comentarios asociados a una desaparición específica.

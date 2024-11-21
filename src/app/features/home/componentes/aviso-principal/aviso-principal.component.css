@@ -1,0 +1,72 @@
+/* Barra lateral */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0; /* Mueve la barra lateral a la derecha */
+  width: 300px; /* Ancho de la barra lateral */
+  height: 100%;
+  background-color: var(--bs-light); /* Color de fondo basado en Bootstrap */
+  padding: 20px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1); /* Sombra a la derecha */
+  overflow-y: auto;
+  z-index: 1000; /* Asegura que la barra lateral esté por encima del contenido */
+}
+
+/* Aseguramos que el contenido principal tenga margen suficiente a la derecha */
+.main-content {
+  margin-right: 320px; /* Espacio para la barra lateral */
+}
+
+/* Contenedor de los avisos */
+.avisos-container {
+  margin-top: 30px;
+  padding-right: 20px; /* Espaciado interno para responsividad */
+}
+
+/* Estilo para cada aviso */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Hover para animar la tarjeta */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Fecha del aviso */
+.card-header {
+  font-size: 1rem;
+  color: var(--bs-primary); /* Usa la paleta de Bootstrap */
+  font-weight: bold;
+}
+
+/* Descripción del aviso */
+.card-body p {
+  font-size: 1.1rem;
+  color: var(--bs-dark);
+  line-height: 1.5;
+}
+
+/* Contenedor de las fotos */
+.carousel img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    box-shadow: none; /* Elimina la sombra en móviles */
+  }
+
+  .main-content {
+    margin-right: 0; /* Elimina el margen derecho en móviles */
+  }
+}

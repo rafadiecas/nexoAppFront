@@ -3,6 +3,7 @@ import {DesaparicionService} from '../../../../servicios/desaparicion.service';
 import {MatGridList, MatGridTile} from '@angular/material/grid-list';
 import {DatePipe, NgForOf, UpperCasePipe} from '@angular/common';
 import {MatCard, MatCardContent, MatCardImage} from '@angular/material/card';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-desaparicion-principal',
@@ -16,6 +17,7 @@ import {MatCard, MatCardContent, MatCardImage} from '@angular/material/card';
     UpperCasePipe,
     DatePipe,
     MatCardImage,
+    RouterLink,
   ],
   templateUrl: './desaparicion-principal.component.html',
   styleUrl: './desaparicion-principal.component.css'

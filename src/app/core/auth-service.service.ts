@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthServiceService {
 
-  private tokenKey = 'jwtToken';
+  private tokenKey = 'token';
 
   // Método para guardar el token
   setToken(token: string): void {

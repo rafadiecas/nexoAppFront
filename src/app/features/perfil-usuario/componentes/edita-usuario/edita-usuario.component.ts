@@ -24,7 +24,7 @@ export class EditaUsuarioComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.civilService.getCivil(3).subscribe(civil => {
+    this.civilService.getCivil().subscribe(civil => {
       this.civilForm.patchValue(civil);
       this.civilForm.get('dni')?.disable();
     });
@@ -35,11 +35,11 @@ export class EditaUsuarioComponent implements OnInit{
 
       this.civilForm.get('dni')?.enable();
 
-      this.civilService.actualizarCivil(3, this.civilForm.value).subscribe({
+      this.civilService.actualizarCivil(this.civilForm.value).subscribe({
         next: (response) => {
           console.log(response.mensaje);
 
-          this.civilService.getCivil(3).subscribe(civil => {
+          this.civilService.getCivil().subscribe(civil => {
             this.civilForm.patchValue(civil);
 
             this.civilForm.get('dni')?.disable();

@@ -40,7 +40,7 @@ export class MapaComponent implements OnInit {
       this.lugar = data;
       console.log(this.lugar);
       if (this.lugar.latitud !== undefined && this.lugar.longitud !== undefined) {
-        this.map.setView([this.lugar.latitud, this.lugar.longitud], 14);
+        this.map.setView([this.lugar.latitud, this.lugar.longitud], 19);
       this.addMarkers();
       }
     });

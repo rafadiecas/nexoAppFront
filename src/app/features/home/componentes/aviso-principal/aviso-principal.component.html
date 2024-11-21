@@ -1,0 +1,62 @@
+<div class="sidebar p-3">
+  <h3 class="sidebar-title text-center mb-3">Avisos de Desapariciones</h3>
+
+  <!-- Mensajes de carga y error -->
+  <div *ngIf="loading" class="alert alert-info text-center">Cargando avisos...</div>
+  <div *ngIf="errorMessage" class="alert alert-danger text-center">{{ errorMessage }}</div>
+
+  <div *ngIf="!loading && avisos.length === 0" class="alert alert-warning text-center">
+    No hay avisos disponibles.
+  </div>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-primary btn-lg" (click)="abrirModal()">Crear Aviso</button>
+  </div>
+
+  <!-- Contenedor de los avisos -->
+  <div *ngFor="let aviso of avisos; let i = index" class="avisos-container mb-4">
+    <div class="card shadow">
+      <div class="card-header text-muted">
+        {{ aviso.fecha }}
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ aviso.texto }}</p>
+
+        <!-- Mostrar las fotos si existen -->
+        <div *ngIf="aviso.fotos && aviso.fotos.length > 0" class="aviso-photo mt-3">
+          <div id="carouselExampleIndicators-{{i}}" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <!-- Se crean los indicadores dinámicamente según el número de fotos -->
+              <button *ngFor="let foto of aviso.fotos; let j = index"
+                      type="button"
+                      [attr.data-bs-target]="'#carouselExampleIndicators-' + i"
+                      [attr.data-bs-slide-to]="j"
+                      [class.active]="j === 0"
+                      [attr.aria-label]="'Slide ' + (j + 1)"
+                      [attr.aria-current]="j === 0 ? 'true' : null">
+              </button>
+            </div>
+
+            <div class="carousel-inner">
+              <!-- Se crean los elementos del carrusel dinámicamente -->
+              <div *ngFor="let foto of aviso.fotos; let j = index"
+                   [class.active]="j === 0"
+                   class="carousel-item">
+                <img [src]="foto.url" class="d-block w-100" alt="Foto de aviso">
+              </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselExampleIndicators-' + i" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselExampleIndicators-' + i" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
