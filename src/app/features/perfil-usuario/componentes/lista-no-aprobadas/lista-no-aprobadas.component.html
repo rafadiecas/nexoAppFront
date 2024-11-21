@@ -1,53 +1,67 @@
-<div class="row g-4">
-  <div *ngFor="let desaparicion of noAprobadas" class="col-lg-6 col-md-12">
-    <div class="card shadow-sm">
-      <div class="row g-0">
-        <div class="col-md-4 d-flex align-items-center justify-content-center p-2">
-          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              <button
-                *ngFor="let image of desaparicion?.fotos; let i = index"
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                [attr.data-bs-slide-to]="i"
-                [class.active]="i === 0"
-                [attr.aria-current]="i === 0 ? 'true' : null"
-                [attr.aria-label]="'Slide ' + (i + 1)">
-              </button>
-            </div>
-
-            <div class="carousel-inner">
-              <div
-                class="carousel-item"
-                *ngFor="let image of desaparicion?.fotos; let i = index"
-                [class.active]="i === 0">
-                <img [src]="image" class="d-block w-100" alt="...">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <p>
-              <strong>DNI:</strong> {{ desaparicion.persona?.dni }}<br />
-              <strong>Nombre:</strong> {{ desaparicion.persona?.nombre }}<br />
-              <strong>Apellido:</strong> {{ desaparicion.persona?.apellido }}<br />
-              <strong>Nacimiento:</strong> {{ desaparicion.persona?.fechaNacimiento }}<br />
-              <strong>Desaparición:</strong> {{ desaparicion.fecha }}<br />
-              <strong>Sexo:</strong> {{ desaparicion.persona?.sexo }}<br />
-              <strong>Complexión:</strong> {{ desaparicion.persona?.complexion }}<br />
-            </p>
-            <p>
-              <strong>Descripción:</strong> {{ desaparicion.descripcion }}<br />
-              <strong>Lugar:</strong> {{ desaparicion.lugar?.provincia }}, {{desaparicion.lugar?.localidad}}, {{desaparicion.lugar?.calle}}<br />
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="card-footer text-center">
-        <span class="badge bg-danger fs-6">{{ desaparicion.estado }}</span>
-      </div>
-    </div>
+<div class="container">
+  <div class="mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Buscar por nombre o DNI..."
+      [(ngModel)]="filterText"
+      (input)="applyFilter()">
   </div>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>DNI</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of paginatedItems" (click)="irDesaparicion(item.id)">
+      <td>{{ item.nombre }}</td>
+      <td>{{ item.dni }}</td>
+      <td>
+        <button
+          class="btn btn-success"
+          (click)="openModal(modalContent, 'aprobar', item); $event.stopPropagation()">
+          Aprobar
+        </button>
+        <button
+          class="btn btn-danger"
+          (click)="openModal(modalContent, 'denegar', item); $event.stopPropagation()">
+          Denegar
+        </button>
+      </td>
+    </tr>
+    <tr *ngIf="paginatedItems.length === 0">
+      <td colspan="3" class="text-center">No se encontraron resultados</td>
+    </tr>
+    </tbody>
+  </table>
+
+
+  <nav aria-label="Paginación">
+    <ngb-pagination
+      [collectionSize]="filteredItems.length"
+      [(page)]="currentPage"
+      [pageSize]="itemsPerPage"
+      (pageChange)="onPageChange($event)">
+    </ngb-pagination>
+  </nav>
 </div>
 
+  <ng-template #modalContent let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="modal-basic-title">
+        Confirmar {{ accion | titlecase }}
+      </h5>
+      <button type="button" class="btn-close" aria-label="Cerrar" (click)="modal.dismiss('Cerrar')"></button>
+    </div>
+    <div class="modal-body">
+      <p>¿Estás seguro de que deseas {{ accion }} a <strong>{{ itemSeleccionado?.nombre }}</strong>?</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancelar')">Cancelar</button>
+      <button type="button" class="btn btn-primary" (click)="modal.close('Confirmar')">Confirmar</button>
+    </div>
+  </ng-template>

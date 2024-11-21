@@ -31,5 +31,13 @@ export class DesaparicionService {
     return this.http.get<DesaparicionSinVerificar[]>(`${apiUrl}/NoAprobadas`)
   }
 
+  aprobarDesaparicion(id: number){
+    return this.http.put(`${apiUrl}/aprobar?id=${id}`, {});
+  }
+
+  rechazarDesaparicion(id: number){
+    return this.http.post(`${apiUrl}/eliminar?id=${id}`, {});
+  }
+
 
 }
