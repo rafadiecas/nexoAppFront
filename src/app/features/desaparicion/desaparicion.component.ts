@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MapaComponent} from './mapa/mapa.component';
 import {DatosDesaparicionComponent} from "./datos-desaparicion/datos-desaparicion.component";
 import {ComentariosComponent} from './comentarios/comentarios.component';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-desaparicion',
@@ -9,11 +10,15 @@ import {ComentariosComponent} from './comentarios/comentarios.component';
   imports: [
     MapaComponent,
     DatosDesaparicionComponent,
-    ComentariosComponent
+    ComentariosComponent,
+    NgIf
   ],
   templateUrl: './desaparicion.component.html',
   styleUrl: './desaparicion.component.css'
 })
 export class DesaparicionComponent {
-
+  validacion: boolean | undefined;
+  onValidacionChange(validacion: boolean) {
+    this.validacion = validacion;
+  }
 }

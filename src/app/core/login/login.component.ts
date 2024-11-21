@@ -56,14 +56,14 @@ export class LoginComponent implements OnInit{
     this.service.login(this.login).subscribe({
       next: (respuesta) => {
         console.log(respuesta);
-        if(respuesta.token != null){
+        if(respuesta.token == null){
+          this.fallo=true;
+        }else {
           if (respuesta.verificado){
             localStorage.setItem('token' , respuesta.token);
             localStorage.setItem('username', this.usuarioForm.get('usuario')?.value);
             console.log(respuesta);
             this.router.navigate(['']);
-          }else if(respuesta.verificado == null){
-            this.fallo = true;
           }else {
             this.noVerificado = true
           }

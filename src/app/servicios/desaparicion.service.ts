@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { DesaparicionPrincipal } from '../modelos/DesaparicionPrincipal';
 import {DesaparicionIndividual} from '../modelos/DesaparicionIndividual';
+import {DesaparicionSinVerificar} from '../modelos/DesaparicionSinVerificar';
 
 const apiUrl = '/api/desaparicion';
 
@@ -24,6 +25,19 @@ export class DesaparicionService {
 
   guardarDesaparicion(formData: FormData): Observable<any> {
     return this.http.post(`${apiUrl}/guardar`, formData);
+  }
+
+  getNoAprobadas(): Observable<DesaparicionSinVerificar[]>{
+    return this.http.get<DesaparicionSinVerificar[]>(`${apiUrl}/NoAprobadas`)
+  }
+
+  aprobarDesaparicion(id: number): Observable<string> {
+    return this.http.put(`${apiUrl}/aprobar?id=${id}`, {}, { responseType: 'text' });
+  }
+
+
+  rechazarDesaparicion(id: number):Observable<string>{
+    return this.http.put(`${apiUrl}/eliminar?id=${id}`, {},{ responseType: 'text' });
   }
 
 

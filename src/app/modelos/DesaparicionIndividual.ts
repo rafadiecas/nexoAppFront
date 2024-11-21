@@ -8,4 +8,5 @@ export class DesaparicionIndividual{
   descripcion?: string;
   persona?: PersonaIndividual;
   estado?: string;
+  aprobada?: boolean;
 }
