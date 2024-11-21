@@ -45,13 +45,13 @@ export class DatosDesaparicionComponent implements OnInit {
   }
 
   anyadirSeguimiento() {
-    this.usuarioService.anyadirSeguimiento(3, this.id).subscribe(() => {
+    this.usuarioService.anyadirSeguimiento(this.id).subscribe(() => {
       this.seguimiento = true;
     });
   }
 
   eliminarSeguimiento() {
-    this.usuarioService.eliminarSeguimiento(3, this.id).subscribe(() => {
+    this.usuarioService.eliminarSeguimiento(this.id).subscribe(() => {
       this.seguimiento = false;
     });
   }

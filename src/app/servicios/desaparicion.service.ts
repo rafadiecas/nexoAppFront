@@ -31,12 +31,13 @@ export class DesaparicionService {
     return this.http.get<DesaparicionSinVerificar[]>(`${apiUrl}/NoAprobadas`)
   }
 
-  aprobarDesaparicion(id: number){
-    return this.http.put(`${apiUrl}/aprobar?id=${id}`, {});
+  aprobarDesaparicion(id: number): Observable<string> {
+    return this.http.put(`${apiUrl}/aprobar?id=${id}`, {}, { responseType: 'text' });
   }
 
-  rechazarDesaparicion(id: number){
-    return this.http.put(`${apiUrl}/eliminar?id=${id}`, {});
+
+  rechazarDesaparicion(id: number):Observable<string>{
+    return this.http.put(`${apiUrl}/eliminar?id=${id}`, {},{ responseType: 'text' });
   }
 
 
