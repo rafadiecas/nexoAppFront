@@ -5,6 +5,7 @@ import {InputFotosComponent} from '../perfil-usuario/componentes/input-fotos/inp
 import {MapaPrincipalComponent} from './componentes/mapa-principal/mapa-principal.component';
 import {RegistraUsuarioComponent} from '../../core/registra-usuario/registra-usuario.component';
 import {DesaparicionFormComponent} from '../perfil-usuario/componentes/crear-desaparicion/crear-desaparicion.component';
+import {ListaNoAprobadasComponent} from '../perfil-usuario/componentes/lista-no-aprobadas/lista-no-aprobadas.component';
 
 
 @Component({
@@ -13,7 +14,8 @@ import {DesaparicionFormComponent} from '../perfil-usuario/componentes/crear-des
   imports: [
     DesaparicionPrincipalComponent,
     RegistraUsuarioComponent,
-    DesaparicionFormComponent
+    DesaparicionFormComponent,
+    ListaNoAprobadasComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
