@@ -16,8 +16,7 @@ import {ListaNoAprobadasComponent} from '../perfil-usuario/componentes/lista-no-
     DesaparicionPrincipalComponent,
     RegistraUsuarioComponent,
     DesaparicionFormComponent,
-    AvisoPrincipalComponent
-    DesaparicionFormComponent,
+    AvisoPrincipalComponent,
     ListaNoAprobadasComponent
   ],
   templateUrl: './home.component.html',
