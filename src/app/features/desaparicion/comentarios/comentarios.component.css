@@ -37,4 +37,19 @@
   margin-bottom: 5px;
 }
 
+@media (max-width: 576px) {
+  form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  textarea {
+    margin-bottom: 0.5rem;
+  }
+
+  app-input-share {
+    margin-bottom: 0.5rem;
+  }
+}
+
 
