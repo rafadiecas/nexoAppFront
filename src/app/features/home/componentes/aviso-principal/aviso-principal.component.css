@@ -2,10 +2,10 @@
 .sidebar {
   position: fixed;
   top: 0;
-  right: 0;  /* Mueve la barra lateral a la derecha */
-  width: 300px;  /* Ancho de la barra lateral */
+  right: 0; /* Mueve la barra lateral a la derecha */
+  width: 300px; /* Ancho de la barra lateral */
   height: 100%;
-  background-color: #f8f9fa;
+  background-color: var(--bs-light); /* Color de fondo basado en Bootstrap */
   padding: 20px;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1); /* Sombra a la derecha */
   overflow-y: auto;
@@ -14,81 +14,59 @@
 
 /* Aseguramos que el contenido principal tenga margen suficiente a la derecha */
 .main-content {
-  margin-right: 320px;  /* Espacio suficiente para que la barra lateral no lo cubra */
-  margin-top: 20px; /* Ajustamos el margen superior para los avisos */
+  margin-right: 320px; /* Espacio para la barra lateral */
 }
 
 /* Contenedor de los avisos */
 .avisos-container {
   margin-top: 30px;
-  padding-right: 20px;  /* Añadimos algo de espacio a la derecha */
+  padding-right: 20px; /* Espaciado interno para responsividad */
 }
 
 /* Estilo para cada aviso */
-.aviso-card {
-  background-color: #fff;
+.card {
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  margin-bottom: 15px;
   transition: transform 0.3s ease;
 }
 
-/* Hover para animar el aviso */
-.aviso-card:hover {
+/* Hover para animar la tarjeta */
+.card:hover {
   transform: translateY(-5px);
 }
 
 /* Fecha del aviso */
-.aviso-header {
+.card-header {
   font-size: 1rem;
-  color: #007bff;
+  color: var(--bs-primary); /* Usa la paleta de Bootstrap */
   font-weight: bold;
-  margin-bottom: 10px;
 }
 
 /* Descripción del aviso */
-.aviso-description p {
+.card-body p {
   font-size: 1.1rem;
-  color: #333;
+  color: var(--bs-dark);
   line-height: 1.5;
 }
 
 /* Contenedor de las fotos */
-.aviso-photo {
-  margin-top: 15px;
-  text-align: center; /* Centra la imagen */
-}
-
-/* Estilo de la imagen */
-.foto-imagen {
+.carousel img {
   width: 100%;
   max-height: 250px;
   object-fit: cover;
   border-radius: 10px;
 }
 
-/* Media Queries para mejorar la visualización en dispositivos móviles */
+/* Media Queries para dispositivos móviles */
 @media (max-width: 768px) {
-  /* Barra lateral en dispositivos móviles */
   .sidebar {
     width: 100%;
     height: auto;
     position: relative;
-    box-shadow: none; /* Elimina la sombra en dispositivos móviles */
+    box-shadow: none; /* Elimina la sombra en móviles */
   }
 
-  /* Ajustes en los avisos */
   .main-content {
-    margin-right: 0; /* Elimina el margen derecho en pantallas pequeñas */
-  }
-
-  .aviso-card {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 0; /* Elimina el margen derecho en móviles */
   }
 }
-
-/*.mat-form-field {*/
-/*  width: 100%;*/
-/*}*/

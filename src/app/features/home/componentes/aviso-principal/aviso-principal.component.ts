@@ -1,40 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { AvisoService } from '../../../../servicios/aviso.service';  // Asegúrate de importar el servicio correcto
-import { Aviso } from '../../../../modelos/Aviso';  // Asegúrate de tener el modelo adecuado
-import {CrearAvisoComponent} from '../crear-aviso/crear-aviso.component';
+import { AvisoService } from '../../../../servicios/aviso.service';
+import { Aviso } from '../../../../modelos/Aviso';
+import { CrearAvisoComponent } from '../crear-aviso/crear-aviso.component';
+import { MatDialog } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-aviso-principal',
-  templateUrl: './aviso-principal.component.html',
-  imports: [CommonModule,MatDialogModule,
-    MatButtonModule,
-    HttpClientModule,
-    CrearAvisoComponent,MatDialogModule],
   standalone: true,
+  imports: [CommonModule, MatButtonModule, CrearAvisoComponent],
+  templateUrl: './aviso-principal.component.html',
   styleUrls: ['./aviso-principal.component.css']
 })
 export class AvisoPrincipalComponent implements OnInit {
   avisos: Aviso[] = [];
   loading = true;
   errorMessage = '';
-  archivos: File[] = [];
 
-  constructor(private avisoService: AvisoService,private dialog: MatDialog, private http: HttpClient) {}
+  constructor(private avisoService: AvisoService, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.avisoService.getAvisos().subscribe({
       next: (data) => {
-        console.log('Datos recibidos:', data);  // Agrega esta línea para verificar la respuesta
-        this.avisos = data.map(aviso => ({
-          ...aviso,
-          fotos: aviso.fotos ?? []  // Asegúrate de que 'fotos' sea un array vacío si es null o undefined
-        }));
-
+        console.log('Datos recibidos:', data);
+        this.avisos = data;
         this.loading = false;
       },
       error: (err) => {
@@ -51,34 +41,27 @@ export class AvisoPrincipalComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.enviarAviso(result);
+        this.enviarAviso(result); // Llamar al método que envía el aviso creado
       }
     });
   }
 
-
   enviarAviso(aviso: any) {
-    const apiUrl = '/api/aviso/crearAviso';  // Asegúrate de que la URL sea correcta
-
-    // Primero, convertir el objeto de aviso a un string JSON
-    const avisoJson = JSON.stringify(aviso);
-    console.log('Aviso JSON:', avisoJson);  // Agregar log para verificar los datos
-
-    // Crear un objeto FormData para enviar el JSON y los archivos
+    // Aquí, aseguramos que el objeto aviso sea convertido a FormData
     const formData = new FormData();
-
-    // Agregar el aviso como un parámetro de tipo String
-    formData.append('aviso', avisoJson);
-
-    // Si tienes archivos, agrégarlos aquí
-    this.archivos.forEach(file => {
-      formData.append('files', file);
+    formData.append('aviso', JSON.stringify(aviso));  // Convertir el objeto aviso a JSON string
+    aviso.files.forEach((file: File) => {
+      formData.append('files', file);  // Asegurarse de agregar los archivos también
     });
 
-    // Enviar la solicitud POST con FormData
-    this.http.post(apiUrl, formData).subscribe({
-      next: (response) => console.log('Aviso creado:', response),
-      error: (error) => console.error('Error al crear aviso:', error),
+    // Llamar al servicio con FormData
+    this.avisoService.crearAviso(formData).subscribe({
+      next: (response) => {
+        console.log('Aviso creado:', response);
+      },
+      error: (error) => {
+        console.error('Error al crear aviso:', error);
+      }
     });
   }
 }

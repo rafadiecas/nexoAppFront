@@ -2,27 +2,29 @@
 <form [formGroup]="avisoForm" (ngSubmit)="crearAviso()">
   <mat-dialog-content>
 
+    <!-- Campo de Título -->
     <mat-form-field appearance="fill" class="w-100">
       <mat-label>Título</mat-label>
       <input matInput formControlName="texto" required />
+      <mat-error *ngIf="avisoForm.get('texto')?.hasError('required')">El título es obligatorio</mat-error>
     </mat-form-field>
 
+    <!-- Campo de Fecha -->
     <mat-form-field appearance="fill" class="w-100">
       <mat-label>Fecha</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="fecha" required />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="avisoForm.get('fecha')?.hasError('required')">La fecha es obligatoria</mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="fill" class="w-100">
-      <mat-label>ID de Usuario</mat-label>
-      <input matInput formControlName="id_usuario" type="number" required />
-    </mat-form-field>
 
-    <app-input-share></app-input-share>
+    <!-- Selector de Archivos -->
+    <app-input-share (filesChanged)="onFilesChanged($event)"></app-input-share>
 
   </mat-dialog-content>
 
+  <!-- Botones de Acción -->
   <mat-dialog-actions align="end">
     <button mat-button type="button" mat-dialog-close>Cancelar</button>
     <button mat-raised-button color="primary" type="submit" [disabled]="avisoForm.invalid">Crear</button>
