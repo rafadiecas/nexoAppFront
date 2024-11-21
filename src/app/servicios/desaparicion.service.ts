@@ -36,7 +36,7 @@ export class DesaparicionService {
   }
 
   rechazarDesaparicion(id: number){
-    return this.http.post(`${apiUrl}/eliminar?id=${id}`, {});
+    return this.http.put(`${apiUrl}/eliminar?id=${id}`, {});
   }
 
 

@@ -5,4 +5,5 @@ export class DesaparicionSinVerificar{
   dni?: string;
   nombre?: string;
   id?: number;
+  apellido?: string;
 }

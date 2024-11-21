@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {DesaparicionService} from '../../../../servicios/desaparicion.service';
 import {DesaparicionIndividual} from '../../../../modelos/DesaparicionIndividual';
 import {NgForOf, NgIf, TitleCasePipe} from '@angular/common';
@@ -29,7 +29,7 @@ export class ListaNoAprobadasComponent implements OnInit {
   paginatedItems: DesaparicionSinVerificar[] = [];
 
   filterText: string = '';
-  itemsPerPage: number = 5;
+  itemsPerPage: number = 6;
   currentPage: number = 1;
   totalPages: number[] = [];
   accion: string = '';
@@ -49,6 +49,7 @@ export class ListaNoAprobadasComponent implements OnInit {
       (error) => console.error('Error al cargar los datos', error)
     );
   }
+
 
   setupPagination(): void {
     const totalItems = this.filteredItems.length;
@@ -106,11 +107,20 @@ export class ListaNoAprobadasComponent implements OnInit {
 
   confirmAction(action: string, item: any): void {
     if (action === 'aprobar') {
-      this.desaparicionService.aprobarDesaparicion(item.id)
+      this.desaparicionService.aprobarDesaparicion(item.id).subscribe(
+        () => {
+          this.cargaobjetos();
+        },
+        (error) => console.error('Error al aprobar desaparición', error)
+      );
     } else if (action === 'denegar') {
-      this.desaparicionService.rechazarDesaparicion(item.id);
+      this.desaparicionService.rechazarDesaparicion(item.id).subscribe(
+        () => {
+          this.cargaobjetos();
+        },
+        (error) => console.error('Error al denegar desaparición', error)
+      );
     }
-    this.cargaobjetos();
   }
 
 }

@@ -3,6 +3,8 @@
     <div *ngFor="let comentario of comentarios" class="card mb-3 border rounded-3 shadow-sm">
       <div class="card-body">
         <p class="fw-bold text-primary mb-1">{{ comentario.nombre }}</p>
+        <p *ngIf="desapariciones.length!==0" class="fst-italic text-secondary m-0">{{ comentario.email }}</p>
+        <p *ngIf="desapariciones.length!==0" class="fst-italic text-secondary m-0">{{ comentario.telefono }}</p>
         <p class="mb-2">{{ comentario.texto }}</p>
         <div *ngIf="comentario.fotos && comentario.fotos.length > 0" class="d-flex flex-wrap gap-2">
           <p *ngFor="let foto of comentario.fotos" class="fst-italic text-primary m-0" role="button" (click)="openImageDialog(foto)">

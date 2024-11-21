@@ -9,6 +9,8 @@ import {CommonModule} from '@angular/common';
 import {InputShareComponent} from '../../../shared/input-share/input-share.component';
 import {MatDialog} from '@angular/material/dialog';
 import {ImageDialogComponent} from '../image-dialog/image-dialog.component';
+import {DesaparicionLista} from '../../../modelos/DesaparicionLista';
+import {CivilService} from '../../../servicios/civil.service';
 
 @Component({
   selector: 'app-comentarios',
@@ -22,18 +24,29 @@ export class ComentariosComponent implements OnInit {
   id?: number;
   private archivos: File[] = [];
   comentarioForm!: FormGroup;
+  desapariciones:DesaparicionLista[] = [];
 
   constructor(
     private comentarioService: ComentarioService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private civilService: CivilService
   ) {}
 
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.cargarComentarios(this.id);
     this.inicializarFormulario();
+    this.civilService.listaDesapariciones().subscribe({
+      next: (data) => {
+        this.desapariciones = data;
+        this.desapariciones = this.desapariciones.filter(desaparicion => desaparicion.id === this.id);
+      },
+      error: (err) => {
+        console.error('Error al cargar desapariciones:', err);
+      }
+    });
   }
 
   openImageDialog(imageUrl: string): void {
@@ -90,11 +103,11 @@ export class ComentariosComponent implements OnInit {
     this.comentarioService.crearComentario(nuevoComentario, this.archivos).subscribe({
       next: (response) => {
         console.log('Comentario creado:', response);
-        this.cargarComentarios(this.id!);
-        this.comentarioForm.reset();
-        this.archivos = [];
       },
       error: (error) => console.error('Error al crear el comentario:', error)
     });
+    this.cargarComentarios(this.id!);
+    this.comentarioForm.reset();
+    this.archivos = [];
   }
 }

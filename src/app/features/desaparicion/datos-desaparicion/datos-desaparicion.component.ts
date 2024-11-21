@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {DesaparicionService} from '../../../servicios/desaparicion.service';
 import {DesaparicionIndividual} from '../../../modelos/DesaparicionIndividual';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -21,6 +21,8 @@ export class DatosDesaparicionComponent implements OnInit {
   id!: number;
   desaparicionIndividual?: DesaparicionIndividual;
   seguimiento: boolean = false;
+  @Output() validacionChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+  validacion: boolean | undefined = false;
 
   constructor(
     private desaparicionService: DesaparicionService,
@@ -32,7 +34,11 @@ export class DatosDesaparicionComponent implements OnInit {
 
   ngOnInit() {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
-    this.desaparicionService.getDesaparicionIndividual(this.id).subscribe(desaparicion => this.desaparicionIndividual = desaparicion);
+    this.desaparicionService.getDesaparicionIndividual(this.id).subscribe(desaparicion => {
+      this.desaparicionIndividual = desaparicion;
+      this.validacion = this.desaparicionIndividual?.aprobada;
+      this.validacionChange.emit(this.validacion);
+    });
     this.civilService.listaSeguimiento().subscribe(desapariciones => {
       this.seguimiento = desapariciones.some(desaparicion => desaparicion.id === this.id);
     });
