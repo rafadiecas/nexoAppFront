@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
 import {MatGridList, MatGridTile} from "@angular/material/grid-list";
 import {MatIcon} from "@angular/material/icon";
-import {NgForOf, NgIf} from "@angular/common";
+import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {FileData} from '../../modelos/FileData';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
@@ -13,52 +13,62 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
     MatGridTile,
     MatIcon,
     NgForOf,
-    NgIf
+    NgIf,
+    NgClass
   ],
   templateUrl: './input-share.component.html',
   styleUrls: ['./input-share.component.css']
 })
 export class InputShareComponent {
+
   @ViewChild('errorModal') errorModal: any;
   @ViewChild('maxmodal') maxModal: any;
 
   @Output() filesChanged = new EventEmitter<FileData[]>();
   allFiles: FileData[] = [];
+  firstImageSelected = false;
+
 
   constructor(private modalService: NgbModal) {}
 
-  onFileSelect(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const files = input.files;
+  onFileSelect(event: any, type: number): void {
+    const files = event.target.files;
 
-    if (!files || files.length === 0) return;
+    if (files.length > 0) {
+      // Si se selecciona un archivo y es la primera imagen
+      if (type === 1) {
+        this.firstImageSelected = true; // Se habilita el segundo input
+      }
 
-    for (const file of Array.from(files)) {
-      if (!file.type.startsWith('image/')) {
-        this.modalService.open(this.errorModal);
-        return;
+      // Procesamos cada archivo seleccionado
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+
+        // Leemos el archivo como URL de imagen (base64)
+        reader.onload = (e: any) => {
+          const imageUrl = e.target.result;
+          this.allFiles.push({ url: imageUrl });
+        };
+
+        reader.readAsDataURL(file);
       }
     }
-
-    const remainingSlots = 2 - this.allFiles.length;
-    if (files.length > remainingSlots) {
-      this.modalService.open(this.maxModal);
-      input.value = '';
-      return;
-    }
-
-    Array.from(files).slice(0, remainingSlots).forEach(file => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.allFiles.push({file, url: reader.result as string});
-        this.filesChanged.emit(this.allFiles);
-      };
-      reader.readAsDataURL(file);
-    });
   }
 
-  onImageClick(i: number): void {
-    this.allFiles.splice(i, 1);
+  onImageClick(i: number) {
+    if (i === 0) {
+      this.allFiles = [];
+      this.firstImageSelected = false;
+    } else {
+      this.allFiles.splice(i, 1);
+    }
+
+    this.emitFiles();
+  }
+
+
+  private emitFiles() {
     this.filesChanged.emit(this.allFiles);
   }
 }
