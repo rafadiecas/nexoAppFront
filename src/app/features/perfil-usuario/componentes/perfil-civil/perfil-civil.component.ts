@@ -22,8 +22,19 @@ import {DesaparicionFormComponent} from '../crear-desaparicion/crear-desaparicio
 })
 export class PerfilCivilComponent {
   selectedOption: string = 'editar';
-
-
+  iconoUsuario: string = 'account_circle'
+  menuOptions = [
+    { label: 'Editar', value: 'editar' },
+    { label: 'Desapariciones', value: 'desapariciones' },
+    { label: 'Seguimiento', value: 'seguimiento' },
+    { label: 'Añadir', value: 'anyadir' },
+  ];//cambiar esto para que lo pueda recivir del padre
+  mapaDeIconos = {
+    editar: 'edit',
+    desapariciones: 'search',
+    seguimiento: 'track_changes',
+    anyadir: 'add_circle',
+  };
   onOptionSelected(option: string) {
     this.selectedOption = option;
   }

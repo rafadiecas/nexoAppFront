@@ -5,6 +5,7 @@ import {DesaparicionComponent} from './features/desaparicion/desaparicion.compon
 import {LoginComponent} from './core/login/login.component';
 import {RegistraUsuarioComponent} from './core/registra-usuario/registra-usuario.component';
 import {AdminPanelComponent} from './features/admin-panel/admin-panel.component';
+import {VistaAutoridadComponent} from './features/perfil-autoridad/vista-autoridad/vista-autoridad.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,5 +13,6 @@ export const routes: Routes = [
   { path: 'usuario/civil', component:PerfilCivilComponent },
   { path: 'desaparicion/:id', component: DesaparicionComponent },
   { path: 'admin', component: AdminPanelComponent },
-  { path: 'registro', component: RegistraUsuarioComponent }
+  { path: 'registro', component: RegistraUsuarioComponent },
+  { path: 'autoridad', component: VistaAutoridadComponent }
 ];
