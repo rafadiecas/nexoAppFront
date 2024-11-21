@@ -33,7 +33,11 @@
           <input id="id_usuario" formControlName="id_usuario" type="text" class="form-control" required>
         </div>
       </div>
+      <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
+    </div>
 
+    <!-- Paso 2 -->
+    <div *ngIf="currentStep === 1" class="step-content">
       <div formGroupName="personaDTO" class="row g-3">
         <div class="col-md-6">
           <label for="dni" class="form-label">DNI:</label>
@@ -67,13 +71,14 @@
             <option *ngFor="let option of complexionOptions" [value]="option">{{ option }}</option>
           </select>
         </div>
-
+        <app-input-fotos (filesChanged)="onFilesChanged($event)"></app-input-fotos>
       </div>
+      <button type="button" class="btn btn-secondary" (click)="prevStep()">Anterior</button>
       <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
     </div>
 
-    <!-- Paso 2 -->
-    <div *ngIf="currentStep === 1" class="step-content">
+    <!-- Paso 3 -->
+    <div *ngIf="currentStep === 2" class="step-content">
       <h4>Detalles de Contacto</h4>
       <div formGroupName="lugarDTO" class="row g-3">
         <app-localizacion (addressChanged)="onAddressChanged($event)"></app-localizacion>
@@ -82,12 +87,27 @@
       <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
     </div>
 
-    <!-- Paso 3 -->
-    <div *ngIf="currentStep === 2" class="step-content">
-      <h4>Confirmación</h4>
-      <app-input-fotos (filesChanged)="onFilesChanged($event)"></app-input-fotos>
+
+
+    <!-- Paso 5 -->
+    <div *ngIf="currentStep === 3" class="step-content">
+      <h4>Envío</h4>
       <button type="button" class="btn btn-secondary" (click)="prevStep()">Anterior</button>
-      <button type="submit" class="btn btn-success">Enviar</button>
+      <button type="submit" class="btn btn-success" [disabled]="desaparicionForm.invalid">Enviar</button>
     </div>
+
+    <!-- Toast container -->
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 11">
+      <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Notificación</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Formulario enviado con éxito
+        </div>
+      </div>
+    </div>
+
   </form>
 </div>

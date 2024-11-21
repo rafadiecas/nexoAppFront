@@ -28,13 +28,13 @@ export class DesaparicionFormComponent {
   sexoOptions = Object.values(Sexo); // Obtenemos las opciones del enum Sexo
   complexionOptions = Object.values(Complexion); // Obtenemos las opciones del enum Complexion
   currentStep = 0;
-  steps = ['Paso 1', 'Paso 2', 'Paso 3']
+  steps = ['Paso 1', 'Paso 2', 'Paso 3', 'Paso 4']
 
   constructor(private fb: FormBuilder, private desaparicionService: DesaparicionService) {
     this.desaparicionForm = this.fb.group({
-      fecha: ['', Validators.required],
-      descripcion: ['', Validators.required],
-      id_usuario: ['', Validators.required],
+      fecha: [],
+      descripcion: [],
+      id_usuario: [],
       personaDTO: this.fb.group({
         dni: ['', Validators.required],
         nombre: ['', Validators.required],
@@ -63,6 +63,11 @@ export class DesaparicionFormComponent {
   }
 
   nextStep() {
+    if (this.currentStep === 0) {
+      this.currentStep++;
+      return;
+    }
+
     const currentFormGroup = this.getCurrentStepGroup();
     if (currentFormGroup && currentFormGroup.valid) {
       this.currentStep++;
@@ -88,8 +93,9 @@ export class DesaparicionFormComponent {
 
   getCurrentStepGroup(): FormGroup | null {
     switch (this.currentStep) {
-      case 0: return this.desaparicionForm.get('personaDTO') as FormGroup;
-      case 1: return this.desaparicionForm.get('lugarDTO') as FormGroup;
+      case 0: return this.desaparicionForm; // Incluye los campos fecha, descripcion, id_usuario
+      case 1: return this.desaparicionForm.get('personaDTO') as FormGroup;
+      case 2: return this.desaparicionForm.get('lugarDTO') as FormGroup;
       default: return null;
     }
   }
@@ -112,16 +118,16 @@ export class DesaparicionFormComponent {
     this.desaparicionService.guardarDesaparicion(formData).subscribe({
       next: (response) => {
         console.log('Respuesta del servidor:', response);
-        // Aquí puedes redirigir al usuario o mostrar un mensaje de éxito
       },
       error: (error) => {
         console.error('Error al guardar la desaparición:', error);
-        // Maneja el error según sea necesario
       }
     });
 
     console.log('Datos de desaparición enviados:', formData);
     // Aquí realiza la petición HTTP usando un servicio HttpClient
     // this.http.post('/guardar', formData).subscribe(response => console.log(response));
+
   }
+
 }
