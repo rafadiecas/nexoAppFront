@@ -26,8 +26,11 @@
                     <div *ngIf="fallo" class="form-outline mb-4 text-danger">
                       Contraseña incorrecta.
                     </div>
-                    <div *ngIf="noVerificado" class="form-outline mb-4 text-danger">
+                    <div *ngIf="noVerificado && !fallo" class="form-outline mb-4 text-danger">
                       Usuario no verificado.
+                    </div>
+                    <div *ngIf="usuarioNoExiste" class="form-outline mb-4 text-danger">
+                      Usuario no existe.
                     </div>
                     <button type="submit" class="btn w-100 btn-primary" [disabled]="usuarioForm.invalid">Registrarse</button>
                   </form>
