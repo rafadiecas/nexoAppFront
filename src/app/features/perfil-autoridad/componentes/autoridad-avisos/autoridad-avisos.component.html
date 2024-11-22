@@ -20,7 +20,7 @@
           <div class="col-md-3">
             <strong>Fecha</strong>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 text-end">
             <strong>Acciones</strong>
           </div>
         </div>
@@ -32,7 +32,7 @@
       <div class="col-sm-4 col-lg-12 mt-2 mb-2" *ngFor="let aviso of paginatedAvisos">
         <div class="row p-3 bg-light border rounded-3 shadow-sm">
           <div class="col-md-6">
-            {{ aviso.usuarioId }}
+            {{ aviso.username }}
           </div>
           <div class="col-md-3">
             {{ aviso.fecha | date:'dd/MM/yyyy' }}
@@ -68,7 +68,7 @@
     <button type="button" class="btn-close" aria-label="Cerrar" (click)="modal.dismiss('Cerrar')"></button>
   </div>
   <div class="modal-body">
-    <p>¿Estás seguro de que deseas eliminar este aviso del usuario con ID <strong>{{ itemSeleccionado?.usuarioId }}</strong>?</p>
+    <p>¿Estás seguro de que deseas eliminar este aviso del usuario <strong>{{ itemSeleccionado?.username }}</strong>?</p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancelar')">Cancelar</button>

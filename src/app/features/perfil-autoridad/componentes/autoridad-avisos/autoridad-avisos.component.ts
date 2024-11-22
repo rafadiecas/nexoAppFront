@@ -32,11 +32,13 @@ export class AutoridadAvisosComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarAvisos();
+
   }
 
   cargarAvisos(): void {
-    this.avisoService.getAvisos().subscribe((data: Aviso[]) => {
+    this.avisoService.getAvisosAutoridad().subscribe((data: Aviso[]) => {
         this.avisos = data;
+        console.log(this.avisos)
         this.filteredAvisos = [...this.avisos];
         this.setupPagination();
       },
@@ -65,7 +67,7 @@ export class AutoridadAvisosComponent implements OnInit {
   applyFilter(): void {
     const text = this.filterText.toLowerCase();
     this.filteredAvisos = this.avisos.filter(item =>
-      item.usuarioId?.toString().toLowerCase().includes(text)
+      item.id_usuario?.toString().toLowerCase().includes(text)
     );
     this.setupPagination();
   }
@@ -88,8 +90,8 @@ export class AutoridadAvisosComponent implements OnInit {
   }
 
   confirmAction(action: string, item: Aviso): void {
-    if (action === 'eliminar' && item.usuarioId) {
-      this.avisoService.eliminarAviso(item.usuarioId).subscribe(
+    if (action === 'eliminar' && item.id) {
+      this.avisoService.eliminarAviso(item.id).subscribe(
         () => {
           this.cargarAvisos();
         },
