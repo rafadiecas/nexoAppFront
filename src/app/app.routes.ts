@@ -6,6 +6,7 @@ import {LoginComponent} from './core/login/login.component';
 import {RegistraUsuarioComponent} from './core/registra-usuario/registra-usuario.component';
 import {AdminPanelComponent} from './features/admin-panel/admin-panel.component';
 import {AutoridadAvisosComponent} from './features/perfil-autoridad/componentes/autoridad-avisos/autoridad-avisos.component';
+import {MostrarmasComponent} from './features/home/componentes/mostrarmas/mostrarmas.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,4 +16,5 @@ export const routes: Routes = [
   { path: 'admin', component: AdminPanelComponent },
   { path: 'registro', component: RegistraUsuarioComponent },
   { path: 'autoridad/avisos', component: AutoridadAvisosComponent },
+  { path: 'mostrar', component: MostrarmasComponent },
 ];

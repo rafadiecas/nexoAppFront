@@ -15,7 +15,7 @@ import {MatTooltip} from '@angular/material/tooltip';
     MatIcon,
     NgForOf,
     NgIf,
-    NgClass
+    NgClass,
     NgIf,
     MatTooltip
   ],
