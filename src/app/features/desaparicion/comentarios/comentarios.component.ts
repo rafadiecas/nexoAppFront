@@ -30,6 +30,7 @@ export class ComentariosComponent implements OnInit {
   constructor(
     private comentarioService: ComentarioService,
     private dialog: MatDialog,
+    private dialogImage: MatDialog,
     private route: ActivatedRoute,
     private civilService: CivilService
   ) {}
@@ -82,6 +83,15 @@ export class ComentariosComponent implements OnInit {
         this.enviarComentario(result);
       }
     });
+  }
+
+  abrirDialogoImagen(foto:string): void {
+
+    this.dialogImage.open(ImageDialogComponent, {
+      width: "80%",
+      data: { imageUrl:foto  }
+    });
+
   }
 
 

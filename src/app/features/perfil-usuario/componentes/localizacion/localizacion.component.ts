@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LocalizacionService } from '../../../../servicios/localizacion.service';
 import {NgForOf, NgIf, SlicePipe} from '@angular/common';
