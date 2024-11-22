@@ -17,7 +17,7 @@ export const routes: Routes = [
   { path: 'desaparicion/:id', component: DesaparicionComponent },
   { path: 'admin', component: AdminPanelComponent },
   { path: 'registro', component: RegistraUsuarioComponent },
-  {path: 'usuario/listaUsuarios', component: AdminUsuariosComponent}
+  {path: 'usuario/listaUsuarios', component: AdminUsuariosComponent},
   { path: 'registro', component: RegistraUsuarioComponent },
   { path: 'autoridad/avisos', component: AutoridadAvisosComponent },
   { path: 'admin/avisos', component: AdminAvisosComponent },
