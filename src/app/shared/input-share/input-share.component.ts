@@ -4,6 +4,7 @@ import {MatIcon} from "@angular/material/icon";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {FileData} from '../../modelos/FileData';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {MatTooltip} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-input-share',
@@ -15,6 +16,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
     NgForOf,
     NgIf,
     NgClass
+    NgIf,
+    MatTooltip
   ],
   templateUrl: './input-share.component.html',
   styleUrls: ['./input-share.component.css']

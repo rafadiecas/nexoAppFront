@@ -6,6 +6,8 @@ import { NgForOf, TitleCasePipe, NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { EditaDialogComponent } from '../edita-dialog/edita-dialog.component';
+import {MatIcon} from '@angular/material/icon';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-edita-desaparicion-autoridad',
@@ -16,13 +18,14 @@ import { EditaDialogComponent } from '../edita-dialog/edita-dialog.component';
     ReactiveFormsModule,
     TitleCasePipe,
     FormsModule,
-    NgIf
+    NgIf,
+    MatIcon
   ],
   templateUrl: './edita-desaparicion-autoridad.component.html',
   styleUrls: ['./edita-desaparicion-autoridad.component.css']
 })
 export class EditaDesaparicionAutoridadComponent implements OnInit {
-  constructor(private desaparicionService: DesaparicionService, private dialog: MatDialog) {}
+  constructor(private desaparicionService: DesaparicionService, private dialog: MatDialog,private route:Router) {}
 
   desapariciones: DesaparicionPrincipal[] = [];
   filteredItems: DesaparicionPrincipal[] = [];
@@ -79,6 +82,15 @@ export class EditaDesaparicionAutoridadComponent implements OnInit {
     } else {
       console.error('El ID de la desaparición es undefined.');
     }
+  }
+
+  redirect(id: number | undefined):void{
+    if(id === undefined){
+      console.error('El ID de la desaparición es undefined.');
+      return;
+    }
+    this.route.navigate(['/desaparicion',id]);
+
   }
 
   applyFilter(): void {
