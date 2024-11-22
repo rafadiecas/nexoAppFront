@@ -1,10 +1,11 @@
-import {ChangeDetectorRef, Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
 import {DesaparicionService} from '../../../servicios/desaparicion.service';
 import {DesaparicionIndividual} from '../../../modelos/DesaparicionIndividual';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgForOf, NgIf} from '@angular/common';
 import {UsuarioService} from '../../../servicios/usuario.service';
 import {CivilService} from '../../../servicios/civil.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-datos-desaparicion',
@@ -23,6 +24,7 @@ export class DatosDesaparicionComponent implements OnInit {
   seguimiento: boolean = false;
   @Output() validacionChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   validacion: boolean | undefined = false;
+  private snackBar=Inject(MatSnackBar)
 
   constructor(
     private desaparicionService: DesaparicionService,
@@ -47,12 +49,18 @@ export class DatosDesaparicionComponent implements OnInit {
   anyadirSeguimiento() {
     this.usuarioService.anyadirSeguimiento(this.id).subscribe(() => {
       this.seguimiento = true;
+      this.snackBar.open('Desaparición añadida a seguimiento', 'Cerrar', {
+        duration: 3000
+      });
     });
   }
 
   eliminarSeguimiento() {
     this.usuarioService.eliminarSeguimiento(this.id).subscribe(() => {
       this.seguimiento = false;
+      this.snackBar.open('Desaparición eliminada de seguimiento', 'Cerrar', {
+        duration: 3000
+      });
     });
   }
 }

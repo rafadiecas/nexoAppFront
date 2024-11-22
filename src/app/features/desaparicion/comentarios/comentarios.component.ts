@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {Component, inject, Input, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { Comentario } from '../../../modelos/Comentario';
 import { ActivatedRoute } from '@angular/router';
 import { ComentarioService } from '../../../servicios/comentario.service';
@@ -11,33 +11,36 @@ import {MatDialog} from '@angular/material/dialog';
 import {ImageDialogComponent} from '../image-dialog/image-dialog.component';
 import {DesaparicionLista} from '../../../modelos/DesaparicionLista';
 import {CivilService} from '../../../servicios/civil.service';
+import {ComentarioDialogComponent} from '../comentario-dialog/comentario-dialog.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-comentarios',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, InputShareComponent],
+  imports: [ReactiveFormsModule, CommonModule, InputShareComponent, FormsModule, ],
   templateUrl: './comentarios.component.html',
   styleUrls: ['./comentarios.component.css']
 })
 export class ComentariosComponent implements OnInit {
   comentarios: ComentarioListar[] = [];
+  textoComentario = '';
+  archivos: File[] = [];
   id?: number;
-  private archivos: File[] = [];
-  comentarioForm!: FormGroup;
-  desapariciones:DesaparicionLista[] = [];
+  desapariciones: DesaparicionLista[] = [];
+  private snackBar = inject(MatSnackBar);
 
   constructor(
     private comentarioService: ComentarioService,
-    private route: ActivatedRoute,
-    private fb: FormBuilder,
     private dialog: MatDialog,
+    private dialogImage: MatDialog,
+    private route: ActivatedRoute,
     private civilService: CivilService
   ) {}
 
   ngOnInit(): void {
+
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.cargarComentarios(this.id);
-    this.inicializarFormulario();
     this.civilService.listaDesapariciones().subscribe({
       next: (data) => {
         this.desapariciones = data;
@@ -47,67 +50,71 @@ export class ComentariosComponent implements OnInit {
         console.error('Error al cargar desapariciones:', err);
       }
     });
+
   }
 
-  openImageDialog(imageUrl: string): void {
-    this.dialog.open(ImageDialogComponent, {
-      data: { imageUrl },
-      width: '80%',
-      maxWidth: '600px'
-    });
-  }
-
-  /**
-   * Inicializa el formulario reactivo con sus validaciones.
-   */
-  inicializarFormulario(): void {
-    this.comentarioForm = this.fb.group({
-      nombre: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      telefono: [null],
-      texto: ['', [Validators.required]]
-    });
-  }
 
   onFilesChanged(filesData: FileData[]): void {
     this.archivos = filesData.map(fileData => fileData.file as File);
   }
 
-  /**
-   * Carga los comentarios de una desaparición específica.
-   * @param desaparicionId ID de la desaparición.
-   */
   cargarComentarios(desaparicionId: number): void {
     this.comentarioService.obtenerComentariosPorDesaparicion(desaparicionId).subscribe({
-      next: (data) => {
+      next: data => {
         this.comentarios = data;
-        console.log('Comentarios cargados:', this.comentarios);
+        this.comentarios = this.comentarios.reverse();
       },
-      error: (err) => {
-        console.error('Error al cargar comentarios:', err);
+      error: err => console.error('Error al cargar comentarios:', err)
+    });
+  }
+
+
+  abrirDialogo(): void {
+    if (!this.textoComentario) {
+      console.error('El texto del comentario es obligatorio.');
+      return;
+    }
+
+    const dialogRef = this.dialog.open(ComentarioDialogComponent, {
+      width: "80%",
+      data: { nombre: '', email: '', telefono: '' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.enviarComentario(result);
       }
     });
   }
 
-  enviarComentario(): void {
-    if (this.comentarioForm.invalid) {
-      this.comentarioForm.markAllAsTouched();
-      return;
-    }
+  abrirDialogoImagen(foto:string): void {
 
-    const nuevoComentario: Comentario = {
-      ...this.comentarioForm.value,
-      desaparicionId: this.id!
+    this.dialogImage.open(ImageDialogComponent, {
+      width: "80%",
+      data: { imageUrl:foto  }
+    });
+
+  }
+
+
+  enviarComentario(datosAdicionales: any): void {
+    const nuevoComentario = {
+      texto: this.textoComentario,
+      desaparicionId: this.id,
+      ...datosAdicionales
     };
 
     this.comentarioService.crearComentario(nuevoComentario, this.archivos).subscribe({
-      next: (response) => {
+      next: response => {
         console.log('Comentario creado:', response);
+        this.cargarComentarios(this.id!);
+        this.textoComentario = '';
+        this.archivos = [];
+        this.snackBar.open('Comentario creado con exito', 'Cerrar', {
+          duration: 3000
+        });
       },
-      error: (error) => console.error('Error al crear el comentario:', error)
+      error: err => console.error('Error al crear comentario:', err)
     });
-    this.cargarComentarios(this.id!);
-    this.comentarioForm.reset();
-    this.archivos = [];
   }
 }
