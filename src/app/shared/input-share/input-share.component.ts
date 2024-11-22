@@ -34,12 +34,12 @@ export class InputShareComponent {
 
   constructor(private modalService: NgbModal) {}
 
-  onFileSelect(event: any, type: number): void {
+  onFileSelect(event: any): void {
     const files = event.target.files;
 
     if (files.length > 0) {
       // Si se selecciona un archivo y es la primera imagen
-      if (type === 1) {
+      if (!this.firstImageSelected && files[0].type.startsWith('image/')) {
         this.firstImageSelected = true; // Se habilita el segundo input
       }
 

@@ -1,0 +1,40 @@
+<div>
+  <form (ngSubmit)="buscarDesapariciones()">
+    <label for="fecha">Fecha:</label>
+    <input type="date" [(ngModel)]="filtro.fecha" name="fecha" id="fecha">
+
+    <label for="estado">Estado:</label>
+    <select id="estado" [(ngModel)]="filtro.estado" name="estado">
+      <option value="">Seleccionar</option>
+      <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+    </select>
+
+    <label for="dni">DNI:</label>
+    <input type="text" [(ngModel)]="filtro.dni" name="dni" id="dni">
+
+    <label for="nombrePersona">Nombre:</label>
+    <input type="text" [(ngModel)]="filtro.nombrePersona" name="nombrePersona" id="nombrePersona">
+
+    <label for="apellidoPersona">Apellido:</label>
+    <input type="text" [(ngModel)]="filtro.apellidoPersona" name="apellidoPersona" id="apellidoPersona">
+
+    <label for="nombreLugar">Lugar:</label>
+    <input type="text" [(ngModel)]="filtro.nombreLugar" name="nombreLugar" id="nombreLugar">
+
+    <label for="sexo">Sexo:</label>
+    <select id="sexo" [(ngModel)]="filtro.sexo" name="sexo">
+      <option value="">Seleccionar</option>
+      <option *ngFor="let sexo of sexos" [value]="sexo">{{ sexo }}</option>
+    </select>
+
+    <button type="submit">Buscar</button>
+  </form>
+</div>
+
+<div *ngIf="desapariciones.length > 0">
+  <ul>
+    <li *ngFor="let desaparicion of desapariciones">
+      {{ desaparicion.nombrePersona }} - {{ desaparicion.estado }}
+    </li>
+  </ul>
+</div>
