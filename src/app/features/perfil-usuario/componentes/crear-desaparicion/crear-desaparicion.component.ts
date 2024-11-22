@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputFotosComponent } from '../input-fotos/input-fotos.component';
 import { LocalizacionComponent } from '../localizacion/localizacion.component'; // Importamos LocalizacionComponent
@@ -8,6 +8,7 @@ import { Complexion } from '../../../../modelos/Complexion';
 import {NgForOf} from '@angular/common';
 import {DesaparicionService} from '../../../../servicios/desaparicion.service'; // Importamos el enum Complexion
 import {CommonModule} from '@angular/common';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-crear-desaparicion',
@@ -29,6 +30,7 @@ export class DesaparicionFormComponent {
   complexionOptions = Object.values(Complexion); // Obtenemos las opciones del enum Complexion
   currentStep = 0;
   steps = ['Paso 1', 'Paso 2', 'Paso 3', 'Paso 4']
+  private snackBar = inject(MatSnackBar);
 
   constructor(private fb: FormBuilder, private desaparicionService: DesaparicionService) {
     this.desaparicionForm = this.fb.group({
@@ -40,9 +42,9 @@ export class DesaparicionFormComponent {
         nombre: ['', Validators.required],
         apellido: ['', Validators.required],
         fechaNacimiento: ['', Validators.required],
-        sexo: ['', Validators.required], // Utilizamos las opciones del enum Sexo
+        sexo: ['', Validators.required],
         altura: [null, Validators.required],
-        complexion: ['', Validators.required], // Utilizamos las opciones del enum Complexion
+        complexion: ['', Validators.required],
         descripcion: [''],
       }),
       lugarDTO: this.fb.group({
@@ -118,15 +120,20 @@ export class DesaparicionFormComponent {
     this.desaparicionService.guardarDesaparicion(formData).subscribe({
       next: (response) => {
         console.log('Respuesta del servidor:', response);
+        this.snackBar.open('Desaparicion creada con éxito', 'Cerrar', {
+          duration: 3000
+        });
       },
       error: (error) => {
         console.error('Error al guardar la desaparición:', error);
+        this.snackBar.open('Error al crear la desaparicion', 'Cerrar', {
+          duration: 3000
+        });
       }
     });
 
     console.log('Datos de desaparición enviados:', formData);
-    // Aquí realiza la petición HTTP usando un servicio HttpClient
-    // this.http.post('/guardar', formData).subscribe(response => console.log(response));
+
 
   }
 

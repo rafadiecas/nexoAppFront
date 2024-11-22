@@ -4,6 +4,7 @@ import {MatIcon} from "@angular/material/icon";
 import {NgForOf, NgIf} from "@angular/common";
 import {FileData} from '../../modelos/FileData';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {MatTooltip} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-input-share',
@@ -13,7 +14,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
     MatGridTile,
     MatIcon,
     NgForOf,
-    NgIf
+    NgIf,
+    MatTooltip
   ],
   templateUrl: './input-share.component.html',
   styleUrls: ['./input-share.component.css']

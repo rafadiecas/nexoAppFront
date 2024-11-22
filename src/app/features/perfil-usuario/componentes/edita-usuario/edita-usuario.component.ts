@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {CivilService} from '../../../../servicios/civil.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edita-usuario',
@@ -13,6 +14,7 @@ import {CivilService} from '../../../../servicios/civil.service';
 })
 export class EditaUsuarioComponent implements OnInit{
   civilForm: FormGroup;
+  private snackBar = inject(MatSnackBar);
 
   constructor(private fb: FormBuilder, private civilService:CivilService) {
     this.civilForm = this.fb.group({
@@ -43,6 +45,10 @@ export class EditaUsuarioComponent implements OnInit{
             this.civilForm.patchValue(civil);
 
             this.civilForm.get('dni')?.disable();
+
+            this.snackBar.open('Usuario editado con éxito', 'Cerrar', {
+              duration: 3000
+            });
           });
         },
         error: (error) => {
@@ -53,6 +59,5 @@ export class EditaUsuarioComponent implements OnInit{
       });
     }
   }
-
 
 }
