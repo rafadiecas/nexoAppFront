@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, inject, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { Comentario } from '../../../modelos/Comentario';
 import { ActivatedRoute } from '@angular/router';
@@ -12,6 +12,7 @@ import {ImageDialogComponent} from '../image-dialog/image-dialog.component';
 import {DesaparicionLista} from '../../../modelos/DesaparicionLista';
 import {CivilService} from '../../../servicios/civil.service';
 import {ComentarioDialogComponent} from '../comentario-dialog/comentario-dialog.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-comentarios',
@@ -26,6 +27,7 @@ export class ComentariosComponent implements OnInit {
   archivos: File[] = [];
   id?: number;
   desapariciones: DesaparicionLista[] = [];
+  private snackBar = inject(MatSnackBar);
 
   constructor(
     private comentarioService: ComentarioService,
@@ -108,6 +110,9 @@ export class ComentariosComponent implements OnInit {
         this.cargarComentarios(this.id!);
         this.textoComentario = '';
         this.archivos = [];
+        this.snackBar.open('Comentario creado con exito', 'Cerrar', {
+          duration: 3000
+        });
       },
       error: err => console.error('Error al crear comentario:', err)
     });
