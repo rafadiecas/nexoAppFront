@@ -30,7 +30,7 @@
         <p  *ngIf="desapariciones.length!==0"class="fst-italic text-secondary m-0">{{ comentario.telefono }}</p>
         <p class="mb-2">{{ comentario.texto }}</p>
         <div *ngIf="comentario.fotos && comentario.fotos.length > 0" class="d-flex flex-wrap gap-2">
-          <p *ngFor="let foto of comentario.fotos" class="fst-italic text-primary m-0" role="button" (click)="abrirDialogo()">
+          <p *ngFor="let foto of comentario.fotos" class="fst-italic text-primary m-0" role="button" (click)="abrirDialogoImagen(foto)">
             imagen
           </p>
         </div>

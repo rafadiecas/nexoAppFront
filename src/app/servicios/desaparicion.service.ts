@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { DesaparicionPrincipal } from '../modelos/DesaparicionPrincipal';
 import {DesaparicionIndividual} from '../modelos/DesaparicionIndividual';
 import {DesaparicionSinVerificar} from '../modelos/DesaparicionSinVerificar';
+import {EditaDesaparicion} from '../modelos/editaDesaparicion';
 
 const apiUrl = '/api/desaparicion';
 
@@ -38,6 +39,16 @@ export class DesaparicionService {
 
   rechazarDesaparicion(id: number):Observable<string>{
     return this.http.put(`${apiUrl}/eliminar?id=${id}`, {},{ responseType: 'text' });
+  }
+
+  editarDesaparicionAutoridad(id: number, editarDesaparicionDTO: EditaDesaparicion): Observable<any> {
+    const url = `${apiUrl}/editarAutoridadDesaparicion`;
+    const params = { id: id.toString() };
+    return this.http.post(url, editarDesaparicionDTO, { params, responseType: 'text' });
+  }
+
+  getEditarDesaparicion(id: number): Observable<EditaDesaparicion> {
+    return this.http.get<EditaDesaparicion>(`${apiUrl}/getDesaparicionEditar?id=${id}`);
   }
 
 

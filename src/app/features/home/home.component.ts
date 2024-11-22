@@ -5,8 +5,11 @@ import {InputFotosComponent} from '../perfil-usuario/componentes/input-fotos/inp
 import {MapaPrincipalComponent} from './componentes/mapa-principal/mapa-principal.component';
 import {RegistraUsuarioComponent} from '../../core/registra-usuario/registra-usuario.component';
 import {DesaparicionFormComponent} from '../perfil-usuario/componentes/crear-desaparicion/crear-desaparicion.component';
-import {AvisoPrincipalComponent} from './componentes/aviso-principal/aviso-principal.component';
+
 import {ListaNoAprobadasComponent} from '../perfil-usuario/componentes/lista-no-aprobadas/lista-no-aprobadas.component';
+import {
+  EditaDesaparicionAutoridadComponent
+} from '../perfil-usuario/componentes/edita-desaparicion-autoridad/edita-desaparicion-autoridad.component';
 
 
 @Component({
@@ -16,9 +19,9 @@ import {ListaNoAprobadasComponent} from '../perfil-usuario/componentes/lista-no-
     DesaparicionPrincipalComponent,
     RegistraUsuarioComponent,
     DesaparicionFormComponent,
-    AvisoPrincipalComponent
     DesaparicionFormComponent,
-    ListaNoAprobadasComponent
+    ListaNoAprobadasComponent,
+    EditaDesaparicionAutoridadComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
