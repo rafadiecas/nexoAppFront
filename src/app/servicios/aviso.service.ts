@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Aviso } from '../modelos/Aviso';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -26,4 +27,15 @@ export class AvisoService {
       responseType: 'json'
     });
   }
+
+  // Eliminar un aviso
+  eliminarAviso(id: number): Observable<string> {
+    return this.http.delete(`${this.apiUrl}/eliminar?id=${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('authToken')}`
+      },
+      responseType: 'text'  // Esto indica que Angular debe esperar un texto
+    });
+  }
+
 }
