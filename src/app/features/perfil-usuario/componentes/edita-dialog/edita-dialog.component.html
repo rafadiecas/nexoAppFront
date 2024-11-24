@@ -40,7 +40,24 @@
     <div class="row mt-5">
       <div class="col-12 text-center">
         <button type="submit" class="btn btn-primary" [disabled]="desaparicionForm.invalid">Guardar</button>
+        <button class="btn btn-danger"(click)="openModal(modalContent)">Eliminar</button>
       </div>
     </div>
   </form>
 </div>
+
+<ng-template #modalContent let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="modal-basic-title">
+      Confirmar Eliminación
+    </h5>
+    <button type="button" class="btn-close" aria-label="Cerrar" (click)="modal.dismiss('Cerrar')"></button>
+  </div>
+  <div class="modal-body">
+    <p>¿Estás seguro de que deseas eliminar esta desaparición?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancelar')">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="modal.close('Confirmar')">Confirmar</button>
+  </div>
+</ng-template>
