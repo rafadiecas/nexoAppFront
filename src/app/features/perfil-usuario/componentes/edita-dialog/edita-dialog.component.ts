@@ -83,6 +83,7 @@ export class EditaDialogComponent implements OnInit {
             this.desaparicionService.rechazarDesaparicion(this.data.id).subscribe(
               () => {
                 this.cerrarDialogo();
+                window.location.reload();
               },
               (error) => console.error('Error al denegar desaparición', error)
             );
