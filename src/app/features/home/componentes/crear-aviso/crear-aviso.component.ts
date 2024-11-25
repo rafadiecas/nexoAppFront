@@ -120,7 +120,7 @@ export class CrearAvisoComponent {
       (error) => {
         console.error('Error al crear el aviso', error);
         // Recargar la página después de crear el aviso
-        window.location.reload();  // Recarga la página para mostrar los cambios
+        // window.location.reload();  // Recarga la página para mostrar los cambios
       }
     );
   }

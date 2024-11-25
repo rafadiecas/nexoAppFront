@@ -6,6 +6,7 @@ import {DesaparicionLista} from '../modelos/DesaparicionLista';
 import {UsuarioMenu} from "../modelos/UsuarioMenu";
 import {CivilCrearDTO} from '../modelos/CrearCivil';
 import {Auth} from '../modelos/Auth';
+import {CivilConfirmar} from '../modelos/CivilConfirmar';
 
 const apiUrl = '/api/civil';
 @Injectable({
@@ -40,6 +41,9 @@ export class CivilService {
     return this.http.get<UsuarioMenu>(`${apiUrl}/menu`);
   }
 
+  listaCivilSinVer(): Observable<CivilConfirmar[]> {
+    return this.http.get<CivilConfirmar[]>(`${apiUrl}/listaVerificar`);
+  }
 
 
 }

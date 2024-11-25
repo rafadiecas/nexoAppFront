@@ -4,13 +4,16 @@ import { DesaparicionService } from '../../../../servicios/desaparicion.service'
 import { EditaDesaparicion } from '../../../../modelos/editaDesaparicion';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { LocalizacionComponent } from '../localizacion/localizacion.component';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {TitleCasePipe} from '@angular/common';
 
 @Component({
   selector: 'app-edita-dialog',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    LocalizacionComponent
+    LocalizacionComponent,
+    TitleCasePipe
   ],
   templateUrl: './edita-dialog.component.html',
   styleUrls: ['./edita-dialog.component.css']
@@ -18,13 +21,13 @@ import { LocalizacionComponent } from '../localizacion/localizacion.component';
 export class EditaDialogComponent implements OnInit {
   desaparicion: EditaDesaparicion = {} as EditaDesaparicion;
   desaparicionForm: FormGroup;
-  initialLocationData: any;
 
   constructor(
     public dialogRef: MatDialogRef<EditaDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { id: number },
     private desaparicionService: DesaparicionService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private modalService:NgbModal
   ) {
     this.desaparicionForm = this.fb.group({
       descripcion: ['', Validators.required],
@@ -62,7 +65,6 @@ export class EditaDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  // Método para guardar los datos
   guardar(): void {
     this.desaparicionService.editarDesaparicionAutoridad(this.data.id, this.desaparicionForm.value).subscribe(
       (data) => {
@@ -71,5 +73,24 @@ export class EditaDialogComponent implements OnInit {
       },
       (error) => console.error('Error al editar la desaparición', error)
     )
+  }
+
+  openModal(content: any): void {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result
+      .then(
+        (result) => {
+          if (result === 'Confirmar') {
+            this.desaparicionService.rechazarDesaparicion(this.data.id).subscribe(
+              () => {
+                this.cerrarDialogo();
+              },
+              (error) => console.error('Error al denegar desaparición', error)
+            );
+          }
+        },
+        (reason) => {
+          console.log('Modal cerrado:', reason);
+        }
+      );
   }
 }

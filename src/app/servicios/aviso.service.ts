@@ -17,6 +17,10 @@ export class AvisoService {
   getAvisos(): Observable<Aviso[]> {
     return this.http.get<Aviso[]>(`${this.apiUrl}/mostrarAvisos`);
   }
+  // Método para obtener todos los avisos
+  getAvisosAutoridad(): Observable<Aviso[]> {
+    return this.http.get<Aviso[]>(`${this.apiUrl}/listarAvisosAdmin`);
+  }
 
   // Método para crear un nuevo aviso
   crearAviso(formData: FormData): Observable<any> {

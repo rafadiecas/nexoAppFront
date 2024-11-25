@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import {AvisoService} from '../../../../servicios/aviso.service';
+import {AvisoService} from '../../../servicios/aviso.service';
 import {CommonModule} from '@angular/common';
 import {NgbModal, NgbPagination} from '@ng-bootstrap/ng-bootstrap';
 import {DatePipe} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {Aviso} from '../../../../modelos/Aviso';
+import {Aviso} from '../../../modelos/Aviso';
 
 @Component({
-  selector: 'app-autoridad-avisos',
+  selector: 'app-admin-avisos',
   standalone: true,
-  templateUrl: './autoridad-avisos.component.html',
+  templateUrl: './admin-avisos.component.html',
   imports: [
     NgbPagination,
     DatePipe,
     FormsModule,CommonModule
   ],
-  styleUrls: ['./autoridad-avisos.component.css']
+  styleUrls: ['./admin-avisos.component.css']
 })
-export class AutoridadAvisosComponent implements OnInit {
+export class AdminAvisosComponent implements OnInit {
   avisos: Aviso[] = [];
   filteredAvisos: Aviso[] = [];
   paginatedAvisos: Aviso[] = [];

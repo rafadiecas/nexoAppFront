@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit{
   usuarioForm!: FormGroup;
   fallo: boolean = false;
   noVerificado: boolean = false;
+  usuarioNoExiste: boolean = false;
   constructor(private fb: FormBuilder, private service: LoginService, private router: Router, private servicioAuth: AuthServiceService){
     // localStorage.clear();
 
@@ -52,20 +53,28 @@ export class LoginComponent implements OnInit{
       })
   }
   iniciarSesion() {
+    this.fallo = false;
+    this.usuarioNoExiste = false;
+    this.noVerificado = false;
     this.login = this.usuarioForm.value;
     this.service.login(this.login).subscribe({
       next: (respuesta) => {
         console.log(respuesta);
         if(respuesta.token == null){
-          this.fallo=true;
+          if (respuesta.verificado == null){
+            this.usuarioNoExiste = true;
+          }else {
+            this.fallo=true;
+          }
         }else {
           if (respuesta.verificado){
             localStorage.setItem('token' , respuesta.token);
             localStorage.setItem('username', this.usuarioForm.get('usuario')?.value);
             console.log(respuesta);
             this.router.navigate(['']);
-          }else {
-            this.noVerificado = true
+          }else if (!respuesta.verificado){
+            this.noVerificado = true;
+
           }
         }
       },
