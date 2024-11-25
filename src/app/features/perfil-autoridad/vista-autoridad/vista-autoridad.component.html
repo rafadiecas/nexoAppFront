@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row">
+    <div
+      class="col-md-2 col-12 bg-light shadow-sm m-0 p-0">
+      <app-parte-izquierda-civil
+        (optionSelected)="onOptionSelected($event)"
+        [menuOptions]="menuOptions"
+        [iconMap]="mapaDeIconos"
+        [iconoUsuario]="autoridadIcon">
+      </app-parte-izquierda-civil>
+    </div>
+
+
+    <div class="col-md-10 col-12 py-3">
+      <div *ngIf="selectedOption === 'autDesapariciones'">
+        <app-lista-no-aprobadas></app-lista-no-aprobadas>
+      </div>
+      <div *ngIf="selectedOption === 'gesDesapariciones'">
+        <app-edita-desaparicion-autoridad></app-edita-desaparicion-autoridad>
+      </div>
+      <div *ngIf="selectedOption === 'gesUsuarios'">
+        <app-gestion-usuario></app-gestion-usuario>
+      </div>
+      <div *ngIf="selectedOption === 'avisos'">
+        <app-autoridad-avisos></app-autoridad-avisos>
+      </div>
+    </div>
+  </div>
+</div>
