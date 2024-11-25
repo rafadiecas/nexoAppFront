@@ -1,0 +1,46 @@
+<form [formGroup]="autoridadForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="identificador">Identificador</label>
+    <input id="identificador" formControlName="identificador" />
+    <div *ngIf="autoridadForm.get('identificador')?.invalid && autoridadForm.get('identificador')?.touched">
+      Identificador es requerido.
+    </div>
+  </div>
+
+  <div formGroupName="usuarioCrearDTO">
+    <div>
+      <label for="usuario">Usuario</label>
+      <input id="usuario" formControlName="usuario" />
+      <div *ngIf="autoridadForm.get('usuarioCrearDTO.usuario')?.invalid && autoridadForm.get('usuarioCrearDTO.usuario')?.touched">
+        Usuario es requerido.
+      </div>
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" />
+      <div *ngIf="autoridadForm.get('usuarioCrearDTO.email')?.invalid && autoridadForm.get('usuarioCrearDTO.email')?.touched">
+        Email es requerido y debe ser válido.
+      </div>
+    </div>
+
+    <div>
+      <label for="contrasenya">Contraseña</label>
+      <input id="contrasenya" type="password" formControlName="contrasenya" />
+      <div *ngIf="autoridadForm.get('usuarioCrearDTO.contrasenya')?.invalid && autoridadForm.get('usuarioCrearDTO.contrasenya')?.touched">
+        Contraseña es requerida y debe tener al menos 6 caracteres.
+      </div>
+    </div>
+
+    <div>
+      <label for="repContrasenya">Repetir Contraseña</label>
+      <input id="repContrasenya" type="password" formControlName="repContrasenya" />
+      <div *ngIf="autoridadForm.get('usuarioCrearDTO.repContrasenya')?.invalid && autoridadForm.get('usuarioCrearDTO.repContrasenya')?.touched">
+        Las contraseñas deben coincidir.
+      </div>
+    </div>
+  </div>
+
+
+  <button type="submit">Crear Autoridad</button>
+</form>
