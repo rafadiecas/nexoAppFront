@@ -14,6 +14,11 @@ import {
     ParteIzquierdaCivilComponent
 } from "../../perfil-usuario/componentes/parte-izquierda-civil/parte-izquierda-civil.component";
 import {GestionUsuarioComponent} from '../componentes/gestion-usuario/gestion-usuario.component';
+import {ListaNoAprobadasComponent} from '../componentes/lista-no-aprobadas/lista-no-aprobadas.component';
+import {
+  EditaDesaparicionAutoridadComponent
+} from '../componentes/edita-desaparicion-autoridad/edita-desaparicion-autoridad.component';
+import {AutoridadAvisosComponent} from '../componentes/autoridad-avisos/autoridad-avisos.component';
 
 @Component({
   selector: 'app-vista-autoridad',
@@ -25,7 +30,10 @@ import {GestionUsuarioComponent} from '../componentes/gestion-usuario/gestion-us
     ListaSeguimientoComponent,
     NgIf,
     ParteIzquierdaCivilComponent,
-    GestionUsuarioComponent
+    GestionUsuarioComponent,
+    ListaNoAprobadasComponent,
+    EditaDesaparicionAutoridadComponent,
+    AutoridadAvisosComponent
   ],
   templateUrl: './vista-autoridad.component.html',
   styleUrl: './vista-autoridad.component.css'

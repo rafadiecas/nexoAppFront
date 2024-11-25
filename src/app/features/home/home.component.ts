@@ -8,6 +8,7 @@ import {DesaparicionFormComponent} from '../perfil-usuario/componentes/crear-des
 import {AvisoPrincipalComponent} from './componentes/aviso-principal/aviso-principal.component';
 import {ListaNoAprobadasComponent} from '../perfil-usuario/componentes/lista-no-aprobadas/lista-no-aprobadas.component';
 import {SobreNosotrosComponent} from './componentes/sobre-nosotros/sobre-nosotros.component';
+import {CrearAutoridadComponent} from '../admin-panel/crear-autoridad/crear-autoridad.component';
 
 
 @Component({
@@ -20,7 +21,9 @@ import {SobreNosotrosComponent} from './componentes/sobre-nosotros/sobre-nosotro
     AvisoPrincipalComponent,
     ListaNoAprobadasComponent,
     MapaPrincipalComponent,
-    SobreNosotrosComponent
+    SobreNosotrosComponent,
+    MapaPrincipalComponent,
+    CrearAutoridadComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

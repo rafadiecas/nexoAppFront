@@ -12,6 +12,7 @@ import {AuthServiceService} from '../auth-service.service';
 import {HeaderComponent} from '../../shared/header/header.component';
 import {TokenData} from '../../modelos/TokenData';
 import {MatIcon} from '@angular/material/icon';
+import getWindowScroll from '@popperjs/core/lib/dom-utils/getWindowScroll';
 
 @Component({
   selector: 'app-login',
