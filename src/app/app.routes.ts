@@ -6,10 +6,11 @@ import {LoginComponent} from './core/login/login.component';
 import {RegistraUsuarioComponent} from './core/registra-usuario/registra-usuario.component';
 import {AdminPanelComponent} from './features/admin-panel/admin-panel.component';
 import {AutoridadAvisosComponent} from './features/perfil-autoridad/componentes/autoridad-avisos/autoridad-avisos.component';
-import {AdminAvisosComponent} from './features/admin-panel/admin-avisos/admin-avisos.component';
+import {AdminAvisosComponent} from './features/admin-panel/componentes/admin-avisos/admin-avisos.component';
 import {civilGuard} from './core/guard/civil.guard';
 import { AdminUsuariosComponent } from './features/admin-panel/lista-usuarios-admin/lista-usuarios-admin.component'
 import {VistaAutoridadComponent} from './features/perfil-autoridad/vista-autoridad/vista-autoridad.component';
+import {VistaAdminComponent} from './features/admin-panel/vista-admin/vista-admin.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,5 +22,6 @@ export const routes: Routes = [
   { path: 'autoridad/avisos', component: AutoridadAvisosComponent },
   { path: 'admin/avisos', component: AdminAvisosComponent },
   { path: 'registro', component: RegistraUsuarioComponent },
-  { path: 'autoridad', component: VistaAutoridadComponent }
+  { path: 'autoridad', component: VistaAutoridadComponent },
+  { path: 'admin/recursos', component: VistaAdminComponent },
 ];
