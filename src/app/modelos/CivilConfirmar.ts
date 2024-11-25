@@ -3,4 +3,5 @@ export class CivilConfirmar{
   apellido?: string;
   dni?: string;
   nombreUsuario?: string;
+  idUsuario?: number;
 }
