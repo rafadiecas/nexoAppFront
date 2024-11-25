@@ -1,7 +1,7 @@
 
 <div class="container" style="margin-top: 10px;">
   <div class="row custom-flex-row">
-    <div *ngFor="let desaparicion of desapariciones" class="custom-card-wrapper">
+    <div *ngFor="let desaparicion of desapariciones" class="custom-card-wrapper zoom">
       <div class="card" [routerLink]="['/desaparicion', desaparicion.id]">
         <img class="card-img" [src]="desaparicion.urlFotoCara" [alt]="desaparicion.nombre">
         <div class="card-body">
@@ -10,6 +10,9 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="row d-flex justify-content-center align-items-center text-center" style="margin-top: 20px;">
+    <div><button class="btn">Mostrar más</button></div>
   </div>
 </div>
 

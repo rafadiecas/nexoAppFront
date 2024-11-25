@@ -1,0 +1,63 @@
+<div class="container-fluid p-5">
+  <h6 class="text-center mb-3">Editar Desaparición</h6>
+  <form [formGroup]="desaparicionForm" (ngSubmit)="guardar()">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <label for="descripcion"><b>Descripción</b></label>
+        <textarea
+          formControlName="descripcion"
+          class="form-control"
+          id="descripcion"
+          placeholder="Ingrese la descripción"></textarea>
+      </div>
+      <div class="col-6 mb-3">
+        <label for="estado"><b>Estado</b></label>
+        <select name="estado" id="estado" formControlName="estado" class="form-control">
+          <option value="DESAPARECIDO">DESAPARECIDO</option>
+          <option value="ENCONTRADO">ENCONTRADO</option>
+          <option value="HERIDO">HERIDO</option>
+          <option value="MUERTO">MUERTO</option>
+        </select>
+      </div>
+      <div class="col col-12">
+        <p><b>Lugar</b></p>
+        <div class="row" formGroupName="lugarLatLongDTO">
+          <div class="col col-12 col-md-4">
+            <label for="provincia"><b>Provincia</b></label>
+            <input formControlName="provincia" type="text" class="form-control" id="provincia">
+          </div>
+          <div class="col col-12 col-md-4">
+            <label for="localidad"><b>Localidad</b></label>
+            <input formControlName="localidad" type="text" class="form-control" id="localidad">
+          </div>
+          <div class="col col-12 col-md-4">
+            <label for="calle"><b>Calle</b></label>
+            <input formControlName="calle" type="text" class="form-control" id="calle">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary" [disabled]="desaparicionForm.invalid">Guardar</button>
+        <button class="btn btn-danger"(click)="openModal(modalContent)">Eliminar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<ng-template #modalContent let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="modal-basic-title">
+      Confirmar Eliminación
+    </h5>
+    <button type="button" class="btn-close" aria-label="Cerrar" (click)="modal.dismiss('Cerrar')"></button>
+  </div>
+  <div class="modal-body">
+    <p>¿Estás seguro de que deseas eliminar esta desaparición?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancelar')">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="modal.close('Confirmar')">Confirmar</button>
+  </div>
+</ng-template>

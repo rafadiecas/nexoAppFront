@@ -1,0 +1,7 @@
+.step-content {
+  display: none;
+}
+
+.step-content.ng-star-inserted {
+  display: block;
+}

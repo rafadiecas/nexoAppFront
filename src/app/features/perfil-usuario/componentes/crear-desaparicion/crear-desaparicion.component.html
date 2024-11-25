@@ -1,67 +1,113 @@
-<form [formGroup]="desaparicionForm" (ngSubmit)="onSubmit()" class="container mt-4">
-  <div formGroupName="personaDTO" class="row g-3">
-    <div class="col-md-6">
-      <label for="dni" class="form-label">DNI:</label>
-      <input id="dni" formControlName="dni" type="text" class="form-control">
-    </div>
-    <div class="col-md-6">
-      <label for="nombre" class="form-label">Nombre:</label>
-      <input id="nombre" formControlName="nombre" type="text" class="form-control">
-    </div>
-    <div class="col-md-6">
-      <label for="apellido" class="form-label">Apellido:</label>
-      <input id="apellido" formControlName="apellido" type="text" class="form-control">
-    </div>
-    <div class="col-md-6">
-      <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
-      <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date" class="form-control">
-    </div>
-    <div class="col-md-6">
-      <label for="sexo">Sexo:</label>
-      <select id="sexo" formControlName="sexo" class="form-select">
-        <option *ngFor="let option of sexoOptions" [value]="option">{{ option }}</option>
-      </select>
-    </div>
-    <div class="col-md-6">
-      <label for="altura" class="form-label">Altura:</label>
-      <input id="altura" formControlName="altura" type="number" class="form-control">
-    </div>
-    <div class="col-md-6">
-      <label for="complexion">Complexión:</label>
-      <select id="complexion" formControlName="complexion" class="form-select">
-        <option *ngFor="let option of complexionOptions" [value]="option">{{ option }}</option>
-      </select>
-    </div>
-    <div class="col-md-12">
-      <label for="descripcionPersona" class="form-label">Descripción:</label>
-      <textarea id="descripcionPersona" formControlName="descripcion" class="form-control" rows="3"></textarea>
+<div class="container mt-5">
+  <h2>Formulario por pasos</h2>
+
+  <!-- Navegación de pasos -->
+  <div class="steps d-flex justify-content-between mb-4">
+    <div class="step" *ngFor="let step of steps; let i = index">
+      <button
+        [class]="i < currentStep ? 'btn btn-primary rounded-circle' : 'btn btn-secondary rounded-circle'"
+        [disabled]="i > currentStep"
+        (click)="goToStep(i)">
+        {{ i + 1 }}
+      </button>
+      <p>Paso {{ i + 1 }}</p>
     </div>
   </div>
 
-  <div class="mt-4">
-    <app-localizacion (addressChanged)="onAddressChanged($event)"></app-localizacion>
-  </div>
-
-  <div class="row g-3 mt-4">
-    <div class="col-md-6">
-      <label for="fecha" class="form-label">Fecha:</label>
-      <input id="fecha" formControlName="fecha" type="date" class="form-control">
+  <!-- Contenido del formulario -->
+  <form [formGroup]="desaparicionForm" (ngSubmit)="onSubmit()" class="mt-4">
+    <!-- Paso 1 -->
+    <div *ngIf="currentStep === 0" class="step-content">
+      <h4>Información Personal</h4>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="fecha" class="form-label">Fecha:</label>
+          <input id="fecha" formControlName="fecha" type="date" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label for="descripcion" class="form-label">Descripción:</label>
+          <input id="descripcion" formControlName="descripcion" type="text" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label for="id_usuario" class="form-label">ID Usuario:</label>
+          <input id="id_usuario" formControlName="id_usuario" type="text" class="form-control" required>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
     </div>
-    <div class="col-md-12">
-      <label for="descripcionLugar" class="form-label">Descripción:</label>
-      <textarea id="descripcionLugar" formControlName="descripcion" class="form-control" rows="3"></textarea>
-    </div>
-    <div class="col-md-6">
-      <label for="id_usuario" class="form-label">ID Usuario:</label>
-      <input id="id_usuario" formControlName="id_usuario" type="text" class="form-control">
-    </div>
-  </div>
 
-  <div class="mt-4">
-    <app-input-fotos (filesChanged)="onFilesChanged($event)"></app-input-fotos>
-  </div>
+    <!-- Paso 2 -->
+    <div *ngIf="currentStep === 1" class="step-content">
+      <div formGroupName="personaDTO" class="row g-3">
+        <div class="col-md-6">
+          <label for="dni" class="form-label">DNI:</label>
+          <input id="dni" formControlName="dni" type="text" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input id="nombre" formControlName="nombre" type="text" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label for="apellido" class="form-label">Apellido:</label>
+          <input id="apellido" formControlName="apellido" type="text" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
+          <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label for="sexo">Sexo:</label>
+          <select id="sexo" formControlName="sexo" class="form-select">
+            <option *ngFor="let option of sexoOptions" [value]="option">{{ option }}</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="altura" class="form-label">Altura:</label>
+          <input id="altura" formControlName="altura" type="number" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label for="complexion">Complexión:</label>
+          <select id="complexion" formControlName="complexion" class="form-select">
+            <option *ngFor="let option of complexionOptions" [value]="option">{{ option }}</option>
+          </select>
+        </div>
+        <app-input-fotos (filesChanged)="onFilesChanged($event)"></app-input-fotos>
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="prevStep()">Anterior</button>
+      <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
+    </div>
 
-  <div class="mt-4">
-    <button type="submit" class="btn btn-primary w-100">Enviar</button>
-  </div>
-</form>
+    <!-- Paso 3 -->
+    <div *ngIf="currentStep === 2" class="step-content">
+      <h4>Detalles de Contacto</h4>
+      <div formGroupName="lugarDTO" class="row g-3">
+        <app-localizacion (addressChanged)="onAddressChanged($event)"></app-localizacion>
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="prevStep()">Anterior</button>
+      <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
+    </div>
+
+
+
+    <!-- Paso 5 -->
+    <div *ngIf="currentStep === 3" class="step-content">
+      <h4>Envío</h4>
+      <button type="button" class="btn btn-secondary" (click)="prevStep()">Anterior</button>
+      <button type="submit" class="btn btn-success" [disabled]="desaparicionForm.invalid">Enviar</button>
+    </div>
+
+    <!-- Toast container -->
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 11">
+      <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Notificación</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Formulario enviado con éxito
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
