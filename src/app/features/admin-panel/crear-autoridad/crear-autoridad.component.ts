@@ -67,12 +67,10 @@ export class CrearAutoridadComponent implements OnInit {
       this.autoridadService.crearAutoridad(autoridadData).subscribe({
         next: (response) => {
           console.log('Respuesta del servidor:', response);
-          alert('¡Autoridad creada con éxito!');
           this.autoridadForm.reset(); // Limpia el formulario tras el envío exitoso
         },
         error: (error) => {
           console.error('Error al enviar los datos:', error);
-          alert('Ocurrió un error al crear la autoridad. Intente nuevamente.');
         },
       });
     } else {
