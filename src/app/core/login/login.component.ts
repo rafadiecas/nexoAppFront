@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Login} from '../../modelos/Login';
 import {LoginService} from '../../servicios/login.service';
 import {MatCard, MatCardActions, MatCardContent, MatCardTitle} from '@angular/material/card';
@@ -13,6 +13,7 @@ import {HeaderComponent} from '../../shared/header/header.component';
 import {TokenData} from '../../modelos/TokenData';
 import {MatIcon} from '@angular/material/icon';
 import {HeaderService} from '../../servicios/header.service';
+import getWindowScroll from '@popperjs/core/lib/dom-utils/getWindowScroll';
 
 @Component({
   selector: 'app-login',

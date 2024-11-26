@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DesaparicionService } from '../../../../servicios/desaparicion.service';
 import { EditaDesaparicion } from '../../../../modelos/editaDesaparicion';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { LocalizacionComponent } from '../localizacion/localizacion.component';
+import { LocalizacionComponent } from '../../../perfil-usuario/componentes/localizacion/localizacion.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TitleCasePipe} from '@angular/common';
 
@@ -83,6 +83,7 @@ export class EditaDialogComponent implements OnInit {
             this.desaparicionService.rechazarDesaparicion(this.data.id).subscribe(
               () => {
                 this.cerrarDialogo();
+                window.location.reload();
               },
               (error) => console.error('Error al denegar desaparición', error)
             );

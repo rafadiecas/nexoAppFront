@@ -11,6 +11,7 @@ import {civilGuard} from './core/guard/civil.guard';
 import { AdminUsuariosComponent } from './features/admin-panel/lista-usuarios-admin/lista-usuarios-admin.component'
 import {VistaAutoridadComponent} from './features/perfil-autoridad/vista-autoridad/vista-autoridad.component';
 import {VistaAdminComponent} from './features/admin-panel/vista-admin/vista-admin.component';
+import {autoridadGuard} from './core/guard/autoridad.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +23,7 @@ export const routes: Routes = [
   { path: 'autoridad/avisos', component: AutoridadAvisosComponent },
   { path: 'admin/avisos', component: AdminAvisosComponent },
   { path: 'registro', component: RegistraUsuarioComponent },
+  { path: 'usuario/autoridad', component: VistaAutoridadComponent,canActivate: [autoridadGuard] }
   { path: 'autoridad', component: VistaAutoridadComponent },
   { path: 'admin/recursos', component: VistaAdminComponent },
 ];
