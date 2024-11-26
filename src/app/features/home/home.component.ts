@@ -10,6 +10,8 @@ import {ListaNoAprobadasComponent} from '../perfil-autoridad/componentes/lista-n
 import {
   ListaDesaparicionesEliminadasComponent
 } from '../admin-panel/lista-desapariciones-eliminadas/lista-desapariciones-eliminadas.component';
+import {SobreNosotrosComponent} from './componentes/sobre-nosotros/sobre-nosotros.component';
+import {CrearAutoridadComponent} from '../admin-panel/crear-autoridad/crear-autoridad.component';
 
 
 @Component({
@@ -22,7 +24,9 @@ import {
     AvisoPrincipalComponent,
     ListaNoAprobadasComponent,
     MapaPrincipalComponent,
-    ListaDesaparicionesEliminadasComponent
+    ListaDesaparicionesEliminadasComponent,
+    SobreNosotrosComponent,
+    CrearAutoridadComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
