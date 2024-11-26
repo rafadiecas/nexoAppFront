@@ -28,12 +28,9 @@
           <label for="descripcion" class="form-label">Descripción:</label>
           <input id="descripcion" formControlName="descripcion" type="text" class="form-control" required>
         </div>
-        <div class="col-md-6">
-          <label for="id_usuario" class="form-label">ID Usuario:</label>
-          <input id="id_usuario" formControlName="id_usuario" type="text" class="form-control" required>
-        </div>
+
       </div>
-      <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
+      <button type="button" class="btn btn-primary mt-3" (click)="nextStep()">Siguiente</button>
     </div>
 
     <!-- Paso 2 -->
@@ -73,8 +70,8 @@
         </div>
         <app-input-fotos (filesChanged)="onFilesChanged($event)"></app-input-fotos>
       </div>
-      <button type="button" class="btn btn-secondary" (click)="prevStep()">Anterior</button>
-      <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
+      <button type="button" class="btn btn-secondary mt-3" (click)="prevStep()">Anterior</button>
+      <button type="button" class="btn btn-primary mt-3 mx-2" (click)="nextStep()">Siguiente</button>
     </div>
 
     <!-- Paso 3 -->
@@ -83,8 +80,8 @@
       <div formGroupName="lugarDTO" class="row g-3">
         <app-localizacion (addressChanged)="onAddressChanged($event)"></app-localizacion>
       </div>
-      <button type="button" class="btn btn-secondary" (click)="prevStep()">Anterior</button>
-      <button type="button" class="btn btn-primary" (click)="nextStep()">Siguiente</button>
+      <button type="button" class="btn btn-secondary mt-3" (click)="prevStep()">Anterior</button>
+      <button type="button" class="btn btn-primary mt-3 mx-2" (click)="nextStep()">Siguiente</button>
     </div>
 
 
@@ -92,8 +89,8 @@
     <!-- Paso 5 -->
     <div *ngIf="currentStep === 3" class="step-content">
       <h4>Envío</h4>
-      <button type="button" class="btn btn-secondary" (click)="prevStep()">Anterior</button>
-      <button type="submit" class="btn btn-success" [disabled]="desaparicionForm.invalid">Enviar</button>
+      <button type="button" class="btn btn-secondary mt-3" (click)="prevStep()">Anterior</button>
+      <button type="submit" class="btn btn-success mt-3 mx-3" [disabled]="desaparicionForm.invalid">Enviar</button>
     </div>
 
     <!-- Toast container -->

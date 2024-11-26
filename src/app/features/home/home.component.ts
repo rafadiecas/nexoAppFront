@@ -4,14 +4,10 @@ import {EditaUsuarioComponent} from '../perfil-usuario/componentes/edita-usuario
 import {InputFotosComponent} from '../perfil-usuario/componentes/input-fotos/input-fotos.component';
 import {MapaPrincipalComponent} from './componentes/mapa-principal/mapa-principal.component';
 import {RegistraUsuarioComponent} from '../../core/registra-usuario/registra-usuario.component';
-import {DesaparicionFormComponent} from '../../shared/crear-desaparicion/crear-desaparicion.component';
 import {AvisoPrincipalComponent} from './componentes/aviso-principal/aviso-principal.component';
-import {ListaNoAprobadasComponent} from '../../shared/lista-no-aprobadas/lista-no-aprobadas.component';
-import {
-  ListaDesaparicionesEliminadasComponent
-} from '../admin-panel/componentes/lista-desapariciones-eliminadas/lista-desapariciones-eliminadas.component';
+
 import {SobreNosotrosComponent} from './componentes/sobre-nosotros/sobre-nosotros.component';
-import {CrearAutoridadComponent} from '../admin-panel/componentes/crear-autoridad/crear-autoridad.component';
+
 
 
 @Component({
@@ -20,13 +16,10 @@ import {CrearAutoridadComponent} from '../admin-panel/componentes/crear-autorida
   imports: [
     DesaparicionPrincipalComponent,
     RegistraUsuarioComponent,
-    DesaparicionFormComponent,
     AvisoPrincipalComponent,
-    ListaNoAprobadasComponent,
     MapaPrincipalComponent,
-    ListaDesaparicionesEliminadasComponent,
     SobreNosotrosComponent,
-    CrearAutoridadComponent
+    MapaPrincipalComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

@@ -25,8 +25,9 @@ export class DesaparicionService {
   }
 
   guardarDesaparicion(formData: FormData): Observable<any> {
-    return this.http.post(`${apiUrl}/guardar`, formData);
+    return this.http.post(`${apiUrl}/guardar`, formData, { responseType: 'text' });
   }
+
 
   getNoAprobadas(): Observable<DesaparicionSinVerificar[]>{
     return this.http.get<DesaparicionSinVerificar[]>(`${apiUrl}/NoAprobadas`)
