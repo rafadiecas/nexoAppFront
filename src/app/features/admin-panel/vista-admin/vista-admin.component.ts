@@ -18,6 +18,7 @@ import {ListaNoAprobadasComponent} from '../../../shared/lista-no-aprobadas/list
 import {
   EditaDesaparicionAutoridadComponent
 } from '../../../shared/edita-desaparicion-autoridad/edita-desaparicion-autoridad.component';
+import {AutoridadAvisosComponent} from '../../perfil-autoridad/componentes/autoridad-avisos/autoridad-avisos.component';
 
 @Component({
   selector: 'app-vista-admin',
@@ -31,7 +32,8 @@ import {
     ParteIzquierdaCivilComponent,
     ListaDesaparicionesEliminadasComponent,
     ListaNoAprobadasComponent,
-    EditaDesaparicionAutoridadComponent
+    EditaDesaparicionAutoridadComponent,
+    AutoridadAvisosComponent
   ],
   templateUrl: './vista-admin.component.html',
   styleUrl: './vista-admin.component.css'
