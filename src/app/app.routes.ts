@@ -9,7 +9,7 @@ import {AutoridadAvisosComponent} from './features/perfil-autoridad/componentes/
 import {MostrarmasComponent} from './features/home/componentes/mostrarmas/mostrarmas.component';
 import {AdminAvisosComponent} from './features/admin-panel/componentes/admin-avisos/admin-avisos.component';
 import {civilGuard} from './core/guard/civil.guard';
-import { AdminUsuariosComponent } from './features/admin-panel/lista-usuarios-admin/lista-usuarios-admin.component'
+import { AdminUsuariosComponent } from './features/admin-panel/componentes/lista-usuarios-admin/lista-usuarios-admin.component'
 import {VistaAutoridadComponent} from './features/perfil-autoridad/vista-autoridad/vista-autoridad.component';
 import {VistaAdminComponent} from './features/admin-panel/vista-admin/vista-admin.component';
 import {autoridadGuard} from './core/guard/autoridad.guard';

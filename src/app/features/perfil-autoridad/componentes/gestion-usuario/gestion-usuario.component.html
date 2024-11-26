@@ -1,13 +1,14 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
 <div class="container">
-  <div class="mb-3">
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Buscar por nombre o DNI..."
-      [(ngModel)]="filterText"
-      (input)="applyFilter()">
+  <div class="mb-3 d-flex align-items-center">
+    <input type="text"
+           class="form-control rounded search-bar pe-5 mx-2  border-bottom border-primary"
+           placeholder="Buscar por nombre o DNI..."
+           aria-label="Search"
+           [(ngModel)]="filterText"
+           (input)="applyFilter()">
+    <mat-icon class="custom-icon">search</mat-icon>
   </div>
 
   <div class="container">
@@ -45,14 +46,8 @@
             {{ item.dni }}
           </div>
           <div class="col-sm-12 col-lg-3 p-0">
-            <button class="btn btn-xs btn-confirmar" (click)="verificaUsuario(item.idUsuario!)">
-              <i class="fas fa-check"></i>
-              Confirmar
-            </button>
-            <button class="btn btn-xs btn-eliminar" (click)="eliminaUsuario(item.idUsuario!)">
-              <i class="fas fa-trash-alt"></i>
-              Eliminar
-            </button>
+            <button class="btn btn-xs btn-confirmar" (click)="verificaUsuario(item.idUsuario!)"class="btn btn-sm btn-success d-inline-block mx-1"><i class="fas fa-edit"></i></button>
+            <button class="btn btn-xs btn-eliminar" (click)="eliminaUsuario(item.idUsuario!)"class="btn btn-sm btn-danger d-inline-block"><i class="fas fa-trash-alt"></i></button>
           </div>
         </div>
       </div>

@@ -1,13 +1,14 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
 <div class="container">
-  <div class="mb-3">
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Buscar por nombre o DNI..."
-      [(ngModel)]="filterText"
-      (input)="applyFilter()">
+  <div class="mb-3 d-flex align-items-center">
+    <input type="text"
+           class="form-control rounded search-bar pe-5 mx-2  border-bottom border-primary"
+           placeholder="Buscar por nombre o DNI..."
+           aria-label="Search"
+           [(ngModel)]="filterText"
+           (input)="applyFilter()">
+    <mat-icon class="custom-icon">search</mat-icon>
   </div>
 
   <div class="container">
@@ -31,7 +32,7 @@
     </div>
     <div class="row">
       <div class="col-sm-4 col-lg-12 mt-2 mb-2 " *ngFor="let item of paginatedItems" (click)="irDesaparicion(item.id)">
-        <div class="m-0 row row-container bg-white p-3 cuadro">
+        <div class="m-0 row row-container bg-white p-3 cuadro rounded-4">
           <div class="col-md-3 col-lg-4 p-0 pl-lg-2">
             {{ item.nombre }} {{ item.apellido }}
           </div>
@@ -39,7 +40,7 @@
             {{ item.dni }}
           </div>
           <div class="col-sm-12 col-lg-4 p-0">
-            <button (click)="openModal(modalContent, 'recuperar', item); $event.stopPropagation()" class="btn btn-sm btn-success d-inline-block mr-1"><i class="fas fa-edit"></i></button>
+            <button (click)="openModal(modalContent, 'recuperar', item); $event.stopPropagation()" class="btn btn-sm btn-success d-inline-block mx-1"><i class="fas fa-edit"></i></button>
             <button  (click)="openModal(modalContent, 'eliminar', item); $event.stopPropagation()" class="btn btn-sm btn-danger d-inline-block"><i class="fas fa-trash-alt"></i></button>
           </div>
         </div>
