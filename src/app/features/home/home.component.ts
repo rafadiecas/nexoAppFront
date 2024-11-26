@@ -7,6 +7,9 @@ import {RegistraUsuarioComponent} from '../../core/registra-usuario/registra-usu
 import {DesaparicionFormComponent} from '../perfil-usuario/componentes/crear-desaparicion/crear-desaparicion.component';
 import {AvisoPrincipalComponent} from './componentes/aviso-principal/aviso-principal.component';
 import {ListaNoAprobadasComponent} from '../perfil-autoridad/componentes/lista-no-aprobadas/lista-no-aprobadas.component';
+import {
+  ListaDesaparicionesEliminadasComponent
+} from '../admin-panel/lista-desapariciones-eliminadas/lista-desapariciones-eliminadas.component';
 
 
 @Component({
@@ -18,7 +21,8 @@ import {ListaNoAprobadasComponent} from '../perfil-autoridad/componentes/lista-n
     DesaparicionFormComponent,
     AvisoPrincipalComponent,
     ListaNoAprobadasComponent,
-    MapaPrincipalComponent
+    MapaPrincipalComponent,
+    ListaDesaparicionesEliminadasComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

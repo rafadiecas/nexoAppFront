@@ -34,7 +34,7 @@ export class GestionUsuarioComponent implements OnInit{
   cargaDatos(){
     this.servicio.listaCivilSinVer().subscribe({
       next: (data) => {
-        this.civilSinVer = data; // Manejo de datos recibidos
+        this.civilSinVer = data;
         console.log(data);
         this.filteredItems = [...this.civilSinVer];
         this.setupPagination();
@@ -82,11 +82,8 @@ export class GestionUsuarioComponent implements OnInit{
     this.usuarioServicio.verificaUsuario(idUsuario).subscribe({
       next: (respuesta) =>{
         console.log(respuesta);
-        // Eliminar usuario de la lista
         this.civilSinVer = this.civilSinVer.filter(item => item.idUsuario !== idUsuario);
-
-        // Actualizar las listas y la paginación
-        this.applyFilter(); // Reaplicar filtros
+        this.applyFilter();
       },
       error: (err) => {
         console.error('Error al vericar:', err); // Manejo de errores
