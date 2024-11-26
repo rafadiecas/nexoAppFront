@@ -6,11 +6,10 @@ import {MapaPrincipalComponent} from './componentes/mapa-principal/mapa-principa
 import {RegistraUsuarioComponent} from '../../core/registra-usuario/registra-usuario.component';
 import {DesaparicionFormComponent} from '../perfil-usuario/componentes/crear-desaparicion/crear-desaparicion.component';
 import {AvisoPrincipalComponent} from './componentes/aviso-principal/aviso-principal.component';
-import {SobreNosotrosComponent} from './componentes/sobre-nosotros/sobre-nosotros.component';
-import {CrearAutoridadComponent} from '../admin-panel/crear-autoridad/crear-autoridad.component';
+import {ListaNoAprobadasComponent} from '../perfil-autoridad/componentes/lista-no-aprobadas/lista-no-aprobadas.component';
 import {
-  ListaNoAprobadasComponent
-} from '../perfil-autoridad/componentes/lista-no-aprobadas/lista-no-aprobadas.component';
+  ListaDesaparicionesEliminadasComponent
+} from '../admin-panel/lista-desapariciones-eliminadas/lista-desapariciones-eliminadas.component';
 
 
 @Component({
@@ -23,9 +22,7 @@ import {
     AvisoPrincipalComponent,
     ListaNoAprobadasComponent,
     MapaPrincipalComponent,
-    SobreNosotrosComponent,
-    MapaPrincipalComponent,
-    CrearAutoridadComponent
+    ListaDesaparicionesEliminadasComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
