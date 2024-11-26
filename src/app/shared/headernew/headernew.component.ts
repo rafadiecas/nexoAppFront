@@ -2,12 +2,16 @@ import {Component, OnInit} from '@angular/core';
 import {LoginService} from '../../servicios/login.service';
 import {Router, RouterLink} from '@angular/router';
 import {HeaderService} from '../../servicios/header.service';
+import {NgIf} from '@angular/common';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-headernew',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    NgIf,
+    MatIcon
   ],
   templateUrl: './headernew.component.html',
   styleUrl: './headernew.component.css'

@@ -88,21 +88,19 @@ export class InputFotosComponent implements OnInit {
 
     if (inputNumber === 1) this.firstImageSelected = true;
   }
-
   onImageClick(i: number) {
-    // Elimina solo la imagen clickeada, sin borrar toda la lista
-    this.allFiles.splice(i, 1);
-
-    // Si ya no quedan imágenes, actualiza el estado de `firstImageSelected`
-    if (this.allFiles.length === 0) {
+    if (i === 0) {
+      this.allFiles = [];
       this.firstImageSelected = false;
+    } else {
+      this.allFiles.splice(i, 1);
     }
 
-    this.emitFiles(); // Emitir la lista de archivos después de la modificación
+    this.emitFiles();
   }
 
 
   private emitFiles() {
-    this.filesChanged.emit(this.allFiles); // Emitimos los archivos seleccionados
+    this.filesChanged.emit(this.allFiles);
   }
 }

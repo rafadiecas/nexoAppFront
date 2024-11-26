@@ -1,0 +1,48 @@
+<div class="filtro-container">
+  <h2>Buscar personas</h2>
+  <form (ngSubmit)="onBuscar()">
+    <!-- Campo para buscar por nombre -->
+    <div class="campo">
+      <label for="nombre">Buscar por nombre:</label>
+      <input
+        type="text"
+        id="nombre"
+        [(ngModel)]="filtros.nombre"
+        name="nombre"
+        placeholder="Introduce un nombre"
+      />
+    </div>
+
+    <!-- Selección de estado -->
+    <div class="campo">
+      <label for="estado">Seleccionar estado:</label>
+      <select
+        id="estado"
+        [(ngModel)]="filtros.estado"
+        name="estado"
+      >
+        <option value="">Todos los estados</option>
+        <option *ngFor="let estado of estados" [value]="estado.id">
+          {{ estado.nombre }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Campo para buscar por fecha -->
+    <div class="campo">
+      <label for="fecha">Buscar por fecha:</label>
+      <input
+        type="date"
+        id="fecha"
+        [(ngModel)]="filtros.fecha"
+        name="fecha"
+      />
+    </div>
+
+    <!-- Botón para buscar -->
+    <div class="botones">
+      <button type="submit" class="btn-buscar">Buscar</button>
+      <button type="button" class="btn-limpiar" (click)="onLimpiar()">Limpiar filtros</button>
+    </div>
+  </form>
+</div>

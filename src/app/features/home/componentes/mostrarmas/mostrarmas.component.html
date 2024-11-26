@@ -1,0 +1,17 @@
+<div class="contenedor">
+  <!-- Filtro a la izquierda -->
+  <div class="filtro">
+    <app-filtro (buscar)="cargarPersonas($event)"></app-filtro>
+  </div>
+
+  <!-- Tarjetas de personas desaparecidas -->
+  <div class="tarjetas">
+    <div class="tarjeta" *ngFor="let persona of personas">
+      <img [src]="persona.foto" alt="Foto de {{ persona.nombre }}" />
+      <div class="info">
+        <h3>{{ persona.nombre }} {{ persona.apellidos }}</h3>
+        <p>Desaparecido el: {{ persona.fecha | date:'dd/MM/yyyy' }}</p>
+      </div>
+    </div>
+  </div>
+</div>
