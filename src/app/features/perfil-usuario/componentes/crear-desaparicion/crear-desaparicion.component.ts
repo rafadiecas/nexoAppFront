@@ -36,7 +36,6 @@ export class DesaparicionFormComponent {
     this.desaparicionForm = this.fb.group({
       fecha: [],
       descripcion: [],
-      id_usuario: [],
       personaDTO: this.fb.group({
         dni: ['', Validators.required],
         nombre: ['', Validators.required],
