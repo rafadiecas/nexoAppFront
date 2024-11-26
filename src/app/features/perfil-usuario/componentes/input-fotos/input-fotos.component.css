@@ -134,4 +134,51 @@
   .image-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Menor tamaño de columna en pantallas pequeñas */
   }
+  .same-size-img {
+    width: 200px; /* Ajusta el ancho según lo que desees */
+    height: 200px; /* Ajusta la altura según lo que desees */
+    object-fit: cover; /* Esto mantiene la proporción de la imagen sin distorsionarla */
+  }
+
+  .image-item {
+    position: relative;
+    margin: 10px;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .image-item:hover .overlay {
+    opacity: 1;
+  }
+  .upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    background-color:#6cb9f5;
+  }
+
+  .upload-label mat-icon {
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+
 }

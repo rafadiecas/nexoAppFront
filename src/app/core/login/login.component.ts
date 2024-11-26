@@ -12,6 +12,7 @@ import {AuthServiceService} from '../auth-service.service';
 import {HeaderComponent} from '../../shared/header/header.component';
 import {TokenData} from '../../modelos/TokenData';
 import {MatIcon} from '@angular/material/icon';
+import {HeaderService} from '../../servicios/header.service';
 import getWindowScroll from '@popperjs/core/lib/dom-utils/getWindowScroll';
 
 @Component({
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit{
   fallo: boolean = false;
   noVerificado: boolean = false;
   usuarioNoExiste: boolean = false;
-  constructor(private fb: FormBuilder, private service: LoginService, private router: Router, private servicioAuth: AuthServiceService){
+  constructor(private headerService: HeaderService, private fb: FormBuilder, private service: LoginService, private router: Router, private servicioAuth: AuthServiceService){
     // localStorage.clear();
 
   }
@@ -72,6 +73,7 @@ export class LoginComponent implements OnInit{
             localStorage.setItem('token' , respuesta.token);
             localStorage.setItem('username', this.usuarioForm.get('usuario')?.value);
             console.log(respuesta);
+            this.headerService.notificarActualizacion();
             this.router.navigate(['']);
           }else if (!respuesta.verificado){
             this.noVerificado = true;

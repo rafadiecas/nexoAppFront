@@ -1,0 +1,55 @@
+.contenedor {
+  display: flex;
+}
+
+.filtro {
+  flex: 1;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  max-width: 300px;
+}
+
+.tarjetas {
+  flex: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.tarjeta {
+  width: 220px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.tarjeta .info {
+  padding: 10px;
+}
+
+.tarjeta h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.tarjeta p {
+  font-size: 14px;
+  color: #555;
+}
+
+.no-resultados {
+  text-align: center;
+  color: #888;
+  margin: 20px;
+  font-size: 18px;
+}

@@ -1,21 +1,22 @@
 import {Component, OnInit} from '@angular/core';
-import { LoginService } from '../../servicios/login.service';
-import {NgIf} from '@angular/common';
+import {LoginService} from '../../servicios/login.service';
 import {Router, RouterLink} from '@angular/router';
 import {HeaderService} from '../../servicios/header.service';
+import {NgIf} from '@angular/common';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-headernew',
   standalone: true,
   imports: [
+    RouterLink,
     NgIf,
-    RouterLink
+    MatIcon
   ],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  templateUrl: './headernew.component.html',
+  styleUrl: './headernew.component.css'
 })
-export class HeaderComponent implements OnInit{
-
+export class HeadernewComponent implements OnInit{
   logueado: boolean = false;
 
   constructor(private service: LoginService, private router: Router, private headerService: HeaderService) {
@@ -35,6 +36,4 @@ export class HeaderComponent implements OnInit{
   recargar(){
     this.ngOnInit();
   }
-
 }
-

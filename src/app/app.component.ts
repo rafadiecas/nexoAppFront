@@ -6,11 +6,12 @@ import {
 import {HeaderComponent} from './shared/header/header.component';
 import {LoginComponent} from './core/login/login.component';
 import {FooterComponent} from './features/home/componentes/footer/footer.component';
+import {HeadernewComponent} from './shared/headernew/headernew.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DesaparicionPrincipalComponent, HeaderComponent, LoginComponent, FooterComponent],
+  imports: [RouterOutlet, DesaparicionPrincipalComponent, HeaderComponent, LoginComponent, FooterComponent,HeadernewComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

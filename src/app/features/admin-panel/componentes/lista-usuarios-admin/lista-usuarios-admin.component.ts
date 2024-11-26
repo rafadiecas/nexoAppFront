@@ -3,8 +3,8 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModal, NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import {UsuarioListaAdmin} from '../../../modelos/UsuarioListaAdmin';
-import {UsuarioService} from '../../../servicios/usuario.service';
+import {UsuarioListaAdmin} from '../../../../modelos/UsuarioListaAdmin';
+import {UsuarioService} from '../../../../servicios/usuario.service';
 import {NgModule} from '@angular/core';
 import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 

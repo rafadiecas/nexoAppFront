@@ -1,15 +1,15 @@
 <div class="container mt-4">
-  <!-- Filtro de búsqueda -->
-  <div class="mb-3">
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Buscar por usuario..."
-      [(ngModel)]="filterText"
-      (input)="applyFilter()">
+  <div class="mb-3 d-flex align-items-center">
+    <input type="text"
+           class="form-control rounded search-bar pe-5 mx-2  border-bottom border-primary"
+           placeholder="Buscar por nombre o DNI..."
+           aria-label="Search"
+           [(ngModel)]="filterText"
+           (input)="applyFilter()">
+    <mat-icon class="custom-icon">search</mat-icon>
   </div>
 
-  <!-- Tabla de avisos -->
+
   <div class="container">
     <div class="row mb-3">
       <div class="col-lg-12">
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <!-- Listado de avisos -->
+
     <div class="row">
       <div class="col-sm-4 col-lg-12 mt-2 mb-2" *ngFor="let aviso of paginatedAvisos">
         <div class="row p-3 bg-light border rounded-3 shadow-sm">
@@ -38,7 +38,7 @@
             {{ aviso.fecha | date:'dd/MM/yyyy' }}
           </div>
           <div class="col-md-3 text-end">
-            <!-- Botón para eliminar -->
+
             <button (click)="openModal(modalContent, 'eliminar', aviso); $event.stopPropagation()" class="btn btn-sm btn-danger">
               <i class="fas fa-trash-alt"></i> Eliminar
             </button>
@@ -48,7 +48,7 @@
     </div>
   </div>
 
-  <!-- Paginación -->
+
   <nav aria-label="Paginación">
     <ngb-pagination
       [collectionSize]="filteredAvisos.length"
@@ -59,7 +59,7 @@
   </nav>
 </div>
 
-<!-- Modal de confirmación -->
+
 <ng-template #modalContent let-modal>
   <div class="modal-header">
     <h5 class="modal-title">

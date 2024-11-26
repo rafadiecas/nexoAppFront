@@ -1,12 +1,12 @@
 import {Component, inject} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { InputFotosComponent } from '../input-fotos/input-fotos.component';
-import { LocalizacionComponent } from '../localizacion/localizacion.component'; // Importamos LocalizacionComponent
-import { FileData } from '../../../../modelos/FileData';
-import { Sexo } from '../../../../modelos/Sexo'; // Importamos el enum Sexo
-import { Complexion } from '../../../../modelos/Complexion';
+import { InputFotosComponent } from '../../features/perfil-usuario/componentes/input-fotos/input-fotos.component';
+import { LocalizacionComponent } from '../../features/perfil-usuario/componentes/localizacion/localizacion.component'; // Importamos LocalizacionComponent
+import { FileData } from '../../modelos/FileData';
+import { Sexo } from '../../modelos/Sexo'; // Importamos el enum Sexo
+import { Complexion } from '../../modelos/Complexion';
 import {NgForOf} from '@angular/common';
-import {DesaparicionService} from '../../../../servicios/desaparicion.service'; // Importamos el enum Complexion
+import {DesaparicionService} from '../../servicios/desaparicion.service'; // Importamos el enum Complexion
 import {CommonModule} from '@angular/common';
 import {MatSnackBar} from '@angular/material/snack-bar';
 

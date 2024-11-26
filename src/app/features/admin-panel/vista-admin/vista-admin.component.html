@@ -22,10 +22,10 @@
         <app-gestion-usuario></app-gestion-usuario>
       </div>
       <div *ngIf="selectedOption === 'avisos'">
-        <app-autoridad-avisos></app-autoridad-avisos>
-      </div>
-      <div *ngIf="selectedOption === 'crear'">
         <app-crear-desaparicion></app-crear-desaparicion>
+      </div>
+      <div *ngIf="selectedOption === 'eliminadas'">
+        <app-lista-desapariciones-eliminadas></app-lista-desapariciones-eliminadas>
       </div>
     </div>
   </div>

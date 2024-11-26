@@ -6,6 +6,7 @@ import {MapaPrincipalComponent} from './componentes/mapa-principal/mapa-principa
 import {RegistraUsuarioComponent} from '../../core/registra-usuario/registra-usuario.component';
 import {DesaparicionFormComponent} from '../perfil-usuario/componentes/crear-desaparicion/crear-desaparicion.component';
 import {AvisoPrincipalComponent} from './componentes/aviso-principal/aviso-principal.component';
+import {ListaNoAprobadasComponent} from '../perfil-usuario/componentes/lista-no-aprobadas/lista-no-aprobadas.component';
 import {SobreNosotrosComponent} from './componentes/sobre-nosotros/sobre-nosotros.component';
 import {CrearAutoridadComponent} from '../admin-panel/crear-autoridad/crear-autoridad.component';
 
@@ -18,6 +19,7 @@ import {CrearAutoridadComponent} from '../admin-panel/crear-autoridad/crear-auto
     RegistraUsuarioComponent,
     DesaparicionFormComponent,
     AvisoPrincipalComponent,
+    ListaNoAprobadasComponent,
     MapaPrincipalComponent,
     SobreNosotrosComponent,
     MapaPrincipalComponent,

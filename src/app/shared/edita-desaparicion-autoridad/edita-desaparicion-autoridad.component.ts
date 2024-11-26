@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DesaparicionService } from '../../../../servicios/desaparicion.service';
+import { DesaparicionService } from '../../servicios/desaparicion.service';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
-import { DesaparicionPrincipal } from '../../../../modelos/DesaparicionPrincipal';
+import { DesaparicionPrincipal } from '../../modelos/DesaparicionPrincipal';
 import { NgForOf, TitleCasePipe, NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';

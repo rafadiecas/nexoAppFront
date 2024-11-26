@@ -28,3 +28,27 @@ button {
     height: 200px !important;
   }
 }
+
+.zoom {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.zoom:hover {
+  transform: scale(1.2);
+}
+
+.search-bar {
+  transition: width 0.3s ease-in-out;
+  width: 40px;
+}
+
+.search-bar:focus {
+  width: 250px;
+}
+
+.custom-icon {
+  font-size: 28px;
+  color: #7bc3f2;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
