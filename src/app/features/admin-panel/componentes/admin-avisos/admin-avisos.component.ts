@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {AvisoService} from '../../../servicios/aviso.service';
+import {AvisoService} from '../../../../servicios/aviso.service';
 import {CommonModule} from '@angular/common';
 import {NgbModal, NgbPagination} from '@ng-bootstrap/ng-bootstrap';
 import {DatePipe} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {Aviso} from '../../../modelos/Aviso';
+import {Aviso} from '../../../../modelos/Aviso';
 
 @Component({
   selector: 'app-admin-avisos',

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LugarService } from '../../../../servicios/lugar.service';
 import { MapaPrincipal } from '../../../../modelos/MapaPrincipal';
 import * as L from 'leaflet';
+import {Router} from '@angular/router';
 
 const iconRetinaUrl = 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png';
 const iconUrl = 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png';
@@ -28,9 +29,10 @@ export class MapaPrincipalComponent implements OnInit {
   private lugares: MapaPrincipal[] = [];
   private map!: L.Map;
 
-  constructor(private lugarService: LugarService) { }
+  constructor(private lugarService: LugarService, private  router:Router) { }
 
   ngOnInit() {
+    (window as any)['navigateToLugar'] = (id: string) => this.navigateToLugar(id);
     this.initMap();
     this.lugarService.getLugaresPrincipal().subscribe(data => {
       this.lugares = data;
@@ -51,9 +53,23 @@ export class MapaPrincipalComponent implements OnInit {
       if (lugar.lat !== undefined && lugar.lon !== undefined) {
         const marker = L.marker([lugar.lat, lugar.lon]).addTo(this.map);
 
-        marker.bindPopup(`<strong>${lugar.nombre}</strong><br>${lugar.descripcion}`);
+        const popupContent = `
+        <strong>${lugar.nombre}</strong><br>
+        ${lugar.descripcion}<br>
+        <button onclick="window.navigateToLugar('${lugar.id}')" style="background:none; color:blue; border:none; cursor:pointer; text-decoration:underline;">
+          Ver más detalles
+        </button>
+      `;
+
+        marker.bindPopup(popupContent);
       }
     });
   }
+
+
+  navigateToLugar(id: string): void {
+    this.router.navigate(['/desaparicion', id]);
+  }
+
 
 }

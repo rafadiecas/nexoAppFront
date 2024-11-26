@@ -13,16 +13,16 @@
 
     <div class="col-md-10 col-12 py-3">
       <div *ngIf="selectedOption === 'autDesapariciones'">
-        <app-lista-no-aprobadas></app-lista-no-aprobadas>
+        <app-edita-usuario></app-edita-usuario>
       </div>
       <div *ngIf="selectedOption === 'gesDesapariciones'">
-        <app-edita-desaparicion-autoridad></app-edita-desaparicion-autoridad>
+        <app-lista-desapariciones></app-lista-desapariciones>
       </div>
       <div *ngIf="selectedOption === 'gesUsuarios'">
         <app-gestion-usuario></app-gestion-usuario>
       </div>
       <div *ngIf="selectedOption === 'avisos'">
-        <app-autoridad-avisos></app-autoridad-avisos>
+        <app-crear-desaparicion></app-crear-desaparicion>
       </div>
     </div>
   </div>

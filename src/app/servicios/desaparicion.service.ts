@@ -62,5 +62,17 @@ export class DesaparicionService {
   }
 
 
+  getEliminadas(): Observable<DesaparicionSinVerificar[]> {
+    return this.http.get<DesaparicionSinVerificar[]>(`${apiUrl}/eliminadas`);
+  }
+
+  recuperarEliminacion(id: number): Observable<string> {
+    return this.http.post(`${apiUrl}/recuperar?id=${id}`, {}, { responseType: 'text' });
+  }
+
+  eliminarDesaparicion(id: number): Observable<string> {
+    return this.http.delete(`${apiUrl}?id=${id}`, { responseType: 'text' });
+  }
+
 
 }
