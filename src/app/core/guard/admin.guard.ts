@@ -8,7 +8,7 @@ export const adminGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const isLogged: boolean = !!localStorage.getItem('token');
 
-  return authService.obtenerRol(localStorage.getItem('username')).pipe(
+  return authService.obtenerRol().pipe(
     map((role: any) => {
       const isAuthorized = isLogged && role === 'ADMIN';
       if (!isAuthorized) {

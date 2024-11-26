@@ -13,6 +13,7 @@ import { AdminUsuariosComponent } from './features/admin-panel/lista-usuarios-ad
 import {VistaAutoridadComponent} from './features/perfil-autoridad/vista-autoridad/vista-autoridad.component';
 import {VistaAdminComponent} from './features/admin-panel/vista-admin/vista-admin.component';
 import {autoridadGuard} from './core/guard/autoridad.guard';
+import {PerfilUsuarioComponent} from './features/perfil-usuario/perfil-usuario.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,4 +29,5 @@ export const routes: Routes = [
   { path: 'usuario/autoridad', component: VistaAutoridadComponent,canActivate: [autoridadGuard] },
   { path: 'autoridad', component: VistaAutoridadComponent },
   { path: 'admin/recursos', component: VistaAdminComponent },
+  { path: 'usuario', component: PerfilUsuarioComponent },
 ];
