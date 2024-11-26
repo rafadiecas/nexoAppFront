@@ -1,24 +1,29 @@
-import {Component, OnInit} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {NgForOf, TitleCasePipe} from '@angular/common';
+import {Component, HostListener, OnInit} from '@angular/core';
+import {DesaparicionService} from '../../servicios/desaparicion.service';
+import {DesaparicionIndividual} from '../../modelos/DesaparicionIndividual';
+import {NgForOf, NgIf, TitleCasePipe} from '@angular/common';
+import {LugarService} from '../../servicios/lugar.service';
+import {DesaparicionSinVerificar} from '../../modelos/DesaparicionSinVerificar';
 import {NgbModal, NgbPagination} from '@ng-bootstrap/ng-bootstrap';
-import {DesaparicionService} from '../../../servicios/desaparicion.service';
+import {FormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
-import {DesaparicionSinVerificar} from '../../../modelos/DesaparicionSinVerificar';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
-  selector: 'app-lista-desapariciones-eliminadas',
+  selector: 'app-lista-no-aprobadas',
   standalone: true,
   imports: [
-    FormsModule,
     NgForOf,
+    FormsModule,
     NgbPagination,
-    TitleCasePipe
+    TitleCasePipe,
+    NgIf,
+    MatIcon
   ],
-  templateUrl: './lista-desapariciones-eliminadas.component.html',
-  styleUrl: './lista-desapariciones-eliminadas.component.css'
+  templateUrl: './lista-no-aprobadas.component.html',
+  styleUrl: './lista-no-aprobadas.component.css'
 })
-export class ListaDesaparicionesEliminadasComponent implements OnInit {
+export class ListaNoAprobadasComponent implements OnInit {
 
   constructor(private desaparicionService: DesaparicionService, private modalService:NgbModal, private router:Router) { }
   noAprobadas: DesaparicionSinVerificar[] = [];
@@ -38,10 +43,10 @@ export class ListaDesaparicionesEliminadasComponent implements OnInit {
   }
 
   cargaobjetos():void {
-    this.desaparicionService.getEliminadas().subscribe((data: DesaparicionSinVerificar[]) => {
-        this.noAprobadas = data;
-        this.filteredItems = [...this.noAprobadas];
-        this.setupPagination();
+    this.desaparicionService.getNoAprobadas().subscribe((data: DesaparicionSinVerificar[]) => {
+      this.noAprobadas = data;
+      this.filteredItems = [...this.noAprobadas];
+      this.setupPagination();
       },
       (error) => console.error('Error al cargar los datos', error)
     );
@@ -53,18 +58,7 @@ export class ListaDesaparicionesEliminadasComponent implements OnInit {
     const totalPagesCount = Math.ceil(totalItems / this.itemsPerPage);
 
     this.totalPages = Array.from({ length: totalPagesCount }, (_, i) => i + 1);
-
-    if (totalItems === 0) {
-      this.paginatedItems = [];
-    } else {
-      this.changePage(1);
-    }
-
-    console.log('Paginación configurada:', {
-      totalItems,
-      totalPagesCount,
-      paginatedItems: this.paginatedItems,
-    });
+    this.changePage(1);
   }
 
   onPageChange(page: number): void {
@@ -114,19 +108,19 @@ export class ListaDesaparicionesEliminadasComponent implements OnInit {
   }
 
   confirmAction(action: string, item: any): void {
-    if (action === 'recuperar') {
-      this.desaparicionService.recuperarEliminacion(item.id).subscribe(
+    if (action === 'aprobar') {
+      this.desaparicionService.aprobarDesaparicion(item.id).subscribe(
         () => {
           this.cargaobjetos();
         },
-        (error) => console.error('Error al recuperar desaparición', error)
+        (error) => console.error('Error al aprobar desaparición', error)
       );
-    } else if (action === 'eliminar') {
-      this.desaparicionService.eliminarDesaparicion(item.id).subscribe(
+    } else if (action === 'denegar') {
+      this.desaparicionService.rechazarDesaparicion(item.id).subscribe(
         () => {
           this.cargaobjetos();
         },
-        (error) => console.error('Error al eliminar desaparición', error)
+        (error) => console.error('Error al denegar desaparición', error)
       );
     }
   }

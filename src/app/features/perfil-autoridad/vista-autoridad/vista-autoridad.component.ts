@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {
     DesaparicionFormComponent
-} from "../../perfil-usuario/componentes/crear-desaparicion/crear-desaparicion.component";
+} from "../../../shared/crear-desaparicion/crear-desaparicion.component";
 import {EditaUsuarioComponent} from "../../perfil-usuario/componentes/edita-usuario/edita-usuario.component";
 import {
     ListaDesaparicionesComponent
@@ -14,10 +14,10 @@ import {
     ParteIzquierdaCivilComponent
 } from "../../perfil-usuario/componentes/parte-izquierda-civil/parte-izquierda-civil.component";
 import {GestionUsuarioComponent} from '../componentes/gestion-usuario/gestion-usuario.component';
-import {ListaNoAprobadasComponent} from '../componentes/lista-no-aprobadas/lista-no-aprobadas.component';
+import {ListaNoAprobadasComponent} from '../../../shared/lista-no-aprobadas/lista-no-aprobadas.component';
 import {
   EditaDesaparicionAutoridadComponent
-} from '../componentes/edita-desaparicion-autoridad/edita-desaparicion-autoridad.component';
+} from '../../../shared/edita-desaparicion-autoridad/edita-desaparicion-autoridad.component';
 import {AutoridadAvisosComponent} from '../componentes/autoridad-avisos/autoridad-avisos.component';
 
 @Component({
