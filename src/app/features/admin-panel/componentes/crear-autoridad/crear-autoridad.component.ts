@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {AutoridadService} from '../../../servicios/autoridad.service';
+import {AutoridadService} from '../../../../servicios/autoridad.service';
 
 @Component({
   selector: 'app-crear-autoridad',
