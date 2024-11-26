@@ -1,16 +1,16 @@
-<div class="sidebar p-3" >
-  <h3 class="sidebar-title text-center mb-3">Avisos</h3>
+<div class="aviso-pagina-container container py-4">
+  <h3 class="text-center mb-4">Avisos</h3>
 
-  <!-- Mensajes de carga y error -->
-  <div *ngIf="loading" class="alert alert-info text-center">Cargando avisos...</div>
-  <div *ngIf="errorMessage" class="alert alert-danger text-center">{{ errorMessage }}</div>
-
-  <div *ngIf="!loading && avisos.length === 0" class="alert alert-warning text-center">
-    No hay avisos disponibles.
+  <!-- Mostrar los mensajes de carga y error -->
+  <div *ngIf="loading" class="alert alert-info text-center" role="alert">
+    Cargando avisos...
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger text-center" role="alert">
+    {{ errorMessage }}
   </div>
 
-  <div class="text-center mt-4">
-    <button class="btn btn-primary btn-lg" (click)="abrirModal()">Crear Aviso</button>
+  <div *ngIf="!loading && avisos.length === 0" class="alert alert-warning text-center" role="alert">
+    No hay avisos disponibles.
   </div>
 
   <!-- Contenedor de los avisos -->

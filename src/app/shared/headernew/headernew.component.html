@@ -1,5 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
   <div class="container-fluid">
+    <button class="btn btn-warning d-md-none" (click)="redirigirAvisos()">
+      Avisos
+    </button>
+
     <a class="navbar-brand d-md-none" href="#">
       <img src="assets/nexo.jpg" alt="Nexo" style="width:100px; height: 100px;" class="img-fluid" [routerLink]="['']">
     </a>
@@ -16,7 +20,6 @@
         </a>
         <li class="nav-item" *ngIf="!logueado">
           <a href="/login" class="nav-link">Iniciar sesión</a>
-
         </li>
         <li class="nav-item dropdown" *ngIf="logueado">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,7 +28,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Perfil</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a  (click)="logout()" href="/login"  class="nav-link">Salir</a></li>
+            <li><a (click)="logout()" href="/login" class="nav-link">Salir</a></li>
           </ul>
         </li>
       </ul>

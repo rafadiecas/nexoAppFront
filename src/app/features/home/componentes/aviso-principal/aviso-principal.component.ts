@@ -17,10 +17,17 @@ export class AvisoPrincipalComponent implements OnInit {
   avisos: Aviso[] = [];
   loading = true;
   errorMessage = '';
+  isSidebarVisible = false; // Variable para manejar la visibilidad de la barra lateral
 
-  constructor(private avisoService: AvisoService, private dialog: MatDialog) {}
+  constructor(
+    private avisoService: AvisoService,
+    private dialog: MatDialog,
+  ) {}
 
   ngOnInit() {
+
+
+    // Cargar avisos al iniciar
     this.avisoService.getAvisos().subscribe({
       next: (data) => {
         console.log('Datos recibidos:', data);
@@ -49,9 +56,9 @@ export class AvisoPrincipalComponent implements OnInit {
   enviarAviso(aviso: any) {
     // Aquí, aseguramos que el objeto aviso sea convertido a FormData
     const formData = new FormData();
-    formData.append('aviso', JSON.stringify(aviso));  // Convertir el objeto aviso a JSON string
+    formData.append('aviso', JSON.stringify(aviso)); // Convertir el objeto aviso a JSON string
     aviso.files.forEach((file: File) => {
-      formData.append('files', file);  // Asegurarse de agregar los archivos también
+      formData.append('files', file); // Asegurarse de agregar los archivos también
     });
 
     // Llamar al servicio con FormData

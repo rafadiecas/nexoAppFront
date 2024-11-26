@@ -36,4 +36,10 @@ export class HeadernewComponent implements OnInit{
   recargar(){
     this.ngOnInit();
   }
+
+  // Método para redirigir a la página de avisos
+  redirigirAvisos() {
+    this.router.navigate(['/home/avisos']);
+  }
+
 }
