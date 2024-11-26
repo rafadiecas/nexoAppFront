@@ -3,29 +3,30 @@ import {Observable} from 'rxjs';
 import {Estado} from '../modelos/Estado';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Sexo} from '../modelos/Sexo';
+import {Persona} from '../modelos/Persona';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FiltroService {
-  private apiUrl = '/filtrar';
+  private apiUrl = '/api/desaparicion/filtrar';
   constructor(private http: HttpClient) {}
 
   getEstados(): Observable<Estado[]> {
-    return this.http.get<Estado[]>('url/api/estados');
+    return this.http.get<Estado[]>(`${this.apiUrl}/estados`);
   }
 
+  // Método para obtener los sexos desde el backend
   getSexos(): Observable<Sexo[]> {
-    return this.http.get<Sexo[]>('url/api/sexos');
+    return this.http.get<Sexo[]>(`${this.apiUrl}/sexos`);
   }
 
-  buscarPorFiltros(estado: string, sexo: string, fecha: string, nombre: string): Observable<Persona[]> {
+  buscarPorFiltros(estado: string, fecha: string, nombre: string): Observable<Persona[]> {
     const params = new HttpParams()
       .set('estado', estado)
-      .set('sexo', sexo)
       .set('fecha', fecha)
       .set('nombre', nombre);
 
-    return this.http.get<Persona[]>(`${this.apiUrl}/filtrar`, { params });
+    return this.http.get<Persona[]>(`${this.apiUrl}`, { params });
   }
 }
