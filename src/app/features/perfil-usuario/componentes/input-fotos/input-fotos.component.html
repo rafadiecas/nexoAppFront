@@ -28,37 +28,8 @@
 <div class="container mt-4" *ngIf="allFiles.length > 0">
   <div class="image-grid">
     <div *ngFor="let image of allFiles; let i = index" class="image-item" (click)="onImageClick(i)" title="Haz click para eliminar esta foto">
-      <img [src]="image.url" alt="Preview" class="img-fluid cuadrada" />
       <div class="overlay">Haz click para eliminar</div>
+      <img [src]="image.url" alt="Preview" class="img-fluid cuadrada same-size-img" />
     </div>
   </div>
 </div>
-
-<!-- Modales -->
-<ng-template #errorModal let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Formato no válido</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-  </div>
-  <div class="modal-body d-flex justify-content-center align-items-center flex-column">
-    <span class="iconify fs-1" data-icon="line-md:document-delete" style="color: #ff0000"></span>
-    <p>Por favor, sube solo archivos de imagen.</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Cerrar</button>
-  </div>
-</ng-template>
-
-<ng-template #maxmodal let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Demasiados archivos</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-  </div>
-  <div class="modal-body d-flex justify-content-center align-items-center flex-column">
-    <span class="iconify fs-1" data-icon="line-md:document-delete" style="color: #ff0000"></span>
-    <p>No puedes subir más de 3 imágenes adicionales</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Cerrar</button>
-  </div>
-</ng-template>

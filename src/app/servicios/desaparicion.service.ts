@@ -50,6 +50,29 @@ export class DesaparicionService {
   getEditarDesaparicion(id: number): Observable<EditaDesaparicion> {
     return this.http.get<EditaDesaparicion>(`${apiUrl}/getDesaparicionEditar?id=${id}`);
   }
+  buscarDesapariciones(filtro: any): Observable<any[]> {
+    const params = Object.keys(filtro)
+      .filter((key) => filtro[key])
+      .reduce((obj, key) => {
+        obj[key] = filtro[key];
+        return obj;
+      }, {} as { [key: string]: string });
+
+    return this.http.get<any[]>(`${apiUrl}/filtrar`, { params });
+  }
+
+
+  getEliminadas(): Observable<DesaparicionSinVerificar[]> {
+    return this.http.get<DesaparicionSinVerificar[]>(`${apiUrl}/eliminadas`);
+  }
+
+  recuperarEliminacion(id: number): Observable<string> {
+    return this.http.post(`${apiUrl}/recuperar?id=${id}`, {}, { responseType: 'text' });
+  }
+
+  eliminarDesaparicion(id: number): Observable<string> {
+    return this.http.delete(`${apiUrl}?id=${id}`, { responseType: 'text' });
+  }
 
 
 }
