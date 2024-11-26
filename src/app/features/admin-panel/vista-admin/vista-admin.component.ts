@@ -45,7 +45,6 @@ export class VistaAdminComponent {
     { label: 'Autorizar usuarios', value: 'gesUsuarios' },
     { label: 'Avisos', value: 'avisos' },
     { label: 'Eliminadas', value: 'eliminadas' },
-    { label: 'Crear desaparición', value: 'crear' },
   ];//cambiar esto para que lo pueda recivir del padre
   mapaDeIconos = {
     autDesapariciones: 'search_check_2',

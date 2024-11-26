@@ -42,10 +42,11 @@ export class VistaAutoridadComponent {
   selectedOption: string = 'autDesapariciones';
   autoridadIcon: string = 'supervisor_account'
   menuOptions = [
-    { label: 'Autorizar desapariciones', value: 'autDesapariciones' },
+    { label: 'Autorizar desaparicion', value: 'autDesapariciones' },
     { label: 'Gestión desapariciones', value: 'gesDesapariciones' },
     { label: 'Autorizar usuarios', value: 'gesUsuarios' },
     { label: 'Avisos', value: 'avisos' },
+    { label: 'Crear desaparición', value: 'crear' },
   ];//cambiar esto para que lo pueda recivir del padre
   mapaDeIconos = {
     autDesapariciones: 'search_check_2',
