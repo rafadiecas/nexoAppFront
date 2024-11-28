@@ -25,6 +25,8 @@ export class MostrarmasComponent {
   itemsPorPagina: number = 8; // Elementos por página
   totalPaginas: number = 0; // Total de páginas disponibles
   mensajeError: string = ''; // Mensaje de error en caso de no encontrar resultados
+  habilitarSiguiente: boolean = false; // Controlar estado del botón de siguiente
+
 
   constructor(private filtroService: FiltroService) {}
 
@@ -50,6 +52,9 @@ export class MostrarmasComponent {
           // Calcular total de páginas
           this.totalPaginas = Math.ceil(this.personas.length / this.itemsPorPagina);
 
+          // Habilitar el botón de siguiente si hay más de una página
+          this.habilitarSiguiente = this.totalPaginas > 1;
+
           // Cargar la primera página
           this.cargarPagina(1);
 
@@ -61,6 +66,9 @@ export class MostrarmasComponent {
           this.personas = [];
           this.personasPaginadas = [];
           this.totalPaginas = 0;
+
+          // Deshabilitar el botón de siguiente en caso de error
+          this.habilitarSiguiente = false;
 
           // Verificar si el error es un 404 y mostrar un mensaje adecuado
           if (error.status === 404) {

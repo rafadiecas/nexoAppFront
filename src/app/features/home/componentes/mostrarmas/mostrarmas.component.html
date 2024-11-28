@@ -34,9 +34,11 @@
   </span>
 
     <!-- Botón Siguiente -->
-    <button (click)="cargarPagina(paginaActual + 1)" [disabled]="paginaActual === totalPaginas">
-        Siguiente
-    </button>
+  <!-- Botón Siguiente -->
+  <button (click)="cargarPagina(paginaActual + 1)" [disabled]="paginaActual === totalPaginas || !habilitarSiguiente">
+    Siguiente
+  </button>
+
 </div>
 
 
