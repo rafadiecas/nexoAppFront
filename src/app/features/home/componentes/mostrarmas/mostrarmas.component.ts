@@ -24,8 +24,7 @@ export class MostrarmasComponent {
   paginaActual: number = 1; // Página actual
   itemsPorPagina: number = 8; // Elementos por página
   totalPaginas: number = 0; // Total de páginas disponibles
-  mensajeError: string = ''; // Mensaje de error
-
+  mensajeError: string = ''; // Mensaje de error en caso de no encontrar resultados
 
   constructor(private filtroService: FiltroService) {}
 
