@@ -27,7 +27,6 @@ export const routes: Routes = [
   { path: 'admin/avisos', component: AdminAvisosComponent },
   { path: 'registro', component: RegistraUsuarioComponent },
   { path: 'usuario/autoridad', component: VistaAutoridadComponent,canActivate: [autoridadGuard] },
-  { path: 'autoridad', component: VistaAutoridadComponent },
   { path: 'admin/recursos', component: VistaAdminComponent },
   { path: 'usuario', component: PerfilUsuarioComponent },
 ];

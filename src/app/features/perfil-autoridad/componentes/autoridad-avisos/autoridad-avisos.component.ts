@@ -93,7 +93,8 @@ export class AutoridadAvisosComponent implements OnInit {
   confirmAction(action: string, item: Aviso): void {
     if (action === 'eliminar' && item.id) {
       this.avisoService.eliminarAviso(item.id).subscribe(
-        () => {
+        (respuesta) => {
+          console.log(respuesta);
           this.cargarAvisos();
         },
         (error) => console.error('Error al eliminar aviso', error)

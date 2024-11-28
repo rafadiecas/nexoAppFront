@@ -24,22 +24,13 @@ export class AvisoService {
 
   // Método para crear un nuevo aviso
   crearAviso(formData: FormData): Observable<any> {
-    return this.http.post(`${this.apiUrl}/crearAviso`, formData, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('authToken')}`
-      },
-      responseType: 'json'
-    });
+    return this.http.post(`${this.apiUrl}/crearAviso`, formData);
   }
 
   // Eliminar un aviso
   eliminarAviso(id: number): Observable<string> {
-    return this.http.delete(`${this.apiUrl}/eliminar?id=${id}`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('authToken')}`
-      },
-      responseType: 'text'  // Esto indica que Angular debe esperar un texto
-    });
+    return this.http.delete(`${this.apiUrl}/eliminar?id=${id}`, { responseType: 'text' });
+
   }
 
 }
