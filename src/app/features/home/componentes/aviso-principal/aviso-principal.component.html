@@ -1,5 +1,8 @@
 <div class="sidebar p-3" >
-  <h3 class="sidebar-title text-center mb-3">Avisos</h3>
+  <h3 class="sidebar-title text-center mb-3">
+    <img src="assets/Avisos.png" style="width: 50px; height: 50px">
+    Avisos
+  </h3>
 
   <!-- Mensajes de carga y error -->
   <div *ngIf="loading" class="alert alert-info text-center">Cargando avisos...</div>
@@ -9,7 +12,7 @@
     No hay avisos disponibles.
   </div>
 
-  <div class="text-center mt-4">
+  <div class="text-center mt-4" *ngIf="logueado">
     <button class="btn btn-primary btn-lg" (click)="abrirModal()">Crear Aviso</button>
   </div>
 

@@ -58,7 +58,7 @@ export class CrearAvisoComponent {
   ) {
     this.avisoForm = this.fb.group({
       texto: ['', [Validators.required]],
-      fecha: ['', [Validators.required]],
+      // fecha: ['', [Validators.required]],
     });
   }
 
@@ -78,19 +78,19 @@ export class CrearAvisoComponent {
     const avisoData = this.avisoForm.value;
 
     // Obtener la fecha en zona horaria local y convertirla a UTC
-    const fechaLocal = new Date(avisoData.fecha);
+    // const fechaLocal = new Date(avisoData.fecha);
 
     // Convertir la fecha a UTC sin perder el día (hora 00:00 UTC)
-    const fechaUTC = new Date(Date.UTC(
-      fechaLocal.getFullYear(),
-      fechaLocal.getMonth(),
-      fechaLocal.getDate(),
-      0, 0, 0 // Establecer la hora a medianoche UTC
-    ));
+    // const fechaUTC = new Date(Date.UTC(
+    //   fechaLocal.getFullYear(),
+    //   fechaLocal.getMonth(),
+    //   fechaLocal.getDate(),
+    //   0, 0, 0 // Establecer la hora a medianoche UTC
+    // ));
 
     // Convertir a formato ISO (YYYY-MM-DD)
-    const fechaFormatoISO = fechaUTC.toISOString().split('T')[0];
-    avisoData.fecha = fechaFormatoISO; // Asignar la fecha formateada al objeto
+    // const fechaFormatoISO = fechaUTC.toISOString().split('T')[0];
+    // avisoData.fecha = fechaFormatoISO; // Asignar la fecha formateada al objeto
 
     // Crear FormData para enviar los datos
     const formData = new FormData();
@@ -120,7 +120,7 @@ export class CrearAvisoComponent {
       (error) => {
         console.error('Error al crear el aviso', error);
         // Recargar la página después de crear el aviso
-        // window.location.reload();  // Recarga la página para mostrar los cambios
+        window.location.reload();  // Recarga la página para mostrar los cambios
       }
     );
   }

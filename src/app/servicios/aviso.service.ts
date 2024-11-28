@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import { Aviso } from '../modelos/Aviso';
 
 
@@ -10,6 +10,9 @@ import { Aviso } from '../modelos/Aviso';
 export class AvisoService {
 
   private apiUrl = '/api/aviso'; // URL base del API de avisos
+
+  private datosActualizados = new BehaviorSubject<boolean>(false);
+  datosActualizados$ = this.datosActualizados.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -41,5 +44,7 @@ export class AvisoService {
       responseType: 'text'  // Esto indica que Angular debe esperar un texto
     });
   }
+
+
 
 }
