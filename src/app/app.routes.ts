@@ -14,20 +14,23 @@ import {VistaAutoridadComponent} from './features/perfil-autoridad/vista-autorid
 import {VistaAdminComponent} from './features/admin-panel/vista-admin/vista-admin.component';
 import {autoridadGuard} from './core/guard/autoridad.guard';
 import {PerfilUsuarioComponent} from './features/perfil-usuario/perfil-usuario.component';
+import {Error404Component} from './core/error404/error404.component';
+import {adminGuard} from './core/guard/admin.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login',component: LoginComponent },
   { path: 'usuario/civil', component:PerfilCivilComponent,  canActivate: [civilGuard] },
   { path: 'desaparicion/:id', component: DesaparicionComponent },
-  { path: 'admin', component: AdminPanelComponent },
-  {path: 'usuario/listaUsuarios', component: AdminUsuariosComponent},
-  { path: 'autoridad/avisos', component: AutoridadAvisosComponent },
+  { path: 'admin', component: AdminPanelComponent, canActivate:[adminGuard] },
+  {path: 'usuario/listaUsuarios', component: AdminUsuariosComponent, canActivate:[civilGuard]},
+  { path: 'autoridad/avisos', component: AutoridadAvisosComponent, canActivate:[autoridadGuard] },
   { path: 'mostrar', component: MostrarmasComponent },
-  { path: 'admin/avisos', component: AdminAvisosComponent },
+  { path: 'admin/avisos', component: AdminAvisosComponent, canActivate:[adminGuard] },
   { path: 'registro', component: RegistraUsuarioComponent },
   { path: 'usuario/autoridad', component: VistaAutoridadComponent,canActivate: [autoridadGuard] },
-  { path: 'autoridad', component: VistaAutoridadComponent },
-  { path: 'admin/recursos', component: VistaAdminComponent },
-  { path: 'usuario', component: PerfilUsuarioComponent },
+  { path: 'autoridad', component: VistaAutoridadComponent, canActivate:[autoridadGuard] },
+  { path: 'admin/recursos', component: VistaAdminComponent, canActivate:[adminGuard] },
+  { path: 'usuario', component: PerfilUsuarioComponent, canActivate:[civilGuard] },
+  {path: '**', component: Error404Component}
 ];

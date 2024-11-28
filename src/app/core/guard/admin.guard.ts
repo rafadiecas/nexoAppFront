@@ -18,7 +18,7 @@ export const adminGuard: CanActivateFn = (route, state) => {
       return true;
     }),
     catchError((error) => {
-      router.navigate(['']);
+      router.navigate(['/error404']);
       console.log('Error:', error);
       return of(false);
     })
