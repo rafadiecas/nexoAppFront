@@ -24,6 +24,8 @@ export class MostrarmasComponent {
   paginaActual: number = 1; // Página actual
   itemsPorPagina: number = 8; // Elementos por página
   totalPaginas: number = 0; // Total de páginas disponibles
+  mensajeError: string = ''; // Mensaje de error
+
 
   constructor(private filtroService: FiltroService) {}
 
@@ -51,13 +53,22 @@ export class MostrarmasComponent {
 
           // Cargar la primera página
           this.cargarPagina(1);
+
+          // Limpiar el mensaje de error si se encontraron resultados
+          this.mensajeError = '';
         },
         (error) => {
           console.error('Error al cargar personas:', error);
-          // Reiniciar datos en caso de error
           this.personas = [];
           this.personasPaginadas = [];
           this.totalPaginas = 0;
+
+          // Verificar si el error es un 404 y mostrar un mensaje adecuado
+          if (error.status === 404) {
+            this.mensajeError = 'No se encontraron resultados para la búsqueda.';
+          } else {
+            this.mensajeError = 'Ocurrió un error al realizar la búsqueda. Inténtalo de nuevo.';
+          }
         }
       );
   }

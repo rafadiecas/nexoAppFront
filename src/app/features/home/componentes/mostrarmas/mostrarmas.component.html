@@ -3,6 +3,9 @@
   <div class="filtro">
     <app-filtro (buscar)="cargarPersonas($event)"></app-filtro>
   </div>
+  <div *ngIf="mensajeError" class="mensaje-error">
+    {{ mensajeError }}
+  </div>
 
   <!-- Tarjetas de personas desaparecidas -->
     <div class="tarjetas">
