@@ -2,10 +2,16 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DesaparicionService } from '../../servicios/desaparicion.service';
 import { EditaDesaparicion } from '../../modelos/editaDesaparicion';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormArray} from '@angular/forms';
 import { LocalizacionComponent } from '../../features/perfil-usuario/componentes/localizacion/localizacion.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {TitleCasePipe} from '@angular/common';
+import {NgForOf, NgIf, TitleCasePipe} from '@angular/common';
+import {DesaparicionEditaAutoridad} from '../../modelos/DesaparicionEditaAutoridad';
+import {Foto} from '../../modelos/Foto';
+import {FileData} from '../../modelos/FileData';
+import {InputFotosComponent} from '../../features/perfil-usuario/componentes/input-fotos/input-fotos.component';
+import {InputShareComponent} from '../input-share/input-share.component';
+import {MatGridList, MatGridTile} from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-edita-dialog',
@@ -13,15 +19,21 @@ import {TitleCasePipe} from '@angular/common';
   imports: [
     ReactiveFormsModule,
     LocalizacionComponent,
-    TitleCasePipe
+    TitleCasePipe,
+    NgForOf,
+    InputFotosComponent,
+    InputShareComponent,
+    MatGridList,
+    MatGridTile,
+    NgIf
   ],
   templateUrl: './edita-dialog.component.html',
   styleUrls: ['./edita-dialog.component.css']
 })
 export class EditaDialogComponent implements OnInit {
-  desaparicion: EditaDesaparicion = {} as EditaDesaparicion;
+  desaparicion: DesaparicionEditaAutoridad = {} as DesaparicionEditaAutoridad;
   desaparicionForm: FormGroup;
-
+  archivos: File[] = [];
   constructor(
     public dialogRef: MatDialogRef<EditaDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { id: number },
@@ -38,12 +50,13 @@ export class EditaDialogComponent implements OnInit {
         calle: [''],
         latitud: [''],
         longitud: ['']
-      })
+      }),
+      fotos: this.fb.array([])
     });
   }
 
   ngOnInit(): void {
-    this.desaparicionService.getEditarDesaparicion(this.data.id).subscribe(data => {
+    this.desaparicionService.getEditarDesaparicionAutoridad(this.data.id).subscribe(data => {
       this.desaparicion = data;
       const lugar = this.desaparicion.lugarLatLongDTO || {};
       this.desaparicionForm.patchValue({
@@ -55,17 +68,46 @@ export class EditaDialogComponent implements OnInit {
           calle: lugar.calle || ''
         }
       });
+      // Populate photos FormArray
+      if (this.desaparicion.fotos) {
+        this.desaparicion.fotos.forEach(foto => this.addFoto(foto));
+      }
+
       console.log(data);
     });
   }
+  get fotos(): FormArray {
+    return this.desaparicionForm.get('fotos') as FormArray;
+  }
 
+  addFoto(foto: Foto = { id: undefined, url: '', esCara: false }): void {
+    this.fotos.push(this.fb.group({
+      id: [foto.id],
+      url: [foto.url],
+      esCara: [foto.esCara]
+    }));
+  }
 
+  removeFoto(index: number): void {
+    this.fotos.removeAt(index);
+  }
+  onFilesChanged(filesData: FileData[]): void {
+    this.archivos = filesData.map(fileData => fileData.file as File);
+  }
 
   cerrarDialogo(): void {
     this.dialogRef.close();
   }
 
   guardar(): void {
+    const desaparicionData = this.desaparicionForm.value;
+    const formData = new FormData();
+    formData.append('desaparicion', JSON.stringify(desaparicionData));
+
+    this.archivos.forEach(file => {
+      formData.append('files', file);
+    });
+
     this.desaparicionService.editarDesaparicionAutoridad(this.data.id, this.desaparicionForm.value).subscribe(
       (data) => {
         console.log('Desaparición editada correctamente', data);

@@ -1,0 +1,184 @@
+/* Estilos generales para la entrada de archivos */
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  max-width: 80%;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+}
+
+.inputfile + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  margin-right: 0.25em;
+}
+
+.inputfilela {
+  font-size: 16px;
+  font-weight: normal;
+  font-family: 'Lato';
+}
+
+.inputfile-1 + label {
+  color: #fff;
+  background-color: #6cb9f5;
+}
+
+.inputfile-1:focus + label,
+.inputfile-1.has-focus + label,
+.inputfile-1 + label:hover {
+  background-color: #5694c4;
+}
+
+.upload-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  background-color: #6cb9f5;
+}
+
+.upload-label mat-icon {
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.disabled-label {
+  color: #ccc;
+  opacity: 0.6;
+}
+
+/* Estilo de la imagen */
+.cuadrada {
+  width: 100%; /* Ajustado para usar toda la casilla */
+  height: 100%;
+  object-fit: cover; /* Asegura que las imágenes mantengan su proporción */
+  border-radius: 5px;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-label {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  font-size: 1.2rem;
+  color: #333;
+  display: block;
+}
+
+/* Grid para las imágenes */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajuste flexible de columnas */
+  gap: 1rem; /* Espaciado entre las imágenes */
+}
+
+.image-item {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.image-item:hover .overlay {
+  opacity: 1;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Menor tamaño de columna en pantallas pequeñas */
+  }
+  .same-size-img {
+    width: 200px; /* Ajusta el ancho según lo que desees */
+    height: 200px; /* Ajusta la altura según lo que desees */
+    object-fit: cover; /* Esto mantiene la proporción de la imagen sin distorsionarla */
+  }
+
+  .image-item {
+    position: relative;
+    margin: 10px;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .image-item:hover .overlay {
+    opacity: 1;
+  }
+  .upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    background-color:#6cb9f5;
+  }
+
+  .upload-label mat-icon {
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+
+}

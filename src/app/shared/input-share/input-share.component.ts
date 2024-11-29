@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {MatGridList, MatGridTile} from "@angular/material/grid-list";
 import {MatIcon} from "@angular/material/icon";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
@@ -26,6 +26,8 @@ export class InputShareComponent {
 
   @ViewChild('errorModal') errorModal: any;
   @ViewChild('maxmodal') maxModal: any;
+
+  @Input() imagenCara: boolean = false;
 
   @Output() filesChanged = new EventEmitter<FileData[]>();
   allFiles: FileData[] = [];
@@ -60,7 +62,7 @@ export class InputShareComponent {
   }
 
   onImageClick(i: number) {
-    if (i === 0) {
+    if (i === 0 && this.imagenCara) {
       this.allFiles = [];
       this.firstImageSelected = false;
     } else {

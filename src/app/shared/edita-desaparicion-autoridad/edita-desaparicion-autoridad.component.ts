@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditaDialogComponent } from '../edita-dialog/edita-dialog.component';
 import {MatIcon} from '@angular/material/icon';
 import {Router} from '@angular/router';
+import {DesaparicionGestionDTO} from '../../modelos/DesaparicionGestionDTO';
 
 @Component({
   selector: 'app-edita-desaparicion-autoridad',
@@ -27,9 +28,9 @@ import {Router} from '@angular/router';
 export class EditaDesaparicionAutoridadComponent implements OnInit {
   constructor(private desaparicionService: DesaparicionService, private dialog: MatDialog,private route:Router) {}
 
-  desapariciones: DesaparicionPrincipal[] = [];
-  filteredItems: DesaparicionPrincipal[] = [];
-  paginatedItems: DesaparicionPrincipal[] = [];
+  desapariciones: DesaparicionGestionDTO[] = [];
+  filteredItems: DesaparicionGestionDTO[] = [];
+  paginatedItems: DesaparicionGestionDTO[] = [];
   filterText: string = '';
   itemsPerPage: number = 6;
   currentPage: number = 1;
@@ -40,8 +41,9 @@ export class EditaDesaparicionAutoridadComponent implements OnInit {
   }
 
   cargaobjetos(): void {
-    this.desaparicionService.getDesaparicionesPrincipal().subscribe(
+    this.desaparicionService.getDesaparicionGestion().subscribe(
       (data: DesaparicionPrincipal[]) => {
+        console.log(data)
         this.desapariciones = data;
         this.filteredItems = [...this.desapariciones];
         this.setupPagination();
@@ -73,7 +75,7 @@ export class EditaDesaparicionAutoridadComponent implements OnInit {
     this.paginatedItems = this.filteredItems.slice(startIndex, endIndex);
   }
 
-  irDesaparicion(desaparicion: DesaparicionPrincipal): void {
+  irDesaparicion(desaparicion: DesaparicionGestionDTO): void {
     if (desaparicion.id !== undefined) {
       this.dialog.open(EditaDialogComponent, {
         width: '80%',

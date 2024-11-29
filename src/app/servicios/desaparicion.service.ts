@@ -5,6 +5,8 @@ import { DesaparicionPrincipal } from '../modelos/DesaparicionPrincipal';
 import {DesaparicionIndividual} from '../modelos/DesaparicionIndividual';
 import {DesaparicionSinVerificar} from '../modelos/DesaparicionSinVerificar';
 import {EditaDesaparicion} from '../modelos/editaDesaparicion';
+import {DesaparicionEditaAutoridad} from '../modelos/DesaparicionEditaAutoridad';
+import {DesaparicionGestionDTO} from '../modelos/DesaparicionGestionDTO';
 
 const apiUrl = '/api/desaparicion';
 
@@ -18,6 +20,9 @@ export class DesaparicionService {
 
   getDesaparicionesPrincipal(): Observable<DesaparicionPrincipal[]> {
     return this.http.get<DesaparicionPrincipal[]>(`${apiUrl}/principal`);
+  }
+  getDesaparicionGestion(): Observable<DesaparicionGestionDTO[]>{
+    return this.http.get<DesaparicionGestionDTO[]>(`${apiUrl}/desaparicionesGestion`);
   }
 
   getDesaparicionIndividual(id: number): Observable<DesaparicionIndividual> {
@@ -51,6 +56,9 @@ export class DesaparicionService {
   getEditarDesaparicion(id: number): Observable<EditaDesaparicion> {
     return this.http.get<EditaDesaparicion>(`${apiUrl}/getDesaparicionEditar?id=${id}`);
   }
+  getEditarDesaparicionAutoridad(id: number): Observable<DesaparicionEditaAutoridad> {
+    return this.http.get<EditaDesaparicion>(`${apiUrl}/getDesaparicionEditarAutoridad?id=${id}`);
+  }
   buscarDesapariciones(filtro: any): Observable<any[]> {
     const params = Object.keys(filtro)
       .filter((key) => filtro[key])
@@ -74,6 +82,5 @@ export class DesaparicionService {
   eliminarDesaparicion(id: number): Observable<string> {
     return this.http.delete(`${apiUrl}?id=${id}`, { responseType: 'text' });
   }
-
 
 }

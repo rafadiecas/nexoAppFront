@@ -1,7 +1,7 @@
 <div class="container mt-4">
   <div class="row">
-    <div class="col col-md-6 col-12">
-      <div class="input-container mt-4">
+    <div class="col col-md-6 col-12" >
+      <div class="input-container mt-4"*ngIf="imagenCara">
         <span class="input-label">Sube imagen de la cara</span>
         <!-- Primer input -->
         <input type="file" class="inputfile inputfile-1" id="file-1" (change)="onFileSelect($event)" accept="image/*" />
@@ -22,14 +22,22 @@
   </div>
 </div>
 
-<!-- Galería de imágenes -->
 <div class="container mt-4" *ngIf="allFiles.length > 0">
-  <mat-grid-list [cols]="2" rowHeight="1:1" gutterSize="0px">
-    <mat-grid-tile *ngFor="let image of allFiles; let i = index">
-      <img [src]="image.url" alt="Preview" class="img-fluid cuadrada" (click)="onImageClick(i)"/>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <div class="image-grid">
+    <div *ngFor="let image of allFiles; let i = index" class="image-item" (click)="onImageClick(i)" title="Haz click para eliminar esta foto">
+      <div class="overlay">Haz click para eliminar</div>
+      <img [src]="image.url" alt="Preview" class="img-fluid cuadrada same-size-img" />
+    </div>
+  </div>
 </div>
+<!--&lt;!&ndash; Galería de imágenes &ndash;&gt;-->
+<!--<div class="container mt-4" *ngIf="allFiles.length > 0">-->
+<!--  <mat-grid-list [cols]="2" rowHeight="1:1" gutterSize="0px">-->
+<!--    <mat-grid-tile *ngFor="let image of allFiles; let i = index">-->
+<!--      <img [src]="image.url" alt="Preview" class="img-fluid cuadrada" (click)="onImageClick(i)"/>-->
+<!--    </mat-grid-tile>-->
+<!--  </mat-grid-list>-->
+<!--</div>-->
 
 <ng-template #errorModal let-modal>
   <div class="modal-header">
