@@ -43,9 +43,11 @@
     <div formArrayName="fotos" class="container mt-4" *ngIf="fotos.length>0">
       <p><b>Imágenes</b></p>
       <div class="image-grid">
-        <div *ngFor="let foto of fotos.controls; let i = index" [formGroupName]="i" class="image-item" (click)="removeFoto(i)" title="Haz click para eliminar esta foto">
-          <div class="overlay">Haz click para eliminar</div>
-          <img  [src]="foto.get('url')!.value" alt="Foto de desaparición" class="img-fluid cuadrada same-size-img" />
+        <div *ngFor="let foto of fotos.controls; let i = index" [formGroupName]="i">
+          <div  class="image-item"  title="Haz click para eliminar esta foto">
+            <div class="overlay" *ngIf="!foto.get('esCara')?.value" (click)="removeFoto(i)">Haz click para eliminar</div>
+            <img [src]="foto.get('url')!.value" alt="Foto de desaparición" class="img-fluid cuadrada same-size-img" />
+          </div>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@
       <div class="input-container mt-4"*ngIf="imagenCara">
         <span class="input-label">Sube imagen de la cara</span>
         <!-- Primer input -->
-        <input type="file" class="inputfile inputfile-1" id="file-1" (change)="onFileSelect($event)" accept="image/*" />
+        <input type="file" class="inputfile inputfile-1" id="file-1" (change)="onFileSelect($event, 1)" accept="image/*" />
         <label for="file-1" class="upload-label">
           <mat-icon>file_upload</mat-icon>
           <span class="inputfilela">Seleccionar archivo</span>
@@ -13,7 +13,7 @@
 
       <!-- Segundo input con id distinto para evitar duplicados -->
       <div class="input-container mt-4">
-        <input type="file" class="inputfile inputfile-1" id="file-2" (change)="onFileSelect($event)" accept="image/*" multiple />
+        <input type="file" class="inputfile inputfile-1" id="file-2" (change)="onFileSelect($event, 2)" accept="image/*" multiple />
         <label for="file-2" class="upload-label p-0 rounded" matTooltip="Pulsa para añadir imágenes">
           <span class="iconify fs-1 m-0" data-icon="bx:image-add" style="color: white;"  ></span>
         </label>

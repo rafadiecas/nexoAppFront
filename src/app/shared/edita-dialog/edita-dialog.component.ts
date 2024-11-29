@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import {Component, inject, Inject, OnInit} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DesaparicionService } from '../../servicios/desaparicion.service';
 import { EditaDesaparicion } from '../../modelos/editaDesaparicion';
@@ -10,8 +10,9 @@ import {DesaparicionEditaAutoridad} from '../../modelos/DesaparicionEditaAutorid
 import {Foto} from '../../modelos/Foto';
 import {FileData} from '../../modelos/FileData';
 import {InputFotosComponent} from '../../features/perfil-usuario/componentes/input-fotos/input-fotos.component';
-import {InputShareComponent} from '../input-share/input-share.component';
 import {MatGridList, MatGridTile} from '@angular/material/grid-list';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {InputShareComponent} from '../input-share/input-share.component';
 
 @Component({
   selector: 'app-edita-dialog',
@@ -22,10 +23,10 @@ import {MatGridList, MatGridTile} from '@angular/material/grid-list';
     TitleCasePipe,
     NgForOf,
     InputFotosComponent,
-    InputShareComponent,
     MatGridList,
     MatGridTile,
-    NgIf
+    NgIf,
+    InputShareComponent
   ],
   templateUrl: './edita-dialog.component.html',
   styleUrls: ['./edita-dialog.component.css']
@@ -34,6 +35,7 @@ export class EditaDialogComponent implements OnInit {
   desaparicion: DesaparicionEditaAutoridad = {} as DesaparicionEditaAutoridad;
   desaparicionForm: FormGroup;
   archivos: File[] = [];
+  private snackBar = inject(MatSnackBar);
   constructor(
     public dialogRef: MatDialogRef<EditaDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { id: number },
@@ -77,7 +79,13 @@ export class EditaDialogComponent implements OnInit {
     });
   }
   get fotos(): FormArray {
-    return this.desaparicionForm.get('fotos') as FormArray;
+    const fotosArray = this.desaparicionForm.get('fotos') as FormArray;
+    const index = fotosArray.controls.findIndex(foto => foto.get('esCara')?.value);
+    if (index > 0) {
+      const [fotoConCara] = fotosArray.controls.splice(index, 1);
+      fotosArray.controls.unshift(fotoConCara);
+    }
+    return fotosArray;
   }
 
   addFoto(foto: Foto = { id: undefined, url: '', esCara: false }): void {
@@ -99,23 +107,52 @@ export class EditaDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  guardar(): void {
+  // guardar(): void {
+  //   const desaparicionData = this.desaparicionForm.value;
+  //   const formData = new FormData();
+  //   formData.append('desaparicion', JSON.stringify(desaparicionData));
+  //
+  //   this.archivos.forEach(file => {
+  //     formData.append('files', file);
+  //   });
+  //
+  //   this.desaparicionService.editarDesaparicionAutoridad(this.data.id, this.desaparicionForm.value).subscribe(
+  //     (data) => {
+  //       console.log('Desaparición editada correctamente', data);
+  //       this.dialogRef.close();
+  //     },
+  //     (error) => console.error('Error al editar la desaparición', error)
+  //   )
+  // }
+guardar(): void {
     const desaparicionData = this.desaparicionForm.value;
     const formData = new FormData();
+    formData.append('id', this.data.id.toString());
     formData.append('desaparicion', JSON.stringify(desaparicionData));
-
     this.archivos.forEach(file => {
       formData.append('files', file);
     });
-
-    this.desaparicionService.editarDesaparicionAutoridad(this.data.id, this.desaparicionForm.value).subscribe(
-      (data) => {
-        console.log('Desaparición editada correctamente', data);
-        this.dialogRef.close();
+    console.log('archivos', this.archivos);
+    console.log('FormData a enviar:', formData);
+    this.desaparicionService.editarDesaparicionGestion(formData).subscribe({
+      next: (response) => {
+        console.log('Respuesta del servidor:', response);
+        this.snackBar.open('Desaparicion editada con éxito', 'Cerrar', {
+          duration: 3000
+        });
       },
-      (error) => console.error('Error al editar la desaparición', error)
-    )
+      error: (error) => {
+        console.error('Error al editar la desaparición:', error);
+        this.snackBar.open('Error al editar la desaparicion', 'Cerrar', {
+          duration: 3000
+        });
+      }
+    });
+
+  console.log('Datos de desaparición enviados:', formData);
+
   }
+
 
   openModal(content: any): void {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result

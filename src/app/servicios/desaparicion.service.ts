@@ -52,6 +52,10 @@ export class DesaparicionService {
     const params = { id: id.toString() };
     return this.http.post(url, editarDesaparicionDTO, { params, responseType: 'text' });
   }
+  editarDesaparicionGestion(formData: FormData): Observable<any> {
+    const url = `${apiUrl}/editarDesaparicionGestion`;
+    return this.http.put(url, formData, { responseType: 'text' });
+  }
 
   getEditarDesaparicion(id: number): Observable<EditaDesaparicion> {
     return this.http.get<EditaDesaparicion>(`${apiUrl}/getDesaparicionEditar?id=${id}`);
