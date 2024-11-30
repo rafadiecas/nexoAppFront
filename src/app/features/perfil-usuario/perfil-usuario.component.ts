@@ -22,7 +22,7 @@ export class PerfilUsuarioComponent implements OnInit{
       } else if (this.rol == 'CIVIL') {
         this.router.navigate(['/usuario/civil']);
       }else if (this.rol == 'AUTORIDAD') {
-        this.router.navigate(['/usuario/aturidad']);
+        this.router.navigate(['/usuario/autoridad']);
       }
     });}
 
