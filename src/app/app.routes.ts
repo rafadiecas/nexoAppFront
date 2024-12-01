@@ -31,6 +31,6 @@ export const routes: Routes = [
   { path: 'usuario/autoridad', component: VistaAutoridadComponent,canActivate: [autoridadGuard] },
   { path: 'autoridad', component: VistaAutoridadComponent, canActivate:[autoridadGuard] },
   { path: 'admin/recursos', component: VistaAdminComponent, canActivate:[adminGuard] },
-  { path: 'usuario', component: PerfilUsuarioComponent, canActivate:[civilGuard] },
+  { path: 'usuario', component: PerfilUsuarioComponent},
   {path: '**', component: Error404Component}
 ];
