@@ -15,6 +15,9 @@ import {MatIcon} from '@angular/material/icon';
 import {HeaderService} from '../../servicios/header.service';
 import getWindowScroll from '@popperjs/core/lib/dom-utils/getWindowScroll';
 
+/**
+ * Componente que contiene el formulario de inicio de sesión
+ */
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -54,6 +57,9 @@ export class LoginComponent implements OnInit{
         contrasenya: ['', Validators.required],
       })
   }
+  /**
+   * Método que inicia sesión
+   */
   iniciarSesion() {
     this.fallo = false;
     this.usuarioNoExiste = false;

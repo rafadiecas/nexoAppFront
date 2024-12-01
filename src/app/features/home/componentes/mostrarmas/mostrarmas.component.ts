@@ -9,6 +9,9 @@ import {FiltroComponent} from '../../../filtro/filtro.component';
 import {CommandModule} from '@angular/cli/src/command-builder/command-module';
 import {RouterLink} from '@angular/router';
 
+/**
+ * Componente que muestra más información sobre las desapariciones
+ */
 @Component({
   selector: 'app-mostrarmas',
   standalone: true,
@@ -36,6 +39,11 @@ export class MostrarmasComponent {
     this.cargarPersonas({});
 
   }
+
+  /**
+   * Cargar la página indicada
+   * @param pagina
+   */
   cargarPagina(pagina: number): void {
     if (pagina < 1 || pagina > this.totalPaginas) return; // Validar límites
 
@@ -47,7 +55,10 @@ export class MostrarmasComponent {
     this.personasPaginadas = this.personas.slice(inicio, fin); // Asignar personas paginadas
   }
 
-
+  /**
+   * Cargar personas según los filtros
+   * @param filtros
+   */
   cargarPersonas(filtros: any): void {
     console.log('Filtros enviados:', filtros); // Verifica los filtros
     this.filtroService.buscarPorFiltros(

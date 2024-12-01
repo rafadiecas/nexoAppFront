@@ -13,7 +13,9 @@ import {DesaparicionLista} from '../../../modelos/DesaparicionLista';
 import {CivilService} from '../../../servicios/civil.service';
 import {ComentarioDialogComponent} from '../comentario-dialog/comentario-dialog.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
-
+/**
+ * Componente que se encarga de mostrar los comentarios de una desaparición
+ */
 @Component({
   selector: 'app-comentarios',
   standalone: true,
@@ -53,11 +55,18 @@ export class ComentariosComponent implements OnInit {
 
   }
 
-
+  /**
+   * Método que se encarga de manejar el evento de adición de imágenes
+   * @param filesData
+   */
   onFilesChanged(filesData: FileData[]): void {
     this.archivos = filesData.map(fileData => fileData.file as File);
   }
 
+  /**
+   * Método que se encarga de cargar los comentarios de una desaparición
+   * @param desaparicionId
+   */
   cargarComentarios(desaparicionId: number): void {
     this.comentarioService.obtenerComentariosPorDesaparicion(desaparicionId).subscribe({
       next: data => {
@@ -68,7 +77,9 @@ export class ComentariosComponent implements OnInit {
     });
   }
 
-
+  /**
+   * Método que se encarga de abrir un dialogo para agregar un comentario
+   */
   abrirDialogo(): void {
     if (!this.textoComentario) {
       console.error('El texto del comentario es obligatorio.');
@@ -87,6 +98,10 @@ export class ComentariosComponent implements OnInit {
     });
   }
 
+  /**
+   * Método que se encarga de abrir un dialogo para mostrar una imagen de un comentario
+   * @param foto
+   */
   abrirDialogoImagen(foto:string): void {
 
     this.dialogImage.open(ImageDialogComponent, {
@@ -96,7 +111,10 @@ export class ComentariosComponent implements OnInit {
 
   }
 
-
+  /**
+   * Método que se encarga de enviar un comentario
+   * @param datosAdicionales
+   */
   enviarComentario(datosAdicionales: any): void {
     const nuevoComentario = {
       texto: this.textoComentario,

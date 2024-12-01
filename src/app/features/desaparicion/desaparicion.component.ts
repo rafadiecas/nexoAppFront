@@ -6,6 +6,9 @@ import {NgIf} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import {DesaparicionService} from '../../servicios/desaparicion.service';
 
+/**
+ * Componente que se encarga de mostrar la vista de la desaparición de una persona
+ */
 @Component({
   selector: 'app-desaparicion',
   standalone: true,

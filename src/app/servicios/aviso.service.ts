@@ -7,22 +7,33 @@ import { Aviso } from '../modelos/Aviso';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Servicio para el manejo de los avisos
+ */
 export class AvisoService {
 
   private apiUrl = '/api/aviso'; // URL base del API de avisos
 
   constructor(private http: HttpClient) { }
 
-  // Método para obtener todos los avisos
+  /**
+   * Método para obtener todos los avisos
+   */
   getAvisos(): Observable<Aviso[]> {
     return this.http.get<Aviso[]>(`${this.apiUrl}/mostrarAvisos`);
   }
-  // Método para obtener todos los avisos
+
+  /**
+   * Método para obtener los avisos para una autoridad
+   */
   getAvisosAutoridad(): Observable<Aviso[]> {
     return this.http.get<Aviso[]>(`${this.apiUrl}/listarAvisosAdmin`);
   }
 
-  // Método para crear un nuevo aviso
+  /**
+   * Método para crear un aviso
+   * @param formData
+   */
   crearAviso(formData: FormData): Observable<any> {
     return this.http.post(`${this.apiUrl}/crearAviso`, formData, {
       headers: {
@@ -32,7 +43,10 @@ export class AvisoService {
     });
   }
 
-  // Eliminar un aviso
+  /**
+   * Método para eliminar un aviso
+   * @param id
+   */
   eliminarAviso(id: number): Observable<string> {
     return this.http.delete(`${this.apiUrl}/eliminar?id=${id}`, {
       headers: {

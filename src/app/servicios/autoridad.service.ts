@@ -6,6 +6,9 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Servicio para el registro de una autoridad
+ */
 export class AutoridadService {
 
   private apiUrl = '/api/autoridad';

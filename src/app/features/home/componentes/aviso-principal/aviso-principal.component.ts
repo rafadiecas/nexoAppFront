@@ -6,6 +6,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 
+/**
+ * Componente que muestra los avisos en la página principal
+ */
 @Component({
   selector: 'app-aviso-principal',
   standalone: true,
@@ -34,6 +37,9 @@ export class AvisoPrincipalComponent implements OnInit {
     });
   }
 
+  /**
+   * Abre el modal para crear un aviso
+   */
   abrirModal() {
     const dialogRef = this.dialog.open(CrearAvisoComponent, {
       width: '800px',
@@ -46,6 +52,10 @@ export class AvisoPrincipalComponent implements OnInit {
     });
   }
 
+  /**
+   * Envía un aviso al backend
+   * @param aviso
+   */
   enviarAviso(aviso: any) {
     // Aquí, aseguramos que el objeto aviso sea convertido a FormData
     const formData = new FormData();

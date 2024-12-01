@@ -4,6 +4,9 @@ import {DesaparicionLista} from '../../../../modelos/DesaparicionLista';
 import {NgForOf} from '@angular/common';
 import {RouterLink} from '@angular/router';
 
+/**
+ * Componente que muestra la lista de desapariciones seguidas por el usuario civil
+ */
 @Component({
   selector: 'app-lista-seguimiento',
   standalone: true,

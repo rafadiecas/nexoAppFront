@@ -7,6 +7,9 @@ import { LocalizacionComponent } from '../../features/perfil-usuario/componentes
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TitleCasePipe} from '@angular/common';
 
+/**
+ * Componente que muestra un diálogo para editar una desaparición.
+ */
 @Component({
   selector: 'app-edita-dialog',
   standalone: true,
@@ -60,11 +63,16 @@ export class EditaDialogComponent implements OnInit {
   }
 
 
-
+  /**
+   * Cierra el diálogo.
+   */
   cerrarDialogo(): void {
     this.dialogRef.close();
   }
 
+  /**
+   * Guarda los cambios realizados en la desaparición.
+   */
   guardar(): void {
     this.desaparicionService.editarDesaparicionAutoridad(this.data.id, this.desaparicionForm.value).subscribe(
       (data) => {
@@ -75,6 +83,10 @@ export class EditaDialogComponent implements OnInit {
     )
   }
 
+  /**
+   * Abre el modal de confirmación.
+   * @param content
+   */
   openModal(content: any): void {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result
       .then(

@@ -4,6 +4,11 @@ import {Observable} from 'rxjs';
 import {inject} from '@angular/core';
 import {AuthServiceService} from '../auth-service.service';
 
+/**
+ * Interceptor que añade el token de autenticación a las peticiones HTTP
+ * @param request
+ * @param next
+ */
 export const authInterceptor: HttpInterceptorFn = (
   request: HttpRequest<any>,
   next: HttpHandlerFn,

@@ -7,6 +7,9 @@ import {CivilCrearDTO} from '../../modelos/CrearCivil';
 import {AuthService} from '../../servicios/auth.service';
 import {Router} from '@angular/router';
 
+/**
+ * Componente que contiene el formulario de registro de usuario
+ */
 @Component({
   selector: 'app-registra-usuario',
   standalone: true,
@@ -43,6 +46,10 @@ export class RegistraUsuarioComponent implements OnInit {
     console.log(this.usuarioForm.get('nombre'));
   }
 
+  /**
+   * Validador para la complejidad de la contraseña
+   * @private
+   */
   // Validador para la complejidad de la contraseña
   private passwordStrength(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
@@ -63,6 +70,13 @@ export class RegistraUsuarioComponent implements OnInit {
       return !isValid ? { passwordStrength: true } : null;
     };
   }
+
+  /**
+   * Validador para comparar contraseñas
+   * @param controlName
+   * @param matchingControlName
+   * @private
+   */
 
   // Validador para comparar contraseñas
   private matchPasswords(controlName: string, matchingControlName: string): ValidatorFn {
@@ -88,6 +102,9 @@ export class RegistraUsuarioComponent implements OnInit {
     };
   }
 
+  /**
+   * Método que envía los datos del formulario al servicio de autenticación
+   */
   submit(): void {
     if (this.usuarioForm.valid) {
       // Mapear los datos del formulario a `CivilCrearDTO`

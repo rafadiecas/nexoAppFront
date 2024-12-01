@@ -7,6 +7,9 @@ import {UsuarioService} from '../../../servicios/usuario.service';
 import {CivilService} from '../../../servicios/civil.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
+/**
+ * Componente que se encarga de mostrar los datos de la desaparición de una persona
+ */
 @Component({
   selector: 'app-datos-desaparicion',
   standalone: true,
@@ -46,6 +49,9 @@ export class DatosDesaparicionComponent implements OnInit {
     });
   }
 
+  /**
+   * Método que se encarga de añadir una desaparición a seguimiento
+   */
   anyadirSeguimiento() {
     this.usuarioService.anyadirSeguimiento(this.id).subscribe(() => {
       this.seguimiento = true;
@@ -55,6 +61,9 @@ export class DatosDesaparicionComponent implements OnInit {
     });
   }
 
+  /**
+   * Método que se encarga de eliminar una desaparición de seguimiento
+   */
   eliminarSeguimiento() {
     this.usuarioService.eliminarSeguimiento(this.id).subscribe(() => {
       this.seguimiento = false;

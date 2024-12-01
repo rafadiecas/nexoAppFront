@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+/**
+ * Componente que muestra más información sobre la aplicación
+ */
 @Component({
   selector: 'app-sobre-nosotros',
   standalone: true,

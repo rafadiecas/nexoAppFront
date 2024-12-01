@@ -9,7 +9,9 @@ import {AvisoPrincipalComponent} from './componentes/aviso-principal/aviso-princ
 import {SobreNosotrosComponent} from './componentes/sobre-nosotros/sobre-nosotros.component';
 
 
-
+/**
+ * Componente principal de la aplicación, la pagina de inicio
+ */
 @Component({
   selector: 'app-home',
   standalone: true,
