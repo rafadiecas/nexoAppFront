@@ -28,7 +28,7 @@ export class AuthServiceService {
     localStorage.removeItem(this.tokenKey);
   }
 
-  public obtenerRol(usuario: string | null): Observable<string> {
-    return this.http.get(`${apiUrl}/rol/${usuario}`, { responseType: 'text' });
+  public obtenerRol(): Observable<string> {
+    return this.http.get(`${apiUrl}/rol/`, { responseType: 'text' });
   }
 }

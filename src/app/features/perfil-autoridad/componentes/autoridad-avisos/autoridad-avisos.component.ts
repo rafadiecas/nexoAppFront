@@ -5,16 +5,17 @@ import {NgbModal, NgbPagination} from '@ng-bootstrap/ng-bootstrap';
 import {DatePipe} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {Aviso} from '../../../../modelos/Aviso';
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-autoridad-avisos',
   standalone: true,
   templateUrl: './autoridad-avisos.component.html',
-  imports: [
-    NgbPagination,
-    DatePipe,
-    FormsModule,CommonModule
-  ],
+    imports: [
+        NgbPagination,
+        DatePipe,
+        FormsModule, CommonModule, MatIcon
+    ],
   styleUrls: ['./autoridad-avisos.component.css']
 })
 export class AutoridadAvisosComponent implements OnInit {
@@ -92,7 +93,8 @@ export class AutoridadAvisosComponent implements OnInit {
   confirmAction(action: string, item: Aviso): void {
     if (action === 'eliminar' && item.id) {
       this.avisoService.eliminarAviso(item.id).subscribe(
-        () => {
+        (respuesta) => {
+          console.log(respuesta);
           this.cargarAvisos();
         },
         (error) => console.error('Error al eliminar aviso', error)

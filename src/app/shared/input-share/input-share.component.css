@@ -158,9 +158,9 @@
 }
 
 /* Agregar un borde a la primera imagen */
-.image-item:first-child img {
-  border: 2px solid #ff6347; /* Un borde de color tomate para resaltar */
-}
+/*.image-item:first-child img {*/
+/*  border: 2px solid #ff6347; !* Un borde de color tomate para resaltar *!*/
+/*}*/
 .image-item {
   position: relative;
   display: inline-block;

@@ -8,28 +8,38 @@
       <img src="assets/nexo.jpg" alt="Nexo" style="width:100px; height: 100px;" class="img-fluid" [routerLink]="['']">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="iconify" data-icon="fad:h-expand" data-inline="false" style="font-size: 30px; color: #003a66;"></span>
+
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/registro">Registro</a>
+        <li class="nav-item" *ngIf="!logueado">
+          <a class="nav-link active" aria-current="page" href="/registro" style="color: #003a66">Registro</a>
+        </li>
+        <li class="nav-item" *ngIf="logueado">
+          <a class="nav-link active" aria-current="page" href=" " style="color: #003a66">Inicio</a>
         </li>
         <a class="navbar-brand d-none d-md-block" href=" ">
           <img src="assets/nexo.jpg" alt="Nexo" style="width: 70px; height: 70px;" class="img-fluid">
         </a>
         <li class="nav-item" *ngIf="!logueado">
-          <a href="/login" class="nav-link">Iniciar sesión</a>
+          <a href="/login" class="nav-link" style="color: #003a66">Iniciar sesión</a>
         </li>
-        <li class="nav-item dropdown" *ngIf="logueado">
+        <li class="nav-item dropdown d-none d-md-block" *ngIf="logueado">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="iconify" data-icon="mdi:account" data-inline="false" style="font-size: 24px; color: #003a66;"></span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="/usuario">Perfil</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a (click)="logout()" href="/login" class="nav-link">Salir</a></li>
+            <li><a  (click)="logout()" href="/login"  class="nav-link" style="color: darkred">Salir</a></li>
           </ul>
+        </li>
+        <li class="nav-item d-md-none" *ngIf="logueado">
+          <a href="/usuario" class="nav-link" style="color: #003a66">Perfil</a>
+        </li>
+        <li class="nav-item d-md-none" *ngIf="logueado">
+          <a (click)="logout()" href="/login" class="nav-link" style="color: darkred">Salir</a>
         </li>
       </ul>
     </div>

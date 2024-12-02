@@ -1,6 +1,8 @@
-<div class="container-fluid p-5">
+<div class="container-fluid p-5" style="height: 100vh; overflow: hidden;">
+  <div class="scrollable-content" style="height: calc(100% - 50px); overflow-y: auto;">
   <h6 class="text-center mb-3">Editar Desaparición</h6>
   <form [formGroup]="desaparicionForm" (ngSubmit)="guardar()">
+
     <div class="row">
       <div class="col-12 mb-3">
         <label for="descripcion"><b>Descripción</b></label>
@@ -37,6 +39,19 @@
         </div>
       </div>
     </div>
+
+    <div formArrayName="fotos" class="container mt-4" *ngIf="fotos.length>0">
+      <p><b>Imágenes</b></p>
+      <div class="image-grid">
+        <div *ngFor="let foto of fotos.controls; let i = index" [formGroupName]="i">
+          <div  class="image-item"  title="Haz click para eliminar esta foto">
+            <div class="overlay" *ngIf="!foto.get('esCara')?.value" (click)="removeFoto(i)">Haz click para eliminar</div>
+            <img [src]="foto.get('url')!.value" alt="Foto de desaparición" class="img-fluid cuadrada same-size-img" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-input-share [imagenCara]= false (filesChanged)="onFilesChanged($event)"></app-input-share>
     <div class="row mt-5">
       <div class="col-12 text-center">
         <button type="submit" class="btn btn-primary" [disabled]="desaparicionForm.invalid">Guardar</button>
@@ -44,6 +59,7 @@
       </div>
     </div>
   </form>
+  </div>
 </div>
 
 <ng-template #modalContent let-modal>
