@@ -12,7 +12,7 @@ export const adminGuard: CanActivateFn = (route, state) => {
     map((role: any) => {
       const isAuthorized = isLogged && role === 'ADMIN';
       if (!isAuthorized) {
-        router.navigate(['']);
+        router.navigate(['/error404']);
         return false;
       }
       return true;

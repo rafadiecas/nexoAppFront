@@ -12,7 +12,7 @@ export const autoridadGuard: CanActivateFn = (route, state) => {
     map((role: any) => {
       const isAuthorized = isLogged && role === 'AUTORIDAD';
       if (!isAuthorized) {
-        router.navigate(['/login']);
+        router.navigate(['/error404']);
         return false;
       }
       return true;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {AutoridadService} from '../../../../servicios/autoridad.service';
+import {MatTooltip} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-crear-autoridad',
@@ -9,6 +10,7 @@ import {AutoridadService} from '../../../../servicios/autoridad.service';
   imports: [
     ReactiveFormsModule,
     CommonModule,
+    MatTooltip,
   ],
   templateUrl: './crear-autoridad.component.html',
   styleUrls: ['./crear-autoridad.component.css'],

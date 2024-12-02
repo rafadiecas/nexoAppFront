@@ -9,6 +9,7 @@ import {NgForOf} from '@angular/common';
 import {DesaparicionService} from '../../servicios/desaparicion.service'; // Importamos el enum Complexion
 import {CommonModule} from '@angular/common';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatTooltip} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-crear-desaparicion',
@@ -18,7 +19,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     InputFotosComponent,
     LocalizacionComponent,
     NgForOf,
-    CommonModule
+    CommonModule,
+    MatTooltip,
     // Agregamos LocalizacionComponent
   ],
   standalone: true
@@ -31,6 +33,7 @@ export class DesaparicionFormComponent {
   currentStep = 0;
   steps = ['Paso 1', 'Paso 2', 'Paso 3', 'Paso 4']
   private snackBar = inject(MatSnackBar);
+  isSubmiting: boolean = false;
 
   constructor(private fb: FormBuilder, private desaparicionService: DesaparicionService) {
     this.desaparicionForm = this.fb.group({
@@ -108,6 +111,7 @@ export class DesaparicionFormComponent {
       return;
     }
 
+    this.isSubmiting = true;
     const desaparicionData = this.desaparicionForm.value;
     const formData = new FormData();
     formData.append('desaparicion', JSON.stringify(desaparicionData));
@@ -116,9 +120,13 @@ export class DesaparicionFormComponent {
       formData.append('files', file);
     });
 
+    const loadingSnackbar = this.snackBar.open('Creando desaparición...', 'Cerrar');
+
     this.desaparicionService.guardarDesaparicion(formData).subscribe({
       next: (response) => {
         console.log('Respuesta del servidor:', response);
+        this.isSubmiting = false;
+        loadingSnackbar.dismiss();
         this.snackBar.open('Desaparicion creada con éxito', 'Cerrar', {
           duration: 3000
         });

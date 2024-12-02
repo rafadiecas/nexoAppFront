@@ -2,7 +2,7 @@
   <form [formGroup]="locationForm">
     <div class="row">
       <div class="form-group col-12 col-md-3">
-        <label for="province" class="pb-3">Provincia</label>
+        <label for="province" class="pb-3" matTooltip="Provincia donde desapareció">Provincia</label>
         <div class="select-wrapper">
           <select id="province" formControlName="provincia" class="form-control" (change)="onProvinceChange($event)">
             <option *ngFor="let province of provinces" [value]="province.code">
@@ -13,8 +13,8 @@
       </div>
 
       <div class="form-group col col-12 col-md-4">
-        <label for="town">Pueblo</label>
-        <input type="text" id="town" formControlName="localidad" class="form-control" placeholder="Escribe un pueblo"
+        <label for="town" matTooltip="Pueblo/ciudad de la desaparición">Pueblo</label>
+        <input type="text" id="town" formControlName="localidad" class="form-control" placeholder="Escribe un pueblo/ciudad"
                (input)="filterTowns($event)"/>
         <div *ngIf="filteredTowns.length > 0" class="list-group">
           <div class="list-group-item" *ngFor="let town of filteredTowns | slice:0:3" (click)="selectTown(town)">
@@ -24,8 +24,8 @@
       </div>
 
       <div class="form-group col col-12 col-md-5">
-        <label for="street">Calle</label>
-        <input type="text" id="street" formControlName="calle" class="form-control" placeholder="Escribe la calle"/>
+        <label for="street" matTooltip="Calle de la desaparición. Si no lo sabes, utiliza una aproximada">Calle</label>
+        <input type="text" id="street" formControlName="calle" class="form-control" placeholder="Ej: Cerca de la calle Tetuán"/>
       </div>
     </div>
   </form>

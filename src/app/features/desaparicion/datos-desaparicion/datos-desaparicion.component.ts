@@ -6,13 +6,15 @@ import {NgForOf, NgIf} from '@angular/common';
 import {UsuarioService} from '../../../servicios/usuario.service';
 import {CivilService} from '../../../servicios/civil.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MapaComponent} from '../mapa/mapa.component';
 
 @Component({
   selector: 'app-datos-desaparicion',
   standalone: true,
   imports: [
     NgForOf,
-    NgIf
+    NgIf,
+    MapaComponent
   ],
   templateUrl: './datos-desaparicion.component.html',
   styleUrl: './datos-desaparicion.component.css'
