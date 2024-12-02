@@ -3,6 +3,9 @@
   <div class="filtro">
     <app-filtro (buscar)="cargarPersonas($event)"></app-filtro>
   </div>
+  <div *ngIf="mensajeError" class="mensaje-error">
+    {{ mensajeError }}
+  </div>
 
   <!-- Tarjetas de personas desaparecidas -->
     <div class="tarjetas">
@@ -31,9 +34,11 @@
   </span>
 
     <!-- Botón Siguiente -->
-    <button (click)="cargarPagina(paginaActual + 1)" [disabled]="paginaActual === totalPaginas">
-        Siguiente
-    </button>
+  <!-- Botón Siguiente -->
+  <button (click)="cargarPagina(paginaActual + 1)" [disabled]="paginaActual === totalPaginas || !habilitarSiguiente">
+    Siguiente
+  </button>
+
 </div>
 
 
