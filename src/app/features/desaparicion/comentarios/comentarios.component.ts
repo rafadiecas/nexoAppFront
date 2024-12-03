@@ -1,4 +1,4 @@
-import {Component, inject, Input, OnInit} from '@angular/core';
+import {Component, inject, Input, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { Comentario } from '../../../modelos/Comentario';
 import { ActivatedRoute } from '@angular/router';
@@ -24,6 +24,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./comentarios.component.css']
 })
 export class ComentariosComponent implements OnInit {
+  @ViewChild(InputShareComponent) inputShareComponent!: InputShareComponent;
   comentarios: ComentarioListar[] = [];
   textoComentario = '';
   archivos: File[] = [];
@@ -121,6 +122,7 @@ export class ComentariosComponent implements OnInit {
       desaparicionId: this.id,
       ...datosAdicionales
     };
+    console.log(this.archivos)
 
     this.comentarioService.crearComentario(nuevoComentario, this.archivos).subscribe({
       next: response => {
@@ -128,6 +130,7 @@ export class ComentariosComponent implements OnInit {
         this.cargarComentarios(this.id!);
         this.textoComentario = '';
         this.archivos = [];
+        this.inputShareComponent.clearFiles();
         this.snackBar.open('Comentario creado con exito', 'Cerrar', {
           duration: 3000
         });

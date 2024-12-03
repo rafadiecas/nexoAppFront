@@ -29,49 +29,48 @@ export class InputShareComponent {
 
   @Output() filesChanged = new EventEmitter<FileData[]>();
   allFiles: FileData[] = [];
-  firstImageSelected = false;
-
 
   constructor(private modalService: NgbModal) {}
 
-  onFileSelect(event: any): void {
-    const files = event.target.files;
+  onFileSelect(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const files = input.files;
 
-    if (files.length > 0) {
-      // Si se selecciona un archivo y es la primera imagen
-      if (!this.firstImageSelected && files[0].type.startsWith('image/')) {
-        this.firstImageSelected = true; // Se habilita el segundo input
-      }
+    if (!files || files.length === 0) return;
 
-      // Procesamos cada archivo seleccionado
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        const reader = new FileReader();
+    const fileArray = Array.from(files);
 
-        // Leemos el archivo como URL de imagen (base64)
-        reader.onload = (e: any) => {
-          const imageUrl = e.target.result;
-          this.allFiles.push({ url: imageUrl });
-        };
+    input.value = '';
 
-        reader.readAsDataURL(file);
+    for (const file of fileArray) {
+      if (!file.type.startsWith('image/')) {
+        this.modalService.open(this.errorModal);
+        return;
       }
     }
-  }
 
-  onImageClick(i: number) {
-    if (i === 0) {
-      this.allFiles = [];
-      this.firstImageSelected = false;
-    } else {
-      this.allFiles.splice(i, 1);
+    const remainingSlots = 2 - this.allFiles.length;
+    if (fileArray.length > remainingSlots) {
+      this.modalService.open(this.maxModal);
+      return;
     }
 
-    this.emitFiles();
+    fileArray.slice(0, remainingSlots).forEach(file => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.allFiles.push({file, url: reader.result as string});
+        this.filesChanged.emit(this.allFiles);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+  clearFiles(): void {
+    this.allFiles = [];
+    this.filesChanged.emit(this.allFiles);
   }
 
-
-  private emitFiles() {
+  onImageClick(i: number): void {
+    this.allFiles.splice(i, 1);
     this.filesChanged.emit(this.allFiles);
   }
 }
