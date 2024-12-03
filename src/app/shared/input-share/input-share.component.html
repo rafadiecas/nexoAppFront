@@ -16,7 +16,7 @@
 <div class="container mt-4" *ngIf="allFiles.length > 0">
   <mat-grid-list [cols]="2" rowHeight="1:1" gutterSize="0px">
     <mat-grid-tile *ngFor="let image of allFiles; let i = index">
-      <img [src]="image.url" alt="Preview" class="img-fluid cuadrada" (click)="onImageClick(i)"/>
+      <img [src]="image.url" alt="Preview" class="img-fluid cuadrada" (click)="onImageClick(i)" matTooltip="Haz click para eliminar la imagen"/>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
