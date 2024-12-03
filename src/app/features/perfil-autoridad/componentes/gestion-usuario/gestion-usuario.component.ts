@@ -7,7 +7,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatIcon} from '@angular/material/icon';
 import {UsuarioService} from '../../../../servicios/usuario.service';
 
-
+/**
+ * Componente que contiene la lista de usuarios civiles sin verificar y su gestión
+ */
 @Component({
   selector: 'app-gestion-usuario',
   standalone: true,
@@ -32,6 +34,10 @@ export class GestionUsuarioComponent implements OnInit{
   currentPage: number = 1;
   constructor(private servicio: CivilService, private usuarioServicio: UsuarioService, private cdr: ChangeDetectorRef) {
   }
+
+  /**
+   * Carga los usuarios civiles sin verificar de la bbdd
+   */
   cargaDatos(){
     this.servicio.listaCivilSinVer().subscribe({
       next: (data) => {
@@ -52,6 +58,11 @@ export class GestionUsuarioComponent implements OnInit{
   ngOnInit(){
     this.cargaDatos();
   }
+
+  /**
+   * Cambia la página de la paginación
+   * @param page
+   */
   changePage(page: number): void {
     if (page < 1 || page > this.totalPages.length) return;
 
@@ -62,6 +73,10 @@ export class GestionUsuarioComponent implements OnInit{
 
     this.paginatedItems = this.filteredItems.slice(startIndex, endIndex);
   }
+
+  /**
+   * Configura la paginación de los usuarios
+   */
   setupPagination(): void {
     const totalItems = this.filteredItems.length;
     const totalPagesCount = Math.ceil(totalItems / this.itemsPerPage);
@@ -69,6 +84,10 @@ export class GestionUsuarioComponent implements OnInit{
     this.totalPages = Array.from({ length: totalPagesCount }, (_, i) => i + 1);
     this.changePage(1);
   }
+
+  /**
+   * Aplica el filtro por nombre, apellido o dni
+   */
   applyFilter(): void {
     const text = this.filterText.toLowerCase();
     this.filteredItems = this.civilSinVer.filter(item =>
@@ -79,6 +98,10 @@ export class GestionUsuarioComponent implements OnInit{
     this.setupPagination();
   }
 
+  /**
+   * Verifica un usuario civil
+   * @param idUsuario
+   */
   verificaUsuario(idUsuario: number) {
     this.usuarioServicio.verificaUsuario(idUsuario).subscribe({
       next: (respuesta) =>{
@@ -97,6 +120,10 @@ export class GestionUsuarioComponent implements OnInit{
     });
   }
 
+  /**
+   * Elimina un usuario civil
+   * @param idUsuario
+   */
   eliminaUsuario(idUsuario: number) {
     this.usuarioServicio.eliminaUsuario(idUsuario).subscribe({
       next: (respuesta) =>{

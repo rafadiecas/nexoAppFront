@@ -5,6 +5,9 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+/**
+ * Componente que muestra más información sobre las desapariciones
+ */
 @Component({
   selector: 'app-mostrarmas',
   standalone: true,
@@ -33,6 +36,7 @@ export class MostrarmasComponent {
   ngOnInit(): void {
     // Cargar todas las personas inicialmente
     this.cargarPersonas({});
+
   }
 
   cargarPersonas(filtros: any): void {

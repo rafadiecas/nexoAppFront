@@ -4,6 +4,9 @@ import {LugarService} from '../../../servicios/lugar.service';
 import {MapaDesaparicion} from '../../../modelos/MapaDesaparicion';
 import {ActivatedRoute} from '@angular/router';
 
+/**
+ * Componente que se encarga de mostrar un mapa con la ubicación de la desaparición
+ */
 const iconRetinaUrl = 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png';
 const iconUrl = 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png';
 const shadowUrl = 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png';
@@ -46,6 +49,10 @@ export class MapaComponent implements OnInit {
     });
   }
 
+  /**
+   * Método que se encarga de inicializar el mapa
+   * @private
+   */
   private initMap(): void {
       this.map = L.map('map').setView([0, 0], 10);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -53,6 +60,10 @@ export class MapaComponent implements OnInit {
       }).addTo(this.map);
     }
 
+  /**
+   * Método que se encarga de añadir los marcadores al mapa
+   * @private
+   */
   private addMarkers(): void {
       if (this.lugar?.latitud !== undefined && this.lugar?.longitud !== undefined) {
         const marker = L.marker([this.lugar.latitud, this.lugar.longitud]).addTo(this.map);

@@ -14,6 +14,9 @@ import {MatGridList, MatGridTile} from '@angular/material/grid-list';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {InputShareComponent} from '../input-share/input-share.component';
 
+/**
+ * Componente que muestra un diálogo para editar una desaparición.
+ */
 @Component({
   selector: 'app-edita-dialog',
   standalone: true,
@@ -103,9 +106,16 @@ export class EditaDialogComponent implements OnInit {
     this.archivos = filesData.map(fileData => fileData.file as File);
   }
 
+  /**
+   * Cierra el diálogo.
+   */
   cerrarDialogo(): void {
     this.dialogRef.close();
   }
+
+  /**
+   * Guarda los cambios realizados en la desaparición.
+   */
 
   // guardar(): void {
   //   const desaparicionData = this.desaparicionForm.value;
@@ -154,6 +164,10 @@ guardar(): void {
   }
 
 
+  /**
+   * Abre el modal de confirmación.
+   * @param content
+   */
   openModal(content: any): void {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result
       .then(

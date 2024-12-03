@@ -3,6 +3,9 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {CivilService} from '../../../../servicios/civil.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
+/**
+ * Componente que permite editar los datos del usuario civil
+ */
 @Component({
   selector: 'app-edita-usuario',
   standalone: true,
@@ -32,6 +35,9 @@ export class EditaUsuarioComponent implements OnInit{
     });
   }
 
+  /**
+   * Método que envía los datos del formulario para actualizar el usuario civil
+   */
   submit(): void {
     if (this.civilForm.valid) {
 

@@ -5,6 +5,9 @@ import { NgForOf, NgIf } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { MatGridList, MatGridTile } from '@angular/material/grid-list';
 
+/**
+ * Componente que permite seleccionar fotos para la creación de una desaparición
+ */
 @Component({
   selector: 'app-input-fotos',
   standalone: true,
@@ -48,6 +51,11 @@ export class InputFotosComponent implements OnInit {
     this.setColumns();
   }
 
+  /**
+   * Método que se ejecuta al seleccionar una  imagen, para comprobar de que input file viene, su tipo y si se ha seleccionado una imagen
+   * @param event
+   * @param inputNumber
+   */
   onFileSelect(event: Event, inputNumber: number): void {
     const input = event.target as HTMLInputElement;
     const files = input.files;
@@ -88,6 +96,11 @@ export class InputFotosComponent implements OnInit {
 
     if (inputNumber === 1) this.firstImageSelected = true;
   }
+
+  /**
+   * Método que se ejecuta al hacer click en una imagen, para eliminarla
+   * @param i
+   */
   onImageClick(i: number) {
     if (i === 0) {
       this.allFiles = [];
@@ -99,7 +112,10 @@ export class InputFotosComponent implements OnInit {
     this.emitFiles();
   }
 
-
+  /**
+   * Método que emite los archivos seleccionados al componente padre
+   * @private
+   */
   private emitFiles() {
     this.filesChanged.emit(this.allFiles);
   }

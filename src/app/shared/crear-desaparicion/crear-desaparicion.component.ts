@@ -10,6 +10,9 @@ import {DesaparicionService} from '../../servicios/desaparicion.service'; // Imp
 import {CommonModule} from '@angular/common';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
+/**
+ * Componente para la creación de una desaparición.
+ */
 @Component({
   selector: 'app-crear-desaparicion',
   templateUrl: './crear-desaparicion.component.html',
@@ -55,14 +58,25 @@ export class DesaparicionFormComponent {
 
   }
 
+  /**
+   * Método que se ejecuta cuando cambian los archivos seleccionados para coger solo el archivo
+   * @param filesData
+   */
   onFilesChanged(filesData: FileData[]): void {
     this.archivos = filesData.map(fileData => fileData.file as File);
   }
 
+  /**
+   * Método que se ejecuta cuando cambia la dirección seleccionada en su componente especifico para guardarla en el formulario
+   * @param address
+   */
   onAddressChanged(address: any): void {
     this.desaparicionForm.get('lugarDTO')?.patchValue(address);
   }
 
+  /**
+   * Método para pasar de paso en el formulario
+   */
   nextStep() {
     if (this.currentStep === 0) {
       this.currentStep++;
@@ -77,12 +91,17 @@ export class DesaparicionFormComponent {
     }
   }
 
+  /**
+   * Método para retroceder de paso en el formulario
+   */
   prevStep(): void {
     if (this.currentStep > 0) {
       this.currentStep--;
     }
   }
-
+/**
+ * Método para ir a un paso concreto del formulario
+ */
   goToStep(step: number): void {
     const formValid = this.getCurrentStepGroup()?.valid ?? true;
     if (step <= this.currentStep || formValid) {
@@ -92,6 +111,9 @@ export class DesaparicionFormComponent {
     }
   }
 
+  /**
+   * Método para obtener el FormGroup del paso actual
+   */
   getCurrentStepGroup(): FormGroup | null {
     switch (this.currentStep) {
       case 0: return this.desaparicionForm; // Incluye los campos fecha, descripcion, id_usuario
@@ -101,7 +123,9 @@ export class DesaparicionFormComponent {
     }
   }
 
-
+  /**
+   * Método que se ejecuta cuando se envía el formulario
+   */
   onSubmit(): void {
     if (this.desaparicionForm.invalid) {
       this.desaparicionForm.markAllAsTouched();

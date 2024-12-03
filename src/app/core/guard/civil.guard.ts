@@ -3,6 +3,11 @@ import { inject } from '@angular/core';
 import { AuthServiceService } from '../auth-service.service';
 import { catchError, map, of } from 'rxjs';
 
+/**
+ * Guardia que comprueba si el usuario es civil
+ * @param route
+ * @param state
+ */
 export const civilGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthServiceService);
   const router = inject(Router);

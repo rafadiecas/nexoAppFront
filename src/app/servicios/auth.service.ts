@@ -8,6 +8,9 @@ const apiUrl = '/api/auth';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Servicio para el registro de un civil
+ */
 export class AuthService {
 
   constructor(private http: HttpClient) { }

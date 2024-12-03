@@ -3,6 +3,9 @@ import {Router, RouterLink} from '@angular/router';
 import {AuthService} from '../../servicios/auth.service';
 import {AuthServiceService} from '../../core/auth-service.service';
 
+/**
+ * Componente que redirige al usuario a su página de perfil según su rol
+ */
 @Component({
   selector: 'app-perfil-usuario',
   standalone: true,

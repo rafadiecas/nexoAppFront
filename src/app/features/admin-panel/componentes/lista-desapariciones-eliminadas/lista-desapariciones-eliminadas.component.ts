@@ -7,6 +7,9 @@ import {Router} from '@angular/router';
 import {DesaparicionSinVerificar} from '../../../../modelos/DesaparicionSinVerificar';
 import {MatIcon} from '@angular/material/icon';
 
+/**
+ * Componente que gestiona la lista de desapariciones eliminadas para recuperarlas o eliminarlas definitivamente.
+ */
 @Component({
   selector: 'app-lista-desapariciones-eliminadas',
   standalone: true,
@@ -39,6 +42,9 @@ export class ListaDesaparicionesEliminadasComponent implements OnInit {
     this.cargaobjetos();
   }
 
+  /**
+   * Carga las desapariciones eliminadas de la base de datos.
+   */
   cargaobjetos():void {
     this.desaparicionService.getEliminadas().subscribe((data: DesaparicionSinVerificar[]) => {
         this.noAprobadas = data;
@@ -49,7 +55,9 @@ export class ListaDesaparicionesEliminadasComponent implements OnInit {
     );
   }
 
-
+  /**
+   * Configura la paginación de las desapariciones.
+   */
   setupPagination(): void {
     const totalItems = this.filteredItems.length;
     const totalPagesCount = Math.ceil(totalItems / this.itemsPerPage);
@@ -69,11 +77,18 @@ export class ListaDesaparicionesEliminadasComponent implements OnInit {
     });
   }
 
+  /**
+   * Cambia la página de la paginación.
+   * @param page
+   */
   onPageChange(page: number): void {
     this.changePage(page);
   }
 
-
+  /**
+   * Cambia la página de la paginación.
+   * @param page
+   */
   changePage(page: number): void {
     if (page < 1 || page > this.totalPages.length) return;
 
@@ -85,10 +100,17 @@ export class ListaDesaparicionesEliminadasComponent implements OnInit {
     this.paginatedItems = this.filteredItems.slice(startIndex, endIndex);
   }
 
+  /**
+   * Navega a la vista de desaparición.
+   * @param id
+   */
   irDesaparicion(id: number | undefined): void {
     this.router.navigate(['/desaparicion', id]);
   }
 
+  /**
+   * Aplica un filtro a las desapariciones, por nombre o DNI.
+   */
   applyFilter(): void {
     const text = this.filterText.toLowerCase();
     this.filteredItems = this.noAprobadas.filter(item =>
@@ -98,6 +120,12 @@ export class ListaDesaparicionesEliminadasComponent implements OnInit {
     this.setupPagination();
   }
 
+  /**
+   * Abre un modal para confirmar la acción de recuperar o eliminar definitivamente una desaparición.
+   * @param content
+   * @param action
+   * @param item
+   */
   openModal(content: any, action: string, item: any): void {
     this.accion = action;
     this.itemSeleccionado = item;
@@ -115,6 +143,11 @@ export class ListaDesaparicionesEliminadasComponent implements OnInit {
       );
   }
 
+  /**
+   * Confirma la acción de recuperar o eliminar definitivamente una desaparición.
+   * @param action
+   * @param item
+   */
   confirmAction(action: string, item: any): void {
     if (action === 'recuperar') {
       this.desaparicionService.recuperarEliminacion(item.id).subscribe(

@@ -4,7 +4,9 @@ import {Router, RouterLink} from '@angular/router';
 import {HeaderService} from '../../servicios/header.service';
 import {NgIf} from '@angular/common';
 import {MatIcon} from '@angular/material/icon';
-
+/**
+ * Componente que muestra el encabezado de la aplicación.
+ */
 @Component({
   selector: 'app-headernew',
   standalone: true,
@@ -26,10 +28,17 @@ export class HeadernewComponent implements OnInit{
       this.logueado = this.service.logueado(); // Llama al método para actualizar el encabezado
     });
   }
+
+  /**
+   * Método que cierra la sesión del usuario.
+   */
   logout(){
     this.service.logOut();
     this.router.navigate(['login']);
   }
+  /**
+   * Método de login
+   */
   log(){
     this.logueado = true;
   }
