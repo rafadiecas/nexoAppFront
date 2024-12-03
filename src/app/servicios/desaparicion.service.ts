@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {catchError, Observable, throwError} from 'rxjs';
 import { DesaparicionPrincipal } from '../modelos/DesaparicionPrincipal';
 import {DesaparicionIndividual} from '../modelos/DesaparicionIndividual';
 import {DesaparicionSinVerificar} from '../modelos/DesaparicionSinVerificar';
@@ -86,9 +86,16 @@ export class DesaparicionService {
 
   editarDesaparicionGestion(formData: FormData): Observable<any> {
     const url = `${apiUrl}/editarDesaparicionGestion`;
-    return this.http.put(url, formData, { responseType: 'text' });
-  }
 
+    return this.http.put(url, formData, {
+      responseType: 'text'
+    }).pipe(
+      catchError(error => {
+        console.error('Error detallado:', error);
+        return throwError(() => error);
+      })
+    );
+  }
   /**
    * Obtiene los datos de una desaparición para editar
    * @param id
