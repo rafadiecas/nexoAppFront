@@ -39,4 +39,8 @@ export class UsuarioService {
     return this.http.delete<string>(`${apiUrl}/eliminar/civil?id=${id}`, options);
   }
 
+  estaAutenticado(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
 }

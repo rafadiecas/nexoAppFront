@@ -24,6 +24,7 @@ export class DatosDesaparicionComponent implements OnInit {
   id!: number;
   desaparicionIndividual?: DesaparicionIndividual;
   seguimiento: boolean = false;
+  usuarioAutenticado: boolean = false;
   @Output() validacionChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   validacion: boolean | undefined = false;
   private snackBar=Inject(MatSnackBar)
@@ -37,6 +38,8 @@ export class DatosDesaparicionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.usuarioAutenticado = this.usuarioService.estaAutenticado();
+
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.desaparicionService.getDesaparicionIndividual(this.id).subscribe(desaparicion => {
       this.desaparicionIndividual = desaparicion;
@@ -46,6 +49,7 @@ export class DatosDesaparicionComponent implements OnInit {
     this.civilService.listaSeguimiento().subscribe(desapariciones => {
       this.seguimiento = desapariciones.some(desaparicion => desaparicion.id === this.id);
     });
+
   }
 
   anyadirSeguimiento() {

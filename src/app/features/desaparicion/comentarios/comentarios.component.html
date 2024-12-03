@@ -2,14 +2,19 @@
   <form (ngSubmit)="abrirDialogo()">
     <div class="row d-flex justify-content-center">
       <div class="col col-12">
-        <textarea id="texto" [(ngModel)]="textoComentario" name="texto" required class="form-control rounded-4 border" placeholder=" Escribe aquí tu comentario"></textarea>
+        <!-- Contenedor que simula el textarea -->
+        <div class="custom-textarea">
+          <textarea id="texto" [(ngModel)]="textoComentario" name="texto" required
+                    class="textarea-content"
+                    placeholder="Escribe aquí tu comentario"></textarea>
+          <!-- Componente input-share dentro del contenedor -->
+          <div>
+            <app-input-share (filesChanged)="onFilesChanged($event)"></app-input-share>
+          </div>
+        </div>
         <div *ngIf="!textoComentario" class="text-danger">
           El comentario es obligatorio.
         </div>
-      </div>
-
-      <div class="col col-12">
-        <app-input-share (filesChanged)="onFilesChanged($event)"></app-input-share>
       </div>
 
       <div class="col col-12 col-md-4 d-flex mt-4 justify-content-center mx-md-3 mx-0 mb-5">
