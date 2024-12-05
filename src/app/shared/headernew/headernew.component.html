@@ -28,7 +28,7 @@
           <div *ngIf="dropdownVisible" class="dropdown-menu dropdown-menu-end show" style="position: absolute; top: 100%; right: 0;">
             <div class="dropdown-header">Notificaciones</div>
             <div *ngIf="notificaciones.length > 0; else noNotificationsTemplate">
-              <div *ngFor="let notificacion of notificaciones" class="dropdown-item">
+              <div *ngFor="let notificacion of notificaciones" class="dropdown-item" (click)="irNotificacion(notificacion.id, notificacion.idDesaparicion)"  [routerLink]="['/desaparicion', notificacion.idDesaparicion]">
                 <div>
                   <strong>{{ notificacion.texto }}</strong>
                 </div>
