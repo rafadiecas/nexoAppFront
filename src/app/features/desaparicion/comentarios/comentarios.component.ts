@@ -13,6 +13,7 @@ import {DesaparicionLista} from '../../../modelos/DesaparicionLista';
 import {CivilService} from '../../../servicios/civil.service';
 import {ComentarioDialogComponent} from '../comentario-dialog/comentario-dialog.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {UsuarioService} from '../../../servicios/usuario.service';
 /**
  * Componente que se encarga de mostrar los comentarios de una desaparición
  */
@@ -26,6 +27,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class ComentariosComponent implements OnInit {
   @ViewChild(InputShareComponent) inputShareComponent!: InputShareComponent;
   comentarios: ComentarioListar[] = [];
+  usuarioAutenticado: boolean = false;
   textoComentario = '';
   archivos: File[] = [];
   id?: number;
@@ -37,11 +39,12 @@ export class ComentariosComponent implements OnInit {
     private dialog: MatDialog,
     private dialogImage: MatDialog,
     private route: ActivatedRoute,
-    private civilService: CivilService
+    private civilService: CivilService,
+    private usuarioService: UsuarioService
   ) {}
 
   ngOnInit(): void {
-
+  this.usuarioAutenticado = this.usuarioService.estaAutenticado();
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.cargarComentarios(this.id);
     this.civilService.listaDesapariciones().subscribe({

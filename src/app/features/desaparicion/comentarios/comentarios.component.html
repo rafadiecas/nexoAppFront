@@ -18,7 +18,7 @@
       </div>
 
       <div class="col col-12 col-md-4 d-flex mt-4 justify-content-center mx-md-3 mx-0 mb-5">
-        <button type="submit" class="btn btn-primary" [disabled]="!textoComentario">
+        <button *ngIf="usuarioAutenticado" type="submit" class="btn btn-primary" [disabled]="!textoComentario">
           Enviar
         </button>
       </div>
