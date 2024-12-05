@@ -20,6 +20,9 @@ import {
 } from '../../../shared/edita-desaparicion-autoridad/edita-desaparicion-autoridad.component';
 import {AutoridadAvisosComponent} from '../componentes/autoridad-avisos/autoridad-avisos.component';
 
+/**
+ * Componente que contiene las opciones para la parte izquierda del perfil de una autoridad
+ */
 @Component({
   selector: 'app-vista-autoridad',
   standalone: true,

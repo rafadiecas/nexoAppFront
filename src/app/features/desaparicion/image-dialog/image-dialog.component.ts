@@ -1,6 +1,9 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
+/**
+ * Componente que se encarga de mostrar un dialogo con una imagen de un comentario
+ */
 @Component({
   selector: 'app-image-dialog',
   standalone: true,

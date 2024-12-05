@@ -16,7 +16,9 @@ const defaultIcon = L.icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41]
 });
-
+/**
+ * Componente que muestra el mapa principal de la aplicación con todas las desapariciones
+ */
 L.Marker.prototype.options.icon = defaultIcon;
 @Component({
   selector: 'app-mapa-principal',
@@ -40,6 +42,10 @@ export class MapaPrincipalComponent implements OnInit {
     });
   }
 
+  /**
+   * Inicializa el mapa
+   * @private
+   */
   private initMap(): void {
     this.map = L.map('map').setView([40.4168, -3.7038], 6);
 
@@ -48,6 +54,10 @@ export class MapaPrincipalComponent implements OnInit {
     }).addTo(this.map);
   }
 
+  /**
+   * Añade los marcadores al mapa
+   * @private
+   */
   private addMarkers(): void {
     this.lugares.forEach(lugar => {
       if (lugar.lat !== undefined && lugar.lon !== undefined) {
@@ -66,7 +76,10 @@ export class MapaPrincipalComponent implements OnInit {
     });
   }
 
-
+  /**
+   * Navega a la página de una desaparicion
+   * @param id
+   */
   navigateToLugar(id: string): void {
     this.router.navigate(['/desaparicion', id]);
   }

@@ -4,6 +4,9 @@ import { UsuarioMenu } from '../../../../modelos/UsuarioMenu';
 import { CivilService } from '../../../../servicios/civil.service';
 import {MatIcon} from '@angular/material/icon';
 
+/**
+ * Componente que muestra el menú de opciones de la parte izquierda de la vista de perfil de usuario, en conjunto con los demas muestra las opciones depediendo del rol del usuario que inicia sesión
+ */
 @Component({
   selector: 'app-parte-izquierda-civil',
   standalone: true,
@@ -35,6 +38,10 @@ export class ParteIzquierdaCivilComponent implements OnInit {
     this.civilService.civilMenu().subscribe(menu => this.menu = menu);
   }
 
+  /**
+   * Selecciona una opción del menú
+   * @param option
+   */
   selectOption(option: string) {
     this.selectedOption = option;
     this.optionSelected.emit(option);
@@ -48,6 +55,10 @@ export class ParteIzquierdaCivilComponent implements OnInit {
   //     default: return 'help_outline';
   //   }
   // }
+  /**
+   * Devuelve el icono correspondiente a una opción del menú
+   * @param value
+   */
   getIcon(value: string): string {
     return this.iconMap[value] || 'help_outline';
   }

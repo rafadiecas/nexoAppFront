@@ -6,6 +6,9 @@ import {AuthServiceService} from '../auth-service.service';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Servicio que intercepta las peticiones HTTP y añade el token de autenticación
+ */
 export class AuthInterceptor implements HttpInterceptor {
 
   constructor(private authService: AuthServiceService) {}

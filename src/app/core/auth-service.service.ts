@@ -5,6 +5,9 @@ const apiUrl = '/api/usuario';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Servicio que gestiona la autenticación de los usuarios
+ */
 export class AuthServiceService {
 
 
@@ -13,21 +16,31 @@ export class AuthServiceService {
 
   constructor(private http: HttpClient) {}
 
-  // Método para guardar el token
+  /**
+   * Método para guardar el token
+   * @param token
+   */
   setToken(token: string): void {
     localStorage.setItem(this.tokenKey, token);
   }
 
-  // Método para obtener el token
+/**
+ * Método para obtener el token
+ */
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }
 
-  // Método para eliminar el token (logout)
+  /**
+   * Método para borrar el token(logout)
+   */
   clearToken(): void {
     localStorage.removeItem(this.tokenKey);
   }
 
+  /**
+   * Método para obtener el rol del usuario
+   */
   public obtenerRol(): Observable<string> {
     return this.http.get(`${apiUrl}/rol/`, { responseType: 'text' });
   }

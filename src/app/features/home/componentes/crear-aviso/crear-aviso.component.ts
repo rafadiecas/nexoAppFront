@@ -28,7 +28,9 @@ export const MY_DATE_FORMATS = {
 };
 registerLocaleData(localeEs); // Registra la configuración regional para España
 
-
+/**
+ * Componente para crear un aviso
+ */
 @Component({
   selector: 'app-crear-aviso',
   standalone: true,
@@ -62,12 +64,17 @@ export class CrearAvisoComponent {
     });
   }
 
-  // Maneja los cambios de archivos
+  /**
+   * Método que se ejecuta cuando cambian las imagenes
+   * @param filesData
+   */
   onFilesChanged(filesData: FileData[]): void {
     this.archivos = filesData.map((fileData) => fileData.file as File);
   }
 
-  // Crear aviso
+  /**
+   * Crea un aviso
+   */
   crearAviso() {
     if (this.avisoForm.invalid) {
       this.avisoForm.markAllAsTouched(); // Asegúrate de marcar todos los campos como tocados si el formulario es inválido

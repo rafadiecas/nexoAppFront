@@ -10,6 +10,9 @@ import {
 import {MatButton} from '@angular/material/button';
 import {NgIf} from '@angular/common';
 
+/**
+ * Componente que se encarga de mostrar un dialogo para agregar un comentario
+ */
 @Component({
   selector: 'app-comentario-dialog',
   standalone: true,
@@ -39,6 +42,9 @@ export class ComentarioDialogComponent {
     });
   }
 
+  /**
+   * Método que se encarga de guardar el comentario
+   */
   guardar(): void {
     if (this.dialogForm.valid) {
       this.dialogRef.close(this.dialogForm.value);

@@ -14,6 +14,9 @@ import {MatGridList, MatGridTile} from '@angular/material/grid-list';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {InputShareComponent} from '../input-share/input-share.component';
 
+/**
+ * Componente que muestra un diálogo para editar una desaparición.
+ */
 @Component({
   selector: 'app-edita-dialog',
   standalone: true,
@@ -103,9 +106,16 @@ export class EditaDialogComponent implements OnInit {
     this.archivos = filesData.map(fileData => fileData.file as File);
   }
 
+  /**
+   * Cierra el diálogo.
+   */
   cerrarDialogo(): void {
     this.dialogRef.close();
   }
+
+  /**
+   * Guarda los cambios realizados en la desaparición.
+   */
 
   // guardar(): void {
   //   const desaparicionData = this.desaparicionForm.value;
@@ -124,36 +134,55 @@ export class EditaDialogComponent implements OnInit {
   //     (error) => console.error('Error al editar la desaparición', error)
   //   )
   // }
-guardar(): void {
+  guardar(): void {
     const desaparicionData = this.desaparicionForm.value;
     const formData = new FormData();
+
+    // Depuración: Imprimir datos del formulario
+    console.log('Datos de desaparición:', desaparicionData);
+
     formData.append('id', this.data.id.toString());
-    formData.append('desaparicion', JSON.stringify(desaparicionData));
-    this.archivos.forEach(file => {
-      formData.append('files', file);
-    });
-    console.log('archivos', this.archivos);
-    console.log('FormData a enviar:', formData);
+
+    // Serializar el DTO correctamente
+    const dtoParaEnviar = {
+      descripcion: desaparicionData.descripcion,
+      estado: desaparicionData.estado,
+      lugarLatLongDTO: desaparicionData.lugarLatLongDTO,
+      fotos: desaparicionData.fotos || []
+    };
+
+    formData.append('desaparicion', JSON.stringify(dtoParaEnviar));
+
+    // Agregar archivos si existen
+    if (this.archivos && this.archivos.length > 0) {
+      this.archivos.forEach(file => {
+        formData.append('files', file);
+      });
+    }
+
     this.desaparicionService.editarDesaparicionGestion(formData).subscribe({
       next: (response) => {
         console.log('Respuesta del servidor:', response);
-        this.snackBar.open('Desaparicion editada con éxito', 'Cerrar', {
+        this.snackBar.open('Desaparición editada con éxito', 'Cerrar', {
           duration: 3000
         });
+        this.dialogRef.close(true);
       },
       error: (error) => {
-        console.error('Error al editar la desaparición:', error);
-        this.snackBar.open('Error al editar la desaparicion', 'Cerrar', {
-          duration: 3000
+        console.error('Error detallado:', error);
+        this.snackBar.open(`Error al editar la desaparición: ${error.message}`, 'Cerrar', {
+          duration: 3000,
+          panelClass: ['error-snackbar']
         });
       }
     });
-
-  console.log('Datos de desaparición enviados:', formData);
-
   }
 
 
+  /**
+   * Abre el modal de confirmación.
+   * @param content
+   */
   openModal(content: any): void {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result
       .then(

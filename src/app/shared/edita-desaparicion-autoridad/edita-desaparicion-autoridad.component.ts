@@ -10,6 +10,9 @@ import {MatIcon} from '@angular/material/icon';
 import {Router} from '@angular/router';
 import {DesaparicionGestionDTO} from '../../modelos/DesaparicionGestionDTO';
 
+/**
+ * Componente que muestra una lista de desapariciones y permite editarlas.
+ */
 @Component({
   selector: 'app-edita-desaparicion-autoridad',
   standalone: true,
@@ -40,6 +43,9 @@ export class EditaDesaparicionAutoridadComponent implements OnInit {
     this.cargaobjetos();
   }
 
+  /**
+   * Carga las desapariciones de la base de datos.
+   */
   cargaobjetos(): void {
     this.desaparicionService.getDesaparicionGestion().subscribe(
       (data: DesaparicionPrincipal[]) => {
@@ -52,6 +58,9 @@ export class EditaDesaparicionAutoridadComponent implements OnInit {
     );
   }
 
+  /**
+   * Configura la paginación.
+   */
   setupPagination(): void {
     const totalItems = this.filteredItems.length;
     const totalPagesCount = Math.ceil(totalItems / this.itemsPerPage);
@@ -60,10 +69,18 @@ export class EditaDesaparicionAutoridadComponent implements OnInit {
     this.changePage(1);
   }
 
+  /**
+   * Cambia de página.
+   * @param page
+   */
   onPageChange(page: number): void {
     this.changePage(page);
   }
 
+  /**
+   * Cambia de página.
+   * @param page
+   */
   changePage(page: number): void {
     if (page < 1 || page > this.totalPages.length) return;
 
@@ -74,7 +91,10 @@ export class EditaDesaparicionAutoridadComponent implements OnInit {
 
     this.paginatedItems = this.filteredItems.slice(startIndex, endIndex);
   }
-
+  /**
+   * Abre el diálogo de edición de desaparición.
+   * @param desaparicion
+   */
   irDesaparicion(desaparicion: DesaparicionGestionDTO): void {
     if (desaparicion.id !== undefined) {
       this.dialog.open(EditaDialogComponent, {
@@ -86,6 +106,10 @@ export class EditaDesaparicionAutoridadComponent implements OnInit {
     }
   }
 
+  /**
+   * Redirige a la página de desaparición.
+   * @param id
+   */
   redirect(id: number | undefined):void{
     if(id === undefined){
       console.error('El ID de la desaparición es undefined.');
@@ -95,6 +119,9 @@ export class EditaDesaparicionAutoridadComponent implements OnInit {
 
   }
 
+  /**
+   * Aplica un filtro a la lista de desapariciones.
+   */
   applyFilter(): void {
     const text = this.filterText.toLowerCase();
     this.filteredItems = this.desapariciones.filter((item) =>

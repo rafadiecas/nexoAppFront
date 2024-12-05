@@ -9,12 +9,16 @@ import {CommonModule} from '@angular/common';
 import {Notificacion} from '../../modelos/Notificacion';
 import {NotificacionService} from '../../servicios/notificacion.service';
 
+/**
+ * Componente que muestra el encabezado de la aplicación.
+ */
 @Component({
   selector: 'app-headernew',
   standalone: true,
   imports: [
     RouterLink,
     NgIf,
+    MatIcon,
     CommonModule
   ],
   templateUrl: './headernew.component.html',
@@ -35,10 +39,17 @@ export class HeadernewComponent implements OnInit{
 
     this.cargarNotificaciones();
   }
+
+  /**
+   * Método que cierra la sesión del usuario.
+   */
   logout(){
     this.service.logOut();
     this.router.navigate(['login']);
   }
+  /**
+   * Método de login
+   */
   log(){
     this.logueado = true;
   }

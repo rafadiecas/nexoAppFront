@@ -20,6 +20,9 @@ import {
 } from '../../../shared/edita-desaparicion-autoridad/edita-desaparicion-autoridad.component';
 import {AutoridadAvisosComponent} from '../../perfil-autoridad/componentes/autoridad-avisos/autoridad-avisos.component';
 
+/**
+ * Componente que gestiona la vista de administrador a través de un menú de opciones en su parrte izquierda.
+ */
 @Component({
   selector: 'app-vista-admin',
   standalone: true,

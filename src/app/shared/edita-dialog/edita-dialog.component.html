@@ -51,7 +51,7 @@
         </div>
       </div>
     </div>
-    <app-input-share [imagenCara]= false (filesChanged)="onFilesChanged($event)"></app-input-share>
+    <app-input-share  (filesChanged)="onFilesChanged($event)"></app-input-share>
     <div class="row mt-5">
       <div class="col-12 text-center">
         <button type="submit" class="btn btn-primary" [disabled]="desaparicionForm.invalid">Guardar</button>
