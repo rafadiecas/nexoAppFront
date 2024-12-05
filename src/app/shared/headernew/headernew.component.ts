@@ -34,9 +34,9 @@ export class HeadernewComponent implements OnInit{
   }
   ngOnInit() {
     this.headerService.datosActualizados$.subscribe(() => {
-      this.logueado = this.service.logueado(); // Llama al método para actualizar el encabezado
+      this.logueado = this.service.logueado();
+      this.cargarNotificaciones();// Llama al método para actualizar el encabezado
     });
-
     this.cargarNotificaciones();
   }
 
@@ -98,4 +98,16 @@ export class HeadernewComponent implements OnInit{
     return new Date(fecha).toLocaleDateString('es-ES', opciones);
   }
 
+  irNotificacion(idNotificaion: number, idDesaparicion: number) {
+    this.notificacionesService.setNotificacionLeida(idNotificaion).subscribe({
+      next: (data)=>{
+        console.log(data);
+        this.headerService.notificarActualizacion();
+      },
+      error: (err) => {
+        console.error('Error al cargar notificacion', err);
+        this.headerService.notificarActualizacion();
+      }
+    })
+  }
 }

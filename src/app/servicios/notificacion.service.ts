@@ -14,6 +14,9 @@ export class NotificacionService {
   constructor(private http: HttpClient) { }
 
   obtenerNotificaciones(): Observable<Notificacion[]> {
-    return this.http.get<Notificacion[]>(`${this.apiUrl}/loquesea`);
+    return this.http.get<Notificacion[]>(`${this.apiUrl}/listar`);
+  }
+  setNotificacionLeida(idNotificacion: number): Observable<any>{
+    return this.http.put(`${this.apiUrl}/modNotificacion?idNotificacion=${idNotificacion}`, null);
   }
 }
