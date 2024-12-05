@@ -19,3 +19,18 @@
   }
 }
 
+@media (max-width: 768px) {
+  nav.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+.nav-link .badge {
+  font-size: 0.75rem;
+  padding: 0.25em 0.5em;
+}
+.dropdown-menu {
+  min-width: 250px;
+}

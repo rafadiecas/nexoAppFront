@@ -6,6 +6,9 @@ import {ListaDesaparicionesComponent} from '../lista-desapariciones/lista-desapa
 import {ListaSeguimientoComponent} from '../lista-seguimiento/lista-seguimiento.component';
 import {DesaparicionFormComponent} from '../../../../shared/crear-desaparicion/crear-desaparicion.component';
 
+/**
+ * Componente que muestra las opciones del perfil de un usuario civil
+ */
 @Component({
   selector: 'app-perfil-civil',
   standalone: true,

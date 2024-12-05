@@ -4,6 +4,24 @@ import {LugarService} from '../../../servicios/lugar.service';
 import {MapaDesaparicion} from '../../../modelos/MapaDesaparicion';
 import {ActivatedRoute} from '@angular/router';
 
+/**
+ * Componente que se encarga de mostrar un mapa con la ubicación de la desaparición
+ */
+const iconRetinaUrl = 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png';
+const iconUrl = 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png';
+const shadowUrl = 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png';
+const defaultIcon = L.icon({
+  iconRetinaUrl,
+  iconUrl,
+  shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+L.Marker.prototype.options.icon = defaultIcon;
+
 @Component({
   selector: 'app-mapa',
   standalone: true,
@@ -35,6 +53,10 @@ export class MapaComponent implements AfterViewInit {
     });
   }
 
+  /**
+   * Método que se encarga de inicializar el mapa
+   * @private
+   */
   private initMap(): void {
     if (this.map) {
       this.map.remove(); // Remover mapa previo si ya existe
@@ -45,10 +67,15 @@ export class MapaComponent implements AfterViewInit {
     }).addTo(this.map);
   }
 
+  /**
+   * Método que se encarga de añadir los marcadores al mapa
+   * @private
+   */
   private addMarkers(): void {
     if (this.lugar?.latitud !== undefined && this.lugar?.longitud !== undefined) {
       const marker = L.marker([this.lugar.latitud, this.lugar.longitud]).addTo(this.map);
       marker.bindPopup(`${this.lugar.provincia}<br>${this.lugar.localidad}<br>${this.lugar.calle}`);
     }
   }
+
 }

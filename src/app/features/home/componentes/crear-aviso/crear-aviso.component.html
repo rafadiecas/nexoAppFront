@@ -4,22 +4,22 @@
 
     <!-- Campo de Título -->
     <mat-form-field appearance="fill" class="w-100">
-      <mat-label>Título</mat-label>
+      <mat-label>Suceso</mat-label>
       <input matInput formControlName="texto" required />
-      <mat-error *ngIf="avisoForm.get('texto')?.hasError('required')">El título es obligatorio</mat-error>
+      <mat-error *ngIf="avisoForm.get('texto')?.hasError('required')">El suceso es obligatorio</mat-error>
     </mat-form-field>
 
   </mat-dialog-content>
 
   <mat-dialog-content>
     <!-- Campo de Fecha -->
-    <div class="mb-3">
-      <label for="fecha" class="form-label">Fecha</label>
-      <input type="date" class="form-control" id="fecha" formControlName="fecha" required>
-      <div class="invalid-feedback" *ngIf="avisoForm.get('fecha')?.hasError('required')">
-        La fecha es obligatoria.
-      </div>
-    </div>
+<!--    <div class="mb-3">-->
+<!--      <label for="fecha" class="form-label">Fecha</label>-->
+<!--      <input type="date" class="form-control" id="fecha" formControlName="fecha" required>-->
+<!--      <div class="invalid-feedback" *ngIf="avisoForm.get('fecha')?.hasError('required')">-->
+<!--        La fecha es obligatoria.-->
+<!--      </div>-->
+<!--    </div>-->
 
     <!-- Selector de Archivos -->
     <app-input-share (filesChanged)="onFilesChanged($event)"></app-input-share>

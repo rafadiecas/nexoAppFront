@@ -21,6 +21,9 @@ import {
 import {AutoridadAvisosComponent} from '../../perfil-autoridad/componentes/autoridad-avisos/autoridad-avisos.component';
 import {CrearAutoridadComponent} from '../componentes/crear-autoridad/crear-autoridad.component';
 
+/**
+ * Componente que gestiona la vista de administrador a través de un menú de opciones en su parrte izquierda.
+ */
 @Component({
   selector: 'app-vista-admin',
   standalone: true,

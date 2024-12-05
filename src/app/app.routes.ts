@@ -13,6 +13,7 @@ import { AdminUsuariosComponent } from './features/admin-panel/componentes/lista
 import {VistaAutoridadComponent} from './features/perfil-autoridad/vista-autoridad/vista-autoridad.component';
 import {VistaAdminComponent} from './features/admin-panel/vista-admin/vista-admin.component';
 import {autoridadGuard} from './core/guard/autoridad.guard';
+import {AvisoPaginaComponent} from './features/home/componentes/aviso-principal/avisos-pagina/avisos-pagina.component';
 import {PerfilUsuarioComponent} from './features/perfil-usuario/perfil-usuario.component';
 import {Error404Component} from './core/error404/error404.component';
 import {adminGuard} from './core/guard/admin.guard';
@@ -22,15 +23,16 @@ export const routes: Routes = [
   { path: 'login',component: LoginComponent },
   { path: 'usuario/civil', component:PerfilCivilComponent,  canActivate: [civilGuard] },
   { path: 'desaparicion/:id', component: DesaparicionComponent },
-  { path: 'admin', component: AdminPanelComponent, canActivate:[adminGuard] },
-  {path: 'usuario/listaUsuarios', component: AdminUsuariosComponent, canActivate:[civilGuard]},
-  { path: 'autoridad/avisos', component: AutoridadAvisosComponent, canActivate:[autoridadGuard] },
+  { path: 'admin', component: AdminPanelComponent },
+  {path: 'usuario/listaUsuarios', component: AdminUsuariosComponent},
+  { path: 'autoridad/avisos', component: AutoridadAvisosComponent },
   { path: 'mostrar', component: MostrarmasComponent },
-  { path: 'admin/avisos', component: AdminAvisosComponent, canActivate:[adminGuard] },
+  { path: 'admin/avisos', component: AdminAvisosComponent },
   { path: 'registro', component: RegistraUsuarioComponent },
   { path: 'usuario/autoridad', component: VistaAutoridadComponent,canActivate: [autoridadGuard] },
   { path: 'autoridad', component: VistaAutoridadComponent, canActivate:[autoridadGuard] },
   { path: 'admin/recursos', component: VistaAdminComponent, canActivate:[adminGuard] },
   { path: 'usuario', component: PerfilUsuarioComponent},
-  {path: '**', component: Error404Component}
+  {path: '**', component: Error404Component},
+  { path: 'home/avisos', component: AvisoPaginaComponent },
 ];
