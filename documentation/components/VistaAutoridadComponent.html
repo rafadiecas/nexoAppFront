@@ -1,0 +1,695 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>nexo-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">nexo-app documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  VistaAutoridadComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/perfil-autoridad/vista-autoridad/vista-autoridad.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente que contiene las opciones para la parte izquierda del perfil de una autoridad</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-vista-autoridad</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/DesaparicionFormComponent.html" target="_self" >DesaparicionFormComponent</a></code>
+                                <code><a href="../components/EditaUsuarioComponent.html" target="_self" >EditaUsuarioComponent</a></code>
+                                <code><a href="../components/ListaDesaparicionesComponent.html" target="_self" >ListaDesaparicionesComponent</a></code>
+                                <code><a href="../components/ListaSeguimientoComponent.html" target="_self" >ListaSeguimientoComponent</a></code>
+                            <code>NgIf</code>
+                                <code><a href="../components/ParteIzquierdaCivilComponent.html" target="_self" >ParteIzquierdaCivilComponent</a></code>
+                                <code><a href="../components/GestionUsuarioComponent.html" target="_self" >GestionUsuarioComponent</a></code>
+                                <code><a href="../components/ListaNoAprobadasComponent.html" target="_self" >ListaNoAprobadasComponent</a></code>
+                                <code><a href="../components/EditaDesaparicionAutoridadComponent.html" target="_self" >EditaDesaparicionAutoridadComponent</a></code>
+                                <code><a href="../components/AutoridadAvisosComponent.html" target="_self" >AutoridadAvisosComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./vista-autoridad.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./vista-autoridad.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#autoridadIcon" >autoridadIcon</a>
+                            </li>
+                            <li>
+                                <a href="#mapaDeIconos" >mapaDeIconos</a>
+                            </li>
+                            <li>
+                                <a href="#menuOptions" >menuOptions</a>
+                            </li>
+                            <li>
+                                <a href="#selectedOption" >selectedOption</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onOptionSelected" >onOptionSelected</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onOptionSelected"></a>
+                    <span class="name">
+                        <span ><b>onOptionSelected</b></span>
+                        <a href="#onOptionSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onOptionSelected(option: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/features/perfil-autoridad/vista-autoridad/vista-autoridad.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>option</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="autoridadIcon"></a>
+                    <span class="name">
+                        <span ><b>autoridadIcon</b></span>
+                        <a href="#autoridadIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;supervisor_account&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/features/perfil-autoridad/vista-autoridad/vista-autoridad.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapaDeIconos"></a>
+                    <span class="name">
+                        <span ><b>mapaDeIconos</b></span>
+                        <a href="#mapaDeIconos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    autDesapariciones: &#x27;search_check_2&#x27;,
+    gesDesapariciones: &#x27;manage_search&#x27;,
+    gesUsuarios: &#x27;person_check&#x27;,
+    avisos: &#x27;warning&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/features/perfil-autoridad/vista-autoridad/vista-autoridad.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menuOptions"></a>
+                    <span class="name">
+                        <span ><b>menuOptions</b></span>
+                        <a href="#menuOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { label: &#x27;Autorizar desaparicion&#x27;, value: &#x27;autDesapariciones&#x27; },
+    { label: &#x27;Gestión desapariciones&#x27;, value: &#x27;gesDesapariciones&#x27; },
+    { label: &#x27;Autorizar usuarios&#x27;, value: &#x27;gesUsuarios&#x27; },
+    { label: &#x27;Avisos&#x27;, value: &#x27;avisos&#x27; },
+    { label: &#x27;Crear desaparición&#x27;, value: &#x27;crear&#x27; },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/features/perfil-autoridad/vista-autoridad/vista-autoridad.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedOption"></a>
+                    <span class="name">
+                        <span ><b>selectedOption</b></span>
+                        <a href="#selectedOption"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;autDesapariciones&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/features/perfil-autoridad/vista-autoridad/vista-autoridad.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import {
+    DesaparicionFormComponent
+} from &quot;../../../shared/crear-desaparicion/crear-desaparicion.component&quot;;
+import {EditaUsuarioComponent} from &quot;../../perfil-usuario/componentes/edita-usuario/edita-usuario.component&quot;;
+import {
+    ListaDesaparicionesComponent
+} from &quot;../../perfil-usuario/componentes/lista-desapariciones/lista-desapariciones.component&quot;;
+import {
+    ListaSeguimientoComponent
+} from &quot;../../perfil-usuario/componentes/lista-seguimiento/lista-seguimiento.component&quot;;
+import {NgIf} from &quot;@angular/common&quot;;
+import {
+    ParteIzquierdaCivilComponent
+} from &quot;../../perfil-usuario/componentes/parte-izquierda-civil/parte-izquierda-civil.component&quot;;
+import {GestionUsuarioComponent} from &#x27;../componentes/gestion-usuario/gestion-usuario.component&#x27;;
+import {ListaNoAprobadasComponent} from &#x27;../../../shared/lista-no-aprobadas/lista-no-aprobadas.component&#x27;;
+import {
+  EditaDesaparicionAutoridadComponent
+} from &#x27;../../../shared/edita-desaparicion-autoridad/edita-desaparicion-autoridad.component&#x27;;
+import {AutoridadAvisosComponent} from &#x27;../componentes/autoridad-avisos/autoridad-avisos.component&#x27;;
+
+/**
+ * Componente que contiene las opciones para la parte izquierda del perfil de una autoridad
+ */
+@Component({
+  selector: &#x27;app-vista-autoridad&#x27;,
+  standalone: true,
+  imports: [
+    DesaparicionFormComponent,
+    EditaUsuarioComponent,
+    ListaDesaparicionesComponent,
+    ListaSeguimientoComponent,
+    NgIf,
+    ParteIzquierdaCivilComponent,
+    GestionUsuarioComponent,
+    ListaNoAprobadasComponent,
+    EditaDesaparicionAutoridadComponent,
+    AutoridadAvisosComponent
+  ],
+  templateUrl: &#x27;./vista-autoridad.component.html&#x27;,
+  styleUrl: &#x27;./vista-autoridad.component.css&#x27;
+})
+export class VistaAutoridadComponent {
+  selectedOption: string &#x3D; &#x27;autDesapariciones&#x27;;
+  autoridadIcon: string &#x3D; &#x27;supervisor_account&#x27;
+  menuOptions &#x3D; [
+    { label: &#x27;Autorizar desaparicion&#x27;, value: &#x27;autDesapariciones&#x27; },
+    { label: &#x27;Gestión desapariciones&#x27;, value: &#x27;gesDesapariciones&#x27; },
+    { label: &#x27;Autorizar usuarios&#x27;, value: &#x27;gesUsuarios&#x27; },
+    { label: &#x27;Avisos&#x27;, value: &#x27;avisos&#x27; },
+    { label: &#x27;Crear desaparición&#x27;, value: &#x27;crear&#x27; },
+  ];//cambiar esto para que lo pueda recivir del padre
+  mapaDeIconos &#x3D; {
+    autDesapariciones: &#x27;search_check_2&#x27;,
+    gesDesapariciones: &#x27;manage_search&#x27;,
+    gesUsuarios: &#x27;person_check&#x27;,
+    avisos: &#x27;warning&#x27;,
+  };
+  onOptionSelected(option: string) {
+    this.selectedOption &#x3D; option;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div
+      class&#x3D;&quot;col-md-2 col-12 bg-light shadow-sm m-0 p-0&quot;&gt;
+      &lt;app-parte-izquierda-civil
+        (optionSelected)&#x3D;&quot;onOptionSelected($event)&quot;
+        [menuOptions]&#x3D;&quot;menuOptions&quot;
+        [iconMap]&#x3D;&quot;mapaDeIconos&quot;
+        [iconoUsuario]&#x3D;&quot;autoridadIcon&quot;&gt;
+      &lt;/app-parte-izquierda-civil&gt;
+    &lt;/div&gt;
+
+
+    &lt;div class&#x3D;&quot;col-md-10 col-12 py-3&quot;&gt;
+      &lt;div *ngIf&#x3D;&quot;selectedOption &#x3D;&#x3D;&#x3D; &#x27;autDesapariciones&#x27;&quot;&gt;
+        &lt;app-lista-no-aprobadas&gt;&lt;/app-lista-no-aprobadas&gt;
+      &lt;/div&gt;
+      &lt;div *ngIf&#x3D;&quot;selectedOption &#x3D;&#x3D;&#x3D; &#x27;gesDesapariciones&#x27;&quot;&gt;
+        &lt;app-edita-desaparicion-autoridad&gt;&lt;/app-edita-desaparicion-autoridad&gt;
+      &lt;/div&gt;
+      &lt;div *ngIf&#x3D;&quot;selectedOption &#x3D;&#x3D;&#x3D; &#x27;gesUsuarios&#x27;&quot;&gt;
+        &lt;app-gestion-usuario&gt;&lt;/app-gestion-usuario&gt;
+      &lt;/div&gt;
+      &lt;div *ngIf&#x3D;&quot;selectedOption &#x3D;&#x3D;&#x3D; &#x27;avisos&#x27;&quot;&gt;
+        &lt;app-autoridad-avisos&gt;&lt;/app-autoridad-avisos&gt;
+      &lt;/div&gt;
+      &lt;div *ngIf&#x3D;&quot;selectedOption &#x3D;&#x3D;&#x3D; &#x27;crear&#x27;&quot;&gt;
+        &lt;app-crear-desaparicion&gt;&lt;/app-crear-desaparicion&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container-fluid">  <div class="row">    <div      class="col-md-2 col-12 bg-light shadow-sm m-0 p-0">      <app-parte-izquierda-civil        (optionSelected)="onOptionSelected($event)"        [menuOptions]="menuOptions"        [iconMap]="mapaDeIconos"        [iconoUsuario]="autoridadIcon">      </app-parte-izquierda-civil>    </div>    <div class="col-md-10 col-12 py-3">      <div *ngIf="selectedOption === \'autDesapariciones\'">        <app-lista-no-aprobadas></app-lista-no-aprobadas>      </div>      <div *ngIf="selectedOption === \'gesDesapariciones\'">        <app-edita-desaparicion-autoridad></app-edita-desaparicion-autoridad>      </div>      <div *ngIf="selectedOption === \'gesUsuarios\'">        <app-gestion-usuario></app-gestion-usuario>      </div>      <div *ngIf="selectedOption === \'avisos\'">        <app-autoridad-avisos></app-autoridad-avisos>      </div>      <div *ngIf="selectedOption === \'crear\'">        <app-crear-desaparicion></app-crear-desaparicion>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminAvisosComponent', 'selector': 'app-admin-avisos'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminUsuariosComponent', 'selector': 'app-admin-usuarios'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoridadAvisosComponent', 'selector': 'app-autoridad-avisos'},{'name': 'AvisoPaginaComponent', 'selector': 'app-aviso-pagina'},{'name': 'AvisoPrincipalComponent', 'selector': 'app-aviso-principal'},{'name': 'ComentarioDialogComponent', 'selector': 'app-comentario-dialog'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'CrearAutoridadComponent', 'selector': 'app-crear-autoridad'},{'name': 'CrearAvisoComponent', 'selector': 'app-crear-aviso'},{'name': 'DatosDesaparicionComponent', 'selector': 'app-datos-desaparicion'},{'name': 'DesaparicionComponent', 'selector': 'app-desaparicion'},{'name': 'DesaparicionFormComponent', 'selector': 'app-crear-desaparicion'},{'name': 'DesaparicionPrincipalComponent', 'selector': 'app-desaparicion-principal'},{'name': 'EditaDesaparicionAutoridadComponent', 'selector': 'app-edita-desaparicion-autoridad'},{'name': 'EditaDialogComponent', 'selector': 'app-edita-dialog'},{'name': 'EditaUsuarioComponent', 'selector': 'app-edita-usuario'},{'name': 'Error404Component', 'selector': 'app-error404'},{'name': 'FiltroComponent', 'selector': 'app-filtro'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GestionUsuarioComponent', 'selector': 'app-gestion-usuario'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeadernewComponent', 'selector': 'app-headernew'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageDialogComponent', 'selector': 'app-image-dialog'},{'name': 'InputFotosComponent', 'selector': 'app-input-fotos'},{'name': 'InputShareComponent', 'selector': 'app-input-share'},{'name': 'ListaDesaparicionesComponent', 'selector': 'app-lista-desapariciones'},{'name': 'ListaDesaparicionesEliminadasComponent', 'selector': 'app-lista-desapariciones-eliminadas'},{'name': 'ListaNoAprobadasComponent', 'selector': 'app-lista-no-aprobadas'},{'name': 'ListaSeguimientoComponent', 'selector': 'app-lista-seguimiento'},{'name': 'LocalizacionComponent', 'selector': 'app-localizacion'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapaComponent', 'selector': 'app-mapa'},{'name': 'MapaPrincipalComponent', 'selector': 'app-mapa-principal'},{'name': 'MenuPerfilAutoridadComponent', 'selector': 'app-menu-perfil-autoridad'},{'name': 'MostrarmasComponent', 'selector': 'app-mostrarmas'},{'name': 'ParteIzquierdaCivilComponent', 'selector': 'app-parte-izquierda-civil'},{'name': 'PerfilCivilComponent', 'selector': 'app-perfil-civil'},{'name': 'PerfilUsuarioComponent', 'selector': 'app-perfil-usuario'},{'name': 'RegistraUsuarioComponent', 'selector': 'app-registra-usuario'},{'name': 'SobreNosotrosComponent', 'selector': 'app-sobre-nosotros'},{'name': 'VistaAdminComponent', 'selector': 'app-vista-admin'},{'name': 'VistaAutoridadComponent', 'selector': 'app-vista-autoridad'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'VistaAutoridadComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'VistaAutoridadComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

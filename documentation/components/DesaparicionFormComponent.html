@@ -1,0 +1,1364 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>nexo-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">nexo-app documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  DesaparicionFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/crear-desaparicion/crear-desaparicion.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente para la creación de una desaparición.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-crear-desaparicion</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactiveFormsModule</code>
+                                <code><a href="../components/InputFotosComponent.html" target="_self" >InputFotosComponent</a></code>
+                                <code><a href="../components/LocalizacionComponent.html" target="_self" >LocalizacionComponent</a></code>
+                            <code>NgForOf</code>
+                            <code>CommonModule</code>
+                            <code>MatTooltip</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./crear-desaparicion.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#archivos" >archivos</a>
+                            </li>
+                            <li>
+                                <a href="#complexionOptions" >complexionOptions</a>
+                            </li>
+                            <li>
+                                <a href="#currentStep" >currentStep</a>
+                            </li>
+                            <li>
+                                <a href="#desaparicionForm" >desaparicionForm</a>
+                            </li>
+                            <li>
+                                <a href="#isSubmiting" >isSubmiting</a>
+                            </li>
+                            <li>
+                                <a href="#sexoOptions" >sexoOptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#snackBar" >snackBar</a>
+                            </li>
+                            <li>
+                                <a href="#steps" >steps</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getCurrentStepGroup" >getCurrentStepGroup</a>
+                            </li>
+                            <li>
+                                <a href="#goToStep" >goToStep</a>
+                            </li>
+                            <li>
+                                <a href="#nextStep" >nextStep</a>
+                            </li>
+                            <li>
+                                <a href="#onAddressChanged" >onAddressChanged</a>
+                            </li>
+                            <li>
+                                <a href="#onFilesChanged" >onFilesChanged</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#prevStep" >prevStep</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, desaparicionService: <a href="../injectables/DesaparicionService.html" target="_self">DesaparicionService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>desaparicionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DesaparicionService.html" target="_self" >DesaparicionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCurrentStepGroup"></a>
+                    <span class="name">
+                        <span ><b>getCurrentStepGroup</b></span>
+                        <a href="#getCurrentStepGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCurrentStepGroup()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método para obtener el FormGroup del paso actual</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>FormGroup | null</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToStep"></a>
+                    <span class="name">
+                        <span ><b>goToStep</b></span>
+                        <a href="#goToStep"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToStep(step: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="108"
+                                    class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método para ir a un paso concreto del formulario</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>step</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nextStep"></a>
+                    <span class="name">
+                        <span ><b>nextStep</b></span>
+                        <a href="#nextStep"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>nextStep()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método para pasar de paso en el formulario</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onAddressChanged"></a>
+                    <span class="name">
+                        <span ><b>onAddressChanged</b></span>
+                        <a href="#onAddressChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onAddressChanged(address: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método que se ejecuta cuando cambia la dirección seleccionada en su componente especifico para guardarla en el formulario</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>address</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFilesChanged"></a>
+                    <span class="name">
+                        <span ><b>onFilesChanged</b></span>
+                        <a href="#onFilesChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFilesChanged(filesData: <a href="../classes/FileData.html" target="_self">FileData[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método que se ejecuta cuando cambian los archivos seleccionados para coger solo el archivo</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>filesData</td>
+                                            <td>
+                                                            <code><a href="../classes/FileData.html" target="_self" >FileData[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="132"
+                                    class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:132</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método que se ejecuta cuando se envía el formulario</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prevStep"></a>
+                    <span class="name">
+                        <span ><b>prevStep</b></span>
+                        <a href="#prevStep"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>prevStep()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método para retroceder de paso en el formulario</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="archivos"></a>
+                    <span class="name">
+                        <span ><b>archivos</b></span>
+                        <a href="#archivos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>File[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="complexionOptions"></a>
+                    <span class="name">
+                        <span ><b>complexionOptions</b></span>
+                        <a href="#complexionOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Object.values(Complexion)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentStep"></a>
+                    <span class="name">
+                        <span ><b>currentStep</b></span>
+                        <a href="#currentStep"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="desaparicionForm"></a>
+                    <span class="name">
+                        <span ><b>desaparicionForm</b></span>
+                        <a href="#desaparicionForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSubmiting"></a>
+                    <span class="name">
+                        <span ><b>isSubmiting</b></span>
+                        <a href="#isSubmiting"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sexoOptions"></a>
+                    <span class="name">
+                        <span ><b>sexoOptions</b></span>
+                        <a href="#sexoOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Object.values(Sexo)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="snackBar"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>snackBar</b></span>
+                        <a href="#snackBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(MatSnackBar)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="steps"></a>
+                    <span class="name">
+                        <span ><b>steps</b></span>
+                        <a href="#steps"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Paso 1&#x27;, &#x27;Paso 2&#x27;, &#x27;Paso 3&#x27;, &#x27;Paso 4&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, inject} from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { InputFotosComponent } from &#x27;../../features/perfil-usuario/componentes/input-fotos/input-fotos.component&#x27;;
+import { LocalizacionComponent } from &#x27;../../features/perfil-usuario/componentes/localizacion/localizacion.component&#x27;; // Importamos LocalizacionComponent
+import { FileData } from &#x27;../../modelos/FileData&#x27;;
+import { Sexo } from &#x27;../../modelos/Sexo&#x27;; // Importamos el enum Sexo
+import { Complexion } from &#x27;../../modelos/Complexion&#x27;;
+import {NgForOf} from &#x27;@angular/common&#x27;;
+import {DesaparicionService} from &#x27;../../servicios/desaparicion.service&#x27;; // Importamos el enum Complexion
+import {CommonModule} from &#x27;@angular/common&#x27;;
+import {MatSnackBar} from &#x27;@angular/material/snack-bar&#x27;;
+import {MatTooltip} from &#x27;@angular/material/tooltip&#x27;;
+
+/**
+ * Componente para la creación de una desaparición.
+ */
+@Component({
+  selector: &#x27;app-crear-desaparicion&#x27;,
+  templateUrl: &#x27;./crear-desaparicion.component.html&#x27;,
+  imports: [
+    ReactiveFormsModule,
+    InputFotosComponent,
+    LocalizacionComponent,
+    NgForOf,
+    CommonModule,
+    MatTooltip,
+    // Agregamos LocalizacionComponent
+  ],
+  standalone: true
+})
+export class DesaparicionFormComponent {
+  desaparicionForm: FormGroup;
+  archivos: File[] &#x3D; [];
+  sexoOptions &#x3D; Object.values(Sexo); // Obtenemos las opciones del enum Sexo
+  complexionOptions &#x3D; Object.values(Complexion); // Obtenemos las opciones del enum Complexion
+  currentStep &#x3D; 0;
+  steps &#x3D; [&#x27;Paso 1&#x27;, &#x27;Paso 2&#x27;, &#x27;Paso 3&#x27;, &#x27;Paso 4&#x27;]
+  private snackBar &#x3D; inject(MatSnackBar);
+  isSubmiting: boolean &#x3D; false;
+
+  constructor(private fb: FormBuilder, private desaparicionService: DesaparicionService) {
+    this.desaparicionForm &#x3D; this.fb.group({
+      fecha: [],
+      descripcion: [],
+      personaDTO: this.fb.group({
+        dni: [&#x27;&#x27;, Validators.required],
+        nombre: [&#x27;&#x27;, Validators.required],
+        apellido: [&#x27;&#x27;, Validators.required],
+        fechaNacimiento: [&#x27;&#x27;, Validators.required],
+        sexo: [&#x27;&#x27;, Validators.required],
+        altura: [null, Validators.required],
+        complexion: [&#x27;&#x27;, Validators.required],
+        descripcion: [&#x27;&#x27;],
+      }),
+      lugarDTO: this.fb.group({
+        provincia: [&#x27;&#x27;],
+        localidad: [&#x27;&#x27;],
+        calle: [&#x27;&#x27;],
+      }),
+    });
+
+  }
+
+  /**
+   * Método que se ejecuta cuando cambian los archivos seleccionados para coger solo el archivo
+   * @param filesData
+   */
+  onFilesChanged(filesData: FileData[]): void {
+    this.archivos &#x3D; filesData.map(fileData &#x3D;&gt; fileData.file as File);
+  }
+
+  /**
+   * Método que se ejecuta cuando cambia la dirección seleccionada en su componente especifico para guardarla en el formulario
+   * @param address
+   */
+  onAddressChanged(address: any): void {
+    this.desaparicionForm.get(&#x27;lugarDTO&#x27;)?.patchValue(address);
+  }
+
+  /**
+   * Método para pasar de paso en el formulario
+   */
+  nextStep() {
+    if (this.currentStep &#x3D;&#x3D;&#x3D; 0) {
+      this.currentStep++;
+      return;
+    }
+
+    const currentFormGroup &#x3D; this.getCurrentStepGroup();
+    if (currentFormGroup &amp;&amp; currentFormGroup.valid) {
+      this.currentStep++;
+    } else {
+      currentFormGroup?.markAllAsTouched();
+    }
+  }
+
+  /**
+   * Método para retroceder de paso en el formulario
+   */
+  prevStep(): void {
+    if (this.currentStep &gt; 0) {
+      this.currentStep--;
+    }
+  }
+/**
+ * Método para ir a un paso concreto del formulario
+ */
+  goToStep(step: number): void {
+    const formValid &#x3D; this.getCurrentStepGroup()?.valid ?? true;
+    if (step &lt;&#x3D; this.currentStep || formValid) {
+      this.currentStep &#x3D; step;
+    } else {
+      this.getCurrentStepGroup()?.markAllAsTouched();
+    }
+  }
+
+  /**
+   * Método para obtener el FormGroup del paso actual
+   */
+  getCurrentStepGroup(): FormGroup | null {
+    switch (this.currentStep) {
+      case 0: return this.desaparicionForm; // Incluye los campos fecha, descripcion, id_usuario
+      case 1: return this.desaparicionForm.get(&#x27;personaDTO&#x27;) as FormGroup;
+      case 2: return this.desaparicionForm.get(&#x27;lugarDTO&#x27;) as FormGroup;
+      default: return null;
+    }
+  }
+
+  /**
+   * Método que se ejecuta cuando se envía el formulario
+   */
+  onSubmit(): void {
+    if (this.desaparicionForm.invalid) {
+      this.desaparicionForm.markAllAsTouched();
+      return;
+    }
+
+    this.isSubmiting &#x3D; true;
+    const desaparicionData &#x3D; this.desaparicionForm.value;
+    const formData &#x3D; new FormData();
+    formData.append(&#x27;desaparicion&#x27;, JSON.stringify(desaparicionData));
+
+    this.archivos.forEach(file &#x3D;&gt; {
+      formData.append(&#x27;files&#x27;, file);
+    });
+
+    const loadingSnackbar &#x3D; this.snackBar.open(&#x27;Creando desaparición...&#x27;, &#x27;Cerrar&#x27;);
+
+    this.desaparicionService.guardarDesaparicion(formData).subscribe({
+      next: (response) &#x3D;&gt; {
+        console.log(&#x27;Respuesta del servidor:&#x27;, response);
+        this.isSubmiting &#x3D; false;
+        loadingSnackbar.dismiss();
+        this.snackBar.open(&#x27;Desaparicion creada con éxito&#x27;, &#x27;Cerrar&#x27;, {
+          duration: 3000
+        });
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error al guardar la desaparición:&#x27;, error);
+        this.snackBar.open(&#x27;Error al crear la desaparicion&#x27;, &#x27;Cerrar&#x27;, {
+          duration: 3000
+        });
+      }
+    });
+
+    console.log(&#x27;Datos de desaparición enviados:&#x27;, formData);
+
+
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container mt-5&quot;&gt;
+  &lt;h2&gt;Crear desaparición&lt;/h2&gt;
+
+  &lt;!-- Navegación de pasos --&gt;
+  &lt;div class&#x3D;&quot;steps d-flex justify-content-between mb-4&quot;&gt;
+    &lt;div class&#x3D;&quot;step&quot; *ngFor&#x3D;&quot;let step of steps; let i &#x3D; index&quot;&gt;
+      &lt;button
+        [class]&#x3D;&quot;i &lt; currentStep ? &#x27;btn btn-primary rounded-circle&#x27; : &#x27;btn btn-secondary rounded-circle&#x27;&quot;
+        [disabled]&#x3D;&quot;i &gt; currentStep&quot;
+        (click)&#x3D;&quot;goToStep(i)&quot;&gt;
+        {{ i + 1 }}
+      &lt;/button&gt;
+      &lt;p&gt;Paso {{ i + 1 }}&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Contenido del formulario --&gt;
+  &lt;form [formGroup]&#x3D;&quot;desaparicionForm&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot; class&#x3D;&quot;mt-4&quot;&gt;
+    &lt;!-- Paso 1 --&gt;
+    &lt;div *ngIf&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;step-content&quot;&gt;
+      &lt;h4&gt;Lugar y fecha de la desaparición&lt;/h4&gt;
+      &lt;div class&#x3D;&quot;row g-3&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+          &lt;label for&#x3D;&quot;fecha&quot; class&#x3D;&quot;form-label&quot; matTooltip&#x3D;&quot;Fecha de desaparición&quot;&gt;Fecha:&lt;/label&gt;
+          &lt;input id&#x3D;&quot;fecha&quot; formControlName&#x3D;&quot;fecha&quot; type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot; required&gt;
+          &lt;div *ngIf&#x3D;&quot;desaparicionForm.get(&#x27;fecha&#x27;)?.invalid &amp;&amp; desaparicionForm.get(&#x27;fecha&#x27;)?.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
+            Fecha es requerida.
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+          &lt;label for&#x3D;&quot;descripcion&quot; class&#x3D;&quot;form-label&quot; matTooltip&#x3D;&quot;Descripción del lugar de la desaparición&quot;&gt;Descripción:&lt;/label&gt;
+          &lt;textarea id&#x3D;&quot;descripcion&quot; formControlName&#x3D;&quot;descripcion&quot; class&#x3D;&quot;form-control&quot; rows&#x3D;&quot;1&quot; required minlength&#x3D;&quot;10&quot; placeholder&#x3D;&quot;Ejemplo: lo ví por última vez al lado de la señal de Stop de la calle Calatrava&quot;&gt;&lt;/textarea&gt;
+          &lt;div *ngIf&#x3D;&quot;desaparicionForm.get(&#x27;descripcion&#x27;)?.invalid &amp;&amp; desaparicionForm.get(&#x27;descripcion&#x27;)?.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
+            Descripción es requerida y debe tener al menos 10 caracteres.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary mt-3&quot; (click)&#x3D;&quot;nextStep()&quot;&gt;Siguiente&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Paso 2 --&gt;
+    &lt;div *ngIf&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 1&quot; class&#x3D;&quot;step-content&quot;&gt;
+      &lt;h4&gt;Datos del desaparecido&lt;/h4&gt;
+      &lt;div formGroupName&#x3D;&quot;personaDTO&quot; class&#x3D;&quot;row g-3&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+          &lt;label for&#x3D;&quot;dni&quot; class&#x3D;&quot;form-label&quot; matTooltip&#x3D;&quot;DNI del desaparecido: 12345678X&quot;&gt;DNI:&lt;/label&gt;
+          &lt;input id&#x3D;&quot;dni&quot; formControlName&#x3D;&quot;dni&quot; type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; required pattern&#x3D;&quot;[0-9]{8}[A-Za-z]&quot; minlength&#x3D;&quot;9&quot; maxlength&#x3D;&quot;9&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;desaparicionForm.get(&#x27;personaDTO.dni&#x27;)?.invalid &amp;&amp; desaparicionForm.get(&#x27;personaDTO.dni&#x27;)?.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
+            DNI es requerido y debe tener 9 caracteres.
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+          &lt;label for&#x3D;&quot;nombre&quot; class&#x3D;&quot;form-label&quot; matTooltip&#x3D;&quot;Nombre del desaparecido&quot;&gt;Nombre:&lt;/label&gt;
+          &lt;input id&#x3D;&quot;nombre&quot; formControlName&#x3D;&quot;nombre&quot; type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; required minlength&#x3D;&quot;2&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;desaparicionForm.get(&#x27;personaDTO.nombre&#x27;)?.invalid &amp;&amp; desaparicionForm.get(&#x27;personaDTO.nombre&#x27;)?.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
+            Nombre es requerido y debe tener al menos 2 caracteres.
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+          &lt;label for&#x3D;&quot;apellido&quot; class&#x3D;&quot;form-label&quot; matTooltip&#x3D;&quot;Apellido del desaparecido&quot;&gt;Apellido:&lt;/label&gt;
+          &lt;input id&#x3D;&quot;apellido&quot; formControlName&#x3D;&quot;apellido&quot; type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; required minlength&#x3D;&quot;2&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;desaparicionForm.get(&#x27;personaDTO.apellido&#x27;)?.invalid &amp;&amp; desaparicionForm.get(&#x27;personaDTO.apellido&#x27;)?.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
+            Apellido es requerido y debe tener al menos 2 caracteres.
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+          &lt;label for&#x3D;&quot;fechaNacimiento&quot; class&#x3D;&quot;form-label&quot; matTooltip&#x3D;&quot;Fecha de nacimiento del desaparecido&quot;&gt;Fecha de Nacimiento:&lt;/label&gt;
+          &lt;input id&#x3D;&quot;fechaNacimiento&quot; formControlName&#x3D;&quot;fechaNacimiento&quot; type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot; required&gt;
+          &lt;div *ngIf&#x3D;&quot;desaparicionForm.get(&#x27;personaDTO.fechaNacimiento&#x27;)?.invalid &amp;&amp; desaparicionForm.get(&#x27;personaDTO.fechaNacimiento&#x27;)?.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
+            Fecha de nacimiento es requerida.
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+          &lt;label for&#x3D;&quot;sexo&quot; matTooltip&#x3D;&quot;Sexo del desaparecido&quot;&gt;Sexo:&lt;/label&gt;
+          &lt;select id&#x3D;&quot;sexo&quot; formControlName&#x3D;&quot;sexo&quot; class&#x3D;&quot;form-select&quot; required&gt;
+            &lt;option *ngFor&#x3D;&quot;let option of sexoOptions&quot; [value]&#x3D;&quot;option&quot;&gt;{{ option }}&lt;/option&gt;
+          &lt;/select&gt;
+          &lt;div *ngIf&#x3D;&quot;desaparicionForm.get(&#x27;personaDTO.sexo&#x27;)?.invalid &amp;&amp; desaparicionForm.get(&#x27;personaDTO.sexo&#x27;)?.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
+            Sexo es requerido.
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+          &lt;label for&#x3D;&quot;altura&quot; matTooltip&#x3D;&quot;Altura apróximada del desaparecido&quot; class&#x3D;&quot;form-label&quot;&gt;Altura:&lt;/label&gt;
+          &lt;input id&#x3D;&quot;altura&quot; formControlName&#x3D;&quot;altura&quot; type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot; required min&#x3D;&quot;0.50&quot; max&#x3D;&quot;2.50&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;desaparicionForm.get(&#x27;personaDTO.altura&#x27;)?.invalid &amp;&amp; desaparicionForm.get(&#x27;personaDTO.altura&#x27;)?.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
+            Altura es requerida.
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+          &lt;label for&#x3D;&quot;complexion&quot; matTooltip&#x3D;&quot;Complexión del desaparecido&quot;&gt;Complexión:&lt;/label&gt;
+          &lt;select id&#x3D;&quot;complexion&quot; formControlName&#x3D;&quot;complexion&quot; class&#x3D;&quot;form-select&quot; required&gt;
+            &lt;option *ngFor&#x3D;&quot;let option of complexionOptions&quot; [value]&#x3D;&quot;option&quot;&gt;{{ option }}&lt;/option&gt;
+          &lt;/select&gt;
+          &lt;div *ngIf&#x3D;&quot;desaparicionForm.get(&#x27;personaDTO.complexion&#x27;)?.invalid &amp;&amp; desaparicionForm.get(&#x27;personaDTO.complexion&#x27;)?.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
+            Complexión es requerida.
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;app-input-fotos (filesChanged)&#x3D;&quot;onFilesChanged($event)&quot;&gt;&lt;/app-input-fotos&gt;
+      &lt;/div&gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary mt-3&quot; (click)&#x3D;&quot;prevStep()&quot;&gt;Anterior&lt;/button&gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary mt-3 mx-2&quot; (click)&#x3D;&quot;nextStep()&quot;&gt;Siguiente&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Paso 3 --&gt;
+    &lt;div *ngIf&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 2&quot; class&#x3D;&quot;step-content&quot;&gt;
+      &lt;h4&gt;Dirección de la desaparición&lt;/h4&gt;
+      &lt;div formGroupName&#x3D;&quot;lugarDTO&quot; class&#x3D;&quot;row g-3&quot;&gt;
+        &lt;app-localizacion (addressChanged)&#x3D;&quot;onAddressChanged($event)&quot;&gt;&lt;/app-localizacion&gt;
+      &lt;/div&gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary mt-3&quot; (click)&#x3D;&quot;prevStep()&quot;&gt;Anterior&lt;/button&gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary mt-3 mx-2&quot; (click)&#x3D;&quot;nextStep()&quot;&gt;Siguiente&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Paso 5 --&gt;
+    &lt;div *ngIf&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 3&quot; class&#x3D;&quot;step-content&quot;&gt;
+      &lt;h4&gt;Enviar desaparición&lt;/h4&gt;
+        &lt;div class&#x3D;&quot;d-flex justify-content-center align-items-center&quot;&gt;
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary mt-3&quot; (click)&#x3D;&quot;prevStep()&quot;&gt;Anterior&lt;/button&gt;
+          &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-success mt-3 mx-3&quot; [disabled]&#x3D;&quot;desaparicionForm.invalid || isSubmiting&quot;&gt;Enviar&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container mt-5">  <h2>Crear desaparición</h2>  <!-- Navegación de pasos -->  <div class="steps d-flex justify-content-between mb-4">    <div class="step" *ngFor="let step of steps; let i = index">      <button        [class]="i < currentStep ? \'btn btn-primary rounded-circle\' : \'btn btn-secondary rounded-circle\'"        [disabled]="i > currentStep"        (click)="goToStep(i)">        {{ i + 1 }}      </button>      <p>Paso {{ i + 1 }}</p>    </div>  </div>  <!-- Contenido del formulario -->  <form [formGroup]="desaparicionForm" (ngSubmit)="onSubmit()" class="mt-4">    <!-- Paso 1 -->    <div *ngIf="currentStep === 0" class="step-content">      <h4>Lugar y fecha de la desaparición</h4>      <div class="row g-3">        <div class="col-md-6">          <label for="fecha" class="form-label" matTooltip="Fecha de desaparición">Fecha:</label>          <input id="fecha" formControlName="fecha" type="date" class="form-control" required>          <div *ngIf="desaparicionForm.get(\'fecha\')?.invalid && desaparicionForm.get(\'fecha\')?.touched" class="text-danger">            Fecha es requerida.          </div>        </div>        <div class="col-md-6">          <label for="descripcion" class="form-label" matTooltip="Descripción del lugar de la desaparición">Descripción:</label>          <textarea id="descripcion" formControlName="descripcion" class="form-control" rows="1" required minlength="10" placeholder="Ejemplo: lo ví por última vez al lado de la señal de Stop de la calle Calatrava"></textarea>          <div *ngIf="desaparicionForm.get(\'descripcion\')?.invalid && desaparicionForm.get(\'descripcion\')?.touched" class="text-danger">            Descripción es requerida y debe tener al menos 10 caracteres.          </div>        </div>      </div>      <button type="button" class="btn btn-primary mt-3" (click)="nextStep()">Siguiente</button>    </div>    <!-- Paso 2 -->    <div *ngIf="currentStep === 1" class="step-content">      <h4>Datos del desaparecido</h4>      <div formGroupName="personaDTO" class="row g-3">        <div class="col-md-6">          <label for="dni" class="form-label" matTooltip="DNI del desaparecido: 12345678X">DNI:</label>          <input id="dni" formControlName="dni" type="text" class="form-control" required pattern="[0-9]{8}[A-Za-z]" minlength="9" maxlength="9">          <div *ngIf="desaparicionForm.get(\'personaDTO.dni\')?.invalid && desaparicionForm.get(\'personaDTO.dni\')?.touched" class="text-danger">            DNI es requerido y debe tener 9 caracteres.          </div>        </div>        <div class="col-md-6">          <label for="nombre" class="form-label" matTooltip="Nombre del desaparecido">Nombre:</label>          <input id="nombre" formControlName="nombre" type="text" class="form-control" required minlength="2">          <div *ngIf="desaparicionForm.get(\'personaDTO.nombre\')?.invalid && desaparicionForm.get(\'personaDTO.nombre\')?.touched" class="text-danger">            Nombre es requerido y debe tener al menos 2 caracteres.          </div>        </div>        <div class="col-md-6">          <label for="apellido" class="form-label" matTooltip="Apellido del desaparecido">Apellido:</label>          <input id="apellido" formControlName="apellido" type="text" class="form-control" required minlength="2">          <div *ngIf="desaparicionForm.get(\'personaDTO.apellido\')?.invalid && desaparicionForm.get(\'personaDTO.apellido\')?.touched" class="text-danger">            Apellido es requerido y debe tener al menos 2 caracteres.          </div>        </div>        <div class="col-md-6">          <label for="fechaNacimiento" class="form-label" matTooltip="Fecha de nacimiento del desaparecido">Fecha de Nacimiento:</label>          <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date" class="form-control" required>          <div *ngIf="desaparicionForm.get(\'personaDTO.fechaNacimiento\')?.invalid && desaparicionForm.get(\'personaDTO.fechaNacimiento\')?.touched" class="text-danger">            Fecha de nacimiento es requerida.          </div>        </div>        <div class="col-md-6">          <label for="sexo" matTooltip="Sexo del desaparecido">Sexo:</label>          <select id="sexo" formControlName="sexo" class="form-select" required>            <option *ngFor="let option of sexoOptions" [value]="option">{{ option }}</option>          </select>          <div *ngIf="desaparicionForm.get(\'personaDTO.sexo\')?.invalid && desaparicionForm.get(\'personaDTO.sexo\')?.touched" class="text-danger">            Sexo es requerido.          </div>        </div>        <div class="col-md-6">          <label for="altura" matTooltip="Altura apróximada del desaparecido" class="form-label">Altura:</label>          <input id="altura" formControlName="altura" type="number" class="form-control" required min="0.50" max="2.50">          <div *ngIf="desaparicionForm.get(\'personaDTO.altura\')?.invalid && desaparicionForm.get(\'personaDTO.altura\')?.touched" class="text-danger">            Altura es requerida.          </div>        </div>        <div class="col-md-6">          <label for="complexion" matTooltip="Complexión del desaparecido">Complexión:</label>          <select id="complexion" formControlName="complexion" class="form-select" required>            <option *ngFor="let option of complexionOptions" [value]="option">{{ option }}</option>          </select>          <div *ngIf="desaparicionForm.get(\'personaDTO.complexion\')?.invalid && desaparicionForm.get(\'personaDTO.complexion\')?.touched" class="text-danger">            Complexión es requerida.          </div>        </div>        <app-input-fotos (filesChanged)="onFilesChanged($event)"></app-input-fotos>      </div>      <button type="button" class="btn btn-secondary mt-3" (click)="prevStep()">Anterior</button>      <button type="button" class="btn btn-primary mt-3 mx-2" (click)="nextStep()">Siguiente</button>    </div>    <!-- Paso 3 -->    <div *ngIf="currentStep === 2" class="step-content">      <h4>Dirección de la desaparición</h4>      <div formGroupName="lugarDTO" class="row g-3">        <app-localizacion (addressChanged)="onAddressChanged($event)"></app-localizacion>      </div>      <button type="button" class="btn btn-secondary mt-3" (click)="prevStep()">Anterior</button>      <button type="button" class="btn btn-primary mt-3 mx-2" (click)="nextStep()">Siguiente</button>    </div>    <!-- Paso 5 -->    <div *ngIf="currentStep === 3" class="step-content">      <h4>Enviar desaparición</h4>        <div class="d-flex justify-content-center align-items-center">          <button type="button" class="btn btn-secondary mt-3" (click)="prevStep()">Anterior</button>          <button type="submit" class="btn btn-success mt-3 mx-3" [disabled]="desaparicionForm.invalid || isSubmiting">Enviar</button>        </div>    </div>  </form></div></div>'
+    var COMPONENTS = [{'name': 'AdminAvisosComponent', 'selector': 'app-admin-avisos'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminUsuariosComponent', 'selector': 'app-admin-usuarios'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoridadAvisosComponent', 'selector': 'app-autoridad-avisos'},{'name': 'AvisoPaginaComponent', 'selector': 'app-aviso-pagina'},{'name': 'AvisoPrincipalComponent', 'selector': 'app-aviso-principal'},{'name': 'ComentarioDialogComponent', 'selector': 'app-comentario-dialog'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'CrearAutoridadComponent', 'selector': 'app-crear-autoridad'},{'name': 'CrearAvisoComponent', 'selector': 'app-crear-aviso'},{'name': 'DatosDesaparicionComponent', 'selector': 'app-datos-desaparicion'},{'name': 'DesaparicionComponent', 'selector': 'app-desaparicion'},{'name': 'DesaparicionFormComponent', 'selector': 'app-crear-desaparicion'},{'name': 'DesaparicionPrincipalComponent', 'selector': 'app-desaparicion-principal'},{'name': 'EditaDesaparicionAutoridadComponent', 'selector': 'app-edita-desaparicion-autoridad'},{'name': 'EditaDialogComponent', 'selector': 'app-edita-dialog'},{'name': 'EditaUsuarioComponent', 'selector': 'app-edita-usuario'},{'name': 'Error404Component', 'selector': 'app-error404'},{'name': 'FiltroComponent', 'selector': 'app-filtro'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GestionUsuarioComponent', 'selector': 'app-gestion-usuario'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeadernewComponent', 'selector': 'app-headernew'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageDialogComponent', 'selector': 'app-image-dialog'},{'name': 'InputFotosComponent', 'selector': 'app-input-fotos'},{'name': 'InputShareComponent', 'selector': 'app-input-share'},{'name': 'ListaDesaparicionesComponent', 'selector': 'app-lista-desapariciones'},{'name': 'ListaDesaparicionesEliminadasComponent', 'selector': 'app-lista-desapariciones-eliminadas'},{'name': 'ListaNoAprobadasComponent', 'selector': 'app-lista-no-aprobadas'},{'name': 'ListaSeguimientoComponent', 'selector': 'app-lista-seguimiento'},{'name': 'LocalizacionComponent', 'selector': 'app-localizacion'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapaComponent', 'selector': 'app-mapa'},{'name': 'MapaPrincipalComponent', 'selector': 'app-mapa-principal'},{'name': 'MenuPerfilAutoridadComponent', 'selector': 'app-menu-perfil-autoridad'},{'name': 'MostrarmasComponent', 'selector': 'app-mostrarmas'},{'name': 'ParteIzquierdaCivilComponent', 'selector': 'app-parte-izquierda-civil'},{'name': 'PerfilCivilComponent', 'selector': 'app-perfil-civil'},{'name': 'PerfilUsuarioComponent', 'selector': 'app-perfil-usuario'},{'name': 'RegistraUsuarioComponent', 'selector': 'app-registra-usuario'},{'name': 'SobreNosotrosComponent', 'selector': 'app-sobre-nosotros'},{'name': 'VistaAdminComponent', 'selector': 'app-vista-admin'},{'name': 'VistaAutoridadComponent', 'selector': 'app-vista-autoridad'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DesaparicionFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DesaparicionFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
