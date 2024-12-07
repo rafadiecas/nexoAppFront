@@ -81,6 +81,10 @@ export class EditaDialogComponent implements OnInit {
       console.log(data);
     });
   }
+
+  /**
+   * Devuelve el array de fotos de una desaparicion para mostrarlos en la vista.
+   */
   get fotos(): FormArray {
     const fotosArray = this.desaparicionForm.get('fotos') as FormArray;
     const index = fotosArray.controls.findIndex(foto => foto.get('esCara')?.value);
@@ -91,6 +95,10 @@ export class EditaDialogComponent implements OnInit {
     return fotosArray;
   }
 
+  /**
+   * Añade una foto al formulario.
+   * @param foto
+   */
   addFoto(foto: Foto = { id: undefined, url: '', esCara: false }): void {
     this.fotos.push(this.fb.group({
       id: [foto.id],
@@ -113,9 +121,7 @@ export class EditaDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  /**
-   * Guarda los cambios realizados en la desaparición.
-   */
+
 
   // guardar(): void {
   //   const desaparicionData = this.desaparicionForm.value;
@@ -134,6 +140,9 @@ export class EditaDialogComponent implements OnInit {
   //     (error) => console.error('Error al editar la desaparición', error)
   //   )
   // }
+  /**
+   * Guarda los cambios realizados en la desaparición.
+   */
   guardar(): void {
     const desaparicionData = this.desaparicionForm.value;
     const formData = new FormData();
