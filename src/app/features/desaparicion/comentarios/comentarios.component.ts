@@ -14,13 +14,16 @@ import {CivilService} from '../../../servicios/civil.service';
 import {ComentarioDialogComponent} from '../comentario-dialog/comentario-dialog.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {UsuarioService} from '../../../servicios/usuario.service';
+import {MatIcon} from '@angular/material/icon';
+import {AuthServiceService} from '../../../core/auth-service.service';
+import {DenunciaComentario} from '../../../modelos/DenunciaComentario';
 /**
  * Componente que se encarga de mostrar los comentarios de una desaparición
  */
 @Component({
   selector: 'app-comentarios',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, InputShareComponent, FormsModule, ],
+  imports: [ReactiveFormsModule, CommonModule, InputShareComponent, FormsModule, MatIcon,],
   templateUrl: './comentarios.component.html',
   styleUrls: ['./comentarios.component.css']
 })
@@ -32,6 +35,7 @@ export class ComentariosComponent implements OnInit {
   archivos: File[] = [];
   id?: number;
   desapariciones: DesaparicionLista[] = [];
+  rol: string = "";
   private snackBar = inject(MatSnackBar);
 
   constructor(
@@ -40,13 +44,17 @@ export class ComentariosComponent implements OnInit {
     private dialogImage: MatDialog,
     private route: ActivatedRoute,
     private civilService: CivilService,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private authService: AuthServiceService,
   ) {}
 
   ngOnInit(): void {
   this.usuarioAutenticado = this.usuarioService.estaAutenticado();
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.cargarComentarios(this.id);
+    this.authService.obtenerRol().subscribe((rol: string) => {
+      this.rol = rol;
+    });
     this.civilService.listaDesapariciones().subscribe({
       next: (data) => {
         this.desapariciones = data;
@@ -139,6 +147,39 @@ export class ComentariosComponent implements OnInit {
         });
       },
       error: err => console.error('Error al crear comentario:', err)
+    });
+  }
+
+  /**
+   * Método que se encarga de denunciar un comentario
+   * @param comentario
+   */
+  denunciarComentario(comentario: any): void {
+    const denuncia: DenunciaComentario = {
+      idDesaparicion: this.id!,
+      texto: comentario.texto
+    }
+    this.comentarioService.denunciarComentario(denuncia).subscribe({
+      next: response => {
+        console.log('Denuncia realizada:', response);
+        this.snackBar.open('Denuncia realizada con exito', 'Cerrar', {
+          duration: 3000
+        });
+      },
+      error: err => console.error('Error al denunciar comentario:', err)
+    })
+  }
+
+  eliminarComentario(comentario: any): void {
+    this.comentarioService.eliminarComentario(comentario.id!).subscribe({
+      next: response => {
+        console.log('Comentario eliminado:', response);
+        this.cargarComentarios(this.id!);
+        this.snackBar.open('Comentario eliminado con exito', 'Cerrar', {
+          duration: 3000
+        });
+      },
+      error: err => console.error('Error al eliminar comentario:', err)
     });
   }
 }

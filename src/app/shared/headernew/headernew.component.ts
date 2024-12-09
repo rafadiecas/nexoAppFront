@@ -111,6 +111,11 @@ export class HeadernewComponent implements OnInit{
     return new Date(fecha).toLocaleDateString('es-ES', opciones);
   }
 
+  /**
+   * Método que redirige a la página de la desaparicion y marca la notificación como leída.
+   * @param idNotificaion
+   * @param idDesaparicion
+   */
   irNotificacion(idNotificaion: number, idDesaparicion: number) {
     this.notificacionesService.setNotificacionLeida(idNotificaion).subscribe({
       next: (data)=>{
