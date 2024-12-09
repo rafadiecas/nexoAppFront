@@ -48,6 +48,12 @@ Este es el frontend de una aplicación web dedicada a la gestión de personas de
    
   - Accede a la aplicación en http://localhost:4200
 
+4. **Acceder a Compodoc**:
+   Para consultar la documentación se puede acceder a Compodoc.
+   
+   ```bash
+   npm run compodoc:serve
+
 ## Scripts Disponibles
 
   - `npm run build`: Compila la aplicación para producción.
