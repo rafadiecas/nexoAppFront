@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LocalizacionService } from '../../../../servicios/localizacion.service';
 import {NgForOf, NgIf, SlicePipe} from '@angular/common';
+import {MatTooltip} from '@angular/material/tooltip';
 
 /**
  * Componente que permite seleccionar una localización para usar en la creación de una desaparición
@@ -13,7 +14,8 @@ import {NgForOf, NgIf, SlicePipe} from '@angular/common';
     ReactiveFormsModule,
     NgForOf,
     NgIf,
-    SlicePipe
+    SlicePipe,
+    MatTooltip
   ],
   templateUrl: './localizacion.component.html',
   styleUrls: ['./localizacion.component.css']

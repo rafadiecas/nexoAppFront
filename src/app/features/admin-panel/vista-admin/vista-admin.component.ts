@@ -19,6 +19,7 @@ import {
   EditaDesaparicionAutoridadComponent
 } from '../../../shared/edita-desaparicion-autoridad/edita-desaparicion-autoridad.component';
 import {AutoridadAvisosComponent} from '../../perfil-autoridad/componentes/autoridad-avisos/autoridad-avisos.component';
+import {CrearAutoridadComponent} from '../componentes/crear-autoridad/crear-autoridad.component';
 
 /**
  * Componente que gestiona la vista de administrador a través de un menú de opciones en su parrte izquierda.
@@ -36,7 +37,8 @@ import {AutoridadAvisosComponent} from '../../perfil-autoridad/componentes/autor
     ListaDesaparicionesEliminadasComponent,
     ListaNoAprobadasComponent,
     EditaDesaparicionAutoridadComponent,
-    AutoridadAvisosComponent
+    AutoridadAvisosComponent,
+    CrearAutoridadComponent
   ],
   templateUrl: './vista-admin.component.html',
   styleUrl: './vista-admin.component.css'
@@ -50,14 +52,15 @@ export class VistaAdminComponent {
     { label: 'Autorizar usuarios', value: 'gesUsuarios' },
     { label: 'Avisos', value: 'avisos' },
     { label: 'Eliminadas', value: 'eliminadas' },
+    { label: 'Crear Autoridad', value: 'autoridad' }
   ];//cambiar esto para que lo pueda recivir del padre
   mapaDeIconos = {
     autDesapariciones: 'search_check_2',
     gesDesapariciones: 'manage_search',
     gesUsuarios: 'person_check',
     avisos: 'warning',
-    elimindas: 'delete',
-    crear: 'add'
+    eliminadas: 'delete',
+    autoridad: 'person_check'
   };
   onOptionSelected(option: string) {
     this.selectedOption = option;

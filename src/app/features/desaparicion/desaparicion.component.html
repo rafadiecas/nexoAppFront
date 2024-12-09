@@ -1,13 +1,11 @@
 <div class="container mt-3 py-3">
-    <div class="container mt-5 border border-primary-subtle rounded datos p-4">
+    <div class="container mt-5 rounded datos p-4 shadow">
       <app-datos-desaparicion (validacionChange)="onValidacionChange($event)"></app-datos-desaparicion>
     </div>
-    <div class="container mt-5">
-      <app-mapa></app-mapa>
-  </div>
+
 
 </div>
-<div  *ngIf="validacion" class="container w-50 comentarios">
+<div  *ngIf="validacion" class="container comentarios">
   <app-comentarios></app-comentarios>
 </div>
 

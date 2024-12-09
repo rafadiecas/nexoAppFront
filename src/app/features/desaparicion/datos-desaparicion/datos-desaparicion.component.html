@@ -35,6 +35,9 @@
           <p><strong>Apellidos:</strong> {{ desaparicionIndividual?.persona?.apellido }}</p>
           <p><strong>Fecha de desaparición:</strong> {{ desaparicionIndividual?.fecha }}</p>
           <p><strong>Descripción:</strong> {{ desaparicionIndividual?.descripcion }}</p>
+          <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#mapModal">
+            Ver en Mapa
+          </button>
         </div>
 
 
@@ -46,13 +49,28 @@
           <p><strong>Descripción física:</strong> {{ desaparicionIndividual?.persona?.descripcion }}</p>
           <p><strong>Estado: {{ desaparicionIndividual?.estado }}</strong></p>
           <div class="mt-3 botones">
-            <button *ngIf="!seguimiento" class="btn btn-primary" (click)="anyadirSeguimiento()">
+            <button *ngIf="usuarioAutenticado && !seguimiento" class="btn btn-primary" (click)="anyadirSeguimiento()">
               Añadir a seguimiento
             </button>
-            <button *ngIf="seguimiento" class="btn btn-danger" (click)="eliminarSeguimiento()">
+            <button *ngIf="usuarioAutenticado && seguimiento" class="btn btn-danger" (click)="eliminarSeguimiento()">
               Eliminar de seguimiento
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="mapModalLabel">Mapa</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Componente del mapa -->
+          <app-mapa></app-mapa>
         </div>
       </div>
     </div>

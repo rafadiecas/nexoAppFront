@@ -17,13 +17,13 @@ export const civilGuard: CanActivateFn = (route, state) => {
     map((role: any) => {
       const isAuthorized = isLogged && role === 'CIVIL';
       if (!isAuthorized) {
-        router.navigate(['']);
+        router.navigate(['/error404']);
         return false;
       }
       return true;
     }),
     catchError((error) => {
-      router.navigate(['']);
+      router.navigate(['/error404']);
       console.log('Error:', error);
       return of(false);
     })

@@ -6,6 +6,9 @@ import {FileData} from '../../modelos/FileData';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MatTooltip} from '@angular/material/tooltip';
 
+/**
+ * Componente que muestra un input para compartir imagenes
+ */
 @Component({
   selector: 'app-input-share',
   standalone: true,
@@ -32,6 +35,10 @@ export class InputShareComponent {
 
   constructor(private modalService: NgbModal) {}
 
+  /**
+   * Método que se ejecuta cuando se selecciona un archivo, comprueba que sea una imagen y que no se hayan seleccionado más de 2
+   * @param event
+   */
   onFileSelect(event: Event): void {
     const input = event.target as HTMLInputElement;
     const files = input.files;
@@ -64,11 +71,19 @@ export class InputShareComponent {
       reader.readAsDataURL(file);
     });
   }
+
+  /**
+   * Método que limpia los archivos seleccionados
+   */
   clearFiles(): void {
     this.allFiles = [];
     this.filesChanged.emit(this.allFiles);
   }
 
+  /**
+   * Método que se ejecuta cuando se hace click en una imagen, provoca que esta se elimine
+   * @param i
+   */
   onImageClick(i: number): void {
     this.allFiles.splice(i, 1);
     this.filesChanged.emit(this.allFiles);

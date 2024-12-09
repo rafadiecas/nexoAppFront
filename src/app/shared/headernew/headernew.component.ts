@@ -57,11 +57,17 @@ export class HeadernewComponent implements OnInit{
     this.ngOnInit();
   }
 
-  // Método para redirigir a la página de avisos
+  /**
+   * Método que redirige a la página de avisos.
+   */
   redirigirAvisos() {
     this.router.navigate(['/home/avisos']);
   }
 
+  /**
+   * Método que despliega el dropdown de notificaciones y las carga.
+   * @param event
+   */
   toggleDropdown(event: Event): void {
     event.preventDefault();
     this.dropdownVisible = !this.dropdownVisible;
@@ -71,6 +77,9 @@ export class HeadernewComponent implements OnInit{
     }
   }
 
+  /**
+   * Método que carga las notificaciones de un usuario.
+   */
   cargarNotificaciones(): void {
     this.cargando = true;
     this.notificacionesService.obtenerNotificaciones()
@@ -87,6 +96,10 @@ export class HeadernewComponent implements OnInit{
 
   }
 
+  /**
+   * Método que formatea una fecha a un formato legible.
+   * @param fecha
+   */
   formatFecha(fecha: string): string {
     const opciones: Intl.DateTimeFormatOptions = {
       year: 'numeric',

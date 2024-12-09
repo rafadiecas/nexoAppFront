@@ -4,6 +4,7 @@ import { FileData } from '../../../../modelos/FileData';
 import { NgForOf, NgIf } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { MatGridList, MatGridTile } from '@angular/material/grid-list';
+import {MatTooltip} from '@angular/material/tooltip';
 
 /**
  * Componente que permite seleccionar fotos para la creación de una desaparición
@@ -17,7 +18,8 @@ import { MatGridList, MatGridTile } from '@angular/material/grid-list';
     NgIf,
     MatIcon,
     MatGridList,
-    MatGridTile
+    MatGridTile,
+    MatTooltip
   ],
   styleUrls: ['./input-fotos.component.css']
 })
