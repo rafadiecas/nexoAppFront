@@ -1,23 +1,23 @@
-<div class="filtro-container">
-  <h2>Buscar personas</h2>
+<div class="card p-4 shadow">
+  <h4 class="text-center text-primary mb-4 d-none d-xl-block">Buscar personas</h4>
   <form (ngSubmit)="onBuscar()">
-    <!-- Campo para buscar por nombre -->
-    <div class="campo">
-      <label for="nombre">Buscar por nombre:</label>
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Buscar por nombre:</label>
       <input
         type="text"
         id="nombre"
+        class="form-control"
         [(ngModel)]="filtros.nombre"
         name="nombre"
         placeholder="Introduce un nombre"
       />
     </div>
 
-    <!-- Selección de estado -->
-    <div class="campo">
-      <label for="estado">Seleccionar estado:</label>
+    <div class="mb-3">
+      <label for="estado" class="form-label">Seleccionar estado:</label>
       <select
         id="estado"
+        class="form-select"
         [(ngModel)]="filtros.estado"
         name="estado"
       >
@@ -28,21 +28,20 @@
       </select>
     </div>
 
-    <!-- Campo para buscar por fecha -->
-    <div class="campo">
-      <label for="fecha">Buscar por fecha:</label>
+    <div class="mb-3">
+      <label for="fecha" class="form-label">Buscar por fecha:</label>
       <input
         type="date"
         id="fecha"
+        class="form-control"
         [(ngModel)]="filtros.fecha"
         name="fecha"
       />
     </div>
 
-    <!-- Botón para buscar -->
-    <div class="botones">
-      <button type="submit" class="btn-buscar">Buscar</button>
-      <button type="button" class="btn-limpiar" (click)="onLimpiar()">Limpiar filtros</button>
+    <div class="d-grid gap-3">
+      <button type="submit" class="btn btn-primary">Buscar</button>
+      <button type="button" class="btn btn-secondary" (click)="onLimpiar()">Limpiar filtros</button>
     </div>
   </form>
 </div>
