@@ -54,7 +54,7 @@ export class ComentarioService {
   }
 
   eliminarComentario(id: number): Observable<string> {
-    return this.http.delete<string>(`${apiUrl}/eliminar/${id}`, { responseType: 'text' as 'json' });
+    return this.http.delete<string>(`${apiUrl}/eliminar?id=${id}`, { responseType: 'text' as 'json' });
   }
 
 

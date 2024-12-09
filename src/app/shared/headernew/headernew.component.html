@@ -25,15 +25,17 @@
             </span>
           </a>
 
-          <div *ngIf="dropdownVisible" class="dropdown-menu dropdown-menu-end show" style="position: absolute; top: 100%; right: 0;">
+          <div *ngIf="dropdownVisible" class="dropdown-menu dropdown-menu-end show" style="position: absolute; top: 100%; right: 0; min-width: 400px; word-break: auto-phrase;">
             <div class="dropdown-header">Notificaciones</div>
             <div *ngIf="notificaciones.length > 0; else noNotificationsTemplate">
-              <div *ngFor="let notificacion of notificaciones" class="dropdown-item" (click)="irNotificacion(notificacion.id, notificacion.idDesaparicion)"  [routerLink]="['/desaparicion', notificacion.idDesaparicion]">
-                <div>
-                  <strong>{{ notificacion.texto }}</strong>
+              <div *ngFor="let notificacion of notificaciones" class="dropdown-item text-break" (click)="irNotificacion(notificacion.id, notificacion.idDesaparicion)"  [routerLink]="['/desaparicion', notificacion.idDesaparicion]" style="cursor: pointer">
+                <div class="notification-text-container">
+                  <strong class="notification-text">{{ notificacion.texto }}</strong>
                 </div>
                 <small class="text-muted">{{ formatFecha(notificacion.fecha) }}</small>
+                <div class="dropdown-divider"></div>
               </div>
+
             </div>
             <ng-template #noNotificationsTemplate>
               <span class="dropdown-item-text">No tienes notificaciones</span>

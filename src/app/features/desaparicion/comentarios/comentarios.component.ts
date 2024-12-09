@@ -171,6 +171,7 @@ export class ComentariosComponent implements OnInit {
   }
 
   eliminarComentario(comentario: any): void {
+    console.log(comentario.id);
     this.comentarioService.eliminarComentario(comentario.id!).subscribe({
       next: response => {
         console.log('Comentario eliminado:', response);
