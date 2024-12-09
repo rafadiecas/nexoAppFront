@@ -84,5 +84,8 @@
     margin-bottom: 0.5rem;
   }
 }
+.mat-icon{
+  cursor: pointer;
+}
 
 
