@@ -6,6 +6,9 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Servicio para la gestión de notificaciones.
+ */
 export class NotificacionService {
 
   private apiUrl = '/api/notificacion';
@@ -13,9 +16,17 @@ export class NotificacionService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * Obtiene las notificaciones del usuario
+   */
   obtenerNotificaciones(): Observable<Notificacion[]> {
     return this.http.get<Notificacion[]>(`${this.apiUrl}/listar`);
   }
+
+  /**
+   * Establece una notificación como leída
+   * @param idNotificacion
+   */
   setNotificacionLeida(idNotificacion: number): Observable<any>{
     return this.http.put(`${this.apiUrl}/modNotificacion?idNotificacion=${idNotificacion}`, null);
   }

@@ -170,6 +170,10 @@ export class ComentariosComponent implements OnInit {
     })
   }
 
+  /**
+   * Método que se encarga de eliminar un comentario
+   * @param comentario
+   */
   eliminarComentario(comentario: any): void {
     console.log(comentario.id);
     this.comentarioService.eliminarComentario(comentario.id!).subscribe({
