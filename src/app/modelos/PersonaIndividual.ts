@@ -6,5 +6,5 @@ export class PersonaIndividual {
   sexo?: string;
   altura?: number;
   complexion?: string;
-  descripcion?: string;
+  descripcionFisica?: string;
 }
