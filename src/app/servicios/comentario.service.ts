@@ -3,6 +3,7 @@ import {Comentario} from '../modelos/Comentario';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {ComentarioListar} from '../modelos/ComentarioListar';
+import {DenunciaComentario} from '../modelos/DenunciaComentario';
 
 const apiUrl = '/api/comentario';
 @Injectable({
@@ -43,4 +44,18 @@ export class ComentarioService {
   obtenerComentariosPorDesaparicion(desaparicionId: number): Observable<ComentarioListar[]> {
     return this.http.get<ComentarioListar[]>(`${apiUrl}/desaparicion/${desaparicionId}`);
   }
+
+  /**
+   * Denuncia un comentario.
+   * @param denuncia
+   */
+  denunciarComentario(denuncia:DenunciaComentario): Observable<string> {
+    return this.http.post<string>(`${apiUrl}/denunciar`, denuncia, { responseType: 'text' as 'json' });
+  }
+
+  eliminarComentario(id: number): Observable<string> {
+    return this.http.delete<string>(`${apiUrl}/eliminar?id=${id}`, { responseType: 'text' as 'json' });
+  }
+
+
 }

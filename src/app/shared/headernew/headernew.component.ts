@@ -34,9 +34,9 @@ export class HeadernewComponent implements OnInit{
   }
   ngOnInit() {
     this.headerService.datosActualizados$.subscribe(() => {
-      this.logueado = this.service.logueado(); // Llama al método para actualizar el encabezado
+      this.logueado = this.service.logueado();
+      this.cargarNotificaciones();// Llama al método para actualizar el encabezado
     });
-
     this.cargarNotificaciones();
   }
 
@@ -57,11 +57,17 @@ export class HeadernewComponent implements OnInit{
     this.ngOnInit();
   }
 
-  // Método para redirigir a la página de avisos
+  /**
+   * Método que redirige a la página de avisos.
+   */
   redirigirAvisos() {
     this.router.navigate(['/home/avisos']);
   }
 
+  /**
+   * Método que despliega el dropdown de notificaciones y las carga.
+   * @param event
+   */
   toggleDropdown(event: Event): void {
     event.preventDefault();
     this.dropdownVisible = !this.dropdownVisible;
@@ -71,6 +77,9 @@ export class HeadernewComponent implements OnInit{
     }
   }
 
+  /**
+   * Método que carga las notificaciones de un usuario.
+   */
   cargarNotificaciones(): void {
     this.cargando = true;
     this.notificacionesService.obtenerNotificaciones()
@@ -87,6 +96,10 @@ export class HeadernewComponent implements OnInit{
 
   }
 
+  /**
+   * Método que formatea una fecha a un formato legible.
+   * @param fecha
+   */
   formatFecha(fecha: string): string {
     const opciones: Intl.DateTimeFormatOptions = {
       year: 'numeric',
@@ -98,4 +111,21 @@ export class HeadernewComponent implements OnInit{
     return new Date(fecha).toLocaleDateString('es-ES', opciones);
   }
 
+  /**
+   * Método que redirige a la página de la desaparicion y marca la notificación como leída.
+   * @param idNotificaion
+   * @param idDesaparicion
+   */
+  irNotificacion(idNotificaion: number, idDesaparicion: number) {
+    this.notificacionesService.setNotificacionLeida(idNotificaion).subscribe({
+      next: (data)=>{
+        console.log(data);
+        this.headerService.notificarActualizacion();
+      },
+      error: (err) => {
+        console.error('Error al cargar notificacion', err);
+        this.headerService.notificarActualizacion();
+      }
+    })
+  }
 }

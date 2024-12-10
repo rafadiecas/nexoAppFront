@@ -9,6 +9,18 @@
   font-size: 1.1em;
   padding: 0.5em 1em;
 }
+.notification-text-container {
+  display: block;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.notification-text {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
+  width: 100%;
+}
 @media screen and (min-width: 768px) {
   .navbar-brand img {
     width: 100px;

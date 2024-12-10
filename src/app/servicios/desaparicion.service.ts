@@ -83,7 +83,10 @@ export class DesaparicionService {
     return this.http.post(url, editarDesaparicionDTO, { params, responseType: 'text' });
   }
 
-
+  /**
+   * Edita una desaparición
+   * @param formData
+   */
   editarDesaparicionGestion(formData: FormData): Observable<any> {
     const url = `${apiUrl}/editarDesaparicionGestion`;
 
