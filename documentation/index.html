@@ -83,19 +83,67 @@
                    <div class="content-data">
 
 <h1>NexoApp</h1>
-<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 18.2.11.</p>
-<h2>Development server</h2>
-<p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The application will automatically reload if you change any of the source files.</p>
-<h2>Code scaffolding</h2>
-<p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
-<h2>Build</h2>
-<p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory.</p>
-<h2>Running unit tests</h2>
-<p>Run <code>ng test</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>.</p>
-<h2>Running end-to-end tests</h2>
-<p>Run <code>ng e2e</code> to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.</p>
-<h2>Further help</h2>
-<p>To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://angular.dev/tools/cli">Angular CLI Overview and Command Reference</a> page.</p>
+<p>Esto proyecto ha sido generdo con <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 18.2.11.</p>
+<h1>Frontend de la Aplicación de Personas Desaparecidas</h1>
+<p>Este es el frontend de una aplicación web dedicada a la gestión de personas desaparecidas. Proporciona una interfaz interactiva para registrar casos, realizar seguimientos, visualizar comentarios, subir imágenes y consultar información geolocalizada en un mapa.</p>
+<h2>Características</h2>
+<ul>
+<li><strong>Interfaz de usuario moderna</strong>: Diseñada con Angular Material y Bootswatch.</li>
+<li><strong>Gestión de casos</strong>: Visualización, registro y actualización de desapariciones.</li>
+<li><strong>Seguimiento de casos</strong>: Permite a los usuarios seguir casos específicos.</li>
+<li><strong>Comentarios</strong>: Sistema para añadir y gestionar comentarios.</li>
+<li><strong>Subida de imágenes</strong>: Interfaz para subir fotos relacionadas con casos.</li>
+<li><strong>Geolocalización interactiva</strong>: Integración con Leaflet para mostrar mapas interactivos.</li>
+<li><strong>Autenticación basada en roles</strong>: Diferentes vistas según el rol del usuario (civil o administrador).</li>
+</ul>
+<h2>Tecnologías Utilizadas</h2>
+<ul>
+<li><strong>Angular</strong>: Framework principal para el desarrollo del frontend.</li>
+<li><strong>Angular Material</strong>: Componentes estilizados para una mejor experiencia de usuario.</li>
+<li><strong>Ng Bootstrap</strong>: Componentes adicionales para diseño responsive.</li>
+<li><strong>Bootswatch</strong>: Temas personalizados para Bootstrap.</li>
+<li><strong>Leaflet</strong>: Mapas interactivos para mostrar ubicaciones de desapariciones.</li>
+<li><strong>JWT (JSON Web Tokens)</strong>: Autenticación y autorización segura con el backend.</li>
+</ul>
+<h2>Instalación</h2>
+<ol>
+<li><p><strong>Clonar el repositorio</strong>:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">https://github.com/rafadiecas/nexoAppFront.git
+cd nombre-del-repositorio-frontend</code></pre></div></li>
+<li><p><strong>Instalar dependencias</strong>:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install</code></pre></div></li>
+</ol>
+<ul>
+<li><p>En caso de error con leaflet, se puede instalar manualmente:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install leaflet &#64;types/leaflet</code></pre></div></li>
+</ul>
+<ol start="3">
+<li><strong>Ejecutar la aplicación</strong>:<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">ng serve --proxy-config proxy.conf.json</code></pre></div></li>
+</ol>
+<ul>
+<li>Accede a la aplicación en <a href="http://localhost:4200">http://localhost:4200</a></li>
+</ul>
+<ol start="4">
+<li><p><strong>Acceder a Compodoc</strong>:
+Para consultar la documentación se puede acceder a Compodoc.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm run compodoc:serve</code></pre></div></li>
+</ol>
+<h2>Scripts Disponibles</h2>
+<ul>
+<li><code>npm run build</code>: Compila la aplicación para producción.</li>
+<li><code>npm run lint</code>: Analiza el código en busca de errores y estándares de calidad.</li>
+</ul>
+<h2>Contribución</h2>
+<ol>
+<li><p><strong>Realiza un fork del repositorio.</strong></p>
+</li>
+<li><p><strong>Crea tu rama para tu funcionalidad</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">git checkout -b feature/nueva-funcionalidad</code></pre></div></li>
+<li><p><strong>Realiza un pull request con tus cambios.</strong></p>
+</li>
+</ol>
+<h2>Más ayuda</h2>
+<p>Para obtener más ayuda usa <code>ng help</code> o visita <a href="https://angular.dev/tools/cli">Angular CLI Overview and Command Reference</a>.</p>
 
 
 

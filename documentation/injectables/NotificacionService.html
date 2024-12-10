@@ -179,7 +179,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/servicios/notificacion.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/servicios/notificacion.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -242,14 +242,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="16"
-                                    class="link-to-prism">src/app/servicios/notificacion.service.ts:16</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="22"
+                                    class="link-to-prism">src/app/servicios/notificacion.service.ts:22</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene las notificaciones del usuario</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="../interfaces/Notificacion.html" target="_self" >Observable&lt;Notificacion[]&gt;</a></code>
@@ -279,14 +281,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="19"
-                                    class="link-to-prism">src/app/servicios/notificacion.service.ts:19</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="30"
+                                    class="link-to-prism">src/app/servicios/notificacion.service.ts:30</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Establece una notificación como leída</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -357,7 +361,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/servicios/notificacion.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/servicios/notificacion.service.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -378,6 +382,9 @@ import {Observable} from &#x27;rxjs&#x27;;
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+/**
+ * Servicio para la gestión de notificaciones.
+ */
 export class NotificacionService {
 
   private apiUrl &#x3D; &#x27;/api/notificacion&#x27;;
@@ -385,9 +392,17 @@ export class NotificacionService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * Obtiene las notificaciones del usuario
+   */
   obtenerNotificaciones(): Observable&lt;Notificacion[]&gt; {
     return this.http.get&lt;Notificacion[]&gt;(&#x60;${this.apiUrl}/listar&#x60;);
   }
+
+  /**
+   * Establece una notificación como leída
+   * @param idNotificacion
+   */
   setNotificacionLeida(idNotificacion: number): Observable&lt;any&gt;{
     return this.http.put(&#x60;${this.apiUrl}/modNotificacion?idNotificacion&#x3D;${idNotificacion}&#x60;, null);
   }

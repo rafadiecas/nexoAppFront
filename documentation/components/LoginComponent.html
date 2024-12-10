@@ -185,6 +185,7 @@
                             <code>MatError</code>
                             <code>ReactiveFormsModule</code>
                             <code>MatIcon</code>
+                            <code>MatSnackBarModule</code>
                 </td>
             </tr>
 
@@ -233,6 +234,10 @@
                                 <a href="#noVerificado" >noVerificado</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#snackBar" >snackBar</a>
+                            </li>
+                            <li>
                                 <a href="#usuarioForm" >usuarioForm</a>
                             </li>
                             <li>
@@ -279,7 +284,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/core/login/login.component.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/core/login/login.component.ts:57</a></div>
                             </td>
                         </tr>
 
@@ -394,8 +399,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="63"
-                                    class="link-to-prism">src/app/core/login/login.component.ts:63</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="73"
+                                    class="link-to-prism">src/app/core/login/login.component.ts:73</a></div>
                         </td>
                     </tr>
 
@@ -433,8 +438,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="53"
-                                    class="link-to-prism">src/app/core/login/login.component.ts:53</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">src/app/core/login/login.component.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -480,7 +485,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/core/login/login.component.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/core/login/login.component.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -511,7 +516,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/core/login/login.component.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/core/login/login.component.ts:52</a></div>
                         </td>
                     </tr>
 
@@ -542,7 +547,33 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/core/login/login.component.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/core/login/login.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="snackBar"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>snackBar</b></span>
+                        <a href="#snackBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(MatSnackBar)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/core/login/login.component.ts:57</a></div>
                         </td>
                     </tr>
 
@@ -568,7 +599,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/core/login/login.component.ts:45</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/core/login/login.component.ts:53</a></div>
                         </td>
                     </tr>
 
@@ -599,7 +630,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/core/login/login.component.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/core/login/login.component.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -612,23 +643,29 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, OnInit} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, inject, OnInit} from &#x27;@angular/core&#x27;;
 import {Login} from &#x27;../../modelos/Login&#x27;;
 import {LoginService} from &#x27;../../servicios/login.service&#x27;;
-import {MatCard, MatCardActions, MatCardContent, MatCardTitle} from &#x27;@angular/material/card&#x27;;
-import {MatError, MatFormField, MatLabel} from &#x27;@angular/material/form-field&#x27;;
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from &#x27;@angular/forms&#x27;;
+import {MatCard, MatCardActions, MatCardContent, MatCardTitle}
+  from &#x27;@angular/material/card&#x27;;
+import {MatError, MatFormField, MatLabel} from
+    &#x27;@angular/material/form-field&#x27;;
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule,
+  Validators} from &#x27;@angular/forms&#x27;;
 import {MatInput} from &#x27;@angular/material/input&#x27;;
 import {MatButton} from &#x27;@angular/material/button&#x27;;
 import {Router} from &quot;@angular/router&quot;;
 import {NgIf} from &#x27;@angular/common&#x27;;
 import {AuthServiceService} from &#x27;../auth-service.service&#x27;;
-import {HeaderComponent} from &#x27;../../shared/header/header.component&#x27;;
+import {HeaderComponent} from
+    &#x27;../../shared/header/header.component&#x27;;
 import {TokenData} from &#x27;../../modelos/TokenData&#x27;;
 import {MatIcon} from &#x27;@angular/material/icon&#x27;;
 import {HeaderService} from &#x27;../../servicios/header.service&#x27;;
-import getWindowScroll from &#x27;@popperjs/core/lib/dom-utils/getWindowScroll&#x27;;
-
+import getWindowScroll from
+    &#x27;@popperjs/core/lib/dom-utils/getWindowScroll&#x27;;
+import {MatSnackBar, MatSnackBarModule} from
+    &#x27;@angular/material/snack-bar&#x27;;
 /**
  * Componente que contiene el formulario de inicio de sesión
  */
@@ -648,21 +685,25 @@ import getWindowScroll from &#x27;@popperjs/core/lib/dom-utils/getWindowScroll&#
     NgIf,
     MatError,
     ReactiveFormsModule,
-    MatIcon
+    MatIcon,
+
+    MatSnackBarModule
   ],
   templateUrl: &#x27;./login.component.html&#x27;,
   styleUrl: &#x27;./login.component.css&#x27;,
   providers:[LoginService]
 })
 export class LoginComponent implements OnInit{
-  login:Login &#x3D;  new Login();
+  login:Login &#x3D; new Login();
   usuarioForm!: FormGroup;
   fallo: boolean &#x3D; false;
   noVerificado: boolean &#x3D; false;
   usuarioNoExiste: boolean &#x3D; false;
-  constructor(private headerService: HeaderService, private fb: FormBuilder, private service: LoginService, private router: Router, private servicioAuth: AuthServiceService){
-    // localStorage.clear();
-
+  private snackBar &#x3D; inject(MatSnackBar);
+  constructor(private headerService: HeaderService, private fb:
+  FormBuilder, private service: LoginService, private router:
+              Router, private servicioAuth: AuthServiceService){
+// localStorage.clear();
   }
   ngOnInit(): void {
     this.usuarioForm &#x3D; this.fb.group(
@@ -690,19 +731,22 @@ export class LoginComponent implements OnInit{
           }
         }else {
           if (respuesta.verificado){
+            this.snackBar.open(&#x27;Sesión iniciada&#x27;, &#x27;Cerrar&#x27;, {
+              duration: 2000,
+            });
+
             localStorage.setItem(&#x27;token&#x27; , respuesta.token);
-            localStorage.setItem(&#x27;username&#x27;, this.usuarioForm.get(&#x27;usuario&#x27;)?.value);
+            localStorage.setItem(&#x27;username&#x27;,
+              this.usuarioForm.get(&#x27;usuario&#x27;)?.value);
             console.log(respuesta);
             this.headerService.notificarActualizacion();
             this.router.navigate([&#x27;&#x27;]);
           }else if (!respuesta.verificado){
             this.noVerificado &#x3D; true;
-
           }
         }
       },
       error: (e) &#x3D;&gt; console.error(e),
-
     });
   }
 }
@@ -785,7 +829,7 @@ export class LoginComponent implements OnInit{
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div>  <section class="min-vh-100" style="background-color: #c9daff;">    <div class="container py-5 h-100">      <div class="row d-flex justify-content-center align-items-center h-100">        <div class="col col-xl-10">          <div class="card" style="border-radius: 1rem;">            <div class="row g-0">              <div class="col-md-6 col-lg-5 d-none d-md-block">                <img src="https://png.pngtree.com/png-vector/20240918/ourlarge/pngtree-colorful-drawing-of-two-people-hugging-png-image_13629790.png"                     alt="login form" class="img-fill-container"  />              </div>              <div class="col-md-6 col-lg-7 d-flex align-items-center">                <div class="card-body p-4 p-lg-5 text-black">                  <form [formGroup]="usuarioForm" (ngSubmit)="iniciarSesion()">                    <div class="d-flex align-items-center mb-3 pb-1">                      <span class="h1 fw-bold mb-0 text-primary">Nexo</span>                    </div>                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Inicio de sesión</h5>                    <div class="form-outline mb-4">                      <input type="text" class="form-control" id="usuario" formControlName="usuario" placeholder="Usuario">                    </div>                    <div class="form-outline mb-4">                      <input type="password" class="form-control" id="contrasenya" formControlName="contrasenya" placeholder="Contraseña">                    </div>                    <div *ngIf="fallo" class="form-outline mb-4 text-danger">                      Contraseña incorrecta.                    </div>                    <div *ngIf="noVerificado && !fallo" class="form-outline mb-4 text-danger">                      Usuario no verificado.                    </div>                    <div *ngIf="usuarioNoExiste" class="form-outline mb-4 text-danger">                      Usuario no existe.                    </div>                    <button type="submit" class="btn w-100 btn-primary" [disabled]="usuarioForm.invalid">Entrar</button>                  </form>                </div>              </div>            </div>          </div>        </div>      </div>    </div>  </section></div>'
-    var COMPONENTS = [{'name': 'AdminAvisosComponent', 'selector': 'app-admin-avisos'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminUsuariosComponent', 'selector': 'app-admin-usuarios'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoridadAvisosComponent', 'selector': 'app-autoridad-avisos'},{'name': 'AvisoPaginaComponent', 'selector': 'app-aviso-pagina'},{'name': 'AvisoPrincipalComponent', 'selector': 'app-aviso-principal'},{'name': 'ComentarioDialogComponent', 'selector': 'app-comentario-dialog'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'CrearAutoridadComponent', 'selector': 'app-crear-autoridad'},{'name': 'CrearAvisoComponent', 'selector': 'app-crear-aviso'},{'name': 'DatosDesaparicionComponent', 'selector': 'app-datos-desaparicion'},{'name': 'DesaparicionComponent', 'selector': 'app-desaparicion'},{'name': 'DesaparicionFormComponent', 'selector': 'app-crear-desaparicion'},{'name': 'DesaparicionPrincipalComponent', 'selector': 'app-desaparicion-principal'},{'name': 'EditaDesaparicionAutoridadComponent', 'selector': 'app-edita-desaparicion-autoridad'},{'name': 'EditaDialogComponent', 'selector': 'app-edita-dialog'},{'name': 'EditaUsuarioComponent', 'selector': 'app-edita-usuario'},{'name': 'Error404Component', 'selector': 'app-error404'},{'name': 'FiltroComponent', 'selector': 'app-filtro'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GestionUsuarioComponent', 'selector': 'app-gestion-usuario'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeadernewComponent', 'selector': 'app-headernew'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageDialogComponent', 'selector': 'app-image-dialog'},{'name': 'InputFotosComponent', 'selector': 'app-input-fotos'},{'name': 'InputShareComponent', 'selector': 'app-input-share'},{'name': 'ListaDesaparicionesComponent', 'selector': 'app-lista-desapariciones'},{'name': 'ListaDesaparicionesEliminadasComponent', 'selector': 'app-lista-desapariciones-eliminadas'},{'name': 'ListaNoAprobadasComponent', 'selector': 'app-lista-no-aprobadas'},{'name': 'ListaSeguimientoComponent', 'selector': 'app-lista-seguimiento'},{'name': 'LocalizacionComponent', 'selector': 'app-localizacion'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapaComponent', 'selector': 'app-mapa'},{'name': 'MapaPrincipalComponent', 'selector': 'app-mapa-principal'},{'name': 'MenuPerfilAutoridadComponent', 'selector': 'app-menu-perfil-autoridad'},{'name': 'MostrarmasComponent', 'selector': 'app-mostrarmas'},{'name': 'ParteIzquierdaCivilComponent', 'selector': 'app-parte-izquierda-civil'},{'name': 'PerfilCivilComponent', 'selector': 'app-perfil-civil'},{'name': 'PerfilUsuarioComponent', 'selector': 'app-perfil-usuario'},{'name': 'RegistraUsuarioComponent', 'selector': 'app-registra-usuario'},{'name': 'SobreNosotrosComponent', 'selector': 'app-sobre-nosotros'},{'name': 'VistaAdminComponent', 'selector': 'app-vista-admin'},{'name': 'VistaAutoridadComponent', 'selector': 'app-vista-autoridad'}];
+    var COMPONENTS = [{'name': 'AdminAvisosComponent', 'selector': 'app-admin-avisos'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminUsuariosComponent', 'selector': 'app-admin-usuarios'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoridadAvisosComponent', 'selector': 'app-autoridad-avisos'},{'name': 'AvisoPaginaComponent', 'selector': 'app-aviso-pagina'},{'name': 'AvisoPrincipalComponent', 'selector': 'app-aviso-principal'},{'name': 'ComentarioDialogComponent', 'selector': 'app-comentario-dialog'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'CrearAutoridadComponent', 'selector': 'app-crear-autoridad'},{'name': 'CrearAvisoComponent', 'selector': 'app-crear-aviso'},{'name': 'DatosDesaparicionComponent', 'selector': 'app-datos-desaparicion'},{'name': 'DesaparicionComponent', 'selector': 'app-desaparicion'},{'name': 'DesaparicionFormComponent', 'selector': 'app-crear-desaparicion'},{'name': 'DesaparicionPrincipalComponent', 'selector': 'app-desaparicion-principal'},{'name': 'EditaDesaparicionAutoridadComponent', 'selector': 'app-edita-desaparicion-autoridad'},{'name': 'EditaDialogComponent', 'selector': 'app-edita-dialog'},{'name': 'EditaUsuarioComponent', 'selector': 'app-edita-usuario'},{'name': 'Error404Component', 'selector': 'app-error404'},{'name': 'FiltroComponent', 'selector': 'app-filtro'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GestionUsuarioComponent', 'selector': 'app-gestion-usuario'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeadernewComponent', 'selector': 'app-headernew'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageDialogComponent', 'selector': 'app-image-dialog'},{'name': 'InputFotosComponent', 'selector': 'app-input-fotos'},{'name': 'InputShareComponent', 'selector': 'app-input-share'},{'name': 'ListaDesaparicionesComponent', 'selector': 'app-lista-desapariciones'},{'name': 'ListaDesaparicionesEliminadasComponent', 'selector': 'app-lista-desapariciones-eliminadas'},{'name': 'ListaNoAprobadasComponent', 'selector': 'app-lista-no-aprobadas'},{'name': 'ListaSeguimientoComponent', 'selector': 'app-lista-seguimiento'},{'name': 'LocalizacionComponent', 'selector': 'app-localizacion'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapaComponent', 'selector': 'app-mapa'},{'name': 'MapaPrincipalComponent', 'selector': 'app-mapa-principal'},{'name': 'MenuPerfilAutoridadComponent', 'selector': 'app-menu-perfil-autoridad'},{'name': 'MostrarmasComponent', 'selector': 'app-mostrarmas'},{'name': 'ParteIzquierdaCivilComponent', 'selector': 'app-parte-izquierda-civil'},{'name': 'PerfilCivilComponent', 'selector': 'app-perfil-civil'},{'name': 'PerfilUsuarioComponent', 'selector': 'app-perfil-usuario'},{'name': 'RegistraUsuarioComponent', 'selector': 'app-registra-usuario'},{'name': 'SobreNosotrosComponent', 'selector': 'app-sobre-nosotros'},{'name': 'VistaAdminComponent', 'selector': 'app-vista-admin'},{'name': 'VistaAutoridadComponent', 'selector': 'app-vista-autoridad'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
 </script>

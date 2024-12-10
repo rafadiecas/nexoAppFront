@@ -66,9 +66,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/AppComponent.html" data-type="entity-link" >AppComponent</a>
                             </li>
                             <li class="link">
-                                <a href="components/AppComponent-1.html" data-type="entity-link" >AppComponent</a>
-                            </li>
-                            <li class="link">
                                 <a href="components/AutoridadAvisosComponent.html" data-type="entity-link" >AutoridadAvisosComponent</a>
                             </li>
                             <li class="link">
@@ -381,9 +378,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
                             <li class="link">
                                 <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
-                            </li>
-                            <li class="link">
-                                <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
                             </li>
                             <li class="link">
                                 <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
