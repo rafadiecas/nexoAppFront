@@ -1,46 +1,45 @@
-<form [formGroup]="autoridadForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="identificador">Identificador</label>
-    <input id="identificador" formControlName="identificador" />
-    <div *ngIf="autoridadForm.get('identificador')?.invalid && autoridadForm.get('identificador')?.touched">
+<form [formGroup]="autoridadForm" (ngSubmit)="onSubmit()" class="container mt-4">
+  <div class="mb-3">
+    <label for="identificador" class="form-label" matTooltip="IDENTICADOR SEGÚN CUERPO DE SEGURIDAD DEL ESTADO">Identificador</label>
+    <input id="identificador" formControlName="identificador" class="form-control" />
+    <div *ngIf="autoridadForm.get('identificador')?.invalid && autoridadForm.get('identificador')?.touched" class="text-danger">
       Identificador es requerido.
     </div>
   </div>
 
   <div formGroupName="usuarioCrearDTO">
-    <div>
-      <label for="usuario">Usuario</label>
-      <input id="usuario" formControlName="usuario" />
-      <div *ngIf="autoridadForm.get('usuarioCrearDTO.usuario')?.invalid && autoridadForm.get('usuarioCrearDTO.usuario')?.touched">
+    <div class="mb-3">
+      <label for="usuario" class="form-label" matTooltip="POLICIA NACIONAL = CNP, GUARDIA CIVIL = GCV, BOMBEROS = BMB">Usuario</label>
+      <input id="usuario" formControlName="usuario" class="form-control" />
+      <div *ngIf="autoridadForm.get('usuarioCrearDTO.usuario')?.invalid && autoridadForm.get('usuarioCrearDTO.usuario')?.touched" class="text-danger">
         Usuario es requerido.
       </div>
     </div>
 
-    <div>
-      <label for="email">Email</label>
-      <input id="email" formControlName="email" />
-      <div *ngIf="autoridadForm.get('usuarioCrearDTO.email')?.invalid && autoridadForm.get('usuarioCrearDTO.email')?.touched">
+    <div class="mb-3">
+      <label for="email" class="form-label" matTooltip="POLICIA NACIONAL = @cnp.es, GUARDIA CIVIL = @gcv.es, BOMBEROS = @bomb.es">Email</label>
+      <input id="email" formControlName="email" class="form-control" />
+      <div *ngIf="autoridadForm.get('usuarioCrearDTO.email')?.invalid && autoridadForm.get('usuarioCrearDTO.email')?.touched" class="text-danger">
         Email es requerido y debe ser válido.
       </div>
     </div>
 
-    <div>
-      <label for="contrasenya">Contraseña</label>
-      <input id="contrasenya" type="password" formControlName="contrasenya" />
-      <div *ngIf="autoridadForm.get('usuarioCrearDTO.contrasenya')?.invalid && autoridadForm.get('usuarioCrearDTO.contrasenya')?.touched">
+    <div class="mb-3">
+      <label for="contrasenya" class="form-label" matTooltip="Contraseña mínimo 6 caracteres">Contraseña</label>
+      <input id="contrasenya" type="password" formControlName="contrasenya" class="form-control" />
+      <div *ngIf="autoridadForm.get('usuarioCrearDTO.contrasenya')?.invalid && autoridadForm.get('usuarioCrearDTO.contrasenya')?.touched" class="text-danger">
         Contraseña es requerida y debe tener al menos 6 caracteres.
       </div>
     </div>
 
-    <div>
-      <label for="repContrasenya">Repetir Contraseña</label>
-      <input id="repContrasenya" type="password" formControlName="repContrasenya" />
-      <div *ngIf="autoridadForm.get('usuarioCrearDTO.repContrasenya')?.invalid && autoridadForm.get('usuarioCrearDTO.repContrasenya')?.touched">
+    <div class="mb-3">
+      <label for="repContrasenya" class="form-label">Repetir Contraseña</label>
+      <input id="repContrasenya" type="password" formControlName="repContrasenya" class="form-control" />
+      <div *ngIf="autoridadForm.get('usuarioCrearDTO.repContrasenya')?.invalid && autoridadForm.get('usuarioCrearDTO.repContrasenya')?.touched" class="text-danger">
         Las contraseñas deben coincidir.
       </div>
     </div>
   </div>
 
-
-  <button type="submit">Crear Autoridad</button>
+  <button type="submit" class="btn btn-primary">Crear Autoridad</button>
 </form>

@@ -2,13 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {AutoridadService} from '../../../../servicios/autoridad.service';
+import {MatTooltip} from '@angular/material/tooltip';
 
+/**
+ * Componente que gestiona la creación de una autoridad desde el panel de administración.
+ */
 @Component({
   selector: 'app-crear-autoridad',
   standalone: true,
   imports: [
     ReactiveFormsModule,
     CommonModule,
+    MatTooltip,
   ],
   templateUrl: './crear-autoridad.component.html',
   styleUrls: ['./crear-autoridad.component.css'],
@@ -35,6 +40,11 @@ export class CrearAutoridadComponent implements OnInit {
     });
   }
 
+  /**
+   * Comprueba que dos campos coincidan, en este caso, contrasenya y repContrasenya.
+   * @param controlName
+   * @param matchingControlName
+   */
   matchPasswords(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup): { [key: string]: boolean } | null => {
       const control = formGroup.get(controlName);
@@ -58,7 +68,9 @@ export class CrearAutoridadComponent implements OnInit {
     };
   }
 
-
+  /**
+   * Envía los datos del formulario al backend.
+   */
   onSubmit(): void {
     if (this.autoridadForm.valid) {
       const autoridadData = this.autoridadForm.value;

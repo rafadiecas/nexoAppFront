@@ -3,6 +3,11 @@ import {inject} from '@angular/core';
 import {AuthServiceService} from '../auth-service.service';
 import {catchError, map, of} from 'rxjs';
 
+/**
+ * Guardia que comprueba si el usuario es autoridad
+ * @param route
+ * @param state
+ */
 export const autoridadGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthServiceService);
   const router = inject(Router);
@@ -12,13 +17,13 @@ export const autoridadGuard: CanActivateFn = (route, state) => {
     map((role: any) => {
       const isAuthorized = isLogged && role === 'AUTORIDAD';
       if (!isAuthorized) {
-        router.navigate(['/login']);
+        router.navigate(['/error404']);
         return false;
       }
       return true;
     }),
     catchError((error) => {
-      router.navigate(['/login']);
+      router.navigate(['/error404']);
       console.log('Error:', error);
       return of(false);
     })

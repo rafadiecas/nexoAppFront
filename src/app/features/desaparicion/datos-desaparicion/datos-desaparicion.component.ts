@@ -6,13 +6,18 @@ import {NgForOf, NgIf} from '@angular/common';
 import {UsuarioService} from '../../../servicios/usuario.service';
 import {CivilService} from '../../../servicios/civil.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MapaComponent} from '../mapa/mapa.component';
 
+/**
+ * Componente que se encarga de mostrar los datos de la desaparición de una persona
+ */
 @Component({
   selector: 'app-datos-desaparicion',
   standalone: true,
   imports: [
     NgForOf,
-    NgIf
+    NgIf,
+    MapaComponent
   ],
   templateUrl: './datos-desaparicion.component.html',
   styleUrl: './datos-desaparicion.component.css'
@@ -22,6 +27,7 @@ export class DatosDesaparicionComponent implements OnInit {
   id!: number;
   desaparicionIndividual?: DesaparicionIndividual;
   seguimiento: boolean = false;
+  usuarioAutenticado: boolean = false;
   @Output() validacionChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   validacion: boolean | undefined = false;
   private snackBar=Inject(MatSnackBar)
@@ -35,6 +41,8 @@ export class DatosDesaparicionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.usuarioAutenticado = this.usuarioService.estaAutenticado();
+
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.desaparicionService.getDesaparicionIndividual(this.id).subscribe(desaparicion => {
       this.desaparicionIndividual = desaparicion;
@@ -44,8 +52,12 @@ export class DatosDesaparicionComponent implements OnInit {
     this.civilService.listaSeguimiento().subscribe(desapariciones => {
       this.seguimiento = desapariciones.some(desaparicion => desaparicion.id === this.id);
     });
+
   }
 
+  /**
+   * Método que se encarga de añadir una desaparición a seguimiento
+   */
   anyadirSeguimiento() {
     this.usuarioService.anyadirSeguimiento(this.id).subscribe(() => {
       this.seguimiento = true;
@@ -55,6 +67,9 @@ export class DatosDesaparicionComponent implements OnInit {
     });
   }
 
+  /**
+   * Método que se encarga de eliminar una desaparición de seguimiento
+   */
   eliminarSeguimiento() {
     this.usuarioService.eliminarSeguimiento(this.id).subscribe(() => {
       this.seguimiento = false;

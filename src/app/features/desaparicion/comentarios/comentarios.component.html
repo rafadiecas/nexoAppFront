@@ -2,18 +2,23 @@
   <form (ngSubmit)="abrirDialogo()">
     <div class="row d-flex justify-content-center">
       <div class="col col-12">
-        <textarea id="texto" [(ngModel)]="textoComentario" name="texto" required class="form-control rounded-4 border" placeholder=" Escribe aquí tu comentario"></textarea>
+        <!-- Contenedor que simula el textarea -->
+        <div class="custom-textarea">
+          <textarea id="texto" [(ngModel)]="textoComentario" name="texto" required
+                    class="textarea-content"
+                    placeholder="Escribe aquí tu comentario"></textarea>
+          <!-- Componente input-share dentro del contenedor -->
+          <div>
+            <app-input-share (filesChanged)="onFilesChanged($event)"></app-input-share>
+          </div>
+        </div>
         <div *ngIf="!textoComentario" class="text-danger">
           El comentario es obligatorio.
         </div>
       </div>
 
-      <div class="col col-12">
-        <app-input-share (filesChanged)="onFilesChanged($event)"></app-input-share>
-      </div>
-
       <div class="col col-12 col-md-4 d-flex mt-4 justify-content-center mx-md-3 mx-0 mb-5">
-        <button type="submit" class="btn btn-primary" [disabled]="!textoComentario">
+        <button *ngIf="usuarioAutenticado" type="submit" class="btn btn-primary" [disabled]="!textoComentario">
           Enviar
         </button>
       </div>
@@ -26,16 +31,28 @@
     <div *ngFor="let comentario of comentarios" class="card mb-3 border rounded-3 shadow-sm">
       <div class="card-body">
         <p class="fw-bold text-primary mb-1">{{ comentario.nombre }}</p>
-        <p *ngIf="desapariciones.length!==0" class="fst-italic text-secondary m-0">{{ comentario.email }}</p>
-        <p  *ngIf="desapariciones.length!==0"class="fst-italic text-secondary m-0">{{ comentario.telefono }}</p>
+        <p *ngIf="desapariciones.length !== 0" class="fst-italic text-secondary m-0">{{ comentario.email }}</p>
+        <p *ngIf="desapariciones.length !== 0" class="fst-italic text-secondary m-0">{{ comentario.telefono }}</p>
         <p class="mb-2">{{ comentario.texto }}</p>
-        <div *ngIf="comentario.fotos && comentario.fotos.length > 0" class="d-flex flex-wrap gap-2">
-          <p *ngFor="let foto of comentario.fotos" class="fst-italic text-primary m-0" role="button" (click)="abrirDialogoImagen(foto)">
-            imagen
-          </p>
-        </div>
-        <div *ngIf="!comentario.fotos || comentario.fotos.length === 0">
-          <p class="fst-italic">Sin imágenes</p>
+        <div class="d-flex justify-content-between">
+
+          <div *ngIf="comentario.fotos && comentario.fotos.length > 0" class="d-flex flex-wrap gap-2">
+            <p *ngFor="let foto of comentario.fotos" class="fst-italic text-primary m-0" role="button" (click)="abrirDialogoImagen(foto)">
+              imagen
+            </p>
+          </div>
+          <div *ngIf="!comentario.fotos || comentario.fotos.length === 0">
+            <p class="fst-italic">Sin imágenes</p>
+          </div>
+
+          <div class="ms-auto" *ngIf="rol === 'CIVIL'">
+            <p class="text-muted text-decoration-underline m-0" role="button" (click)="denunciarComentario(comentario)">
+              Denunciar
+            </p>
+          </div>
+          <div class="ms-auto" *ngIf="rol === 'ADMIN'">
+            <mat-icon role="button" (click)="eliminarComentario(comentario)" class="text-danger">delete</mat-icon>
+          </div>
         </div>
       </div>
     </div>

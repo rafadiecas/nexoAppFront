@@ -1,0 +1,1411 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>nexo-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">nexo-app documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  InputFotosComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente que permite seleccionar fotos para la creación de una desaparición</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-input-fotos</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgForOf</code>
+                            <code>NgIf</code>
+                            <code>MatIcon</code>
+                            <code>MatGridList</code>
+                            <code>MatGridTile</code>
+                            <code>MatTooltip</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./input-fotos.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./input-fotos.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allFiles" >allFiles</a>
+                            </li>
+                            <li>
+                                <a href="#cols" >cols</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#errorModal" >errorModal</a>
+                            </li>
+                            <li>
+                                <a href="#firstImageSelected" >firstImageSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#maxModal" >maxModal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#emitFiles" >emitFiles</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onFileSelect" >onFileSelect</a>
+                            </li>
+                            <li>
+                                <a href="#onImageClick" >onImageClick</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#onResize" >onResize</a>
+                            </li>
+                            <li>
+                                <a href="#setColumns" >setColumns</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#filesChanged" >filesChanged</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>HostListeners</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#window:resize" >window:resize</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(modalService: NgbModal)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>modalService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgbModal</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filesChanged"></a>
+                        <b>filesChanged</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts:30</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-methods">
+    <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="window:resize"></a>
+                    <span class="name">
+                        <span ><b>window:resize</b></span>
+                        <a href="#window:resize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <i>Arguments : </i><code>'$event' </code>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>window:resize(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="emitFiles"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>emitFiles</b></span>
+                        <a href="#emitFiles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>emitFiles()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="121"
+                                    class="link-to-prism">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts:121</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método que emite los archivos seleccionados al componente padre</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFileSelect"></a>
+                    <span class="name">
+                        <span ><b>onFileSelect</b></span>
+                        <a href="#onFileSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFileSelect(event: Event, inputNumber: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método que se ejecuta al seleccionar una  imagen, para comprobar de que input file viene, su tipo y si se ha seleccionado una imagen</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>inputNumber</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onImageClick"></a>
+                    <span class="name">
+                        <span ><b>onImageClick</b></span>
+                        <a href="#onImageClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onImageClick(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método que se ejecuta al hacer click en una imagen, para eliminarla</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>i</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onResize"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>onResize</b></span>
+                        <a href="#onResize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onResize(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;window:resize&#x27;, [&#x27;$event&#x27;])<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setColumns"></a>
+                    <span class="name">
+                        <span ><b>setColumns</b></span>
+                        <a href="#setColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setColumns()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="44"
+                                    class="link-to-prism">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allFiles"></a>
+                    <span class="name">
+                        <span ><b>allFiles</b></span>
+                        <a href="#allFiles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/FileData.html" target="_self" >FileData[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cols"></a>
+                    <span class="name">
+                        <span ><b>cols</b></span>
+                        <a href="#cols"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>3</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorModal"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>errorModal</b></span>
+                        <a href="#errorModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;errorModal&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="firstImageSelected"></a>
+                    <span class="name">
+                        <span ><b>firstImageSelected</b></span>
+                        <a href="#firstImageSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="maxModal"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>maxModal</b></span>
+                        <a href="#maxModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;maxmodal&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, HostListener, OnInit, Output, ViewChild } from &#x27;@angular/core&#x27;;
+import { NgbModal } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
+import { FileData } from &#x27;../../../../modelos/FileData&#x27;;
+import { NgForOf, NgIf } from &#x27;@angular/common&#x27;;
+import { MatIcon } from &#x27;@angular/material/icon&#x27;;
+import { MatGridList, MatGridTile } from &#x27;@angular/material/grid-list&#x27;;
+import {MatTooltip} from &#x27;@angular/material/tooltip&#x27;;
+
+/**
+ * Componente que permite seleccionar fotos para la creación de una desaparición
+ */
+@Component({
+  selector: &#x27;app-input-fotos&#x27;,
+  standalone: true,
+  templateUrl: &#x27;./input-fotos.component.html&#x27;,
+  imports: [
+    NgForOf,
+    NgIf,
+    MatIcon,
+    MatGridList,
+    MatGridTile,
+    MatTooltip
+  ],
+  styleUrls: [&#x27;./input-fotos.component.css&#x27;]
+})
+export class InputFotosComponent implements OnInit {
+  @ViewChild(&#x27;errorModal&#x27;) errorModal: any;
+  @ViewChild(&#x27;maxmodal&#x27;) maxModal: any;
+
+  @Output() filesChanged &#x3D; new EventEmitter&lt;FileData[]&gt;(); // Emitimos los archivos seleccionados
+
+  firstImageSelected &#x3D; false;
+  allFiles: FileData[] &#x3D; [];
+
+  cols &#x3D; 3;
+
+  constructor(private modalService: NgbModal) {}
+
+  @HostListener(&#x27;window:resize&#x27;, [&#x27;$event&#x27;])
+  onResize(event: any) {
+    this.setColumns();
+  }
+
+  setColumns() {
+    if (window.innerWidth &lt; 600) {
+      this.cols &#x3D; 2;
+    } else {
+      this.cols &#x3D; 3;
+    }
+  }
+
+  ngOnInit() {
+    this.setColumns();
+  }
+
+  /**
+   * Método que se ejecuta al seleccionar una  imagen, para comprobar de que input file viene, su tipo y si se ha seleccionado una imagen
+   * @param event
+   * @param inputNumber
+   */
+  onFileSelect(event: Event, inputNumber: number): void {
+    const input &#x3D; event.target as HTMLInputElement;
+    const files &#x3D; input.files;
+
+    if (!files || files.length &#x3D;&#x3D;&#x3D; 0) return;
+
+    for (const file of Array.from(files)) {
+      if (!file.type.startsWith(&#x27;image/&#x27;)) {
+        this.modalService.open(this.errorModal);
+        return;
+      }
+    }
+
+    const remainingSlots &#x3D; 4 - this.allFiles.length;
+    if (files.length &gt; remainingSlots) {
+      this.modalService.open(this.maxModal);
+      input.value &#x3D; &#x27;&#x27;;
+      return;
+    }
+
+    if (inputNumber &#x3D;&#x3D;&#x3D; 1 &amp;&amp; this.allFiles.length &gt; 0) {
+      const reader &#x3D; new FileReader();
+      reader.onload &#x3D; () &#x3D;&gt; {
+        this.allFiles[0] &#x3D; { file: files[0], url: reader.result as string };
+        this.emitFiles();
+      };
+      reader.readAsDataURL(files[0]);
+    } else {
+      Array.from(files).slice(0, remainingSlots).forEach(file &#x3D;&gt; {
+        const reader &#x3D; new FileReader();
+        reader.onload &#x3D; () &#x3D;&gt; {
+          this.allFiles.push({ file, url: reader.result as string });
+          this.emitFiles();
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    if (inputNumber &#x3D;&#x3D;&#x3D; 1) this.firstImageSelected &#x3D; true;
+  }
+
+  /**
+   * Método que se ejecuta al hacer click en una imagen, para eliminarla
+   * @param i
+   */
+  onImageClick(i: number) {
+    if (i &#x3D;&#x3D;&#x3D; 0) {
+      this.allFiles &#x3D; [];
+      this.firstImageSelected &#x3D; false;
+    } else {
+      this.allFiles.splice(i, 1);
+    }
+
+    this.emitFiles();
+  }
+
+  /**
+   * Método que emite los archivos seleccionados al componente padre
+   * @private
+   */
+  private emitFiles() {
+    this.filesChanged.emit(this.allFiles);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container mt-4&quot;&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;col col-md-6 col-12&quot;&gt;
+      &lt;div class&#x3D;&quot;input-container mt-4&quot;&gt;
+        &lt;span class&#x3D;&quot;input-label&quot;&gt;Sube imagen de la cara&lt;/span&gt;
+        &lt;input type&#x3D;&quot;file&quot; class&#x3D;&quot;inputfile inputfile-1&quot; id&#x3D;&quot;file-1&quot; (change)&#x3D;&quot;onFileSelect($event, 1)&quot; accept&#x3D;&quot;image/*&quot; /&gt;
+        &lt;label for&#x3D;&quot;file-1&quot; class&#x3D;&quot;upload-label&quot; matTooltip&#x3D;&quot;Sube una foto de la cara del desaparecido&quot;&gt;
+          &lt;mat-icon&gt;file_upload&lt;/mat-icon&gt;
+          &lt;span class&#x3D;&quot;inputfilela&quot;&gt;Seleccionar archivo&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;col col-md-6 col-12 mt-md-0 mt-4&quot;&gt;
+      &lt;div class&#x3D;&quot;input-container mt-4&quot;&gt;
+        &lt;span class&#x3D;&quot;input-label&quot;&gt;Sube el resto de imágenes&lt;/span&gt;
+        &lt;input type&#x3D;&quot;file&quot; class&#x3D;&quot;inputfile inputfile-1&quot; id&#x3D;&quot;file-2&quot; (change)&#x3D;&quot;onFileSelect($event, 2)&quot; accept&#x3D;&quot;image/*&quot; [disabled]&#x3D;&quot;!firstImageSelected&quot; multiple /&gt;
+        &lt;label for&#x3D;&quot;file-2&quot; class&#x3D;&quot;upload-label&quot; [class.disabled-label]&#x3D;&quot;!firstImageSelected&quot; matTooltip&#x3D;&quot;Añade fotos tanto de cara como de cuerpo entero&quot;&gt;
+          &lt;mat-icon class&#x3D;&quot;mr-1&quot;&gt;file_upload&lt;/mat-icon&gt;
+          &lt;span class&#x3D;&quot;inputfilela&quot;&gt;Seleccionar archivos&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Galería de imágenes --&gt;
+&lt;div class&#x3D;&quot;container mt-4&quot; *ngIf&#x3D;&quot;allFiles.length &gt; 0&quot;&gt;
+  &lt;div class&#x3D;&quot;image-grid&quot;&gt;
+    &lt;div *ngFor&#x3D;&quot;let image of allFiles; let i &#x3D; index&quot; class&#x3D;&quot;image-item&quot; (click)&#x3D;&quot;onImageClick(i)&quot; title&#x3D;&quot;Haz click para eliminar esta foto&quot;&gt;
+      &lt;div class&#x3D;&quot;overlay&quot;&gt;Haz click para eliminar&lt;/div&gt;
+      &lt;img [src]&#x3D;&quot;image.url&quot; alt&#x3D;&quot;Preview&quot; class&#x3D;&quot;img-fluid cuadrada same-size-img&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./input-fotos.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* Estilos generales para la entrada de archivos */
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  max-width: 80%;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+}
+
+.inputfile + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  margin-right: 0.25em;
+}
+
+.inputfilela {
+  font-size: 16px;
+  font-weight: normal;
+  font-family: &#x27;Lato&#x27;;
+}
+
+.inputfile-1 + label {
+  color: #fff;
+  background-color: #6cb9f5;
+}
+
+.inputfile-1:focus + label,
+.inputfile-1.has-focus + label,
+.inputfile-1 + label:hover {
+  background-color: #5694c4;
+}
+
+.upload-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  background-color: #6cb9f5;
+}
+
+.upload-label mat-icon {
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.disabled-label {
+  color: #ccc;
+  opacity: 0.6;
+}
+
+/* Estilo de la imagen */
+.cuadrada {
+  width: 100%; /* Ajustado para usar toda la casilla */
+  height: 100%;
+  object-fit: cover; /* Asegura que las imágenes mantengan su proporción */
+  border-radius: 5px;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-label {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  font-size: 1.2rem;
+  color: #333;
+  display: block;
+}
+
+/* Grid para las imágenes */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajuste flexible de columnas */
+  gap: 1rem; /* Espaciado entre las imágenes */
+}
+
+.image-item {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.image-item:hover .overlay {
+  opacity: 1;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Menor tamaño de columna en pantallas pequeñas */
+  }
+  .same-size-img {
+    width: 200px; /* Ajusta el ancho según lo que desees */
+    height: 200px; /* Ajusta la altura según lo que desees */
+    object-fit: cover; /* Esto mantiene la proporción de la imagen sin distorsionarla */
+  }
+
+  .image-item {
+    position: relative;
+    margin: 10px;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .image-item:hover .overlay {
+    opacity: 1;
+  }
+  .upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    background-color:#6cb9f5;
+  }
+
+  .upload-label mat-icon {
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container mt-4">  <div class="row">    <div class="col col-md-6 col-12">      <div class="input-container mt-4">        <span class="input-label">Sube imagen de la cara</span>        <input type="file" class="inputfile inputfile-1" id="file-1" (change)="onFileSelect($event, 1)" accept="image/*" />        <label for="file-1" class="upload-label" matTooltip="Sube una foto de la cara del desaparecido">          <mat-icon>file_upload</mat-icon>          <span class="inputfilela">Seleccionar archivo</span>        </label>      </div>    </div>    <div class="col col-md-6 col-12 mt-md-0 mt-4">      <div class="input-container mt-4">        <span class="input-label">Sube el resto de imágenes</span>        <input type="file" class="inputfile inputfile-1" id="file-2" (change)="onFileSelect($event, 2)" accept="image/*" [disabled]="!firstImageSelected" multiple />        <label for="file-2" class="upload-label" [class.disabled-label]="!firstImageSelected" matTooltip="Añade fotos tanto de cara como de cuerpo entero">          <mat-icon class="mr-1">file_upload</mat-icon>          <span class="inputfilela">Seleccionar archivos</span>        </label>      </div>    </div>  </div></div><!-- Galería de imágenes --><div class="container mt-4" *ngIf="allFiles.length > 0">  <div class="image-grid">    <div *ngFor="let image of allFiles; let i = index" class="image-item" (click)="onImageClick(i)" title="Haz click para eliminar esta foto">      <div class="overlay">Haz click para eliminar</div>      <img [src]="image.url" alt="Preview" class="img-fluid cuadrada same-size-img" />    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminAvisosComponent', 'selector': 'app-admin-avisos'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminUsuariosComponent', 'selector': 'app-admin-usuarios'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoridadAvisosComponent', 'selector': 'app-autoridad-avisos'},{'name': 'AvisoPaginaComponent', 'selector': 'app-aviso-pagina'},{'name': 'AvisoPrincipalComponent', 'selector': 'app-aviso-principal'},{'name': 'ComentarioDialogComponent', 'selector': 'app-comentario-dialog'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'CrearAutoridadComponent', 'selector': 'app-crear-autoridad'},{'name': 'CrearAvisoComponent', 'selector': 'app-crear-aviso'},{'name': 'DatosDesaparicionComponent', 'selector': 'app-datos-desaparicion'},{'name': 'DesaparicionComponent', 'selector': 'app-desaparicion'},{'name': 'DesaparicionFormComponent', 'selector': 'app-crear-desaparicion'},{'name': 'DesaparicionPrincipalComponent', 'selector': 'app-desaparicion-principal'},{'name': 'EditaDesaparicionAutoridadComponent', 'selector': 'app-edita-desaparicion-autoridad'},{'name': 'EditaDialogComponent', 'selector': 'app-edita-dialog'},{'name': 'EditaUsuarioComponent', 'selector': 'app-edita-usuario'},{'name': 'Error404Component', 'selector': 'app-error404'},{'name': 'FiltroComponent', 'selector': 'app-filtro'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GestionUsuarioComponent', 'selector': 'app-gestion-usuario'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeadernewComponent', 'selector': 'app-headernew'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageDialogComponent', 'selector': 'app-image-dialog'},{'name': 'InputFotosComponent', 'selector': 'app-input-fotos'},{'name': 'InputShareComponent', 'selector': 'app-input-share'},{'name': 'ListaDesaparicionesComponent', 'selector': 'app-lista-desapariciones'},{'name': 'ListaDesaparicionesEliminadasComponent', 'selector': 'app-lista-desapariciones-eliminadas'},{'name': 'ListaNoAprobadasComponent', 'selector': 'app-lista-no-aprobadas'},{'name': 'ListaSeguimientoComponent', 'selector': 'app-lista-seguimiento'},{'name': 'LocalizacionComponent', 'selector': 'app-localizacion'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapaComponent', 'selector': 'app-mapa'},{'name': 'MapaPrincipalComponent', 'selector': 'app-mapa-principal'},{'name': 'MenuPerfilAutoridadComponent', 'selector': 'app-menu-perfil-autoridad'},{'name': 'MostrarmasComponent', 'selector': 'app-mostrarmas'},{'name': 'ParteIzquierdaCivilComponent', 'selector': 'app-parte-izquierda-civil'},{'name': 'PerfilCivilComponent', 'selector': 'app-perfil-civil'},{'name': 'PerfilUsuarioComponent', 'selector': 'app-perfil-usuario'},{'name': 'RegistraUsuarioComponent', 'selector': 'app-registra-usuario'},{'name': 'SobreNosotrosComponent', 'selector': 'app-sobre-nosotros'},{'name': 'VistaAdminComponent', 'selector': 'app-vista-admin'},{'name': 'VistaAutoridadComponent', 'selector': 'app-vista-autoridad'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'InputFotosComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'InputFotosComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

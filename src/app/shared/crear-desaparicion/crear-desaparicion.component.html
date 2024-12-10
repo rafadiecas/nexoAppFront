@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <h2>Formulario por pasos</h2>
+  <h2>Crear desaparición</h2>
 
   <!-- Navegación de pasos -->
   <div class="steps d-flex justify-content-between mb-4">
@@ -18,55 +18,89 @@
   <form [formGroup]="desaparicionForm" (ngSubmit)="onSubmit()" class="mt-4">
     <!-- Paso 1 -->
     <div *ngIf="currentStep === 0" class="step-content">
-      <h4>Información Personal</h4>
+      <h4>Lugar y fecha de la desaparición</h4>
       <div class="row g-3">
         <div class="col-md-6">
-          <label for="fecha" class="form-label">Fecha:</label>
+          <label for="fecha" class="form-label" matTooltip="Fecha de desaparición">Fecha:</label>
           <input id="fecha" formControlName="fecha" type="date" class="form-control" required>
+          <div *ngIf="desaparicionForm.get('fecha')?.invalid && desaparicionForm.get('fecha')?.touched" class="text-danger">
+            Fecha es requerida.
+          </div>
         </div>
         <div class="col-md-6">
-          <label for="descripcion" class="form-label">Descripción:</label>
-          <input id="descripcion" formControlName="descripcion" type="text" class="form-control" required>
+          <label for="descripcion" class="form-label" matTooltip="Descripción del lugar de la desaparición">Descripción:</label>
+          <textarea id="descripcion" formControlName="descripcion" class="form-control" rows="1" required minlength="10" placeholder="Ejemplo: lo ví por última vez al lado de la señal de Stop de la calle Calatrava"></textarea>
+          <div *ngIf="desaparicionForm.get('descripcion')?.invalid && desaparicionForm.get('descripcion')?.touched" class="text-danger">
+            Descripción es requerida y debe tener al menos 10 caracteres.
+          </div>
         </div>
-
       </div>
       <button type="button" class="btn btn-primary mt-3" (click)="nextStep()">Siguiente</button>
     </div>
 
     <!-- Paso 2 -->
     <div *ngIf="currentStep === 1" class="step-content">
+      <h4>Datos del desaparecido</h4>
       <div formGroupName="personaDTO" class="row g-3">
         <div class="col-md-6">
-          <label for="dni" class="form-label">DNI:</label>
-          <input id="dni" formControlName="dni" type="text" class="form-control" required>
+          <label for="dni" class="form-label" matTooltip="DNI del desaparecido: 12345678X">DNI:</label>
+          <input id="dni" formControlName="dni" type="text" class="form-control" required pattern="[0-9]{8}[A-Za-z]" minlength="9" maxlength="9">
+          <div *ngIf="desaparicionForm.get('personaDTO.dni')?.invalid && desaparicionForm.get('personaDTO.dni')?.touched" class="text-danger">
+            DNI es requerido y debe tener 9 caracteres.
+          </div>
         </div>
         <div class="col-md-6">
-          <label for="nombre" class="form-label">Nombre:</label>
-          <input id="nombre" formControlName="nombre" type="text" class="form-control" required>
+          <label for="nombre" class="form-label" matTooltip="Nombre del desaparecido">Nombre:</label>
+          <input id="nombre" formControlName="nombre" type="text" class="form-control" required minlength="2">
+          <div *ngIf="desaparicionForm.get('personaDTO.nombre')?.invalid && desaparicionForm.get('personaDTO.nombre')?.touched" class="text-danger">
+            Nombre es requerido y debe tener al menos 2 caracteres.
+          </div>
         </div>
         <div class="col-md-6">
-          <label for="apellido" class="form-label">Apellido:</label>
-          <input id="apellido" formControlName="apellido" type="text" class="form-control" required>
+          <label for="apellido" class="form-label" matTooltip="Apellido del desaparecido">Apellido:</label>
+          <input id="apellido" formControlName="apellido" type="text" class="form-control" required minlength="2">
+          <div *ngIf="desaparicionForm.get('personaDTO.apellido')?.invalid && desaparicionForm.get('personaDTO.apellido')?.touched" class="text-danger">
+            Apellido es requerido y debe tener al menos 2 caracteres.
+          </div>
         </div>
         <div class="col-md-6">
-          <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
-          <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date" class="form-control">
+          <label for="fechaNacimiento" class="form-label" matTooltip="Fecha de nacimiento del desaparecido">Fecha de Nacimiento:</label>
+          <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date" class="form-control" required>
+          <div *ngIf="desaparicionForm.get('personaDTO.fechaNacimiento')?.invalid && desaparicionForm.get('personaDTO.fechaNacimiento')?.touched" class="text-danger">
+            Fecha de nacimiento es requerida.
+          </div>
         </div>
         <div class="col-md-6">
-          <label for="sexo">Sexo:</label>
-          <select id="sexo" formControlName="sexo" class="form-select">
+          <label for="sexo" matTooltip="Sexo del desaparecido">Sexo:</label>
+          <select id="sexo" formControlName="sexo" class="form-select" required>
             <option *ngFor="let option of sexoOptions" [value]="option">{{ option }}</option>
           </select>
+          <div *ngIf="desaparicionForm.get('personaDTO.sexo')?.invalid && desaparicionForm.get('personaDTO.sexo')?.touched" class="text-danger">
+            Sexo es requerido.
+          </div>
         </div>
         <div class="col-md-6">
-          <label for="altura" class="form-label">Altura:</label>
-          <input id="altura" formControlName="altura" type="number" class="form-control">
+          <label for="altura" matTooltip="Altura apróximada del desaparecido" class="form-label">Altura:</label>
+          <input id="altura" formControlName="altura" type="number" class="form-control" required min="0.50" max="2.50">
+          <div *ngIf="desaparicionForm.get('personaDTO.altura')?.invalid && desaparicionForm.get('personaDTO.altura')?.touched" class="text-danger">
+            Altura es requerida.
+          </div>
         </div>
         <div class="col-md-6">
-          <label for="complexion">Complexión:</label>
-          <select id="complexion" formControlName="complexion" class="form-select">
+          <label for="complexion" matTooltip="Complexión del desaparecido">Complexión:</label>
+          <select id="complexion" formControlName="complexion" class="form-select" required>
             <option *ngFor="let option of complexionOptions" [value]="option">{{ option }}</option>
           </select>
+          <div *ngIf="desaparicionForm.get('personaDTO.complexion')?.invalid && desaparicionForm.get('personaDTO.complexion')?.touched" class="text-danger">
+            Complexión es requerida.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="descripcionFisica" class="form-label" matTooltip="Descripción física del desaparecido">Descripción física:</label>
+          <input id="descripcionFisica" formControlName="descripcionFisica" type="text" class="form-control" required minlength="2">
+          <div *ngIf="desaparicionForm.get('personaDTO.apellido')?.invalid && desaparicionForm.get('personaDTO.apellido')?.touched" class="text-danger">
+            Descripcion física tiene que tener al menos 2 caracteres.
+          </div>
         </div>
         <app-input-fotos (filesChanged)="onFilesChanged($event)"></app-input-fotos>
       </div>
@@ -76,7 +110,7 @@
 
     <!-- Paso 3 -->
     <div *ngIf="currentStep === 2" class="step-content">
-      <h4>Detalles de Contacto</h4>
+      <h4>Dirección de la desaparición</h4>
       <div formGroupName="lugarDTO" class="row g-3">
         <app-localizacion (addressChanged)="onAddressChanged($event)"></app-localizacion>
       </div>
@@ -84,27 +118,13 @@
       <button type="button" class="btn btn-primary mt-3 mx-2" (click)="nextStep()">Siguiente</button>
     </div>
 
-
-
     <!-- Paso 5 -->
     <div *ngIf="currentStep === 3" class="step-content">
-      <h4>Envío</h4>
-      <button type="button" class="btn btn-secondary mt-3" (click)="prevStep()">Anterior</button>
-      <button type="submit" class="btn btn-success mt-3 mx-3" [disabled]="desaparicionForm.invalid">Enviar</button>
-    </div>
-
-    <!-- Toast container -->
-    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 11">
-      <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-          <strong class="me-auto">Notificación</strong>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      <h4>Enviar desaparición</h4>
+        <div class="d-flex justify-content-center align-items-center">
+          <button type="button" class="btn btn-secondary mt-3" (click)="prevStep()">Anterior</button>
+          <button type="submit" class="btn btn-success mt-3 mx-3" [disabled]="desaparicionForm.invalid || isSubmiting">Enviar</button>
         </div>
-        <div class="toast-body">
-          Formulario enviado con éxito
-        </div>
-      </div>
     </div>
-
   </form>
 </div>

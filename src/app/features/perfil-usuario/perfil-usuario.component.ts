@@ -3,6 +3,9 @@ import {Router, RouterLink} from '@angular/router';
 import {AuthService} from '../../servicios/auth.service';
 import {AuthServiceService} from '../../core/auth-service.service';
 
+/**
+ * Componente que redirige al usuario a su página de perfil según su rol
+ */
 @Component({
   selector: 'app-perfil-usuario',
   standalone: true,
@@ -22,7 +25,7 @@ export class PerfilUsuarioComponent implements OnInit{
       } else if (this.rol == 'CIVIL') {
         this.router.navigate(['/usuario/civil']);
       }else if (this.rol == 'AUTORIDAD') {
-        this.router.navigate(['/usuario/aturidad']);
+        this.router.navigate(['/usuario/autoridad']);
       }
     });}
 

@@ -9,7 +9,11 @@ import {NgForOf} from '@angular/common';
 import {DesaparicionService} from '../../servicios/desaparicion.service'; // Importamos el enum Complexion
 import {CommonModule} from '@angular/common';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatTooltip} from '@angular/material/tooltip';
 
+/**
+ * Componente para la creación de una desaparición.
+ */
 @Component({
   selector: 'app-crear-desaparicion',
   templateUrl: './crear-desaparicion.component.html',
@@ -18,7 +22,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     InputFotosComponent,
     LocalizacionComponent,
     NgForOf,
-    CommonModule
+    CommonModule,
+    MatTooltip,
     // Agregamos LocalizacionComponent
   ],
   standalone: true
@@ -31,6 +36,7 @@ export class DesaparicionFormComponent {
   currentStep = 0;
   steps = ['Paso 1', 'Paso 2', 'Paso 3', 'Paso 4']
   private snackBar = inject(MatSnackBar);
+  isSubmiting: boolean = false;
 
   constructor(private fb: FormBuilder, private desaparicionService: DesaparicionService) {
     this.desaparicionForm = this.fb.group({
@@ -44,7 +50,7 @@ export class DesaparicionFormComponent {
         sexo: ['', Validators.required],
         altura: [null, Validators.required],
         complexion: ['', Validators.required],
-        descripcion: [''],
+        descripcionFisica: ['']
       }),
       lugarDTO: this.fb.group({
         provincia: [''],
@@ -55,14 +61,25 @@ export class DesaparicionFormComponent {
 
   }
 
+  /**
+   * Método que se ejecuta cuando cambian los archivos seleccionados para coger solo el archivo
+   * @param filesData
+   */
   onFilesChanged(filesData: FileData[]): void {
     this.archivos = filesData.map(fileData => fileData.file as File);
   }
 
+  /**
+   * Método que se ejecuta cuando cambia la dirección seleccionada en su componente especifico para guardarla en el formulario
+   * @param address
+   */
   onAddressChanged(address: any): void {
     this.desaparicionForm.get('lugarDTO')?.patchValue(address);
   }
 
+  /**
+   * Método para pasar de paso en el formulario
+   */
   nextStep() {
     if (this.currentStep === 0) {
       this.currentStep++;
@@ -77,12 +94,17 @@ export class DesaparicionFormComponent {
     }
   }
 
+  /**
+   * Método para retroceder de paso en el formulario
+   */
   prevStep(): void {
     if (this.currentStep > 0) {
       this.currentStep--;
     }
   }
-
+/**
+ * Método para ir a un paso concreto del formulario
+ */
   goToStep(step: number): void {
     const formValid = this.getCurrentStepGroup()?.valid ?? true;
     if (step <= this.currentStep || formValid) {
@@ -92,6 +114,9 @@ export class DesaparicionFormComponent {
     }
   }
 
+  /**
+   * Método para obtener el FormGroup del paso actual
+   */
   getCurrentStepGroup(): FormGroup | null {
     switch (this.currentStep) {
       case 0: return this.desaparicionForm; // Incluye los campos fecha, descripcion, id_usuario
@@ -101,13 +126,16 @@ export class DesaparicionFormComponent {
     }
   }
 
-
+  /**
+   * Método que se ejecuta cuando se envía el formulario
+   */
   onSubmit(): void {
     if (this.desaparicionForm.invalid) {
       this.desaparicionForm.markAllAsTouched();
       return;
     }
 
+    this.isSubmiting = true;
     const desaparicionData = this.desaparicionForm.value;
     const formData = new FormData();
     formData.append('desaparicion', JSON.stringify(desaparicionData));
@@ -116,9 +144,13 @@ export class DesaparicionFormComponent {
       formData.append('files', file);
     });
 
+    const loadingSnackbar = this.snackBar.open('Creando desaparición...', 'Cerrar');
+
     this.desaparicionService.guardarDesaparicion(formData).subscribe({
       next: (response) => {
         console.log('Respuesta del servidor:', response);
+        this.isSubmiting = false;
+        loadingSnackbar.dismiss();
         this.snackBar.open('Desaparicion creada con éxito', 'Cerrar', {
           duration: 3000
         });

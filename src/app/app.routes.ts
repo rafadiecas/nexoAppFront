@@ -13,7 +13,10 @@ import { AdminUsuariosComponent } from './features/admin-panel/componentes/lista
 import {VistaAutoridadComponent} from './features/perfil-autoridad/vista-autoridad/vista-autoridad.component';
 import {VistaAdminComponent} from './features/admin-panel/vista-admin/vista-admin.component';
 import {autoridadGuard} from './core/guard/autoridad.guard';
+import {AvisoPaginaComponent} from './features/home/componentes/aviso-principal/avisos-pagina/avisos-pagina.component';
 import {PerfilUsuarioComponent} from './features/perfil-usuario/perfil-usuario.component';
+import {Error404Component} from './core/error404/error404.component';
+import {adminGuard} from './core/guard/admin.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,7 +30,9 @@ export const routes: Routes = [
   { path: 'admin/avisos', component: AdminAvisosComponent },
   { path: 'registro', component: RegistraUsuarioComponent },
   { path: 'usuario/autoridad', component: VistaAutoridadComponent,canActivate: [autoridadGuard] },
-  { path: 'autoridad', component: VistaAutoridadComponent },
-  { path: 'admin/recursos', component: VistaAdminComponent },
-  { path: 'usuario', component: PerfilUsuarioComponent },
+  { path: 'autoridad', component: VistaAutoridadComponent, canActivate:[autoridadGuard] },
+  { path: 'admin/recursos', component: VistaAdminComponent, canActivate:[adminGuard] },
+  { path: 'usuario', component: PerfilUsuarioComponent},
+  {path: '**', component: Error404Component},
+  { path: 'home/avisos', component: AvisoPaginaComponent },
 ];

@@ -1,0 +1,1640 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>nexo-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">nexo-app documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content coverage">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Documentation coverage</li>
+</ol>
+
+<div>
+    <img src="./images/coverage-badge-documentation.svg">
+</div>
+
+<table class="table table-bordered coverage" id="coverage-table">
+    <thead class="coverage-header">
+        <tr>
+            <th>File</th>
+            <th>Type</th>
+            <th>Identifier</th>
+            <th style="text-align:right" class="statements" data-sort-default>Statements</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#app">projects/home/server.ts</a>
+            </td>
+            <td>function</td>
+            <td>app</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#run">projects/home/server.ts</a>
+            </td>
+            <td>function</td>
+            <td>run</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AppComponent.html">projects/home/src/app/app.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AppComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#config">projects/home/src/app/app.config.server.ts</a>
+            </td>
+            <td>variable</td>
+            <td>config</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#serverConfig">projects/home/src/app/app.config.server.ts</a>
+            </td>
+            <td>variable</td>
+            <td>serverConfig</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#appConfig">projects/home/src/app/app.config.ts</a>
+            </td>
+            <td>variable</td>
+            <td>appConfig</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#bootstrap">projects/home/src/main.server.ts</a>
+            </td>
+            <td>variable</td>
+            <td>bootstrap</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AppComponent.html">src/app/app.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AppComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#appConfig">src/app/app.config.ts</a>
+            </td>
+            <td>variable</td>
+            <td>appConfig</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AuthServiceService.html">src/app/core/auth-service.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AuthServiceService</td>
+            <td align="right" data-sort="57">
+                <span class="coverage-percent">57 %</span>
+                <span class="coverage-count">(4/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#apiUrl">src/app/core/auth-service.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>apiUrl</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interceptors/AuthInterceptor.html">src/app/core/auth/auth-interceptor.service.ts</a>
+            </td>
+            <td>interceptor</td>
+            <td>AuthInterceptor</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#authInterceptor">src/app/core/auth/authInterceptor.ts</a>
+            </td>
+            <td>variable</td>
+            <td>authInterceptor</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/Error404Component.html">src/app/core/error404/error404.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>Error404Component</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#adminGuard">src/app/core/guard/admin.guard.ts</a>
+            </td>
+            <td>variable</td>
+            <td>adminGuard</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#autoridadGuard">src/app/core/guard/autoridad.guard.ts</a>
+            </td>
+            <td>variable</td>
+            <td>autoridadGuard</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#civilGuard">src/app/core/guard/civil.guard.ts</a>
+            </td>
+            <td>variable</td>
+            <td>civilGuard</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/LoginComponent.html">src/app/core/login/login.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>LoginComponent</td>
+            <td align="right" data-sort="22">
+                <span class="coverage-percent">22 %</span>
+                <span class="coverage-count">(2/9)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/RegistraUsuarioComponent.html">src/app/core/registra-usuario/registra-usuario.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>RegistraUsuarioComponent</td>
+            <td align="right" data-sort="44">
+                <span class="coverage-percent">44 %</span>
+                <span class="coverage-count">(4/9)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AdminPanelComponent.html">src/app/features/admin-panel/admin-panel.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AdminPanelComponent</td>
+            <td align="right" data-sort="66">
+                <span class="coverage-percent">66 %</span>
+                <span class="coverage-count">(2/3)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AdminAvisosComponent.html">src/app/features/admin-panel/componentes/admin-avisos/admin-avisos.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AdminAvisosComponent</td>
+            <td align="right" data-sort="42">
+                <span class="coverage-percent">42 %</span>
+                <span class="coverage-count">(8/19)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/CrearAutoridadComponent.html">src/app/features/admin-panel/componentes/crear-autoridad/crear-autoridad.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>CrearAutoridadComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(3/6)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ListaDesaparicionesEliminadasComponent.html">src/app/features/admin-panel/componentes/lista-desapariciones-eliminadas/lista-desapariciones-eliminadas.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ListaDesaparicionesEliminadasComponent</td>
+            <td align="right" data-sort="45">
+                <span class="coverage-percent">45 %</span>
+                <span class="coverage-count">(9/20)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AdminUsuariosComponent.html">src/app/features/admin-panel/componentes/lista-usuarios-admin/lista-usuarios-admin.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AdminUsuariosComponent</td>
+            <td align="right" data-sort="42">
+                <span class="coverage-percent">42 %</span>
+                <span class="coverage-count">(8/19)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/VistaAdminComponent.html">src/app/features/admin-panel/vista-admin/vista-admin.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>VistaAdminComponent</td>
+            <td align="right" data-sort="16">
+                <span class="coverage-percent">16 %</span>
+                <span class="coverage-count">(1/6)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ComentarioDialogComponent.html">src/app/features/desaparicion/comentario-dialog/comentario-dialog.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ComentarioDialogComponent</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(2/6)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ComentariosComponent.html">src/app/features/desaparicion/comentarios/comentarios.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ComentariosComponent</td>
+            <td align="right" data-sort="36">
+                <span class="coverage-percent">36 %</span>
+                <span class="coverage-count">(7/19)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/DatosDesaparicionComponent.html">src/app/features/desaparicion/datos-desaparicion/datos-desaparicion.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>DatosDesaparicionComponent</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(3/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/DesaparicionComponent.html">src/app/features/desaparicion/desaparicion.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>DesaparicionComponent</td>
+            <td align="right" data-sort="11">
+                <span class="coverage-percent">11 %</span>
+                <span class="coverage-count">(1/9)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ImageDialogComponent.html">src/app/features/desaparicion/image-dialog/image-dialog.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ImageDialogComponent</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/MapaComponent.html">src/app/features/desaparicion/mapa/mapa.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>MapaComponent</td>
+            <td align="right" data-sort="28">
+                <span class="coverage-percent">28 %</span>
+                <span class="coverage-count">(2/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#defaultIcon">src/app/features/desaparicion/mapa/mapa.component.ts</a>
+            </td>
+            <td>variable</td>
+            <td>defaultIcon</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#iconRetinaUrl">src/app/features/desaparicion/mapa/mapa.component.ts</a>
+            </td>
+            <td>variable</td>
+            <td>iconRetinaUrl</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#iconUrl">src/app/features/desaparicion/mapa/mapa.component.ts</a>
+            </td>
+            <td>variable</td>
+            <td>iconUrl</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#shadowUrl">src/app/features/desaparicion/mapa/mapa.component.ts</a>
+            </td>
+            <td>variable</td>
+            <td>shadowUrl</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FiltroComponent.html">src/app/features/filtro/filtro.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>FiltroComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(4/8)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AvisoPrincipalComponent.html">src/app/features/home/componentes/aviso-principal/aviso-principal.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AvisoPrincipalComponent</td>
+            <td align="right" data-sort="27">
+                <span class="coverage-percent">27 %</span>
+                <span class="coverage-count">(3/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AvisoPaginaComponent.html">src/app/features/home/componentes/aviso-principal/avisos-pagina/avisos-pagina.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AvisoPaginaComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/CrearAvisoComponent.html">src/app/features/home/componentes/crear-aviso/crear-aviso.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>CrearAvisoComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(3/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#MY_DATE_FORMATS">src/app/features/home/componentes/crear-aviso/crear-aviso.component.ts</a>
+            </td>
+            <td>variable</td>
+            <td>MY_DATE_FORMATS</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/DesaparicionPrincipalComponent.html">src/app/features/home/componentes/desaparicion-principal/desaparicion-principal.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>DesaparicionPrincipalComponent</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FooterComponent.html">src/app/features/home/componentes/footer/footer.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>FooterComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/MapaPrincipalComponent.html">src/app/features/home/componentes/mapa-principal/mapa-principal.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>MapaPrincipalComponent</td>
+            <td align="right" data-sort="37">
+                <span class="coverage-percent">37 %</span>
+                <span class="coverage-count">(3/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#defaultIcon">src/app/features/home/componentes/mapa-principal/mapa-principal.component.ts</a>
+            </td>
+            <td>variable</td>
+            <td>defaultIcon</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#iconRetinaUrl">src/app/features/home/componentes/mapa-principal/mapa-principal.component.ts</a>
+            </td>
+            <td>variable</td>
+            <td>iconRetinaUrl</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#iconUrl">src/app/features/home/componentes/mapa-principal/mapa-principal.component.ts</a>
+            </td>
+            <td>variable</td>
+            <td>iconUrl</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#shadowUrl">src/app/features/home/componentes/mapa-principal/mapa-principal.component.ts</a>
+            </td>
+            <td>variable</td>
+            <td>shadowUrl</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/MostrarmasComponent.html">src/app/features/home/componentes/mostrarmas/mostrarmas.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>MostrarmasComponent</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SobreNosotrosComponent.html">src/app/features/home/componentes/sobre-nosotros/sobre-nosotros.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>SobreNosotrosComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/HomeComponent.html">src/app/features/home/home.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>HomeComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AutoridadAvisosComponent.html">src/app/features/perfil-autoridad/componentes/autoridad-avisos/autoridad-avisos.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AutoridadAvisosComponent</td>
+            <td align="right" data-sort="42">
+                <span class="coverage-percent">42 %</span>
+                <span class="coverage-count">(8/19)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/GestionUsuarioComponent.html">src/app/features/perfil-autoridad/componentes/gestion-usuario/gestion-usuario.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>GestionUsuarioComponent</td>
+            <td align="right" data-sort="43">
+                <span class="coverage-percent">43 %</span>
+                <span class="coverage-count">(7/16)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/MenuPerfilAutoridadComponent.html">src/app/features/perfil-autoridad/componentes/menu-perfil-autoridad/menu-perfil-autoridad.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>MenuPerfilAutoridadComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/VistaAutoridadComponent.html">src/app/features/perfil-autoridad/vista-autoridad/vista-autoridad.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>VistaAutoridadComponent</td>
+            <td align="right" data-sort="16">
+                <span class="coverage-percent">16 %</span>
+                <span class="coverage-count">(1/6)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/EditaUsuarioComponent.html">src/app/features/perfil-usuario/componentes/edita-usuario/edita-usuario.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>EditaUsuarioComponent</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(2/6)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/InputFotosComponent.html">src/app/features/perfil-usuario/componentes/input-fotos/input-fotos.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>InputFotosComponent</td>
+            <td align="right" data-sort="26">
+                <span class="coverage-percent">26 %</span>
+                <span class="coverage-count">(4/15)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ListaDesaparicionesComponent.html">src/app/features/perfil-usuario/componentes/lista-desapariciones/lista-desapariciones.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ListaDesaparicionesComponent</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ListaSeguimientoComponent.html">src/app/features/perfil-usuario/componentes/lista-seguimiento/lista-seguimiento.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ListaSeguimientoComponent</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/LocalizacionComponent.html">src/app/features/perfil-usuario/componentes/localizacion/localizacion.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>LocalizacionComponent</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(4/12)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ParteIzquierdaCivilComponent.html">src/app/features/perfil-usuario/componentes/parte-izquierda-civil/parte-izquierda-civil.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ParteIzquierdaCivilComponent</td>
+            <td align="right" data-sort="27">
+                <span class="coverage-percent">27 %</span>
+                <span class="coverage-count">(3/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/PerfilCivilComponent.html">src/app/features/perfil-usuario/componentes/perfil-civil/perfil-civil.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>PerfilCivilComponent</td>
+            <td align="right" data-sort="16">
+                <span class="coverage-percent">16 %</span>
+                <span class="coverage-count">(1/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/PerfilUsuarioComponent.html">src/app/features/perfil-usuario/perfil-usuario.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>PerfilUsuarioComponent</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Auth.html">src/app/modelos/Auth.ts</a>
+            </td>
+            <td>class</td>
+            <td>Auth</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Autoridad.html">src/app/modelos/Autoridad.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Autoridad</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Aviso.html">src/app/modelos/Aviso.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Aviso</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Civil.html">src/app/modelos/Civil.ts</a>
+            </td>
+            <td>class</td>
+            <td>Civil</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CivilConfirmar.html">src/app/modelos/CivilConfirmar.ts</a>
+            </td>
+            <td>class</td>
+            <td>CivilConfirmar</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Comentario.html">src/app/modelos/Comentario.ts</a>
+            </td>
+            <td>class</td>
+            <td>Comentario</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ComentarioListar.html">src/app/modelos/ComentarioListar.ts</a>
+            </td>
+            <td>class</td>
+            <td>ComentarioListar</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CivilCrearDTO.html">src/app/modelos/CrearCivil.ts</a>
+            </td>
+            <td>class</td>
+            <td>CivilCrearDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/CrearUsuario.html">src/app/modelos/CrearUsuario.ts</a>
+            </td>
+            <td>class</td>
+            <td>CrearUsuario</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/DenunciaComentario.html">src/app/modelos/DenunciaComentario.ts</a>
+            </td>
+            <td>class</td>
+            <td>DenunciaComentario</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/DesaparicionEditaAutoridad.html">src/app/modelos/DesaparicionEditaAutoridad.ts</a>
+            </td>
+            <td>class</td>
+            <td>DesaparicionEditaAutoridad</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/DesaparicionGestionDTO.html">src/app/modelos/DesaparicionGestionDTO.ts</a>
+            </td>
+            <td>class</td>
+            <td>DesaparicionGestionDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/DesaparicionIndividual.html">src/app/modelos/DesaparicionIndividual.ts</a>
+            </td>
+            <td>class</td>
+            <td>DesaparicionIndividual</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/DesaparicionLista.html">src/app/modelos/DesaparicionLista.ts</a>
+            </td>
+            <td>class</td>
+            <td>DesaparicionLista</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/DesaparicionPrincipal.html">src/app/modelos/DesaparicionPrincipal.ts</a>
+            </td>
+            <td>class</td>
+            <td>DesaparicionPrincipal</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/DesaparicionSinVerificar.html">src/app/modelos/DesaparicionSinVerificar.ts</a>
+            </td>
+            <td>class</td>
+            <td>DesaparicionSinVerificar</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/FileData.html">src/app/modelos/FileData.ts</a>
+            </td>
+            <td>class</td>
+            <td>FileData</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/FotoUrlDTO.html">src/app/modelos/Foto-Aviso.ts</a>
+            </td>
+            <td>class</td>
+            <td>FotoUrlDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Foto.html">src/app/modelos/Foto.ts</a>
+            </td>
+            <td>class</td>
+            <td>Foto</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Login.html">src/app/modelos/Login.ts</a>
+            </td>
+            <td>class</td>
+            <td>Login</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/LugarDTO.html">src/app/modelos/LugarDTO.ts</a>
+            </td>
+            <td>class</td>
+            <td>LugarDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/LugarLatLon.html">src/app/modelos/LugarLatLon.ts</a>
+            </td>
+            <td>class</td>
+            <td>LugarLatLon</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/MapaDesaparicion.html">src/app/modelos/MapaDesaparicion.ts</a>
+            </td>
+            <td>class</td>
+            <td>MapaDesaparicion</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/MapaPrincipal.html">src/app/modelos/MapaPrincipal.ts</a>
+            </td>
+            <td>class</td>
+            <td>MapaPrincipal</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Notificacion.html">src/app/modelos/Notificacion.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Notificacion</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Persona.html">src/app/modelos/Persona.ts</a>
+            </td>
+            <td>class</td>
+            <td>Persona</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/PersonaIndividual.html">src/app/modelos/PersonaIndividual.ts</a>
+            </td>
+            <td>class</td>
+            <td>PersonaIndividual</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/TokenData.html">src/app/modelos/TokenData.ts</a>
+            </td>
+            <td>class</td>
+            <td>TokenData</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/UsuarioListaAdmin.html">src/app/modelos/UsuarioListaAdmin.ts</a>
+            </td>
+            <td>interface</td>
+            <td>UsuarioListaAdmin</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UsuarioMenu.html">src/app/modelos/UsuarioMenu.ts</a>
+            </td>
+            <td>class</td>
+            <td>UsuarioMenu</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/EditaDesaparicion.html">src/app/modelos/editaDesaparicion.ts</a>
+            </td>
+            <td>class</td>
+            <td>EditaDesaparicion</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AuthService.html">src/app/servicios/auth.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AuthService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#apiUrl">src/app/servicios/auth.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>apiUrl</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AutoridadService.html">src/app/servicios/autoridad.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AutoridadService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AvisoService.html">src/app/servicios/aviso.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AvisoService</td>
+            <td align="right" data-sort="44">
+                <span class="coverage-percent">44 %</span>
+                <span class="coverage-count">(4/9)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/CivilService.html">src/app/servicios/civil.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CivilService</td>
+            <td align="right" data-sort="75">
+                <span class="coverage-percent">75 %</span>
+                <span class="coverage-count">(6/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#apiUrl">src/app/servicios/civil.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>apiUrl</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ComentarioService.html">src/app/servicios/comentario.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ComentarioService</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(3/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#apiUrl">src/app/servicios/comentario.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>apiUrl</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/DesaparicionService.html">src/app/servicios/desaparicion.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>DesaparicionService</td>
+            <td align="right" data-sort="76">
+                <span class="coverage-percent">76 %</span>
+                <span class="coverage-count">(13/17)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#apiUrl">src/app/servicios/desaparicion.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>apiUrl</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/FiltroService.html">src/app/servicios/filtro.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>FiltroService</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(3/6)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/HeaderService.html">src/app/servicios/header.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>HeaderService</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(2/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/LocalizacionService.html">src/app/servicios/localizacion.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>LocalizacionService</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/LoginService.html">src/app/servicios/login.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>LoginService</td>
+            <td align="right" data-sort="60">
+                <span class="coverage-percent">60 %</span>
+                <span class="coverage-count">(3/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#apiUrl">src/app/servicios/login.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>apiUrl</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/LugarService.html">src/app/servicios/lugar.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>LugarService</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(2/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#apiUrl">src/app/servicios/lugar.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>apiUrl</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/NotificacionService.html">src/app/servicios/notificacion.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>NotificacionService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/UsuarioService.html">src/app/servicios/usuario.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>UsuarioService</td>
+            <td align="right" data-sort="66">
+                <span class="coverage-percent">66 %</span>
+                <span class="coverage-count">(6/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#apiUrl">src/app/servicios/usuario.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>apiUrl</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/DesaparicionFormComponent.html">src/app/shared/crear-desaparicion/crear-desaparicion.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>DesaparicionFormComponent</td>
+            <td align="right" data-sort="47">
+                <span class="coverage-percent">47 %</span>
+                <span class="coverage-count">(8/17)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/EditaDesaparicionAutoridadComponent.html">src/app/shared/edita-desaparicion-autoridad/edita-desaparicion-autoridad.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>EditaDesaparicionAutoridadComponent</td>
+            <td align="right" data-sort="47">
+                <span class="coverage-percent">47 %</span>
+                <span class="coverage-count">(8/17)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/EditaDialogComponent.html">src/app/shared/edita-dialog/edita-dialog.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>EditaDialogComponent</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(5/15)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/HeaderComponent.html">src/app/shared/header/header.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>HeaderComponent</td>
+            <td align="right" data-sort="42">
+                <span class="coverage-percent">42 %</span>
+                <span class="coverage-count">(3/7)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/HeadernewComponent.html">src/app/shared/headernew/headernew.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>HeadernewComponent</td>
+            <td align="right" data-sort="53">
+                <span class="coverage-percent">53 %</span>
+                <span class="coverage-count">(8/15)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/InputShareComponent.html">src/app/shared/input-share/input-share.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>InputShareComponent</td>
+            <td align="right" data-sort="44">
+                <span class="coverage-percent">44 %</span>
+                <span class="coverage-count">(4/9)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ListaNoAprobadasComponent.html">src/app/shared/lista-no-aprobadas/lista-no-aprobadas.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ListaNoAprobadasComponent</td>
+            <td align="right" data-sort="45">
+                <span class="coverage-percent">45 %</span>
+                <span class="coverage-count">(9/20)</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="js/libs/tablesort.min.js"></script>
+<script src="js/libs/tablesort.number.min.js"></script>
+<script>
+    new Tablesort(document.getElementById('coverage-table'));
+</script>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'coverage';
+            var COMPODOC_CURRENT_PAGE_URL = 'coverage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -10,14 +10,24 @@ const apiUrl = '/api/lugar';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Servicio para la gestión de lugares de desaparición.
+ */
 export class LugarService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * Obtiene los lugares de desaparición para el mapa de la pagina principal
+   */
   getLugaresPrincipal(): Observable<MapaPrincipal[]> {
     return this.http.get<MapaPrincipal[]>(`${apiUrl}/mapaPrincipal`);
   }
 
+  /**
+   * Obtiene un lugar de desaparición con todos sus datos para su página individual
+   * @param id
+   */
   getLugarDesaparicion(id: number): Observable<MapaDesaparicion> {
     return this.http.get<MapaDesaparicion>(`${apiUrl}/mapa?id=${id}`);
   }

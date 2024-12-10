@@ -6,6 +6,9 @@ import {DatePipe} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {Aviso} from '../../../../modelos/Aviso';
 
+/**
+ * Componente que gestiona la vista de los avisos de la aplicación para el administrador.
+ */
 @Component({
   selector: 'app-admin-avisos',
   standalone: true,
@@ -35,6 +38,9 @@ export class AdminAvisosComponent implements OnInit {
 
   }
 
+  /**
+   * Carga los avisos de la base de datos.
+   */
   cargarAvisos(): void {
     this.avisoService.getAvisosAutoridad().subscribe((data: Aviso[]) => {
         this.avisos = data;
@@ -45,6 +51,9 @@ export class AdminAvisosComponent implements OnInit {
       (error) => console.error('Error al cargar los avisos', error));
   }
 
+  /**
+   * Configura la paginación de los avisos.
+   */
   setupPagination(): void {
     const totalItems = this.filteredAvisos.length;
     const totalPagesCount = Math.ceil(totalItems / this.itemsPerPage);
@@ -52,10 +61,18 @@ export class AdminAvisosComponent implements OnInit {
     this.changePage(1);
   }
 
+  /**
+   * Cambia la página de la paginación.
+   * @param page
+   */
   onPageChange(page: number): void {
     this.changePage(page);
   }
 
+  /**
+   * Cambia la página de la paginación.
+   * @param page
+   */
   changePage(page: number): void {
     if (page < 1 || page > this.totalPages.length) return;
     this.currentPage = page;
@@ -64,6 +81,9 @@ export class AdminAvisosComponent implements OnInit {
     this.paginatedAvisos = this.filteredAvisos.slice(startIndex, endIndex);
   }
 
+  /**
+   * Filtra los avisos por el nombre de usuario.
+   */
   applyFilter(): void {
     const text = this.filterText.toLowerCase();
     this.filteredAvisos = this.avisos.filter(item =>
@@ -72,6 +92,12 @@ export class AdminAvisosComponent implements OnInit {
     this.setupPagination();
   }
 
+  /**
+   * Abre un modal para confirmar una acción.
+   * @param content
+   * @param accion
+   * @param item
+   */
   openModal(content: any, accion: string, item: Aviso): void {
     this.accion = accion;
     this.itemSeleccionado = item;
@@ -89,6 +115,11 @@ export class AdminAvisosComponent implements OnInit {
       );
   }
 
+  /**
+   * Confirma la accion de eliminar un aviso.
+   * @param action
+   * @param item
+   */
   confirmAction(action: string, item: Aviso): void {
     if (action === 'eliminar' && item.id) {
       this.avisoService.eliminarAviso(item.id).subscribe(

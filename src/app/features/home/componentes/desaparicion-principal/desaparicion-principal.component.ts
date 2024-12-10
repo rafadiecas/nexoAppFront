@@ -5,6 +5,9 @@ import {DatePipe, NgForOf, UpperCasePipe} from '@angular/common';
 import {MatCard, MatCardContent, MatCardImage} from '@angular/material/card';
 import {RouterLink} from '@angular/router';
 
+/**
+ * Componente que muestra las desapariciones en la página principal
+ */
 @Component({
   selector: 'app-desaparicion-principal',
   standalone: true,

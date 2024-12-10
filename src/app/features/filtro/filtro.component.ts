@@ -5,6 +5,9 @@ import {FormsModule} from '@angular/forms';
 import {Estado} from '../../modelos/Estado';
 import {CommonModule} from '@angular/common';
 
+/**
+ * Componente que permite filtrar las desapariciones
+ */
 @Component({
   selector: 'app-filtro',
   standalone: true,
@@ -32,6 +35,9 @@ export class FiltroComponent {
     this.cargarEstados();
   }
 
+  /**
+   * Carga los estados en el select
+   */
   cargarEstados(): void {
     this.estados = Object.keys(Estado).map(key => ({
       id: Estado[key as keyof typeof Estado],
@@ -39,10 +45,16 @@ export class FiltroComponent {
     }));
   }
 
+  /**
+   * Emite el evento de buscar con los filtros seleccionados
+   */
   onBuscar(): void {
     this.buscar.emit(this.filtros);
   }
 
+  /**
+   * Limpia los filtros
+   */
   onLimpiar(): void {
     this.filtros = {
       nombre: '',

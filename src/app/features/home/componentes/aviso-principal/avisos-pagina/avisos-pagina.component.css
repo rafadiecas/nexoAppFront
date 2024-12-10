@@ -1,0 +1,11 @@
+/* Asegurarse de que las tarjetas ocupen todo el ancho en pantallas pequeñas */
+@media (max-width: 768px) {
+  .aviso-pagina-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .card {
+    margin-bottom: 10px;
+  }
+}

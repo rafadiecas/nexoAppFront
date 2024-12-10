@@ -1,39 +1,60 @@
-<div class="contenedor">
-  <!-- Filtro a la izquierda -->
-  <div class="filtro">
-    <app-filtro (buscar)="cargarPersonas($event)"></app-filtro>
-  </div>
-
-  <!-- Tarjetas de personas desaparecidas -->
-    <div class="tarjetas">
-        <div class="tarjeta" *ngFor="let persona of personasPaginadas" [routerLink]="['/desaparicion', persona.id]">
-            <img [src]="persona.foto" alt="Foto de {{ persona.nombre }}" />
-            <div class="info">
-                <h3>{{ persona.nombre }} {{ persona.apellidos }}</h3>
-                <p>Desaparecido el: {{ persona.fecha | date: 'dd/MM/yyyy' }}</p>
-            </div>
-        </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-4 col-lg-3 border-end p-3 ">
+      <app-filtro (buscar)="cargarPersonas($event)"></app-filtro>
     </div>
+    <div class="col-12 col-md-8 col-lg-9 mt-3" >
+      <div *ngIf="mensajeError" class="alert alert-danger text-center">
+        {{ mensajeError }}
+      </div>
+      <div class="row g-3">
+        <div
+          class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
+          *ngFor="let persona of personasPaginadas"
+        >
+          <a [routerLink]="['/desaparicion', persona.id]" class="text-decoration-none">
+            <div class="card h-100 shadow-sm">
+              <img
+                [src]="persona.foto"
+                alt="Foto de {{ persona.nombre }}"
+                class="card-img-top"
+                style="height: 200px; object-fit: contain;"
+              />
+              <div class="card-body text-center shadow">
+                <h5 class="card-title text-truncate">{{ persona.nombre }} {{ persona.apellidos }}</h5>
+                <p class="card-text text-muted">
+                  Desaparecido el: {{ persona.fecha | date: 'dd/MM/yyyy' }}
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center align-items-center mt-4">
+    <button
+      class="btn btn-outline-primary me-2"
+      (click)="cargarPagina(paginaActual - 1)"
+      [disabled]="paginaActual === 1"
+    >
+      Anterior
+    </button>
+    <ng-container *ngFor="let pagina of [].constructor(totalPaginas); let i = index">
+      <button
+        class="btn btn-outline-primary me-1"
+        (click)="cargarPagina(i + 1)"
+        [class.active]="paginaActual === i + 1"
+      >
+        {{ i + 1 }}
+      </button>
+    </ng-container>
+    <button
+      class="btn btn-outline-primary ms-2"
+      (click)="cargarPagina(paginaActual + 1)"
+      [disabled]="paginaActual === totalPaginas || !habilitarSiguiente"
+    >
+      Siguiente
+    </button>
+  </div>
 </div>
-
-    <!-- Paginación -->
-<div class="paginacion">
-    <!-- Botón Anterior -->
-    <button (click)="cargarPagina(paginaActual - 1)" [disabled]="paginaActual === 1">
-        Anterior
-    </button>
-
-    <!-- Números de página -->
-    <span *ngFor="let pagina of [].constructor(totalPaginas); let i = index">
-    <button (click)="cargarPagina(i + 1)" [class.active]="paginaActual === i + 1">
-      {{ i + 1 }}
-    </button>
-  </span>
-
-    <!-- Botón Siguiente -->
-    <button (click)="cargarPagina(paginaActual + 1)" [disabled]="paginaActual === totalPaginas">
-        Siguiente
-    </button>
-</div>
-
-

@@ -8,7 +8,9 @@ import {UsuarioService} from '../../../../servicios/usuario.service';
 import {NgModule} from '@angular/core';
 import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 
-
+/**
+ * Componente que gestiona la lista de usuarios para el administrador.
+ */
 @Component({
   selector: 'app-admin-usuarios',
   standalone: true,
@@ -39,6 +41,9 @@ export class AdminUsuariosComponent implements OnInit {
     this.cargarUsuarios();
   }
 
+  /**
+   * Carga los usuarios de la base de datos.
+   */
   cargarUsuarios(): void {
     this.usuarioService.getUsuariosAdmin().subscribe(
       (data: UsuarioListaAdmin[]) => {
@@ -52,6 +57,9 @@ export class AdminUsuariosComponent implements OnInit {
     );
   }
 
+  /**
+   * Configura la paginación de los usuarios.
+   */
   setupPagination(): void {
     const totalItems = this.filteredUsuarios.length;
     const totalPagesCount = Math.ceil(totalItems / this.itemsPerPage);
@@ -59,10 +67,18 @@ export class AdminUsuariosComponent implements OnInit {
     this.changePage(1);
   }
 
+  /**
+   * Cambia la página de la paginación.
+   * @param page
+   */
   onPageChange(page: number): void {
     this.changePage(page);
   }
 
+  /**
+   * Cambia la página de la paginación.
+   * @param page
+   */
   changePage(page: number): void {
     if (page < 1 || page > this.totalPages.length) return;
     this.currentPage = page;
@@ -72,6 +88,9 @@ export class AdminUsuariosComponent implements OnInit {
     console.log('Usuarios paginados:', this.paginatedUsuarios); // Verifica que contenga datos
   }
 
+  /**
+   * Aplica un filtro a los usuarios por username
+   */
   applyFilter(): void {
     const text = this.filterText.toLowerCase();
     this.filteredUsuarios = this.usuarios.filter(user =>
@@ -80,6 +99,12 @@ export class AdminUsuariosComponent implements OnInit {
     this.setupPagination();
   }
 
+  /**
+   * Abre un modal para confirmar una acción.
+   * @param content
+   * @param accion
+   * @param usuario
+   */
   openModal(content: any, accion: string, usuario: UsuarioListaAdmin): void {
     this.accion = accion;
     this.usuarioSeleccionado = usuario;
@@ -97,6 +122,11 @@ export class AdminUsuariosComponent implements OnInit {
       );
   }
 
+  /**
+   * Confirma la acción de eliminar un usuario.
+   * @param action
+   * @param usuario
+   */
   confirmAction(action: string, usuario: UsuarioListaAdmin): void {
     if (action === 'eliminar' && usuario.id) {
       this.usuarioService.eliminarUsuario(usuario.id).subscribe(

@@ -2,7 +2,11 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LocalizacionService } from '../../../../servicios/localizacion.service';
 import {NgForOf, NgIf, SlicePipe} from '@angular/common';
+import {MatTooltip} from '@angular/material/tooltip';
 
+/**
+ * Componente que permite seleccionar una localización para usar en la creación de una desaparición
+ */
 @Component({
   selector: 'app-localizacion',
   standalone: true,
@@ -10,7 +14,8 @@ import {NgForOf, NgIf, SlicePipe} from '@angular/common';
     ReactiveFormsModule,
     NgForOf,
     NgIf,
-    SlicePipe
+    SlicePipe,
+    MatTooltip
   ],
   templateUrl: './localizacion.component.html',
   styleUrls: ['./localizacion.component.css']
@@ -45,6 +50,10 @@ export class LocalizacionComponent implements OnInit {
     });
   }
 
+  /**
+   * Método que se ejecuta al seleccionar una provincia, para obtener los municipios de la provincia seleccionada
+   * @param event
+   */
   onProvinceChange(event: Event): void {
     const provinceCode = (event.target as HTMLSelectElement).value;
     const selectedProvince = this.provinces.find((province) => province.code === provinceCode);
@@ -52,6 +61,10 @@ export class LocalizacionComponent implements OnInit {
     this.filteredTowns = [...this.towns];
   }
 
+  /**
+   * Método que se ejecuta al escribir en el input de municipios, para filtrar los municipios
+   * @param event
+   */
   filterTowns(event: Event): void {
     const value = (event.target as HTMLInputElement).value;
     const filterValue = value.toLowerCase();
@@ -60,6 +73,10 @@ export class LocalizacionComponent implements OnInit {
     );
   }
 
+  /**
+   * Método que se ejecuta al seleccionar un municipio, para rellenar el input de municipio y ocultar la lista de municipios
+   * @param town
+   */
   selectTown(town: any): void {
     if (this.locationForm) {
       this.locationForm.get('localidad')?.setValue(town.label);

@@ -1,20 +1,29 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {Login} from '../../modelos/Login';
 import {LoginService} from '../../servicios/login.service';
-import {MatCard, MatCardActions, MatCardContent, MatCardTitle} from '@angular/material/card';
-import {MatError, MatFormField, MatLabel} from '@angular/material/form-field';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {MatCard, MatCardActions, MatCardContent, MatCardTitle}
+  from '@angular/material/card';
+import {MatError, MatFormField, MatLabel} from
+    '@angular/material/form-field';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule,
+  Validators} from '@angular/forms';
 import {MatInput} from '@angular/material/input';
 import {MatButton} from '@angular/material/button';
 import {Router} from "@angular/router";
 import {NgIf} from '@angular/common';
 import {AuthServiceService} from '../auth-service.service';
-import {HeaderComponent} from '../../shared/header/header.component';
+import {HeaderComponent} from
+    '../../shared/header/header.component';
 import {TokenData} from '../../modelos/TokenData';
 import {MatIcon} from '@angular/material/icon';
 import {HeaderService} from '../../servicios/header.service';
-import getWindowScroll from '@popperjs/core/lib/dom-utils/getWindowScroll';
-
+import getWindowScroll from
+    '@popperjs/core/lib/dom-utils/getWindowScroll';
+import {MatSnackBar, MatSnackBarModule} from
+    '@angular/material/snack-bar';
+/**
+ * Componente que contiene el formulario de inicio de sesión
+ */
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -31,21 +40,25 @@ import getWindowScroll from '@popperjs/core/lib/dom-utils/getWindowScroll';
     NgIf,
     MatError,
     ReactiveFormsModule,
-    MatIcon
+    MatIcon,
+
+    MatSnackBarModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   providers:[LoginService]
 })
 export class LoginComponent implements OnInit{
-  login:Login =  new Login();
+  login:Login = new Login();
   usuarioForm!: FormGroup;
   fallo: boolean = false;
   noVerificado: boolean = false;
   usuarioNoExiste: boolean = false;
-  constructor(private headerService: HeaderService, private fb: FormBuilder, private service: LoginService, private router: Router, private servicioAuth: AuthServiceService){
-    // localStorage.clear();
-
+  private snackBar = inject(MatSnackBar);
+  constructor(private headerService: HeaderService, private fb:
+  FormBuilder, private service: LoginService, private router:
+              Router, private servicioAuth: AuthServiceService){
+// localStorage.clear();
   }
   ngOnInit(): void {
     this.usuarioForm = this.fb.group(
@@ -54,6 +67,9 @@ export class LoginComponent implements OnInit{
         contrasenya: ['', Validators.required],
       })
   }
+  /**
+   * Método que inicia sesión
+   */
   iniciarSesion() {
     this.fallo = false;
     this.usuarioNoExiste = false;
@@ -70,19 +86,22 @@ export class LoginComponent implements OnInit{
           }
         }else {
           if (respuesta.verificado){
+            this.snackBar.open('Sesión iniciada', 'Cerrar', {
+              duration: 2000,
+            });
+
             localStorage.setItem('token' , respuesta.token);
-            localStorage.setItem('username', this.usuarioForm.get('usuario')?.value);
+            localStorage.setItem('username',
+              this.usuarioForm.get('usuario')?.value);
             console.log(respuesta);
             this.headerService.notificarActualizacion();
             this.router.navigate(['']);
           }else if (!respuesta.verificado){
             this.noVerificado = true;
-
           }
         }
       },
       error: (e) => console.error(e),
-
     });
   }
 }

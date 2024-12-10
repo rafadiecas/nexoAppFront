@@ -1,0 +1,1668 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>nexo-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">nexo-app documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ComentariosComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/desaparicion/comentarios/comentarios.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente que se encarga de mostrar los comentarios de una desaparición</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-comentarios</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactiveFormsModule</code>
+                            <code>CommonModule</code>
+                                <code><a href="../components/InputShareComponent.html" target="_self" >InputShareComponent</a></code>
+                            <code>FormsModule</code>
+                            <code>MatIcon</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./comentarios.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./comentarios.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#archivos" >archivos</a>
+                            </li>
+                            <li>
+                                <a href="#comentarios" >comentarios</a>
+                            </li>
+                            <li>
+                                <a href="#desapariciones" >desapariciones</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#id" >id</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#inputShareComponent" >inputShareComponent</a>
+                            </li>
+                            <li>
+                                <a href="#rol" >rol</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#snackBar" >snackBar</a>
+                            </li>
+                            <li>
+                                <a href="#textoComentario" >textoComentario</a>
+                            </li>
+                            <li>
+                                <a href="#usuarioAutenticado" >usuarioAutenticado</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#abrirDialogo" >abrirDialogo</a>
+                            </li>
+                            <li>
+                                <a href="#abrirDialogoImagen" >abrirDialogoImagen</a>
+                            </li>
+                            <li>
+                                <a href="#cargarComentarios" >cargarComentarios</a>
+                            </li>
+                            <li>
+                                <a href="#denunciarComentario" >denunciarComentario</a>
+                            </li>
+                            <li>
+                                <a href="#eliminarComentario" >eliminarComentario</a>
+                            </li>
+                            <li>
+                                <a href="#enviarComentario" >enviarComentario</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onFilesChanged" >onFilesChanged</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(comentarioService: <a href="../injectables/ComentarioService.html" target="_self">ComentarioService</a>, dialog: MatDialog, dialogImage: MatDialog, route: ActivatedRoute, civilService: <a href="../injectables/CivilService.html" target="_self">CivilService</a>, usuarioService: <a href="../injectables/UsuarioService.html" target="_self">UsuarioService</a>, authService: <a href="../injectables/AuthServiceService.html" target="_self">AuthServiceService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>comentarioService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ComentarioService.html" target="_self" >ComentarioService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogImage</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>civilService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CivilService.html" target="_self" >CivilService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>usuarioService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsuarioService.html" target="_self" >UsuarioService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthServiceService.html" target="_self" >AuthServiceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abrirDialogo"></a>
+                    <span class="name">
+                        <span ><b>abrirDialogo</b></span>
+                        <a href="#abrirDialogo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>abrirDialogo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método que se encarga de abrir un dialogo para agregar un comentario</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abrirDialogoImagen"></a>
+                    <span class="name">
+                        <span ><b>abrirDialogoImagen</b></span>
+                        <a href="#abrirDialogoImagen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>abrirDialogoImagen(foto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="117"
+                                    class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método que se encarga de abrir un dialogo para mostrar una imagen de un comentario</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>foto</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarComentarios"></a>
+                    <span class="name">
+                        <span ><b>cargarComentarios</b></span>
+                        <a href="#cargarComentarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarComentarios(desaparicionId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="82"
+                                    class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método que se encarga de cargar los comentarios de una desaparición</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>desaparicionId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="denunciarComentario"></a>
+                    <span class="name">
+                        <span ><b>denunciarComentario</b></span>
+                        <a href="#denunciarComentario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>denunciarComentario(comentario: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="157"
+                                    class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:157</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método que se encarga de denunciar un comentario</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>comentario</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminarComentario"></a>
+                    <span class="name">
+                        <span ><b>eliminarComentario</b></span>
+                        <a href="#eliminarComentario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminarComentario(comentario: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>comentario</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enviarComentario"></a>
+                    <span class="name">
+                        <span ><b>enviarComentario</b></span>
+                        <a href="#enviarComentario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enviarComentario(datosAdicionales: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="130"
+                                    class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:130</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método que se encarga de enviar un comentario</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>datosAdicionales</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFilesChanged"></a>
+                    <span class="name">
+                        <span ><b>onFilesChanged</b></span>
+                        <a href="#onFilesChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFilesChanged(filesData: <a href="../classes/FileData.html" target="_self">FileData[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método que se encarga de manejar el evento de adición de imágenes</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>filesData</td>
+                                            <td>
+                                                            <code><a href="../classes/FileData.html" target="_self" >FileData[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="archivos"></a>
+                    <span class="name">
+                        <span ><b>archivos</b></span>
+                        <a href="#archivos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>File[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="comentarios"></a>
+                    <span class="name">
+                        <span ><b>comentarios</b></span>
+                        <a href="#comentarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ComentarioListar[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="desapariciones"></a>
+                    <span class="name">
+                        <span ><b>desapariciones</b></span>
+                        <a href="#desapariciones"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/DesaparicionLista.html" target="_self" >DesaparicionLista[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inputShareComponent"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>inputShareComponent</b></span>
+                        <a href="#inputShareComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/InputShareComponent.html" target="_self" >InputShareComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(InputShareComponent)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rol"></a>
+                    <span class="name">
+                        <span ><b>rol</b></span>
+                        <a href="#rol"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="snackBar"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>snackBar</b></span>
+                        <a href="#snackBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(MatSnackBar)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="textoComentario"></a>
+                    <span class="name">
+                        <span ><b>textoComentario</b></span>
+                        <a href="#textoComentario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarioAutenticado"></a>
+                    <span class="name">
+                        <span ><b>usuarioAutenticado</b></span>
+                        <a href="#usuarioAutenticado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/features/desaparicion/comentarios/comentarios.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, inject, Input, OnInit, ViewChild} from &#x27;@angular/core&#x27;;
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from &#x27;@angular/forms&#x27;;
+import { Comentario } from &#x27;../../../modelos/Comentario&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { ComentarioService } from &#x27;../../../servicios/comentario.service&#x27;;
+import { FileData } from &#x27;../../../modelos/FileData&#x27;;
+import { ComentarioListar } from &#x27;../../../modelos/ComentarioListar&#x27;;
+import {CommonModule} from &#x27;@angular/common&#x27;;
+import {InputShareComponent} from &#x27;../../../shared/input-share/input-share.component&#x27;;
+import {MatDialog} from &#x27;@angular/material/dialog&#x27;;
+import {ImageDialogComponent} from &#x27;../image-dialog/image-dialog.component&#x27;;
+import {DesaparicionLista} from &#x27;../../../modelos/DesaparicionLista&#x27;;
+import {CivilService} from &#x27;../../../servicios/civil.service&#x27;;
+import {ComentarioDialogComponent} from &#x27;../comentario-dialog/comentario-dialog.component&#x27;;
+import {MatSnackBar} from &#x27;@angular/material/snack-bar&#x27;;
+import {UsuarioService} from &#x27;../../../servicios/usuario.service&#x27;;
+import {MatIcon} from &#x27;@angular/material/icon&#x27;;
+import {AuthServiceService} from &#x27;../../../core/auth-service.service&#x27;;
+import {DenunciaComentario} from &#x27;../../../modelos/DenunciaComentario&#x27;;
+/**
+ * Componente que se encarga de mostrar los comentarios de una desaparición
+ */
+@Component({
+  selector: &#x27;app-comentarios&#x27;,
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule, InputShareComponent, FormsModule, MatIcon,],
+  templateUrl: &#x27;./comentarios.component.html&#x27;,
+  styleUrls: [&#x27;./comentarios.component.css&#x27;]
+})
+export class ComentariosComponent implements OnInit {
+  @ViewChild(InputShareComponent) inputShareComponent!: InputShareComponent;
+  comentarios: ComentarioListar[] &#x3D; [];
+  usuarioAutenticado: boolean &#x3D; false;
+  textoComentario &#x3D; &#x27;&#x27;;
+  archivos: File[] &#x3D; [];
+  id?: number;
+  desapariciones: DesaparicionLista[] &#x3D; [];
+  rol: string &#x3D; &quot;&quot;;
+  private snackBar &#x3D; inject(MatSnackBar);
+
+  constructor(
+    private comentarioService: ComentarioService,
+    private dialog: MatDialog,
+    private dialogImage: MatDialog,
+    private route: ActivatedRoute,
+    private civilService: CivilService,
+    private usuarioService: UsuarioService,
+    private authService: AuthServiceService,
+  ) {}
+
+  ngOnInit(): void {
+  this.usuarioAutenticado &#x3D; this.usuarioService.estaAutenticado();
+    this.id &#x3D; Number(this.route.snapshot.paramMap.get(&#x27;id&#x27;));
+    this.cargarComentarios(this.id);
+    this.authService.obtenerRol().subscribe((rol: string) &#x3D;&gt; {
+      this.rol &#x3D; rol;
+    });
+    this.civilService.listaDesapariciones().subscribe({
+      next: (data) &#x3D;&gt; {
+        this.desapariciones &#x3D; data;
+        this.desapariciones &#x3D; this.desapariciones.filter(desaparicion &#x3D;&gt; desaparicion.id &#x3D;&#x3D;&#x3D; this.id);
+      },
+      error: (err) &#x3D;&gt; {
+        console.error(&#x27;Error al cargar desapariciones:&#x27;, err);
+      }
+    });
+
+  }
+
+  /**
+   * Método que se encarga de manejar el evento de adición de imágenes
+   * @param filesData
+   */
+  onFilesChanged(filesData: FileData[]): void {
+    this.archivos &#x3D; filesData.map(fileData &#x3D;&gt; fileData.file as File);
+  }
+
+  /**
+   * Método que se encarga de cargar los comentarios de una desaparición
+   * @param desaparicionId
+   */
+  cargarComentarios(desaparicionId: number): void {
+    this.comentarioService.obtenerComentariosPorDesaparicion(desaparicionId).subscribe({
+      next: data &#x3D;&gt; {
+        this.comentarios &#x3D; data;
+        this.comentarios &#x3D; this.comentarios.reverse();
+      },
+      error: err &#x3D;&gt; console.error(&#x27;Error al cargar comentarios:&#x27;, err)
+    });
+  }
+
+  /**
+   * Método que se encarga de abrir un dialogo para agregar un comentario
+   */
+  abrirDialogo(): void {
+    if (!this.textoComentario) {
+      console.error(&#x27;El texto del comentario es obligatorio.&#x27;);
+      return;
+    }
+
+    const dialogRef &#x3D; this.dialog.open(ComentarioDialogComponent, {
+      width: &quot;80%&quot;,
+      data: { nombre: &#x27;&#x27;, email: &#x27;&#x27;, telefono: &#x27;&#x27; }
+    });
+
+    dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
+      if (result) {
+        this.enviarComentario(result);
+      }
+    });
+  }
+
+  /**
+   * Método que se encarga de abrir un dialogo para mostrar una imagen de un comentario
+   * @param foto
+   */
+  abrirDialogoImagen(foto:string): void {
+
+    this.dialogImage.open(ImageDialogComponent, {
+      width: &quot;80%&quot;,
+      data: { imageUrl:foto  }
+    });
+
+  }
+
+  /**
+   * Método que se encarga de enviar un comentario
+   * @param datosAdicionales
+   */
+  enviarComentario(datosAdicionales: any): void {
+    const nuevoComentario &#x3D; {
+      texto: this.textoComentario,
+      desaparicionId: this.id,
+      ...datosAdicionales
+    };
+    console.log(this.archivos)
+
+    this.comentarioService.crearComentario(nuevoComentario, this.archivos).subscribe({
+      next: response &#x3D;&gt; {
+        console.log(&#x27;Comentario creado:&#x27;, response);
+        this.cargarComentarios(this.id!);
+        this.textoComentario &#x3D; &#x27;&#x27;;
+        this.archivos &#x3D; [];
+        this.inputShareComponent.clearFiles();
+        this.snackBar.open(&#x27;Comentario creado con exito&#x27;, &#x27;Cerrar&#x27;, {
+          duration: 3000
+        });
+      },
+      error: err &#x3D;&gt; console.error(&#x27;Error al crear comentario:&#x27;, err)
+    });
+  }
+
+  /**
+   * Método que se encarga de denunciar un comentario
+   * @param comentario
+   */
+  denunciarComentario(comentario: any): void {
+    const denuncia: DenunciaComentario &#x3D; {
+      idDesaparicion: this.id!,
+      texto: comentario.texto
+    }
+    this.comentarioService.denunciarComentario(denuncia).subscribe({
+      next: response &#x3D;&gt; {
+        console.log(&#x27;Denuncia realizada:&#x27;, response);
+        this.snackBar.open(&#x27;Denuncia realizada con exito&#x27;, &#x27;Cerrar&#x27;, {
+          duration: 3000
+        });
+      },
+      error: err &#x3D;&gt; console.error(&#x27;Error al denunciar comentario:&#x27;, err)
+    })
+  }
+
+  eliminarComentario(comentario: any): void {
+    console.log(comentario.id);
+    this.comentarioService.eliminarComentario(comentario.id!).subscribe({
+      next: response &#x3D;&gt; {
+        console.log(&#x27;Comentario eliminado:&#x27;, response);
+        this.cargarComentarios(this.id!);
+        this.snackBar.open(&#x27;Comentario eliminado con exito&#x27;, &#x27;Cerrar&#x27;, {
+          duration: 3000
+        });
+      },
+      error: err &#x3D;&gt; console.error(&#x27;Error al eliminar comentario:&#x27;, err)
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;nuevo-comentario border shadow&quot;&gt;
+  &lt;form (ngSubmit)&#x3D;&quot;abrirDialogo()&quot;&gt;
+    &lt;div class&#x3D;&quot;row d-flex justify-content-center&quot;&gt;
+      &lt;div class&#x3D;&quot;col col-12&quot;&gt;
+        &lt;!-- Contenedor que simula el textarea --&gt;
+        &lt;div class&#x3D;&quot;custom-textarea&quot;&gt;
+          &lt;textarea id&#x3D;&quot;texto&quot; [(ngModel)]&#x3D;&quot;textoComentario&quot; name&#x3D;&quot;texto&quot; required
+                    class&#x3D;&quot;textarea-content&quot;
+                    placeholder&#x3D;&quot;Escribe aquí tu comentario&quot;&gt;&lt;/textarea&gt;
+          &lt;!-- Componente input-share dentro del contenedor --&gt;
+          &lt;div&gt;
+            &lt;app-input-share (filesChanged)&#x3D;&quot;onFilesChanged($event)&quot;&gt;&lt;/app-input-share&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div *ngIf&#x3D;&quot;!textoComentario&quot; class&#x3D;&quot;text-danger&quot;&gt;
+          El comentario es obligatorio.
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;col col-12 col-md-4 d-flex mt-4 justify-content-center mx-md-3 mx-0 mb-5&quot;&gt;
+        &lt;button *ngIf&#x3D;&quot;usuarioAutenticado&quot; type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary&quot; [disabled]&#x3D;&quot;!textoComentario&quot;&gt;
+          Enviar
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+
+  &lt;hr class&#x3D;&quot;m-0&quot; /&gt;
+
+  &lt;div class&#x3D;&quot;nuevo-comentario&quot;&gt;
+    &lt;div *ngFor&#x3D;&quot;let comentario of comentarios&quot; class&#x3D;&quot;card mb-3 border rounded-3 shadow-sm&quot;&gt;
+      &lt;div class&#x3D;&quot;card-body&quot;&gt;
+        &lt;p class&#x3D;&quot;fw-bold text-primary mb-1&quot;&gt;{{ comentario.nombre }}&lt;/p&gt;
+        &lt;p *ngIf&#x3D;&quot;desapariciones.length !&#x3D;&#x3D; 0&quot; class&#x3D;&quot;fst-italic text-secondary m-0&quot;&gt;{{ comentario.email }}&lt;/p&gt;
+        &lt;p *ngIf&#x3D;&quot;desapariciones.length !&#x3D;&#x3D; 0&quot; class&#x3D;&quot;fst-italic text-secondary m-0&quot;&gt;{{ comentario.telefono }}&lt;/p&gt;
+        &lt;p class&#x3D;&quot;mb-2&quot;&gt;{{ comentario.texto }}&lt;/p&gt;
+        &lt;div class&#x3D;&quot;d-flex justify-content-between&quot;&gt;
+
+          &lt;div *ngIf&#x3D;&quot;comentario.fotos &amp;&amp; comentario.fotos.length &gt; 0&quot; class&#x3D;&quot;d-flex flex-wrap gap-2&quot;&gt;
+            &lt;p *ngFor&#x3D;&quot;let foto of comentario.fotos&quot; class&#x3D;&quot;fst-italic text-primary m-0&quot; role&#x3D;&quot;button&quot; (click)&#x3D;&quot;abrirDialogoImagen(foto)&quot;&gt;
+              imagen
+            &lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;!comentario.fotos || comentario.fotos.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+            &lt;p class&#x3D;&quot;fst-italic&quot;&gt;Sin imágenes&lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;ms-auto&quot; *ngIf&#x3D;&quot;rol &#x3D;&#x3D;&#x3D; &#x27;CIVIL&#x27;&quot;&gt;
+            &lt;p class&#x3D;&quot;text-muted text-decoration-underline m-0&quot; role&#x3D;&quot;button&quot; (click)&#x3D;&quot;denunciarComentario(comentario)&quot;&gt;
+              Denunciar
+            &lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;ms-auto&quot; *ngIf&#x3D;&quot;rol &#x3D;&#x3D;&#x3D; &#x27;ADMIN&#x27;&quot;&gt;
+            &lt;mat-icon role&#x3D;&quot;button&quot; (click)&#x3D;&quot;eliminarComentario(comentario)&quot; class&#x3D;&quot;text-danger&quot;&gt;delete&lt;/mat-icon&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./comentarios.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.custom-textarea {
+  position: relative;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  padding: 8px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea-content {
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  height: 80px; /* Altura ajustable */
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 8px;
+}
+
+.input-share-container {
+  margin-top: 8px; /* Espacio entre textarea y input-share */
+  display: flex;
+  justify-content: flex-start; /* Cambia según la posición deseada */
+}
+
+.custom-textarea:focus-within {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+
+.desaparicion-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.desaparicion-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.comentario-card {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+
+.nuevo-comentario {
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.nuevo-comentario h3 {
+  margin-bottom: 15px;
+}
+
+.nuevo-comentario label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 576px) {
+  form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  textarea {
+    margin-bottom: 0.5rem;
+  }
+
+  app-input-share {
+    margin-bottom: 0.5rem;
+  }
+}
+.mat-icon{
+  cursor: pointer;
+}
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="nuevo-comentario border shadow">  <form (ngSubmit)="abrirDialogo()">    <div class="row d-flex justify-content-center">      <div class="col col-12">        <!-- Contenedor que simula el textarea -->        <div class="custom-textarea">          <textarea id="texto" [(ngModel)]="textoComentario" name="texto" required                    class="textarea-content"                    placeholder="Escribe aquí tu comentario"></textarea>          <!-- Componente input-share dentro del contenedor -->          <div>            <app-input-share (filesChanged)="onFilesChanged($event)"></app-input-share>          </div>        </div>        <div *ngIf="!textoComentario" class="text-danger">          El comentario es obligatorio.        </div>      </div>      <div class="col col-12 col-md-4 d-flex mt-4 justify-content-center mx-md-3 mx-0 mb-5">        <button *ngIf="usuarioAutenticado" type="submit" class="btn btn-primary" [disabled]="!textoComentario">          Enviar        </button>      </div>    </div>  </form>  <hr class="m-0" />  <div class="nuevo-comentario">    <div *ngFor="let comentario of comentarios" class="card mb-3 border rounded-3 shadow-sm">      <div class="card-body">        <p class="fw-bold text-primary mb-1">{{ comentario.nombre }}</p>        <p *ngIf="desapariciones.length !== 0" class="fst-italic text-secondary m-0">{{ comentario.email }}</p>        <p *ngIf="desapariciones.length !== 0" class="fst-italic text-secondary m-0">{{ comentario.telefono }}</p>        <p class="mb-2">{{ comentario.texto }}</p>        <div class="d-flex justify-content-between">          <div *ngIf="comentario.fotos && comentario.fotos.length > 0" class="d-flex flex-wrap gap-2">            <p *ngFor="let foto of comentario.fotos" class="fst-italic text-primary m-0" role="button" (click)="abrirDialogoImagen(foto)">              imagen            </p>          </div>          <div *ngIf="!comentario.fotos || comentario.fotos.length === 0">            <p class="fst-italic">Sin imágenes</p>          </div>          <div class="ms-auto" *ngIf="rol === \'CIVIL\'">            <p class="text-muted text-decoration-underline m-0" role="button" (click)="denunciarComentario(comentario)">              Denunciar            </p>          </div>          <div class="ms-auto" *ngIf="rol === \'ADMIN\'">            <mat-icon role="button" (click)="eliminarComentario(comentario)" class="text-danger">delete</mat-icon>          </div>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminAvisosComponent', 'selector': 'app-admin-avisos'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminUsuariosComponent', 'selector': 'app-admin-usuarios'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoridadAvisosComponent', 'selector': 'app-autoridad-avisos'},{'name': 'AvisoPaginaComponent', 'selector': 'app-aviso-pagina'},{'name': 'AvisoPrincipalComponent', 'selector': 'app-aviso-principal'},{'name': 'ComentarioDialogComponent', 'selector': 'app-comentario-dialog'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'CrearAutoridadComponent', 'selector': 'app-crear-autoridad'},{'name': 'CrearAvisoComponent', 'selector': 'app-crear-aviso'},{'name': 'DatosDesaparicionComponent', 'selector': 'app-datos-desaparicion'},{'name': 'DesaparicionComponent', 'selector': 'app-desaparicion'},{'name': 'DesaparicionFormComponent', 'selector': 'app-crear-desaparicion'},{'name': 'DesaparicionPrincipalComponent', 'selector': 'app-desaparicion-principal'},{'name': 'EditaDesaparicionAutoridadComponent', 'selector': 'app-edita-desaparicion-autoridad'},{'name': 'EditaDialogComponent', 'selector': 'app-edita-dialog'},{'name': 'EditaUsuarioComponent', 'selector': 'app-edita-usuario'},{'name': 'Error404Component', 'selector': 'app-error404'},{'name': 'FiltroComponent', 'selector': 'app-filtro'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GestionUsuarioComponent', 'selector': 'app-gestion-usuario'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeadernewComponent', 'selector': 'app-headernew'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageDialogComponent', 'selector': 'app-image-dialog'},{'name': 'InputFotosComponent', 'selector': 'app-input-fotos'},{'name': 'InputShareComponent', 'selector': 'app-input-share'},{'name': 'ListaDesaparicionesComponent', 'selector': 'app-lista-desapariciones'},{'name': 'ListaDesaparicionesEliminadasComponent', 'selector': 'app-lista-desapariciones-eliminadas'},{'name': 'ListaNoAprobadasComponent', 'selector': 'app-lista-no-aprobadas'},{'name': 'ListaSeguimientoComponent', 'selector': 'app-lista-seguimiento'},{'name': 'LocalizacionComponent', 'selector': 'app-localizacion'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapaComponent', 'selector': 'app-mapa'},{'name': 'MapaPrincipalComponent', 'selector': 'app-mapa-principal'},{'name': 'MenuPerfilAutoridadComponent', 'selector': 'app-menu-perfil-autoridad'},{'name': 'MostrarmasComponent', 'selector': 'app-mostrarmas'},{'name': 'ParteIzquierdaCivilComponent', 'selector': 'app-parte-izquierda-civil'},{'name': 'PerfilCivilComponent', 'selector': 'app-perfil-civil'},{'name': 'PerfilUsuarioComponent', 'selector': 'app-perfil-usuario'},{'name': 'RegistraUsuarioComponent', 'selector': 'app-registra-usuario'},{'name': 'SobreNosotrosComponent', 'selector': 'app-sobre-nosotros'},{'name': 'VistaAdminComponent', 'selector': 'app-vista-admin'},{'name': 'VistaAutoridadComponent', 'selector': 'app-vista-autoridad'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ComentariosComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ComentariosComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
