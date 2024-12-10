@@ -95,6 +95,13 @@
             Complexión es requerida.
           </div>
         </div>
+        <div class="col-md-6">
+          <label for="descripcionFisica" class="form-label" matTooltip="Descripción física del desaparecido">Descripción física:</label>
+          <input id="descripcionFisica" formControlName="descripcionFisica" type="text" class="form-control" required minlength="2">
+          <div *ngIf="desaparicionForm.get('personaDTO.apellido')?.invalid && desaparicionForm.get('personaDTO.apellido')?.touched" class="text-danger">
+            Descripcion física tiene que tener al menos 2 caracteres.
+          </div>
+        </div>
         <app-input-fotos (filesChanged)="onFilesChanged($event)"></app-input-fotos>
       </div>
       <button type="button" class="btn btn-secondary mt-3" (click)="prevStep()">Anterior</button>

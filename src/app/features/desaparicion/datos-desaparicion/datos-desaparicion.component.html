@@ -46,7 +46,7 @@
           <p><strong>Sexo:</strong> {{ desaparicionIndividual?.persona?.sexo }}</p>
           <p><strong>Altura:</strong> {{ desaparicionIndividual?.persona?.altura }} cm</p>
           <p><strong>Complexión:</strong> {{ desaparicionIndividual?.persona?.complexion }}</p>
-          <p><strong>Descripción física:</strong> {{ desaparicionIndividual?.persona?.descripcion }}</p>
+          <p><strong>Descripción física:</strong> {{ desaparicionIndividual?.persona?.descripcionFisica }}</p>
           <p><strong>Estado: {{ desaparicionIndividual?.estado }}</strong></p>
           <div class="mt-3 botones">
             <button *ngIf="usuarioAutenticado && !seguimiento" class="btn btn-primary" (click)="anyadirSeguimiento()">

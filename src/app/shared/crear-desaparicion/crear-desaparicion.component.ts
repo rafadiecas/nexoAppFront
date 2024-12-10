@@ -50,7 +50,7 @@ export class DesaparicionFormComponent {
         sexo: ['', Validators.required],
         altura: [null, Validators.required],
         complexion: ['', Validators.required],
-        descripcion: [''],
+        descripcionFisica: ['']
       }),
       lugarDTO: this.fb.group({
         provincia: [''],

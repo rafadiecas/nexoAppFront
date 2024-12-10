@@ -1,22 +1,24 @@
 <div class="container mt-4">
   <div class="row">
-
     <div class="col col-md-6 col-12">
-      <div class="input-container">
+      <div class="input-container mt-4">
+
+      <!-- Segundo input con id distinto para evitar duplicados -->
+      <div class="input-container mt-4">
         <input type="file" class="inputfile inputfile-1" id="file-1" (change)="onFileSelect($event)" accept="image/*" multiple />
         <label for="file-1" class="upload-label p-0 rounded" matTooltip="Pulsa para añadir imágenes">
           <span class="iconify fs-1 m-0" data-icon="bx:image-add" style="color: white;"  ></span>
         </label>
       </div>
     </div>
-
   </div>
 </div>
 
+<!-- Galería de imágenes -->
 <div class="container mt-4" *ngIf="allFiles.length > 0">
   <mat-grid-list [cols]="2" rowHeight="1:1" gutterSize="0px">
     <mat-grid-tile *ngFor="let image of allFiles; let i = index">
-      <img [src]="image.url" alt="Preview" class="img-fluid cuadrada" (click)="onImageClick(i)" matTooltip="Haz click para eliminar la imagen"/>
+      <img [src]="image.url" alt="Preview" class="img-fluid cuadrada" (click)="onImageClick(i)"/>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
@@ -37,12 +39,12 @@
 
 <ng-template #maxmodal let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Demasiados  archivos</h4>
+    <h4 class="modal-title">Demasiados archivos</h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body d-flex justify-content-center align-items-center flex-column">
     <span class="iconify fs-1" data-icon="line-md:document-delete" style="color: #ff0000"></span>
-    <p>No puedes subir mas de 2 imágenes</p>
+    <p>No puedes subir más de 2 imágenes</p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Cerrar</button>
