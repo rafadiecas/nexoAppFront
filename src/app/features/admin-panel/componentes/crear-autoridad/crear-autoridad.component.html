@@ -6,24 +6,31 @@
       Identificador es requerido.
     </div>
   </div>
-
   <div formGroupName="usuarioCrearDTO">
     <div class="mb-3">
-      <label for="usuario" class="form-label" matTooltip="POLICIA NACIONAL = CNP, GUARDIA CIVIL = GCV, BOMBEROS = BMB">Usuario</label>
+      <label for="usuario" class="form-label" matTooltip="POLICIA NACIONAL = CNP, GUARDIA CIVIL = GCV, BOMBEROS = BMB">
+        Usuario
+      </label>
       <input id="usuario" formControlName="usuario" class="form-control" />
-      <div *ngIf="autoridadForm.get('usuarioCrearDTO.usuario')?.invalid && autoridadForm.get('usuarioCrearDTO.usuario')?.touched" class="text-danger">
+      <div *ngIf="autoridadForm.get('usuarioCrearDTO.usuario')?.hasError('identificadorInvalido') && autoridadForm.get('usuarioCrearDTO.usuario')?.touched"
+        class="text-danger">
+        El identificador debe comenzar con CNP, GCV o BMB.
+      </div>
+      <div *ngIf="autoridadForm.get('usuarioCrearDTO.usuario')?.hasError('required') && autoridadForm.get('usuarioCrearDTO.usuario')?.touched" class="text-danger">
         Usuario es requerido.
       </div>
-    </div>
 
+    </div>
     <div class="mb-3">
       <label for="email" class="form-label" matTooltip="POLICIA NACIONAL = @cnp.es, GUARDIA CIVIL = @gcv.es, BOMBEROS = @bomb.es">Email</label>
       <input id="email" formControlName="email" class="form-control" />
+      <div *ngIf="autoridadForm.get('usuarioCrearDTO.email')?.hasError('emailInvalido') && autoridadForm.get('usuarioCrearDTO.email')?.touched" class="text-danger">
+        El email debe terminar con &#64;cnp.es, &#64;gcv.es o &#64;bomb.es.
+      </div>
       <div *ngIf="autoridadForm.get('usuarioCrearDTO.email')?.invalid && autoridadForm.get('usuarioCrearDTO.email')?.touched" class="text-danger">
         Email es requerido y debe ser válido.
       </div>
     </div>
-
     <div class="mb-3">
       <label for="contrasenya" class="form-label" matTooltip="Contraseña mínimo 6 caracteres">Contraseña</label>
       <input id="contrasenya" type="password" formControlName="contrasenya" class="form-control" />
@@ -31,7 +38,6 @@
         Contraseña es requerida y debe tener al menos 6 caracteres.
       </div>
     </div>
-
     <div class="mb-3">
       <label for="repContrasenya" class="form-label">Repetir Contraseña</label>
       <input id="repContrasenya" type="password" formControlName="repContrasenya" class="form-control" />
@@ -39,7 +45,7 @@
         Las contraseñas deben coincidir.
       </div>
     </div>
-  </div>
 
+  </div>
   <button type="submit" class="btn btn-primary">Crear Autoridad</button>
 </form>

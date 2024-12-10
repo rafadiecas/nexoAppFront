@@ -71,8 +71,8 @@
 
 /* Estilo de la imagen */
 .cuadrada {
-  width: 100%; /* Ajustado para usar toda la casilla */
-  height: 100%;
+  max-width: 80%; /* Ajustado para usar toda la casilla */
+  max-height: 80%;
   object-fit: cover; /* Asegura que las imágenes mantengan su proporción */
   border-radius: 5px;
 }
