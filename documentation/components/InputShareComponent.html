@@ -793,8 +793,7 @@ export class InputShareComponent {
                 <p class="comment">
                     <code>./input-share.component.css</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">
-
+                <pre class="line-numbers"><code class="language-scss">/* Estilos generales para la entrada de archivos */
 .inputfile {
   width: 0.1px;
   height: 0.1px;
@@ -826,8 +825,8 @@ export class InputShareComponent {
 }
 
 .inputfilela {
-  font-size:16px;
-  font-weight:normal;
+  font-size: 16px;
+  font-weight: normal;
   font-family: &#x27;Lato&#x27;;
 }
 
@@ -846,11 +845,12 @@ export class InputShareComponent {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.625rem 1.25rem;
   font-size: 1.25rem;
   font-weight: 700;
   cursor: pointer;
   color: #fff;
-  background-color:#6cb9f5;
+  background-color: #6cb9f5;
 }
 
 .upload-label mat-icon {
@@ -864,10 +864,11 @@ export class InputShareComponent {
   opacity: 0.6;
 }
 
-.cuadrada{
-  width: 50%;
-  height: 50%;
-  object-fit: cover;
+/* Estilo de la imagen */
+.cuadrada {
+  width: 100%; /* Ajustado para usar toda la casilla */
+  height: 100%;
+  object-fit: cover; /* Asegura que las imágenes mantengan su proporción */
   border-radius: 5px;
 }
 
@@ -883,117 +884,99 @@ export class InputShareComponent {
   color: #333;
   display: block;
 }
-/* Estilos para el contenedor de las imágenes y el mensaje sobre la imagen */
+
+/* Grid para las imágenes */
 .image-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajuste flexible de columnas */
+  gap: 1rem; /* Espaciado entre las imágenes */
 }
 
 .image-item {
   position: relative;
   cursor: pointer;
-  display: inline-block;
+  overflow: hidden;
+  border-radius: 5px;
 }
 
 .image-item img {
   width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Mensaje de eliminación sobre la imagen */
-.delete-message {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 16px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 10px;
-  border-radius: 8px;
-  font-weight: bold;
-  visibility: hidden;
-}
-
-.image-item:hover .delete-message {
-  visibility: visible;
-}
-
-.input-container {
-  margin-bottom: 20px;
-}
-
-.input-label {
-  font-weight: bold;
-}
-
-.upload-label {
-  cursor: pointer;
-}
-
-.upload-label.disabled-label {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-.inputfile {
-  display: none;
-}
-
-.inputfilela {
-  margin-left: 8px;
-}
-
-.mat-icon {
-  font-size: 32px;
-}
-
-/* Agregar un borde a la primera imagen */
-/*.image-item:first-child img {*/
-/*  border: 2px solid #ff6347; !* Un borde de color tomate para resaltar *!*/
-/*}*/
-.image-item {
-  position: relative;
-  display: inline-block;
-  margin: 10px;
-}
-
-.img-fluid {
-  width: 100%;
   height: 100%;
-  object-fit: cover; /* Esto asegura que las imágenes se ajusten al tamaño sin distorsionarse */
+  object-fit: cover;
 }
 
-.cuadrada {
-  width: 200px;  /* Tamaño fijo de 200px por 200px para cada imagen */
-  height: 200px; /* Asegúrate de ajustar el tamaño que prefieras */
-  object-fit: cover; /* Mantiene la proporción y recorta si es necesario */
-  border-radius: 8px; /* Opcional, para redondear las esquinas */
-}
-
-.overlay {
+.image-item .overlay {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  padding: 5px;
-  border-radius: 5px;
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .image-item:hover .overlay {
-  display: block;
+  opacity: 1;
 }
 
+/* Responsividad */
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Menor tamaño de columna en pantallas pequeñas */
+  }
+  .same-size-img {
+    width: 200px; /* Ajusta el ancho según lo que desees */
+    height: 200px; /* Ajusta la altura según lo que desees */
+    object-fit: cover; /* Esto mantiene la proporción de la imagen sin distorsionarla */
+  }
 
+  .image-item {
+    position: relative;
+    margin: 10px;
+  }
 
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
+  .image-item:hover .overlay {
+    opacity: 1;
+  }
+  .upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    background-color:#6cb9f5;
+  }
+
+  .upload-label mat-icon {
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+
+}
 </code></pre>
     </div>
 

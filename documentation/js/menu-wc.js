@@ -223,6 +223,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/CrearUsuario.html" data-type="entity-link" >CrearUsuario</a>
                             </li>
                             <li class="link">
+                                <a href="classes/DenunciaComentario.html" data-type="entity-link" >DenunciaComentario</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/DesaparicionEditaAutoridad.html" data-type="entity-link" >DesaparicionEditaAutoridad</a>
                             </li>
                             <li class="link">
