@@ -894,50 +894,74 @@ export class MostrarmasComponent {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;contenedor&quot;&gt;
-  &lt;!-- Filtro a la izquierda --&gt;
-  &lt;div class&#x3D;&quot;filtro&quot;&gt;
-    &lt;app-filtro (buscar)&#x3D;&quot;cargarPersonas($event)&quot;&gt;&lt;/app-filtro&gt;
-  &lt;/div&gt;
-  &lt;div *ngIf&#x3D;&quot;mensajeError&quot; class&#x3D;&quot;mensaje-error&quot;&gt;
-    {{ mensajeError }}
-  &lt;/div&gt;
-
-  &lt;!-- Tarjetas de personas desaparecidas --&gt;
-    &lt;div class&#x3D;&quot;tarjetas&quot;&gt;
-        &lt;div class&#x3D;&quot;tarjeta&quot; *ngFor&#x3D;&quot;let persona of personasPaginadas&quot; [routerLink]&#x3D;&quot;[&#x27;/desaparicion&#x27;, persona.id]&quot;&gt;
-            &lt;img [src]&#x3D;&quot;persona.foto&quot; alt&#x3D;&quot;Foto de {{ persona.nombre }}&quot; /&gt;
-            &lt;div class&#x3D;&quot;info&quot;&gt;
-                &lt;h3&gt;{{ persona.nombre }} {{ persona.apellidos }}&lt;/h3&gt;
-                &lt;p&gt;Desaparecido el: {{ persona.fecha | date: &#x27;dd/MM/yyyy&#x27; }}&lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;!-- Filtro --&gt;
+    &lt;div class&#x3D;&quot;col-12 col-md-4 col-lg-3 border-end p-3 &quot;&gt;
+      &lt;app-filtro (buscar)&#x3D;&quot;cargarPersonas($event)&quot;&gt;&lt;/app-filtro&gt;
     &lt;/div&gt;
-&lt;/div&gt;
 
-    &lt;!-- Paginación --&gt;
-&lt;div class&#x3D;&quot;paginacion&quot;&gt;
-    &lt;!-- Botón Anterior --&gt;
-    &lt;button (click)&#x3D;&quot;cargarPagina(paginaActual - 1)&quot; [disabled]&#x3D;&quot;paginaActual &#x3D;&#x3D;&#x3D; 1&quot;&gt;
-        Anterior
+    &lt;!-- Contenido principal --&gt;
+    &lt;div class&#x3D;&quot;col-12 col-md-8 col-lg-9 mt-3&quot; &gt;
+      &lt;!-- Mensaje de error --&gt;
+      &lt;div *ngIf&#x3D;&quot;mensajeError&quot; class&#x3D;&quot;alert alert-danger text-center&quot;&gt;
+        {{ mensajeError }}
+      &lt;/div&gt;
+
+      &lt;!-- Tarjetas --&gt;
+      &lt;div class&#x3D;&quot;row g-3&quot;&gt;
+        &lt;div
+          class&#x3D;&quot;col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3&quot;
+          *ngFor&#x3D;&quot;let persona of personasPaginadas&quot;
+        &gt;
+          &lt;a [routerLink]&#x3D;&quot;[&#x27;/desaparicion&#x27;, persona.id]&quot; class&#x3D;&quot;text-decoration-none&quot;&gt;
+            &lt;div class&#x3D;&quot;card h-100 shadow-sm&quot;&gt;
+              &lt;img
+                [src]&#x3D;&quot;persona.foto&quot;
+                alt&#x3D;&quot;Foto de {{ persona.nombre }}&quot;
+                class&#x3D;&quot;card-img-top&quot;
+                style&#x3D;&quot;height: 200px; object-fit: cover;&quot;
+              /&gt;
+              &lt;div class&#x3D;&quot;card-body text-center shadow&quot;&gt;
+                &lt;h5 class&#x3D;&quot;card-title text-truncate&quot;&gt;{{ persona.nombre }} {{ persona.apellidos }}&lt;/h5&gt;
+                &lt;p class&#x3D;&quot;card-text text-muted&quot;&gt;
+                  Desaparecido el: {{ persona.fecha | date: &#x27;dd/MM/yyyy&#x27; }}
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Paginación --&gt;
+  &lt;div class&#x3D;&quot;d-flex justify-content-center align-items-center mt-4&quot;&gt;
+    &lt;button
+      class&#x3D;&quot;btn btn-outline-primary me-2&quot;
+      (click)&#x3D;&quot;cargarPagina(paginaActual - 1)&quot;
+      [disabled]&#x3D;&quot;paginaActual &#x3D;&#x3D;&#x3D; 1&quot;
+    &gt;
+      Anterior
     &lt;/button&gt;
-
-    &lt;!-- Números de página --&gt;
-    &lt;span *ngFor&#x3D;&quot;let pagina of [].constructor(totalPaginas); let i &#x3D; index&quot;&gt;
-    &lt;button (click)&#x3D;&quot;cargarPagina(i + 1)&quot; [class.active]&#x3D;&quot;paginaActual &#x3D;&#x3D;&#x3D; i + 1&quot;&gt;
-      {{ i + 1 }}
+    &lt;ng-container *ngFor&#x3D;&quot;let pagina of [].constructor(totalPaginas); let i &#x3D; index&quot;&gt;
+      &lt;button
+        class&#x3D;&quot;btn btn-outline-primary me-1&quot;
+        (click)&#x3D;&quot;cargarPagina(i + 1)&quot;
+        [class.active]&#x3D;&quot;paginaActual &#x3D;&#x3D;&#x3D; i + 1&quot;
+      &gt;
+        {{ i + 1 }}
+      &lt;/button&gt;
+    &lt;/ng-container&gt;
+    &lt;button
+      class&#x3D;&quot;btn btn-outline-primary ms-2&quot;
+      (click)&#x3D;&quot;cargarPagina(paginaActual + 1)&quot;
+      [disabled]&#x3D;&quot;paginaActual &#x3D;&#x3D;&#x3D; totalPaginas || !habilitarSiguiente&quot;
+    &gt;
+      Siguiente
     &lt;/button&gt;
-  &lt;/span&gt;
-
-    &lt;!-- Botón Siguiente --&gt;
-  &lt;!-- Botón Siguiente --&gt;
-  &lt;button (click)&#x3D;&quot;cargarPagina(paginaActual + 1)&quot; [disabled]&#x3D;&quot;paginaActual &#x3D;&#x3D;&#x3D; totalPaginas || !habilitarSiguiente&quot;&gt;
-    Siguiente
-  &lt;/button&gt;
-
+  &lt;/div&gt;
 &lt;/div&gt;
-
-
 </code></pre>
     </div>
 
@@ -945,131 +969,25 @@ export class MostrarmasComponent {
                 <p class="comment">
                     <code>./mostrarmas.component.css</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.contenedor {
-  display: flex;
+                <pre class="line-numbers"><code class="language-scss">.card-title {
+  font-size: 16px;
+  margin: 10px 0;
 }
 
-.filtro {
-  flex: 1;
-  padding: 20px;
-  border-right: 1px solid #ddd;
-  max-width: 300px;
+.card-text {
+  font-size: 14px;
+  color: #666;
 }
 
-/*.tarjetas {*/
-/*  flex: 3;*/
-/*  display: flex;*/
-/*  flex-wrap: wrap;*/
-/*  gap: 20px;*/
-/*  padding: 20px;*/
-/*}*/
-
-/*.tarjeta {*/
-/*  width: 220px;*/
-/*  border: 1px solid #ddd;*/
-/*  border-radius: 8px;*/
-/*  overflow: hidden;*/
-/*  background-color: #fff;*/
-/*  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
-/*  text-align: center;*/
-/*}*/
-
-/*.tarjeta img {*/
-/*  width: 100%;*/
-/*  height: 150px;*/
-/*  object-fit: cover;*/
-/*}*/
-
-/*.tarjeta .info {*/
-/*  padding: 10px;*/
-/*}*/
-
-/*.tarjeta h3 {*/
-/*  font-size: 18px;*/
-/*  margin: 10px 0;*/
-/*}*/
-
-/*.tarjeta p {*/
-/*  font-size: 14px;*/
-/*  color: #555;*/
-/*}*/
-
-.no-resultados {
-  text-align: center;
-  color: #888;
-  margin: 20px;
-  font-size: 18px;
+.card img {
+  height: 200px;
+  object-fit: cover;
 }
 
-.paginacion {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  gap: 5px;
-}
-
-.paginacion button {
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  background-color: white;
-  cursor: pointer;
-}
-
-.paginacion button.active {
+button.active {
   background-color: #007bff;
   color: white;
   font-weight: bold;
-}
-
-.paginacion button:disabled {
-  background-color: #e0e0e0;
-  cursor: not-allowed;
-}
-
-.paginacion button:hover:not(:disabled) {
-  background-color: #d0d0d0;
-}
-
-.tarjetas {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Siempre 4 columnas por fila */
-  gap: 15px; /* Espaciado entre tarjetas */
-  justify-items: center; /* Centra las tarjetas horizontalmente */
-  align-items: flex-start; /* Alinea las tarjetas al inicio de la fila */
-  min-height: 300px; /* Asegura espacio suficiente para una fila */
-}
-
-.tarjeta {
-  width: 200px; /* Ancho fijo */
-  height: 300px; /* Alto fijo */
-  background: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  text-align: center;
-}
-
-.tarjeta img {
-  width: 100%;
-  height: 200px; /* Fija la altura de las imágenes */
-  object-fit: cover; /* Evita la distorsión de las imágenes */
-}
-
-.info h3 {
-  font-size: 16px;
-  margin: 10px 0 5px 0;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.info p {
-  font-size: 14px;
-  margin: 0;
-  color: #666;
 }
 </code></pre>
     </div>
@@ -1099,7 +1017,7 @@ export class MostrarmasComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="contenedor">  <!-- Filtro a la izquierda -->  <div class="filtro">    <app-filtro (buscar)="cargarPersonas($event)"></app-filtro>  </div>  <div *ngIf="mensajeError" class="mensaje-error">    {{ mensajeError }}  </div>  <!-- Tarjetas de personas desaparecidas -->    <div class="tarjetas">        <div class="tarjeta" *ngFor="let persona of personasPaginadas" [routerLink]="[\'/desaparicion\', persona.id]">            <img [src]="persona.foto" alt="Foto de {{ persona.nombre }}" />            <div class="info">                <h3>{{ persona.nombre }} {{ persona.apellidos }}</h3>                <p>Desaparecido el: {{ persona.fecha | date: \'dd/MM/yyyy\' }}</p>            </div>        </div>    </div></div>    <!-- Paginación --><div class="paginacion">    <!-- Botón Anterior -->    <button (click)="cargarPagina(paginaActual - 1)" [disabled]="paginaActual === 1">        Anterior    </button>    <!-- Números de página -->    <span *ngFor="let pagina of [].constructor(totalPaginas); let i = index">    <button (click)="cargarPagina(i + 1)" [class.active]="paginaActual === i + 1">      {{ i + 1 }}    </button>  </span>    <!-- Botón Siguiente -->  <!-- Botón Siguiente -->  <button (click)="cargarPagina(paginaActual + 1)" [disabled]="paginaActual === totalPaginas || !habilitarSiguiente">    Siguiente  </button></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="container-fluid">  <div class="row">    <!-- Filtro -->    <div class="col-12 col-md-4 col-lg-3 border-end p-3 ">      <app-filtro (buscar)="cargarPersonas($event)"></app-filtro>    </div>    <!-- Contenido principal -->    <div class="col-12 col-md-8 col-lg-9 mt-3" >      <!-- Mensaje de error -->      <div *ngIf="mensajeError" class="alert alert-danger text-center">        {{ mensajeError }}      </div>      <!-- Tarjetas -->      <div class="row g-3">        <div          class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"          *ngFor="let persona of personasPaginadas"        >          <a [routerLink]="[\'/desaparicion\', persona.id]" class="text-decoration-none">            <div class="card h-100 shadow-sm">              <img                [src]="persona.foto"                alt="Foto de {{ persona.nombre }}"                class="card-img-top"                style="height: 200px; object-fit: cover;"              />              <div class="card-body text-center shadow">                <h5 class="card-title text-truncate">{{ persona.nombre }} {{ persona.apellidos }}</h5>                <p class="card-text text-muted">                  Desaparecido el: {{ persona.fecha | date: \'dd/MM/yyyy\' }}                </p>              </div>            </div>          </a>        </div>      </div>    </div>  </div>  <!-- Paginación -->  <div class="d-flex justify-content-center align-items-center mt-4">    <button      class="btn btn-outline-primary me-2"      (click)="cargarPagina(paginaActual - 1)"      [disabled]="paginaActual === 1"    >      Anterior    </button>    <ng-container *ngFor="let pagina of [].constructor(totalPaginas); let i = index">      <button        class="btn btn-outline-primary me-1"        (click)="cargarPagina(i + 1)"        [class.active]="paginaActual === i + 1"      >        {{ i + 1 }}      </button>    </ng-container>    <button      class="btn btn-outline-primary ms-2"      (click)="cargarPagina(paginaActual + 1)"      [disabled]="paginaActual === totalPaginas || !habilitarSiguiente"    >      Siguiente    </button>  </div></div></div>'
     var COMPONENTS = [{'name': 'AdminAvisosComponent', 'selector': 'app-admin-avisos'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminUsuariosComponent', 'selector': 'app-admin-usuarios'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoridadAvisosComponent', 'selector': 'app-autoridad-avisos'},{'name': 'AvisoPaginaComponent', 'selector': 'app-aviso-pagina'},{'name': 'AvisoPrincipalComponent', 'selector': 'app-aviso-principal'},{'name': 'ComentarioDialogComponent', 'selector': 'app-comentario-dialog'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'CrearAutoridadComponent', 'selector': 'app-crear-autoridad'},{'name': 'CrearAvisoComponent', 'selector': 'app-crear-aviso'},{'name': 'DatosDesaparicionComponent', 'selector': 'app-datos-desaparicion'},{'name': 'DesaparicionComponent', 'selector': 'app-desaparicion'},{'name': 'DesaparicionFormComponent', 'selector': 'app-crear-desaparicion'},{'name': 'DesaparicionPrincipalComponent', 'selector': 'app-desaparicion-principal'},{'name': 'EditaDesaparicionAutoridadComponent', 'selector': 'app-edita-desaparicion-autoridad'},{'name': 'EditaDialogComponent', 'selector': 'app-edita-dialog'},{'name': 'EditaUsuarioComponent', 'selector': 'app-edita-usuario'},{'name': 'Error404Component', 'selector': 'app-error404'},{'name': 'FiltroComponent', 'selector': 'app-filtro'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GestionUsuarioComponent', 'selector': 'app-gestion-usuario'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeadernewComponent', 'selector': 'app-headernew'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageDialogComponent', 'selector': 'app-image-dialog'},{'name': 'InputFotosComponent', 'selector': 'app-input-fotos'},{'name': 'InputShareComponent', 'selector': 'app-input-share'},{'name': 'ListaDesaparicionesComponent', 'selector': 'app-lista-desapariciones'},{'name': 'ListaDesaparicionesEliminadasComponent', 'selector': 'app-lista-desapariciones-eliminadas'},{'name': 'ListaNoAprobadasComponent', 'selector': 'app-lista-no-aprobadas'},{'name': 'ListaSeguimientoComponent', 'selector': 'app-lista-seguimiento'},{'name': 'LocalizacionComponent', 'selector': 'app-localizacion'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapaComponent', 'selector': 'app-mapa'},{'name': 'MapaPrincipalComponent', 'selector': 'app-mapa-principal'},{'name': 'MenuPerfilAutoridadComponent', 'selector': 'app-menu-perfil-autoridad'},{'name': 'MostrarmasComponent', 'selector': 'app-mostrarmas'},{'name': 'ParteIzquierdaCivilComponent', 'selector': 'app-parte-izquierda-civil'},{'name': 'PerfilCivilComponent', 'selector': 'app-perfil-civil'},{'name': 'PerfilUsuarioComponent', 'selector': 'app-perfil-usuario'},{'name': 'RegistraUsuarioComponent', 'selector': 'app-registra-usuario'},{'name': 'SobreNosotrosComponent', 'selector': 'app-sobre-nosotros'},{'name': 'VistaAdminComponent', 'selector': 'app-vista-admin'},{'name': 'VistaAutoridadComponent', 'selector': 'app-vista-autoridad'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MostrarmasComponent'};
