@@ -592,26 +592,26 @@ export class FiltroComponent {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;filtro-container&quot;&gt;
-  &lt;h2&gt;Buscar personas&lt;/h2&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card p-4 shadow&quot;&gt;
+  &lt;h4 class&#x3D;&quot;text-center text-primary mb-4 d-none d-xl-block&quot;&gt;Buscar personas&lt;/h4&gt;
   &lt;form (ngSubmit)&#x3D;&quot;onBuscar()&quot;&gt;
-    &lt;!-- Campo para buscar por nombre --&gt;
-    &lt;div class&#x3D;&quot;campo&quot;&gt;
-      &lt;label for&#x3D;&quot;nombre&quot;&gt;Buscar por nombre:&lt;/label&gt;
+    &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+      &lt;label for&#x3D;&quot;nombre&quot; class&#x3D;&quot;form-label&quot;&gt;Buscar por nombre:&lt;/label&gt;
       &lt;input
         type&#x3D;&quot;text&quot;
         id&#x3D;&quot;nombre&quot;
+        class&#x3D;&quot;form-control&quot;
         [(ngModel)]&#x3D;&quot;filtros.nombre&quot;
         name&#x3D;&quot;nombre&quot;
         placeholder&#x3D;&quot;Introduce un nombre&quot;
       /&gt;
     &lt;/div&gt;
 
-    &lt;!-- Selección de estado --&gt;
-    &lt;div class&#x3D;&quot;campo&quot;&gt;
-      &lt;label for&#x3D;&quot;estado&quot;&gt;Seleccionar estado:&lt;/label&gt;
+    &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+      &lt;label for&#x3D;&quot;estado&quot; class&#x3D;&quot;form-label&quot;&gt;Seleccionar estado:&lt;/label&gt;
       &lt;select
         id&#x3D;&quot;estado&quot;
+        class&#x3D;&quot;form-select&quot;
         [(ngModel)]&#x3D;&quot;filtros.estado&quot;
         name&#x3D;&quot;estado&quot;
       &gt;
@@ -622,21 +622,20 @@ export class FiltroComponent {
       &lt;/select&gt;
     &lt;/div&gt;
 
-    &lt;!-- Campo para buscar por fecha --&gt;
-    &lt;div class&#x3D;&quot;campo&quot;&gt;
-      &lt;label for&#x3D;&quot;fecha&quot;&gt;Buscar por fecha:&lt;/label&gt;
+    &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+      &lt;label for&#x3D;&quot;fecha&quot; class&#x3D;&quot;form-label&quot;&gt;Buscar por fecha:&lt;/label&gt;
       &lt;input
         type&#x3D;&quot;date&quot;
         id&#x3D;&quot;fecha&quot;
+        class&#x3D;&quot;form-control&quot;
         [(ngModel)]&#x3D;&quot;filtros.fecha&quot;
         name&#x3D;&quot;fecha&quot;
       /&gt;
     &lt;/div&gt;
 
-    &lt;!-- Botón para buscar --&gt;
-    &lt;div class&#x3D;&quot;botones&quot;&gt;
-      &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn-buscar&quot;&gt;Buscar&lt;/button&gt;
-      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-limpiar&quot; (click)&#x3D;&quot;onLimpiar()&quot;&gt;Limpiar filtros&lt;/button&gt;
+    &lt;div class&#x3D;&quot;d-grid gap-3&quot;&gt;
+      &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Buscar&lt;/button&gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;onLimpiar()&quot;&gt;Limpiar filtros&lt;/button&gt;
     &lt;/div&gt;
   &lt;/form&gt;
 &lt;/div&gt;
@@ -669,7 +668,7 @@ export class FiltroComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="filtro-container">  <h2>Buscar personas</h2>  <form (ngSubmit)="onBuscar()">    <!-- Campo para buscar por nombre -->    <div class="campo">      <label for="nombre">Buscar por nombre:</label>      <input        type="text"        id="nombre"        [(ngModel)]="filtros.nombre"        name="nombre"        placeholder="Introduce un nombre"      />    </div>    <!-- Selección de estado -->    <div class="campo">      <label for="estado">Seleccionar estado:</label>      <select        id="estado"        [(ngModel)]="filtros.estado"        name="estado"      >        <option value="">Todos los estados</option>        <option *ngFor="let estado of estados" [value]="estado.id">          {{ estado.nombre }}        </option>      </select>    </div>    <!-- Campo para buscar por fecha -->    <div class="campo">      <label for="fecha">Buscar por fecha:</label>      <input        type="date"        id="fecha"        [(ngModel)]="filtros.fecha"        name="fecha"      />    </div>    <!-- Botón para buscar -->    <div class="botones">      <button type="submit" class="btn-buscar">Buscar</button>      <button type="button" class="btn-limpiar" (click)="onLimpiar()">Limpiar filtros</button>    </div>  </form></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="card p-4 shadow">  <h4 class="text-center text-primary mb-4 d-none d-xl-block">Buscar personas</h4>  <form (ngSubmit)="onBuscar()">    <div class="mb-3">      <label for="nombre" class="form-label">Buscar por nombre:</label>      <input        type="text"        id="nombre"        class="form-control"        [(ngModel)]="filtros.nombre"        name="nombre"        placeholder="Introduce un nombre"      />    </div>    <div class="mb-3">      <label for="estado" class="form-label">Seleccionar estado:</label>      <select        id="estado"        class="form-select"        [(ngModel)]="filtros.estado"        name="estado"      >        <option value="">Todos los estados</option>        <option *ngFor="let estado of estados" [value]="estado.id">          {{ estado.nombre }}        </option>      </select>    </div>    <div class="mb-3">      <label for="fecha" class="form-label">Buscar por fecha:</label>      <input        type="date"        id="fecha"        class="form-control"        [(ngModel)]="filtros.fecha"        name="fecha"      />    </div>    <div class="d-grid gap-3">      <button type="submit" class="btn btn-primary">Buscar</button>      <button type="button" class="btn btn-secondary" (click)="onLimpiar()">Limpiar filtros</button>    </div>  </form></div></div>'
     var COMPONENTS = [{'name': 'AdminAvisosComponent', 'selector': 'app-admin-avisos'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminUsuariosComponent', 'selector': 'app-admin-usuarios'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoridadAvisosComponent', 'selector': 'app-autoridad-avisos'},{'name': 'AvisoPaginaComponent', 'selector': 'app-aviso-pagina'},{'name': 'AvisoPrincipalComponent', 'selector': 'app-aviso-principal'},{'name': 'ComentarioDialogComponent', 'selector': 'app-comentario-dialog'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'CrearAutoridadComponent', 'selector': 'app-crear-autoridad'},{'name': 'CrearAvisoComponent', 'selector': 'app-crear-aviso'},{'name': 'DatosDesaparicionComponent', 'selector': 'app-datos-desaparicion'},{'name': 'DesaparicionComponent', 'selector': 'app-desaparicion'},{'name': 'DesaparicionFormComponent', 'selector': 'app-crear-desaparicion'},{'name': 'DesaparicionPrincipalComponent', 'selector': 'app-desaparicion-principal'},{'name': 'EditaDesaparicionAutoridadComponent', 'selector': 'app-edita-desaparicion-autoridad'},{'name': 'EditaDialogComponent', 'selector': 'app-edita-dialog'},{'name': 'EditaUsuarioComponent', 'selector': 'app-edita-usuario'},{'name': 'Error404Component', 'selector': 'app-error404'},{'name': 'FiltroComponent', 'selector': 'app-filtro'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GestionUsuarioComponent', 'selector': 'app-gestion-usuario'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeadernewComponent', 'selector': 'app-headernew'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageDialogComponent', 'selector': 'app-image-dialog'},{'name': 'InputFotosComponent', 'selector': 'app-input-fotos'},{'name': 'InputShareComponent', 'selector': 'app-input-share'},{'name': 'ListaDesaparicionesComponent', 'selector': 'app-lista-desapariciones'},{'name': 'ListaDesaparicionesEliminadasComponent', 'selector': 'app-lista-desapariciones-eliminadas'},{'name': 'ListaNoAprobadasComponent', 'selector': 'app-lista-no-aprobadas'},{'name': 'ListaSeguimientoComponent', 'selector': 'app-lista-seguimiento'},{'name': 'LocalizacionComponent', 'selector': 'app-localizacion'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapaComponent', 'selector': 'app-mapa'},{'name': 'MapaPrincipalComponent', 'selector': 'app-mapa-principal'},{'name': 'MenuPerfilAutoridadComponent', 'selector': 'app-menu-perfil-autoridad'},{'name': 'MostrarmasComponent', 'selector': 'app-mostrarmas'},{'name': 'ParteIzquierdaCivilComponent', 'selector': 'app-parte-izquierda-civil'},{'name': 'PerfilCivilComponent', 'selector': 'app-perfil-civil'},{'name': 'PerfilUsuarioComponent', 'selector': 'app-perfil-usuario'},{'name': 'RegistraUsuarioComponent', 'selector': 'app-registra-usuario'},{'name': 'SobreNosotrosComponent', 'selector': 'app-sobre-nosotros'},{'name': 'VistaAdminComponent', 'selector': 'app-vista-admin'},{'name': 'VistaAutoridadComponent', 'selector': 'app-vista-autoridad'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FiltroComponent'};

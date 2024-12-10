@@ -79,7 +79,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -89,9 +89,13 @@
 
 
 
+
+
+
+
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Injectables</li>
-  <li class="breadcrumb-item" >NotificacionService</li>
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >DenunciaComentario</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -115,8 +119,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/servicios/notificacion.service.ts</code>
+            <code>src/app/modelos/DenunciaComentario.ts</code>
         </p>
+
 
 
 
@@ -135,26 +140,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#apiUrl" >apiUrl</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#obtenerNotificaciones" >obtenerNotificaciones</a>
+                                    <span class="modifier">Optional</span>
+                                <a href="#idDesaparicion" >idDesaparicion</a>
                             </li>
                             <li>
-                                <a href="#setNotificacionLeida" >setNotificacionLeida</a>
+                                    <span class="modifier">Optional</span>
+                                <a href="#texto" >texto</a>
                             </li>
                         </ul>
                     </td>
@@ -164,169 +155,12 @@
 
 
 
+
         </tbody>
     </table>
 </section>
 
-            <section data-compodoc="block-constructor">
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(http: HttpClient)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/servicios/notificacion.service.ts:11</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>http</td>
-                                                  
-                                                        <td>
-                                                                    <code>HttpClient</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
-            <section data-compodoc="block-methods">
-    
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="obtenerNotificaciones"></a>
-                    <span class="name">
-                        <span ><b>obtenerNotificaciones</b></span>
-                        <a href="#obtenerNotificaciones"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>obtenerNotificaciones()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="16"
-                                    class="link-to-prism">src/app/servicios/notificacion.service.ts:16</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../interfaces/Notificacion.html" target="_self" >Observable&lt;Notificacion[]&gt;</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="setNotificacionLeida"></a>
-                    <span class="name">
-                        <span ><b>setNotificacionLeida</b></span>
-                        <a href="#setNotificacionLeida"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>setNotificacionLeida(idNotificacion: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="19"
-                                    class="link-to-prism">src/app/servicios/notificacion.service.ts:19</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>idNotificacion</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
             <section data-compodoc="block-properties">
     
     <h3 id="inputs">
@@ -336,11 +170,38 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="apiUrl"></a>
+                    <a name="idDesaparicion"></a>
                     <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>apiUrl</b></span>
-                        <a href="#apiUrl"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Optional</span>
+                        <span ><b>idDesaparicion</b></span>
+                        <a href="#idDesaparicion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="2" class="link-to-prism">src/app/modelos/DenunciaComentario.ts:2</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="texto"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>texto</b></span>
+                        <a href="#texto"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -350,14 +211,9 @@
 
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;/api/notificacion&#x27;</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/servicios/notificacion.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/app/modelos/DenunciaComentario.ts:3</a></div>
                         </td>
                     </tr>
 
@@ -366,40 +222,23 @@
     </table>
 </section>
 
+
+
+
+
+
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import {Notificacion} from &#x27;../modelos/Notificacion&#x27;;
-import {HttpClient} from &#x27;@angular/common/http&#x27;;
-import {Observable} from &#x27;rxjs&#x27;;
-
-@Injectable({
-  providedIn: &#x27;root&#x27;
-})
-export class NotificacionService {
-
-  private apiUrl &#x3D; &#x27;/api/notificacion&#x27;;
-
-
-  constructor(private http: HttpClient) { }
-
-  obtenerNotificaciones(): Observable&lt;Notificacion[]&gt; {
-    return this.http.get&lt;Notificacion[]&gt;(&#x60;${this.apiUrl}/listar&#x60;);
-  }
-  setNotificacionLeida(idNotificacion: number): Observable&lt;any&gt;{
-    return this.http.put(&#x60;${this.apiUrl}/modNotificacion?idNotificacion&#x3D;${idNotificacion}&#x60;, null);
-  }
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class DenunciaComentario{
+  idDesaparicion?: number;
+  texto?: string;
 }
 </code></pre>
     </div>
-
 </div>
-
-
-
-
 
 
 
@@ -434,8 +273,8 @@ export class NotificacionService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'NotificacionService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'DenunciaComentario.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
