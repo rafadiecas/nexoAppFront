@@ -28,10 +28,4 @@ import {SobreNosotrosComponent} from './componentes/sobre-nosotros/sobre-nosotro
 })
 export class HomeComponent {
 
-  constructor(private router: Router) {
-  }
-
-  irAlMapa(): void {
-    this.router.navigate(['mapa']);
-  }
 }
