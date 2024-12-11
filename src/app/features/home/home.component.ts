@@ -5,7 +5,7 @@ import {InputFotosComponent} from '../perfil-usuario/componentes/input-fotos/inp
 import {MapaPrincipalComponent} from './componentes/mapa-principal/mapa-principal.component';
 import {RegistraUsuarioComponent} from '../../core/registra-usuario/registra-usuario.component';
 import {AvisoPrincipalComponent} from './componentes/aviso-principal/aviso-principal.component';
-
+import {Router, RouterLink} from '@angular/router';
 import {SobreNosotrosComponent} from './componentes/sobre-nosotros/sobre-nosotros.component';
 
 
@@ -21,7 +21,7 @@ import {SobreNosotrosComponent} from './componentes/sobre-nosotros/sobre-nosotro
     AvisoPrincipalComponent,
     MapaPrincipalComponent,
     SobreNosotrosComponent,
-    MapaPrincipalComponent,
+    RouterLink
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

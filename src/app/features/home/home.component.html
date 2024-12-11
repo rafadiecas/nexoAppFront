@@ -4,14 +4,22 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col col-12 mt-3">
-            <app-desaparicion-principal></app-desaparicion-principal>
+            <app-sobre-nosotros></app-sobre-nosotros>
+          </div>
+
+          <hr class="my-4 mx-auto" style="width: 50%; border-width: 2px;">
+
+          <div class="col col-12 mt-3">
+              <app-desaparicion-principal></app-desaparicion-principal>
           </div>
           <div class="col col-12 mt-3">
-            <app-mapa-principal></app-mapa-principal>
+            <div class="d-none d-lg-block">
+              <app-mapa-principal></app-mapa-principal>
+            </div>
+            <div class="d-lg-none text-center">
+              <button class="btn btn-primary mt-3" [routerLink]="['/mapa']">Ver mapa</button>
+            </div>
           </div>
-        </div>
-        <div class="col col-12 mt-3">
-          <app-sobre-nosotros></app-sobre-nosotros>
         </div>
       </div>
     </div>

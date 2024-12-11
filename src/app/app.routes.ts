@@ -17,6 +17,7 @@ import {AvisoPaginaComponent} from './features/home/componentes/aviso-principal/
 import {PerfilUsuarioComponent} from './features/perfil-usuario/perfil-usuario.component';
 import {Error404Component} from './core/error404/error404.component';
 import {adminGuard} from './core/guard/admin.guard';
+import {MapaPrincipalComponent} from './features/home/componentes/mapa-principal/mapa-principal.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,6 +34,7 @@ export const routes: Routes = [
   { path: 'autoridad', component: VistaAutoridadComponent, canActivate:[autoridadGuard] },
   { path: 'admin/recursos', component: VistaAdminComponent, canActivate:[adminGuard] },
   { path: 'usuario', component: PerfilUsuarioComponent},
-  {path: '**', component: Error404Component},
+  { path: 'mapa', component: MapaPrincipalComponent},
   { path: 'home/avisos', component: AvisoPaginaComponent },
+  { path: '**', component: Error404Component}
 ];
