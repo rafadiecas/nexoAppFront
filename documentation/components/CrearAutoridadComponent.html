@@ -128,7 +128,8 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>Componente que gestiona la creación de una autoridad desde el panel de administración.</p>
+        <p>Componente que gestiona la creación de una autoridad desde el
+panel de administración.</p>
 
     </p>
 
@@ -173,6 +174,7 @@
                             <code>ReactiveFormsModule</code>
                             <code>CommonModule</code>
                             <code>MatTooltip</code>
+                            <code>MatSnackBarModule</code>
                 </td>
             </tr>
 
@@ -214,6 +216,10 @@
                             <li>
                                 <a href="#autoridadForm" >autoridadForm</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#snackBar" >snackBar</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -234,6 +240,12 @@
                             </li>
                             <li>
                                 <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#validarCorreo" >validarCorreo</a>
+                            </li>
+                            <li>
+                                <a href="#validarIdentificador" >validarIdentificador</a>
                             </li>
                         </ul>
                     </td>
@@ -258,7 +270,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/features/admin-panel/componentes/crear-autoridad/crear-autoridad.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/features/admin-panel/componentes/crear-autoridad/crear-autoridad.component.ts:36</a></div>
                             </td>
                         </tr>
 
@@ -337,15 +349,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="48"
-                                    class="link-to-prism">src/app/features/admin-panel/componentes/crear-autoridad/crear-autoridad.component.ts:48</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">src/app/features/admin-panel/componentes/crear-autoridad/crear-autoridad.component.ts:71</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Comprueba que dos campos coincidan, en este caso, contrasenya y repContrasenya.</p>
+                        <div class="io-description"><p>Comprueba que dos campos coincidan, en este caso, contrasenya y
+repContrasenya.</p>
 </div>
 
                             <div class="io-description">
@@ -418,8 +431,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">src/app/features/admin-panel/componentes/crear-autoridad/crear-autoridad.component.ts:28</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/app/features/admin-panel/componentes/crear-autoridad/crear-autoridad.component.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -455,8 +468,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="74"
-                                    class="link-to-prism">src/app/features/admin-panel/componentes/crear-autoridad/crear-autoridad.component.ts:74</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/features/admin-panel/componentes/crear-autoridad/crear-autoridad.component.ts:119</a></div>
                         </td>
                     </tr>
 
@@ -468,6 +481,83 @@
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validarCorreo"></a>
+                    <span class="name">
+                        <span ><b>validarCorreo</b></span>
+                        <a href="#validarCorreo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validarCorreo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/app/features/admin-panel/componentes/crear-autoridad/crear-autoridad.component.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>AsyncValidatorFn</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validarIdentificador"></a>
+                    <span class="name">
+                        <span ><b>validarIdentificador</b></span>
+                        <a href="#validarIdentificador"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validarIdentificador()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/features/admin-panel/componentes/crear-autoridad/crear-autoridad.component.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Valida que el identificador de la autoridad sea uno de los
+permitidos.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>AsyncValidatorFn</code>
 
                         </div>
                 </td>
@@ -499,7 +589,33 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/features/admin-panel/componentes/crear-autoridad/crear-autoridad.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/features/admin-panel/componentes/crear-autoridad/crear-autoridad.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="snackBar"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>snackBar</b></span>
+                        <a href="#snackBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(MatSnackBar)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/features/admin-panel/componentes/crear-autoridad/crear-autoridad.component.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -512,14 +628,26 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from &#x27;@angular/forms&#x27;;
-import {CommonModule} from &#x27;@angular/common&#x27;;
-import {AutoridadService} from &#x27;../../../../servicios/autoridad.service&#x27;;
-import {MatTooltip} from &#x27;@angular/material/tooltip&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, inject, OnInit} from &#x27;@angular/core&#x27;;
+import {
+  AbstractControl,
+  AsyncValidatorFn,
+  FormBuilder,
 
+  FormGroup,
+  ReactiveFormsModule, ValidationErrors,
+  Validators
+} from &#x27;@angular/forms&#x27;;
+import {CommonModule} from &#x27;@angular/common&#x27;;
+import {AutoridadService} from
+    &#x27;../../../../servicios/autoridad.service&#x27;;
+import {MatTooltip} from &#x27;@angular/material/tooltip&#x27;;
+import {MatSnackBar, MatSnackBarModule} from
+    &#x27;@angular/material/snack-bar&#x27;;
+import {Observable, of} from &#x27;rxjs&#x27;;
 /**
- * Componente que gestiona la creación de una autoridad desde el panel de administración.
+ * Componente que gestiona la creación de una autoridad desde el
+ panel de administración.
  */
 @Component({
   selector: &#x27;app-crear-autoridad&#x27;,
@@ -528,57 +656,90 @@ import {MatTooltip} from &#x27;@angular/material/tooltip&#x27;;
     ReactiveFormsModule,
     CommonModule,
     MatTooltip,
+    MatSnackBarModule
   ],
   templateUrl: &#x27;./crear-autoridad.component.html&#x27;,
   styleUrls: [&#x27;./crear-autoridad.component.css&#x27;],
 })
 export class CrearAutoridadComponent implements OnInit {
   autoridadForm: FormGroup;
-
-  constructor(private fb: FormBuilder, private autoridadService: AutoridadService) {
-    this.autoridadForm &#x3D; this.fb.group({}); // Inicialización segura
+  private snackBar &#x3D; inject(MatSnackBar);
+  constructor(private fb: FormBuilder, private autoridadService:
+  AutoridadService) {
+    this.autoridadForm &#x3D; this.fb.group({});
   }
-
   ngOnInit(): void {
     this.autoridadForm &#x3D; this.fb.group({
       identificador: [&#x27;&#x27;, Validators.required],
       usuarioCrearDTO: this.fb.group(
         {
-          usuario: [&#x27;&#x27;, Validators.required],
-          email: [&#x27;&#x27;, [Validators.required, Validators.email]],
-          contrasenya: [&#x27;&#x27;, [Validators.required, Validators.minLength(6)]],
+          usuario: [
+            &#x27;&#x27;,
+            [Validators.required], // Validador sincrónico requerido
+            this.validarIdentificador() // Validador asincrónico
+          ],
+          email: [&#x27;&#x27;, [Validators.required], this.validarCorreo()],
+
+          contrasenya: [&#x27;&#x27;, [Validators.required,
+
+            Validators.minLength(6)]],
+
           repContrasenya: [&#x27;&#x27;, Validators.required],
         },
-        { validators: this.matchPasswords(&#x27;contrasenya&#x27;, &#x27;repContrasenya&#x27;) }
+        { validators: this.matchPasswords(&#x27;contrasenya&#x27;,
+            &#x27;repContrasenya&#x27;) }
       ),
     });
   }
 
   /**
-   * Comprueba que dos campos coincidan, en este caso, contrasenya y repContrasenya.
+   * Comprueba que dos campos coincidan, en este caso, contrasenya y
+   repContrasenya.
    * @param controlName
    * @param matchingControlName
    */
-  matchPasswords(controlName: string, matchingControlName: string) {
-    return (formGroup: FormGroup): { [key: string]: boolean } | null &#x3D;&gt; {
+  matchPasswords(controlName: string, matchingControlName: string)
+  {
+    return (formGroup: FormGroup): { [key: string]: boolean } |
+      null &#x3D;&gt; {
       const control &#x3D; formGroup.get(controlName);
       const matchingControl &#x3D; formGroup.get(matchingControlName);
-
       if (!control || !matchingControl) {
         return null; // Si los controles no existen, no hay error
       }
-
-      if (matchingControl.errors &amp;&amp; !matchingControl.errors[&#x27;mustMatch&#x27;]) {
+      if (matchingControl.errors &amp;&amp;
+        !matchingControl.errors[&#x27;mustMatch&#x27;]) {
         return null; // Si ya hay otros errores, no interferir
       }
-
       if (control.value !&#x3D;&#x3D; matchingControl.value) {
         matchingControl.setErrors({ mustMatch: true });
       } else {
         matchingControl.setErrors(null);
       }
-
       return null; // Devuelve null si no hay errores
+    };
+  }
+  /**
+   * Valida que el identificador de la autoridad sea uno de los
+   permitidos.
+   */
+
+  validarIdentificador(): AsyncValidatorFn {
+    const patronesPermitidos &#x3D; /^(CNP|GCV|BMB)/;
+    return (control: AbstractControl): Observable&lt;ValidationErrors
+      | null&gt; &#x3D;&gt; {
+      const valor &#x3D; control.value || &#x27;&#x27;;
+      return of(patronesPermitidos.test(valor) ? null : {
+        identificadorInvalido: true });
+    };
+  }
+  validarCorreo(): AsyncValidatorFn {
+    const emailPermitidos &#x3D; /^(.*@(cnp\.es|gcv\.es|bomb\.es))$/;
+    return (control: AbstractControl): Observable&lt;ValidationErrors
+      | null&gt; &#x3D;&gt; {
+      const valor &#x3D; control.value || &#x27;&#x27;;
+      return of(emailPermitidos.test(valor) ? null : {
+        emailInvalido: true });
     };
   }
 
@@ -588,22 +749,28 @@ export class CrearAutoridadComponent implements OnInit {
   onSubmit(): void {
     if (this.autoridadForm.valid) {
       const autoridadData &#x3D; this.autoridadForm.value;
+      const loadingSnackbar &#x3D; this.snackBar.open(&#x27;Creando autoridad...&#x27;, &#x27;Cerrar&#x27;);
 
-      // Llama al servicio para enviar los datos al backend
+// Llama al servicio para enviar los datos al backend
       this.autoridadService.crearAutoridad(autoridadData).subscribe({
         next: (response) &#x3D;&gt; {
+          loadingSnackbar.dismiss();
+          this.snackBar.open(&#x27;Autoridad creada con éxito&#x27;, &#x27;Cerrar&#x27;, {
+            duration: 2000,
+            });
           console.log(&#x27;Respuesta del servidor:&#x27;, response);
-          this.autoridadForm.reset(); // Limpia el formulario tras el envío exitoso
+          this.autoridadForm.reset();
+
         },
         error: (error) &#x3D;&gt; {
           console.error(&#x27;Error al enviar los datos:&#x27;, error);
+
         },
       });
     } else {
       this.autoridadForm.markAllAsTouched();
     }
   }
-
 
 }
 </code></pre>
@@ -618,24 +785,31 @@ export class CrearAutoridadComponent implements OnInit {
       Identificador es requerido.
     &lt;/div&gt;
   &lt;/div&gt;
-
   &lt;div formGroupName&#x3D;&quot;usuarioCrearDTO&quot;&gt;
     &lt;div class&#x3D;&quot;mb-3&quot;&gt;
-      &lt;label for&#x3D;&quot;usuario&quot; class&#x3D;&quot;form-label&quot; matTooltip&#x3D;&quot;POLICIA NACIONAL &#x3D; CNP, GUARDIA CIVIL &#x3D; GCV, BOMBEROS &#x3D; BMB&quot;&gt;Usuario&lt;/label&gt;
+      &lt;label for&#x3D;&quot;usuario&quot; class&#x3D;&quot;form-label&quot; matTooltip&#x3D;&quot;POLICIA NACIONAL &#x3D; CNP, GUARDIA CIVIL &#x3D; GCV, BOMBEROS &#x3D; BMB&quot;&gt;
+        Usuario
+      &lt;/label&gt;
       &lt;input id&#x3D;&quot;usuario&quot; formControlName&#x3D;&quot;usuario&quot; class&#x3D;&quot;form-control&quot; /&gt;
-      &lt;div *ngIf&#x3D;&quot;autoridadForm.get(&#x27;usuarioCrearDTO.usuario&#x27;)?.invalid &amp;&amp; autoridadForm.get(&#x27;usuarioCrearDTO.usuario&#x27;)?.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
+      &lt;div *ngIf&#x3D;&quot;autoridadForm.get(&#x27;usuarioCrearDTO.usuario&#x27;)?.hasError(&#x27;identificadorInvalido&#x27;) &amp;&amp; autoridadForm.get(&#x27;usuarioCrearDTO.usuario&#x27;)?.touched&quot;
+        class&#x3D;&quot;text-danger&quot;&gt;
+        El identificador debe comenzar con CNP, GCV o BMB.
+      &lt;/div&gt;
+      &lt;div *ngIf&#x3D;&quot;autoridadForm.get(&#x27;usuarioCrearDTO.usuario&#x27;)?.hasError(&#x27;required&#x27;) &amp;&amp; autoridadForm.get(&#x27;usuarioCrearDTO.usuario&#x27;)?.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
         Usuario es requerido.
       &lt;/div&gt;
-    &lt;/div&gt;
 
+    &lt;/div&gt;
     &lt;div class&#x3D;&quot;mb-3&quot;&gt;
       &lt;label for&#x3D;&quot;email&quot; class&#x3D;&quot;form-label&quot; matTooltip&#x3D;&quot;POLICIA NACIONAL &#x3D; @cnp.es, GUARDIA CIVIL &#x3D; @gcv.es, BOMBEROS &#x3D; @bomb.es&quot;&gt;Email&lt;/label&gt;
       &lt;input id&#x3D;&quot;email&quot; formControlName&#x3D;&quot;email&quot; class&#x3D;&quot;form-control&quot; /&gt;
+      &lt;div *ngIf&#x3D;&quot;autoridadForm.get(&#x27;usuarioCrearDTO.email&#x27;)?.hasError(&#x27;emailInvalido&#x27;) &amp;&amp; autoridadForm.get(&#x27;usuarioCrearDTO.email&#x27;)?.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
+        El email debe terminar con &amp;#64;cnp.es, &amp;#64;gcv.es o &amp;#64;bomb.es.
+      &lt;/div&gt;
       &lt;div *ngIf&#x3D;&quot;autoridadForm.get(&#x27;usuarioCrearDTO.email&#x27;)?.invalid &amp;&amp; autoridadForm.get(&#x27;usuarioCrearDTO.email&#x27;)?.touched&quot; class&#x3D;&quot;text-danger&quot;&gt;
         Email es requerido y debe ser válido.
       &lt;/div&gt;
     &lt;/div&gt;
-
     &lt;div class&#x3D;&quot;mb-3&quot;&gt;
       &lt;label for&#x3D;&quot;contrasenya&quot; class&#x3D;&quot;form-label&quot; matTooltip&#x3D;&quot;Contraseña mínimo 6 caracteres&quot;&gt;Contraseña&lt;/label&gt;
       &lt;input id&#x3D;&quot;contrasenya&quot; type&#x3D;&quot;password&quot; formControlName&#x3D;&quot;contrasenya&quot; class&#x3D;&quot;form-control&quot; /&gt;
@@ -643,7 +817,6 @@ export class CrearAutoridadComponent implements OnInit {
         Contraseña es requerida y debe tener al menos 6 caracteres.
       &lt;/div&gt;
     &lt;/div&gt;
-
     &lt;div class&#x3D;&quot;mb-3&quot;&gt;
       &lt;label for&#x3D;&quot;repContrasenya&quot; class&#x3D;&quot;form-label&quot;&gt;Repetir Contraseña&lt;/label&gt;
       &lt;input id&#x3D;&quot;repContrasenya&quot; type&#x3D;&quot;password&quot; formControlName&#x3D;&quot;repContrasenya&quot; class&#x3D;&quot;form-control&quot; /&gt;
@@ -651,8 +824,8 @@ export class CrearAutoridadComponent implements OnInit {
         Las contraseñas deben coincidir.
       &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
 
+  &lt;/div&gt;
   &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Crear Autoridad&lt;/button&gt;
 &lt;/form&gt;
 </code></pre>
@@ -690,7 +863,7 @@ export class CrearAutoridadComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><form [formGroup]="autoridadForm" (ngSubmit)="onSubmit()" class="container mt-4">  <div class="mb-3">    <label for="identificador" class="form-label" matTooltip="IDENTICADOR SEGÚN CUERPO DE SEGURIDAD DEL ESTADO">Identificador</label>    <input id="identificador" formControlName="identificador" class="form-control" />    <div *ngIf="autoridadForm.get(\'identificador\')?.invalid && autoridadForm.get(\'identificador\')?.touched" class="text-danger">      Identificador es requerido.    </div>  </div>  <div formGroupName="usuarioCrearDTO">    <div class="mb-3">      <label for="usuario" class="form-label" matTooltip="POLICIA NACIONAL = CNP, GUARDIA CIVIL = GCV, BOMBEROS = BMB">Usuario</label>      <input id="usuario" formControlName="usuario" class="form-control" />      <div *ngIf="autoridadForm.get(\'usuarioCrearDTO.usuario\')?.invalid && autoridadForm.get(\'usuarioCrearDTO.usuario\')?.touched" class="text-danger">        Usuario es requerido.      </div>    </div>    <div class="mb-3">      <label for="email" class="form-label" matTooltip="POLICIA NACIONAL = @cnp.es, GUARDIA CIVIL = @gcv.es, BOMBEROS = @bomb.es">Email</label>      <input id="email" formControlName="email" class="form-control" />      <div *ngIf="autoridadForm.get(\'usuarioCrearDTO.email\')?.invalid && autoridadForm.get(\'usuarioCrearDTO.email\')?.touched" class="text-danger">        Email es requerido y debe ser válido.      </div>    </div>    <div class="mb-3">      <label for="contrasenya" class="form-label" matTooltip="Contraseña mínimo 6 caracteres">Contraseña</label>      <input id="contrasenya" type="password" formControlName="contrasenya" class="form-control" />      <div *ngIf="autoridadForm.get(\'usuarioCrearDTO.contrasenya\')?.invalid && autoridadForm.get(\'usuarioCrearDTO.contrasenya\')?.touched" class="text-danger">        Contraseña es requerida y debe tener al menos 6 caracteres.      </div>    </div>    <div class="mb-3">      <label for="repContrasenya" class="form-label">Repetir Contraseña</label>      <input id="repContrasenya" type="password" formControlName="repContrasenya" class="form-control" />      <div *ngIf="autoridadForm.get(\'usuarioCrearDTO.repContrasenya\')?.invalid && autoridadForm.get(\'usuarioCrearDTO.repContrasenya\')?.touched" class="text-danger">        Las contraseñas deben coincidir.      </div>    </div>  </div>  <button type="submit" class="btn btn-primary">Crear Autoridad</button></form></div>'
+        var COMPONENT_TEMPLATE = '<div><form [formGroup]="autoridadForm" (ngSubmit)="onSubmit()" class="container mt-4">  <div class="mb-3">    <label for="identificador" class="form-label" matTooltip="IDENTICADOR SEGÚN CUERPO DE SEGURIDAD DEL ESTADO">Identificador</label>    <input id="identificador" formControlName="identificador" class="form-control" />    <div *ngIf="autoridadForm.get(\'identificador\')?.invalid && autoridadForm.get(\'identificador\')?.touched" class="text-danger">      Identificador es requerido.    </div>  </div>  <div formGroupName="usuarioCrearDTO">    <div class="mb-3">      <label for="usuario" class="form-label" matTooltip="POLICIA NACIONAL = CNP, GUARDIA CIVIL = GCV, BOMBEROS = BMB">        Usuario      </label>      <input id="usuario" formControlName="usuario" class="form-control" />      <div *ngIf="autoridadForm.get(\'usuarioCrearDTO.usuario\')?.hasError(\'identificadorInvalido\') && autoridadForm.get(\'usuarioCrearDTO.usuario\')?.touched"        class="text-danger">        El identificador debe comenzar con CNP, GCV o BMB.      </div>      <div *ngIf="autoridadForm.get(\'usuarioCrearDTO.usuario\')?.hasError(\'required\') && autoridadForm.get(\'usuarioCrearDTO.usuario\')?.touched" class="text-danger">        Usuario es requerido.      </div>    </div>    <div class="mb-3">      <label for="email" class="form-label" matTooltip="POLICIA NACIONAL = @cnp.es, GUARDIA CIVIL = @gcv.es, BOMBEROS = @bomb.es">Email</label>      <input id="email" formControlName="email" class="form-control" />      <div *ngIf="autoridadForm.get(\'usuarioCrearDTO.email\')?.hasError(\'emailInvalido\') && autoridadForm.get(\'usuarioCrearDTO.email\')?.touched" class="text-danger">        El email debe terminar con &#64;cnp.es, &#64;gcv.es o &#64;bomb.es.      </div>      <div *ngIf="autoridadForm.get(\'usuarioCrearDTO.email\')?.invalid && autoridadForm.get(\'usuarioCrearDTO.email\')?.touched" class="text-danger">        Email es requerido y debe ser válido.      </div>    </div>    <div class="mb-3">      <label for="contrasenya" class="form-label" matTooltip="Contraseña mínimo 6 caracteres">Contraseña</label>      <input id="contrasenya" type="password" formControlName="contrasenya" class="form-control" />      <div *ngIf="autoridadForm.get(\'usuarioCrearDTO.contrasenya\')?.invalid && autoridadForm.get(\'usuarioCrearDTO.contrasenya\')?.touched" class="text-danger">        Contraseña es requerida y debe tener al menos 6 caracteres.      </div>    </div>    <div class="mb-3">      <label for="repContrasenya" class="form-label">Repetir Contraseña</label>      <input id="repContrasenya" type="password" formControlName="repContrasenya" class="form-control" />      <div *ngIf="autoridadForm.get(\'usuarioCrearDTO.repContrasenya\')?.invalid && autoridadForm.get(\'usuarioCrearDTO.repContrasenya\')?.touched" class="text-danger">        Las contraseñas deben coincidir.      </div>    </div>  </div>  <button type="submit" class="btn btn-primary">Crear Autoridad</button></form></div>'
     var COMPONENTS = [{'name': 'AdminAvisosComponent', 'selector': 'app-admin-avisos'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminUsuariosComponent', 'selector': 'app-admin-usuarios'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoridadAvisosComponent', 'selector': 'app-autoridad-avisos'},{'name': 'AvisoPaginaComponent', 'selector': 'app-aviso-pagina'},{'name': 'AvisoPrincipalComponent', 'selector': 'app-aviso-principal'},{'name': 'ComentarioDialogComponent', 'selector': 'app-comentario-dialog'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'CrearAutoridadComponent', 'selector': 'app-crear-autoridad'},{'name': 'CrearAvisoComponent', 'selector': 'app-crear-aviso'},{'name': 'DatosDesaparicionComponent', 'selector': 'app-datos-desaparicion'},{'name': 'DesaparicionComponent', 'selector': 'app-desaparicion'},{'name': 'DesaparicionFormComponent', 'selector': 'app-crear-desaparicion'},{'name': 'DesaparicionPrincipalComponent', 'selector': 'app-desaparicion-principal'},{'name': 'EditaDesaparicionAutoridadComponent', 'selector': 'app-edita-desaparicion-autoridad'},{'name': 'EditaDialogComponent', 'selector': 'app-edita-dialog'},{'name': 'EditaUsuarioComponent', 'selector': 'app-edita-usuario'},{'name': 'Error404Component', 'selector': 'app-error404'},{'name': 'FiltroComponent', 'selector': 'app-filtro'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GestionUsuarioComponent', 'selector': 'app-gestion-usuario'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeadernewComponent', 'selector': 'app-headernew'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageDialogComponent', 'selector': 'app-image-dialog'},{'name': 'InputFotosComponent', 'selector': 'app-input-fotos'},{'name': 'InputShareComponent', 'selector': 'app-input-share'},{'name': 'ListaDesaparicionesComponent', 'selector': 'app-lista-desapariciones'},{'name': 'ListaDesaparicionesEliminadasComponent', 'selector': 'app-lista-desapariciones-eliminadas'},{'name': 'ListaNoAprobadasComponent', 'selector': 'app-lista-no-aprobadas'},{'name': 'ListaSeguimientoComponent', 'selector': 'app-lista-seguimiento'},{'name': 'LocalizacionComponent', 'selector': 'app-localizacion'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapaComponent', 'selector': 'app-mapa'},{'name': 'MapaPrincipalComponent', 'selector': 'app-mapa-principal'},{'name': 'MenuPerfilAutoridadComponent', 'selector': 'app-menu-perfil-autoridad'},{'name': 'MostrarmasComponent', 'selector': 'app-mostrarmas'},{'name': 'ParteIzquierdaCivilComponent', 'selector': 'app-parte-izquierda-civil'},{'name': 'PerfilCivilComponent', 'selector': 'app-perfil-civil'},{'name': 'PerfilUsuarioComponent', 'selector': 'app-perfil-usuario'},{'name': 'RegistraUsuarioComponent', 'selector': 'app-registra-usuario'},{'name': 'SobreNosotrosComponent', 'selector': 'app-sobre-nosotros'},{'name': 'VistaAdminComponent', 'selector': 'app-vista-admin'},{'name': 'VistaAutoridadComponent', 'selector': 'app-vista-autoridad'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CrearAutoridadComponent'};

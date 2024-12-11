@@ -165,7 +165,7 @@
                                 <code><a href="../components/AvisoPrincipalComponent.html" target="_self" >AvisoPrincipalComponent</a></code>
                                 <code><a href="../components/MapaPrincipalComponent.html" target="_self" >MapaPrincipalComponent</a></code>
                                 <code><a href="../components/SobreNosotrosComponent.html" target="_self" >SobreNosotrosComponent</a></code>
-                                <code><a href="../components/MapaPrincipalComponent.html" target="_self" >MapaPrincipalComponent</a></code>
+                            <code>RouterLink</code>
                 </td>
             </tr>
 
@@ -211,7 +211,7 @@ import {InputFotosComponent} from &#x27;../perfil-usuario/componentes/input-foto
 import {MapaPrincipalComponent} from &#x27;./componentes/mapa-principal/mapa-principal.component&#x27;;
 import {RegistraUsuarioComponent} from &#x27;../../core/registra-usuario/registra-usuario.component&#x27;;
 import {AvisoPrincipalComponent} from &#x27;./componentes/aviso-principal/aviso-principal.component&#x27;;
-
+import {Router, RouterLink} from &#x27;@angular/router&#x27;;
 import {SobreNosotrosComponent} from &#x27;./componentes/sobre-nosotros/sobre-nosotros.component&#x27;;
 
 
@@ -227,7 +227,7 @@ import {SobreNosotrosComponent} from &#x27;./componentes/sobre-nosotros/sobre-no
     AvisoPrincipalComponent,
     MapaPrincipalComponent,
     SobreNosotrosComponent,
-    MapaPrincipalComponent,
+    RouterLink
   ],
   templateUrl: &#x27;./home.component.html&#x27;,
   styleUrl: &#x27;./home.component.css&#x27;
@@ -245,14 +245,22 @@ export class HomeComponent {
       &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
         &lt;div class&#x3D;&quot;row&quot;&gt;
           &lt;div class&#x3D;&quot;col col-12 mt-3&quot;&gt;
-            &lt;app-desaparicion-principal&gt;&lt;/app-desaparicion-principal&gt;
+            &lt;app-sobre-nosotros&gt;&lt;/app-sobre-nosotros&gt;
+          &lt;/div&gt;
+
+          &lt;hr class&#x3D;&quot;my-4 mx-auto&quot; style&#x3D;&quot;width: 50%; border-width: 2px;&quot;&gt;
+
+          &lt;div class&#x3D;&quot;col col-12 mt-3&quot;&gt;
+              &lt;app-desaparicion-principal&gt;&lt;/app-desaparicion-principal&gt;
           &lt;/div&gt;
           &lt;div class&#x3D;&quot;col col-12 mt-3&quot;&gt;
-            &lt;app-mapa-principal&gt;&lt;/app-mapa-principal&gt;
+            &lt;div class&#x3D;&quot;d-none d-lg-block&quot;&gt;
+              &lt;app-mapa-principal&gt;&lt;/app-mapa-principal&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;d-lg-none text-center&quot;&gt;
+              &lt;button class&#x3D;&quot;btn btn-primary mt-3&quot; [routerLink]&#x3D;&quot;[&#x27;/mapa&#x27;]&quot;&gt;Ver mapa&lt;/button&gt;
+            &lt;/div&gt;
           &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class&#x3D;&quot;col col-12 mt-3&quot;&gt;
-          &lt;app-sobre-nosotros&gt;&lt;/app-sobre-nosotros&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -292,7 +300,7 @@ export class HomeComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container-fluid bg-light">  <div class="row">    <div class="col-10">      <div class="container-fluid">        <div class="row">          <div class="col col-12 mt-3">            <app-desaparicion-principal></app-desaparicion-principal>          </div>          <div class="col col-12 mt-3">            <app-mapa-principal></app-mapa-principal>          </div>        </div>        <div class="col col-12 mt-3">          <app-sobre-nosotros></app-sobre-nosotros>        </div>      </div>    </div>    <div class="col-2">      <app-aviso-principal></app-aviso-principal>    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="container-fluid bg-light">  <div class="row">    <div class="col-10">      <div class="container-fluid">        <div class="row">          <div class="col col-12 mt-3">            <app-sobre-nosotros></app-sobre-nosotros>          </div>          <hr class="my-4 mx-auto" style="width: 50%; border-width: 2px;">          <div class="col col-12 mt-3">              <app-desaparicion-principal></app-desaparicion-principal>          </div>          <div class="col col-12 mt-3">            <div class="d-none d-lg-block">              <app-mapa-principal></app-mapa-principal>            </div>            <div class="d-lg-none text-center">              <button class="btn btn-primary mt-3" [routerLink]="[\'/mapa\']">Ver mapa</button>            </div>          </div>        </div>      </div>    </div>    <div class="col-2">      <app-aviso-principal></app-aviso-principal>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AdminAvisosComponent', 'selector': 'app-admin-avisos'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminUsuariosComponent', 'selector': 'app-admin-usuarios'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoridadAvisosComponent', 'selector': 'app-autoridad-avisos'},{'name': 'AvisoPaginaComponent', 'selector': 'app-aviso-pagina'},{'name': 'AvisoPrincipalComponent', 'selector': 'app-aviso-principal'},{'name': 'ComentarioDialogComponent', 'selector': 'app-comentario-dialog'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'CrearAutoridadComponent', 'selector': 'app-crear-autoridad'},{'name': 'CrearAvisoComponent', 'selector': 'app-crear-aviso'},{'name': 'DatosDesaparicionComponent', 'selector': 'app-datos-desaparicion'},{'name': 'DesaparicionComponent', 'selector': 'app-desaparicion'},{'name': 'DesaparicionFormComponent', 'selector': 'app-crear-desaparicion'},{'name': 'DesaparicionPrincipalComponent', 'selector': 'app-desaparicion-principal'},{'name': 'EditaDesaparicionAutoridadComponent', 'selector': 'app-edita-desaparicion-autoridad'},{'name': 'EditaDialogComponent', 'selector': 'app-edita-dialog'},{'name': 'EditaUsuarioComponent', 'selector': 'app-edita-usuario'},{'name': 'Error404Component', 'selector': 'app-error404'},{'name': 'FiltroComponent', 'selector': 'app-filtro'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GestionUsuarioComponent', 'selector': 'app-gestion-usuario'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeadernewComponent', 'selector': 'app-headernew'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageDialogComponent', 'selector': 'app-image-dialog'},{'name': 'InputFotosComponent', 'selector': 'app-input-fotos'},{'name': 'InputShareComponent', 'selector': 'app-input-share'},{'name': 'ListaDesaparicionesComponent', 'selector': 'app-lista-desapariciones'},{'name': 'ListaDesaparicionesEliminadasComponent', 'selector': 'app-lista-desapariciones-eliminadas'},{'name': 'ListaNoAprobadasComponent', 'selector': 'app-lista-no-aprobadas'},{'name': 'ListaSeguimientoComponent', 'selector': 'app-lista-seguimiento'},{'name': 'LocalizacionComponent', 'selector': 'app-localizacion'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapaComponent', 'selector': 'app-mapa'},{'name': 'MapaPrincipalComponent', 'selector': 'app-mapa-principal'},{'name': 'MenuPerfilAutoridadComponent', 'selector': 'app-menu-perfil-autoridad'},{'name': 'MostrarmasComponent', 'selector': 'app-mostrarmas'},{'name': 'ParteIzquierdaCivilComponent', 'selector': 'app-parte-izquierda-civil'},{'name': 'PerfilCivilComponent', 'selector': 'app-perfil-civil'},{'name': 'PerfilUsuarioComponent', 'selector': 'app-perfil-usuario'},{'name': 'RegistraUsuarioComponent', 'selector': 'app-registra-usuario'},{'name': 'SobreNosotrosComponent', 'selector': 'app-sobre-nosotros'},{'name': 'VistaAdminComponent', 'selector': 'app-vista-admin'},{'name': 'VistaAutoridadComponent', 'selector': 'app-vista-autoridad'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
